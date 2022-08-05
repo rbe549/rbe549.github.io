@@ -1,2 +1,2 @@
-# nitinjsanket.github.io
-Nitin's Academic webpage
+# rbe549.github.io
+RBE549 Course Website
