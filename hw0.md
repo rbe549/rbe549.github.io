@@ -5,7 +5,7 @@ title: Homework 0 - Alohomora
 permalink: /spring2022/hw/hw0/
 ---
 
-Student results can be found [here](/2019/hw/hw0-results/)
+<!-- Student results can be found [here](/2019/hw/hw0-results/) -->
 
 Table of Contents:
 
@@ -41,8 +41,8 @@ Table of Contents:
 
 ## 1. Due Date 
 
-**11:59PM, Thursday, Feb 3, 2022.**
-This homework is to be submitted individually. Download starter Code from [here](#starter).
+**11:59:59PM, Friday, Aug 26, 2022.**
+This homework is to be submitted individually. The aim of HW0 is to give you a guage of the quality, expectation and difficulty of this course. You are expected to be able to solve HW0 before the class starts. <b>Remember that HW0 is graded and does count for your final grade.</b> Download starter Code from [here](#starter).
 
 
 <a name='pblite'></a>
