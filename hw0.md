@@ -292,13 +292,13 @@ Present a detailed analysis of all these architectures with your earlier finding
 <a name='starter'></a>
 
 ### 4.1. Starter Code
-Download the Starter Code for both Phase 1 and Phase 2 from [here](https://drive.google.com/file/d/1vA3FdBt7qrq591AgYgfmTR6cjtADSO6s/view?usp=sharing).
+Download the Starter Code for both Phase 1 and Phase 2 from [here](https://drive.google.com/file/d/1XpU8a9iVRmfJl0hrpHpmwPAI4r5EChjT/view?usp=sharing).
 
 <a name='files'></a>
 
 ### 4.2. File tree and naming
 
-Your submission on ELMS/Canvas must be a ``zip`` file, following the naming convention ``YourDirectoryID_hw0.zip``. If you email ID is ``abc@umd.edu`` or ``abc@terpmail.umd.edu``, then your ``DirectoryID`` is ``abc``. For our example, the submission file should be named ``abc_hw0.zip``. The file **must have the following directory structure** because we'll be autograding assignments. The file to run for your project should be called ``YourDirectoryID_hw0/Phase1/Code/Wrapper.py`` for Phase 1; ``YourDirectoryID_hw0/Phase2/Code/Train.py`` and ``YourDirectoryID_hw0/Phase2/Code/Test.py`` for Phase 2. You can have any helper functions in sub-folders as you wish, be sure to index them using relative paths and if you have command line arguments for your Wrapper codes, make sure to have default values too. Please provide detailed instructions on how to run your code in ``README.md`` file. 
+Your submission on ELMS/Canvas must be a ``zip`` file, following the naming convention ``YourDirectoryID_hw0.zip``. If you email ID is ``abc@wpi.edu``, then your ``DirectoryID`` is ``abc``. For our example, the submission file should be named ``abc_hw0.zip``. The file **must have the following directory structure** because we might be autograding assignments. The file to run for your project should be called ``YourDirectoryID_hw0/Phase1/Code/Wrapper.py`` for Phase 1; ``YourDirectoryID_hw0/Phase2/Code/Train.py`` and ``YourDirectoryID_hw0/Phase2/Code/Test.py`` for Phase 2. You can have any helper functions in sub-folders as you wish, be sure to index them using relative paths and if you have command line arguments for your Wrapper codes, make sure to have default values too. Please provide detailed instructions on how to run your code in ``README.md`` file. 
 
 <p style="background-color:#ddd; padding:5px">
 <b>NOTE:</b> 
@@ -394,7 +394,7 @@ For each section of the homework, explain briefly what you did, and describe any
 - Any third party code for implementing architecture or augmentation
 - `Keras` or any other layer API
 
-If you have any doubts regarding allowed and disallowed functions, please drop a public post on [Piazza](https://piazza.com/umd/spring2019/cmsc733). 
+If you have any doubts regarding allowed and disallowed functions, please drop a public post on [Piazza](https://piazza.com/wpi/fall2022/rbe549). 
 
 <a name='coll'></a>
 
@@ -404,10 +404,10 @@ If you have any doubts regarding allowed and disallowed functions, please drop a
 You are <b>STRONGLY</b> encouraged to discuss the ideas with your peers. Treat the class as a big group/family and enjoy the learning experience. 
 </p>
 
-However, the code should be your own, and should be the result of you exercising your own understanding of it. If you reference anyone else's code in writing your project, you must properly cite it in your code (in comments) and your writeup. For the full honor code refer to the [CMSC733 Spring 2021 website](http://prg.cs.umd.edu/cmsc733).
+However, the code should be your own, and should be the result of you exercising your own understanding of it. If you reference anyone else's code in writing your project, you must properly cite it in your code (in comments) and your writeup. For the full honor code refer to the [RBE/CS549 Spring 2022 website](https://nitinjsanket.github.io/teaching/rbe549/fall2022.html).
 
 <a name='ack'></a>
 
 ## 7. Acknowledgements
 
-This fun homework was inspired by a similar project in  Brown University's <a href="http://cs.brown.edu/courses/cs143/2011/proj2/">CS 143</a> (Introduction to Computer Vision).
+This fun homework was inspired by a similar project in University of Maryland's <a href="http://prg.cs.umd.edu/cmsc733">CMSC733</a> (Classical and Deep Learning Approaches for Geometric Computer Vision) and Brown University's <a href="http://cs.brown.edu/courses/cs143/2011/proj2/">CS 143</a> (Introduction to Computer Vision).
