@@ -1,10 +1,8 @@
 # Site settings
-title: CMSC733 Computer Vision
-#email: yiannis@cs.umd.edu
-description: "Course materials and notes for University of Maryland's class CMSC733: Computer Vision."
+title: RBE549 Computer Vision
+description: "Course materials and notes for Worcester Polytechnic Institute's class RBE/CS549: Computer Vision."
 baseurl: ""
-url: "http://cmsc733.github.io"
-#github_username:  cmsc733
+url: "http://rbe549.github.io"
 
 # Build settings
 markdown: kramdown
