@@ -1,8 +1,8 @@
 ---
 layout: page
 mathjax: true
-title: Homework 0 - Alohomora!
-permalink: /2022/hw/hw0/
+title: Homework 0 - Alohomora
+permalink: /spring2022/hw/hw0/
 ---
 
 Student results can be found [here](/2019/hw/hw0-results/)

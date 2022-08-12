@@ -2,7 +2,7 @@
 layout: page
 mathjax: true
 title: Buildings built in minutes - An SfM Approach
-permalink: /2022/proj/p3/
+permalink: /spring2022/proj/p3/
 ---
 
 This article is written by Chahat Deep Singh. 

@@ -2,7 +2,7 @@
 layout: page
 mathjax: true
 title: FaceSwap
-permalink: /2022/proj/p2/
+permalink: /spring2022/proj/p2/
 ---
 
 Table of Contents:

@@ -2,7 +2,7 @@
 layout: page
 mathjax: true
 title: AutoCalib
-permalink: /2022/hw/hw1/
+permalink: /spring2022/hw/hw1/
 ---
 
 **To be submitted individually**
