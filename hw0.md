@@ -239,26 +239,26 @@ A randomized version of the CIFAR-10 dataset with 50000 training images and 1000
 
 ### 3.3. Train your first neural network
 
-The task in this part is to train a convolutional neural network on TensorFlow for the task of classification. The input is a single CIFAR-10 image and the output is the probabilities of 10 classes. The starter code given to you has ``Train.py`` file for training and ``Test.py`` for testing. Fill in the following files with respective details.
+The task in this part is to train a convolutional neural network on PyTorch for the task of classification. The input is a single CIFAR-10 image and the output is the probabilities of 10 classes. The starter code given to you has ``Train.py`` file for training and ``Test.py`` for testing. Fill in the following files with respective details.
 - ``Optimizer`` value with various parameters in ``TrainOperation`` function in ``Train.py`` file (Feel free to use any architecture and optimizer for this part)
 - ``loss function`` in ``TrainOperation`` function in ``Train.py`` file (You'll be using cross entropy loss for training)
-- Network architecture in ``CIFAR10Model`` function in ``Network/Network.py`` file (We recommend using the ``tf.layers`` and ``tf.nn`` API for implementing layers)
+- Network architecture in ``CIFAR10Model`` function in ``Network/Network.py`` file (We recommend using the ``torch.nn`` API for implementing layers)
 
-If you are super new to machine learning and deep learning, there are a lot of resources online to learn how to program a simple neural network, tune hyperparameters for CIFAR-10. A good starting point is the [official Tensorflow tutorial](https://www.tensorflow.org/tutorials/images/deep_cnn) and [this great tutorial by Hvass Labs](https://github.com/Hvass-Labs/TensorFlow-Tutorials). If you are new to deep learning, we recommend reading up basics from [CS231n course offered by Stanford University here](http://cs231n.github.io/). 
+If you are super new to machine learning and deep learning, there are a lot of resources online to learn how to program a simple neural network, tune hyperparameters for CIFAR-10. A good starting point is the [official PyTorch tutorial](https://pytorch.org/tutorials/) and [this great tutorial by sentdex](https://www.youtube.com/watch?v=BzcBsTou0C0). If you are new to deep learning, we recommend reading up basics from [CS231n course offered by Stanford University here](http://cs231n.github.io/). 
 
 The starter code given to you has Tensorboard code snippets built-in and displays training accuracy per batch and the loss value. You can run TensorBoard using the following command ``tensorboard --logdir=path/to/log-directory``.
 
 Report the train accuracy over epochs (training accuracy over the whole train dataset not just minibatches as given to you!, you need to implement this), test accuracy over epochs (test accuracy over the whole test dataset!, you need to implement this), number of parameters in your model (code for this can be found in ``Test.py`` and snippet is also given next), plot of loss value over epochs (not over minibatches as given to you!, you need to sum up loss values for all iterations of an epoch to achieve this), your architecture, other hyperparameters chosen such as optimizer, learning rate and batch size. Also present a confusion matrix for both training and testing data (code in ``Test.py``).
 
-You can use the following snippet of code to obtain the number of parameters in your model. This loads a model from the ``ModelPath`` and prints out the number of parameters.
+You can use the following snippet of code to obtain the number of parameters in your model. More details can be found <a href="https://discuss.pytorch.org/t/how-to-print-models-parameters-with-its-name-and-requires-grad-value/10778/6">here</a>.
 
 ```
-with tf.Session() as sess:
-        Saver.restore(sess, ModelPath)
-        print('Number of parameters in this model are %d ' % np.sum([np.prod(v.get_shape().as_list()) for v in tf.trainable_variables()]))
+for name, param in model.named_parameters():
+    if param.requires_grad:
+        print name, param.data
 ```
 
-Congratulations! You've just successfully trained your first neural network.
+Congratulations! You've just successfully trained your first neural network. <b>A pro tip is to use <a href="https://github.com/lutzroeder/netron">Netron</a> to visualize your network, this will massively help in debugging and has a coll visualization that you can include in your report.</b>
 
 <a name='improveacc'></a>
 
@@ -267,7 +267,7 @@ Congratulations! You've just successfully trained your first neural network.
 Now that we have a baseline neural network working, let's try to improve the accuracy by doing simple tricks.
 1. Standardize your data input if you haven't already. There are a lot of ways to do this. Feel free to search for different methods. A simple way is to scale data from [0,255] to [-1,1]. Fill in this code in the ``GenerateBatch`` function of ``Train.py`` file.
 2. Decay your learning rate as you train or Increase your batch size as you train. Refer to [this paper](https://arxiv.org/abs/1711.00489) for more details.
-3. Augment your data to artificially make your dataset larger. Refer to ``tf.image`` API for nice data augmentation functions.
+3. Augment your data to artificially make your dataset larger. <a href="https://pytorch.org/vision/main/transforms.html">Refer to this link</a> nice data augmentation functions.
 4. Add Batch Normalization between layers. 
 5. Change the hyperparameters in your architecture such as number of layers, number of neurons.
 
@@ -383,8 +383,8 @@ For each section of the homework, explain briefly what you did, and describe any
 - Any functions regarding reading, writing and displaying/plotting images in `cv2`, `matplotlib`
 - Basic math utilities including convolution operations in `numpy` and `math`
 - `KMeans` clustering from `sklearn` or `scipy`
-- `tf.layers` and `tf.nn` API for implementing network architecture
-- `tf.image` for data augmentation
+- `torch.nn` API for implementing network architecture
+- `torchvision.transform` for data augmentation
 - Any functions for pretty plots
 
 
@@ -392,7 +392,7 @@ For each section of the homework, explain briefly what you did, and describe any
 
 - Any function that generates `gaussian` or any other `filter` / filter banks
 - Any third party code for implementing architecture or augmentation
-- `Keras` or any other layer API
+- `Keras` or any other layer API or <b>built-in models for ResNet, ResNeXt or DenseNet</b>
 
 If you have any doubts regarding allowed and disallowed functions, please drop a public post on [Piazza](https://piazza.com/wpi/fall2022/rbe549). 
 
