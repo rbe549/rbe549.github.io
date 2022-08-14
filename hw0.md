@@ -42,8 +42,7 @@ Table of Contents:
 ## 1. Due Date 
 
 **11:59:59PM, Friday, Aug 26, 2022.**
-This homework is to be submitted individually. The aim of HW0 is to give you a guage of the quality, expectation and difficulty of this course. You are expected to be able to solve HW0 before the class starts. <b>Remember that HW0 is graded and does count for your final grade.</b> Download starter Code from [here](#starter).
-
+This homework is to be submitted individually. The aim of HW0 is to give you a guage of the quality, expectation and difficulty of this course. You are expected to be able to solve HW0 before the class starts. <b>Remember that HW0 is graded and does count for your final grade.</b> Download starter Code from [here](#starter). <a href="https://towardsdatascience.com/free-gpus-for-training-your-deep-learning-models-c1ce47863350"> Here is a link</a> to obtain free GPUs for netural network training if you need them.  
 
 <a name='pblite'></a>
 
@@ -298,7 +297,7 @@ Download the Starter Code for both Phase 1 and Phase 2 from [here](https://drive
 
 ### 4.2. File tree and naming
 
-Your submission on ELMS/Canvas must be a ``zip`` file, following the naming convention ``YourDirectoryID_hw0.zip``. If you email ID is ``abc@wpi.edu``, then your ``DirectoryID`` is ``abc``. For our example, the submission file should be named ``abc_hw0.zip``. The file **must have the following directory structure** because we might be autograding assignments. The file to run for your project should be called ``YourDirectoryID_hw0/Phase1/Code/Wrapper.py`` for Phase 1; ``YourDirectoryID_hw0/Phase2/Code/Train.py`` and ``YourDirectoryID_hw0/Phase2/Code/Test.py`` for Phase 2. You can have any helper functions in sub-folders as you wish, be sure to index them using relative paths and if you have command line arguments for your Wrapper codes, make sure to have default values too. Please provide detailed instructions on how to run your code in ``README.md`` file. 
+Your submission on ELMS/Canvas must be a ``zip`` file, following the naming convention ``YourDirectoryID_hw0.zip``. If you email ID is ``abc@wpi.edu``, then your ``DirectoryID`` is ``abc``. For our example, the submission file should be named ``abc_hw0.zip``. The file **must have the following directory structure** because we might be autograding assignments. The file to run for your project should be called ``YourDirectoryID_hw0/Phase1/Code/Wrapper.py`` for Phase 1; ``YourDirectoryID_hw0/Phase2/Code/Train.py`` and ``YourDirectoryID_hw0/Phase2/Code/Test.py`` for Phase 2 or ``HW0Phase1AndPhase2Notebook.ipynb`` if you are using a Notebook. You can have any helper functions in sub-folders as you wish, be sure to index them using relative paths and if you have command line arguments for your Wrapper codes, make sure to have default values too. Please provide detailed instructions on how to run your code in ``README.md`` file. 
 
 <p style="background-color:#ddd; padding:5px">
 <b>NOTE:</b> 
@@ -318,6 +317,7 @@ YourDirectoryID_hw0.zip
 |   |   ├── Train.py
 |   |   ├── Test.py
 |   |   ├── Any subfolders you want along with files
+|   └── HW0Phase1AndPhase2Notebook.ipynb
 ├── Report.pdf
 └── README.md
 
