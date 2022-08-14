@@ -41,7 +41,7 @@ Table of Contents:
 
 ## 1. Due Date 
 
-**11:59:59PM, Friday, Aug 26, 2022.**
+**11:59:59PM, Sunday, Aug 28, 2022.**
 This homework is to be submitted individually. The aim of HW0 is to give you a guage of the quality, expectation and difficulty of this course. You are expected to be able to solve HW0 before the class starts. <b>Remember that HW0 is graded and does count for your final grade.</b> Download starter Code from [here](#starter). <a href="https://towardsdatascience.com/free-gpus-for-training-your-deep-learning-models-c1ce47863350"> Here is a link</a> to obtain free GPUs for netural network training if you need them.  
 
 <a name='pblite'></a>
