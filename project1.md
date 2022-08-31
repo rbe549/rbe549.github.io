@@ -33,7 +33,9 @@ Table of Contents:
 
 <a name='due'></a>
 ## 1. Deadline 
-**11:59 PM, September 15, 2022**
+**11:59 PM, September 15, 2022.** This project is to be done in groups of 2.
+
+
 
 <a name='prob'></a>
 ## 2. Problem Statement 
@@ -41,7 +43,7 @@ The purpose of this project is to stitch two or more images in order to create o
 
 <a name='data'></a>
 ## 3. Data Collection
-As we mentioned before, you need to capture two sets of images in order to stitch a seamless panorama. Each sequence should have at-least 3 images with $$\sim$$ 30-50%$$ image overlap between them. Feel free to check the sample images given to you in `YourDirectoryID_p1\Phase1\Data\Train\` folder. Be sure to resize the images you capture to something manageable and place the sets respectively in `YourDirectoryID_p1\Phase1\Data\Train\CustomSet1` and `YourDirectoryID_p1\Phase1\Data\Train\CustomSet2`. Make sure all the images are in `.jpg` format.  
+As we mentioned before, you need to capture two sets of images in order to stitch a seamless panorama. Each sequence should have at-least 3 images with $$\sim$$ 30-50% image overlap between them. Feel free to check the sample images given to you in `YourDirectoryID_p1\Phase1\Data\Train\` folder. Be sure to resize the images you capture to something manageable and place the sets respectively in `YourDirectoryID_p1\Phase1\Data\Train\CustomSet1` and `YourDirectoryID_p1\Phase1\Data\Train\CustomSet2`. Make sure all the images are in `.jpg` format.  
 
 <a name='ph1'></a>
 ## 4. Phase 1: Traditional Approach
@@ -171,7 +173,7 @@ You are going to be implementing two deep learning approaches to estimate the ho
 
 <a name='datagen'></a>
 ### 5.1. Data Generation
-To train a Convolutional Neural Network (CNN) to estimate homography between a pair of images (we call this network *HomographyNet* and the original paper can be found [here](https://arxiv.org/pdf/1606.03798.pdf)) we need data (pairs of images) with the known homogaraphy between them. This is in-general hard to obtain as we would need the 3D movement between the pair of images to obtain the homography between them. An easier option is to generate synthetic pairs of images to train a network. But what images do we use so that the network is not baised? Simple, use images from [MSCOCO dataset](http://cocodataset.org/#home) which contains images of a lot of objects in natural scenes. MSCOCO is quite large and it'll take forever to train on these images. Hence, we provide a small subset of MSCOCO for you to train your HomographyNet on. This dataset is included with your starter code in the `YourDirectoryID_p1\Phase2\Data\` folder, this folder contains both `Train` and `Val` images in their respective folders.  
+To train a Convolutional Neural Network (CNN) to estimate homography between a pair of images (we call this network *HomographyNet* and the original paper can be found [here](https://arxiv.org/pdf/1606.03798.pdf)), we need data (pairs of images) with the known homogaraphy between them. This is in-general hard to obtain as we would need the 3D movement between the pair of images to obtain the homography between them. An easier option is to generate synthetic pairs of images to train a network. But what images do we use so that the network is not baised? Simple, use images from [MSCOCO dataset](http://cocodataset.org/#home) which contains images of a lot of objects in natural scenes. MSCOCO is quite large and it'll take forever to train on these images. Hence, we provide a small subset of MSCOCO for you to train your HomographyNet on. This dataset is included with your starter code in the `YourDirectoryID_p1\Phase2\Data\` folder, this folder contains both `Train` and `Val` images in their respective folders.  
 
 Now that you've downloaded the dataset, we need to generate synthetic data, i.e., pairs of images with known homography between them. Before, we generate image pairs, we need all the image pairs to be of the same size (as HomographyNet is not fully convolutional, it cannot accept image sizes of arbitrary shape). First step in generating data is to obtain a random crop of the image (called patch). Then the original image will be warped using a random homography and finally the respective patch on the warped image is extracted. While we perform this operation we need to ensure that we are not extracting the patch from outside the image after warping. An illustration is shown below.
 
@@ -283,7 +285,7 @@ The data generation is exactly the same for this part (as we want to evaluate th
   <div style="clear:both;"></div>
 </div>
 
-Notice that, now we have two new parts (shown in light blue and yellow in Fig. 17), namely, TensorDLT and the Spatial Transformer Network. The TensorDLT part takes as input the predicted 4-point homography $$\widetilde{H_{4Pt}}$$ and corners of patch $$P_A$$ to estimate the full $$3\times 3$$ estimated homgraphy matrix $$\widetilde{\mathbf{H}}$$ which is used to warp the patch $$P_A$$ using a differentiable warping layer (using bilinear interpolation) called the Spatial Transformer Network. You need to implement the `TensorDLT` layer. For further details refer to [Section IV B in this paper](https://arxiv.org/abs/1709.03966). A generic Spatial Transformer Network is given to you with the starter code in `YourDirectoryID_p1\Phase2\Code\Misc\TFSpatialTransformer.py` (you need to modify it as descibed in [Section IV C of this paper](https://arxiv.org/abs/1709.03966)). Finally, implement the photometric loss function we discussed earlier. 
+Notice that, now we have two new parts (shown in light blue and yellow in Fig. 17), namely, TensorDLT and the Spatial Transformer Network. The TensorDLT part takes as input the predicted 4-point homography $$\widetilde{H_{4Pt}}$$ and corners of patch $$P_A$$ to estimate the full $$3\times 3$$ estimated homgraphy matrix $$\widetilde{\mathbf{H}}$$ which is used to warp the patch $$P_A$$ using a differentiable warping layer (using bilinear interpolation) called the Spatial Transformer Network. You need to implement the `TensorDLT` layer. For further details refer to [Section IV B in this paper](https://arxiv.org/abs/1709.03966). A generic Spatial Transformer Network is given to you with the starter code in `YourDirectoryID_p1\Phase2\Code\Network\Network.py` (you need to modify it as descibed in [Section IV C of this paper](https://arxiv.org/abs/1709.03966)). Finally, implement the photometric loss function we discussed earlier. 
 
 Note that, we didn't talk about the network architecture here, feel free to use the network you implemented for the supervised version here or be creative.
 
