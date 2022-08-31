@@ -2,7 +2,7 @@
 layout: page
 mathjax: true
 title: Homework 0 - Alohomora
-permalink: /spring2022/hw/hw0/
+permalink: /fall2022/hw/hw0/
 ---
 
 <!-- Student results can be found [here](/2019/hw/hw0-results/) -->

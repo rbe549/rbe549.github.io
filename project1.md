@@ -2,7 +2,7 @@
 layout: page
 mathjax: true
 title: MyAutoPano
-permalink: /spring2022/proj/p1/
+permalink: /fall2022/proj/p1/
 ---
 
 Table of Contents:
@@ -27,12 +27,13 @@ Table of Contents:
   - [8.2. File tree and naming](#files)
   - [8.3. Report](#report)
 - [9. Allowed and Disallowed functions](#funcs)
-- [10. Collaboration Policy](#coll)
-- [11. Acknowledgements](#ack)
+- [10. Extra Credit](#extracredit)
+- [11. Collaboration Policy](#coll)
+- [12. Acknowledgements](#ack)
 
 <a name='due'></a>
 ## 1. Deadline 
-**11:59 PM, February 24, 2022**
+**11:59 PM, September 15, 2022**
 
 <a name='prob'></a>
 ## 2. Problem Statement 
@@ -288,9 +289,9 @@ Note that, we didn't talk about the network architecture here, feel free to use 
 
 <a name='testset'></a>
 ## 6. Notes about Test Set
-<!-- One day (24 hours) before the deadline, a test set will be released on which we expect you to run your code from both the parts and present the results in your report (more on this [later](#sub)). -->
+One day (24 hours) before the deadline, a test set will be released on which we expect you to run your code from both the parts and present the results in your report (more on this [later](#sub)).
 
-The Test Set can be downloaded from [here](https://drive.google.com/file/d/1a62PbNlU2N_vN-kboRnGedJ_xTDeGxna/view?usp=sharing). The Test Set has the following folder structure.
+<!-- The Test Set can be downloaded from [here](https://drive.google.com/file/d/1a62PbNlU2N_vN-kboRnGedJ_xTDeGxna/view?usp=sharing). The Test Set has the following folder structure.
 
 ```
 P1TestSet.zip
@@ -306,7 +307,7 @@ P1TestSet.zip
 |   |   
 └── Phase2
 	└── *.jpg
-```
+``` -->
 
 - Stich Panoramas of images from `Phase1` folder using the traditional approach, supervised homography and unsupervised homography.
 - Use images from `Phase2` folder to evaluate your deep learning based homography algorithms (both supervised and unsupervised). Here you can apply random perturbations as before on the center crop of the image (of size you chose during training). This Test is to evaluate how well your algorithm generalized to images outside the training set.
@@ -327,13 +328,13 @@ Implementing the extra credit can give you upto 50% on the bonus score. As we di
 <a name='starter'></a>
 
 ### 8.1. Starter Code
-Download the Starter Code for both Phase 1 and Phase 2 from [here](https://drive.google.com/open?id=1rKM0ON77q5Vi9B_Bpc-hGoEo82gLOrFf).
+Download the Starter Code for both Phase 1 and Phase 2 from [here](https://drive.google.com/file/d/1-WBB5fJFSaQqH3MvuJrsDbnOHXcc0XCU/view?usp=sharing).
 
 <a name='files'></a>
 
 ### 8.2. File tree and naming
 
-Your submission on ELMS/Canvas must be a ``zip`` file, following the naming convention ``YourDirectoryID_p1.zip``. If you email ID is ``abc@umd.edu`` or ``abc@terpmail.umd.edu``, then your ``DirectoryID`` is ``abc``. For our example, the submission file should be named ``abc_p1.zip``. The file **must have the following directory structure** because we'll be autograding assignments. The file to run for your project should be called ``YourDirectoryID_p1/Phase1/Code/Wrapper.py`` for Phase 1; ``YourDirectoryID_p1/Phase2/Code/Train.py`` and ``YourDirectoryID_p1/Phase2/Code/Test.py`` for running training and testing models in Phase 2 (the supervised or unsupervised approach will be chosen by the command line flag `--ModelType` from our autograder). For panorama stitching using deep learning based homography estimation, fill your code in ``YourDirectoryID_p1/Phase2/Code/Wrapper.py``. You can have any helper functions in sub-folders as you wish, be sure to index them using relative paths and if you have command line arguments for your Wrapper codes, make sure to have default values too. Please provide detailed instructions on how to run your code in ``README.md`` file. 
+Your submission on ELMS/Canvas must be a ``zip`` file, following the naming convention ``YourDirectoryID_p1.zip``. If you email ID is ``abc@wpi.edu``, then your ``DirectoryID`` is ``abc``. For our example, the submission file should be named ``abc_p1.zip``. The file **must have the following directory structure** because we might be autograding assignments. The file to run for your project should be called ``YourDirectoryID_p1/Phase1/Code/Wrapper.py`` for Phase 1; ``YourDirectoryID_p1/Phase2/Code/Train.py`` and ``YourDirectoryID_p1/Phase2/Code/Test.py`` for running training and testing models in Phase 2 (the supervised or unsupervised approach will be chosen by the command line flag `--ModelType` from our autograder). For panorama stitching using deep learning based homography estimation, fill your code in ``YourDirectoryID_p1/Phase2/Code/Wrapper.py``. You can have any helper functions in sub-folders as you wish, be sure to index them using relative paths and if you have command line arguments for your Wrapper codes, make sure to have default values too. Please provide detailed instructions on how to run your code in ``README.md`` file. 
 
 <p style="background-color:#ddd; padding:5px">
 <b>NOTE:</b> 
@@ -400,37 +401,44 @@ Test images will be released 24 hours before the deadline.
 
 - Any functions regarding reading, writing and displaying/plotting images in `cv2`, `matplotlib`
 - Basic math utitlies including convolution operations in `numpy` and `math`
-- `tf.layers` and `tf.nn` API for implementing network architecture
-- `tf.image` for data augmentation
+- `torch.nn` API for implementing network architecture
+- `torchvision.transform` for data augmentation
 - Any functions for pretty plots
 - Any functions for filtering and implementing gaussian blur
 - Any function for warping and blending for Phase 1
 - `cv2.getPerspectiveTransform`
 - `cv2.warpPerspective` (For more info, refer: [Geometric_Transformations](Geometric_Transformations))
+- <a href="https://github.com/kornia/kornia">`Kornia`</a> package for warping images
 
 <b> Disallowed:
-
-- Any third party code for implementing spatial transformer network (apart from the one given in your starter code)
-- Any third party code for implementing TensorDLT (apart from functions specified)
+- Any third party code for implementing spatial transformer network except one in `Kornia`
+- Any third party code for implementing TensorDLT or a function that converts 4 point homography to $$3 \times 3$$ homography matrix (apart from functions specified)
 - Any third party code for implementing architecture or augmentation
 - `Keras` or any other layer API
 
-If you have any doubts regarding allowed and disallowed functions, please drop a public post on [Piazza](https://piazza.com/umd/spring2020/cmsc733). 
+If you have any doubts regarding allowed and disallowed functions, please drop a public post on [Piazza](https://piazza.com/wpi/fall2022/rbe549).  
+
+
+<a name='extracredit'></a>
+
+## 10. Extra Credit
+Perform creative things in your code to improve results or tackle corner cases to earn upto 10% extra credit. 
+
 
 <a name='coll'></a>
 
-## 10. Collaboration Policy
+## 11. Collaboration Policy
 <p style="background-color:#ddd; padding:5px">
 <b>NOTE:</b> 
 You are <b>STRONGLY</b> encouraged to discuss the ideas with your peers. Treat the class as a big group/family and enjoy the learning experience. 
 </p>
 
-However, the code should be your own, and should be the result of you exercising your own understanding of it. If you reference anyone else's code in writing your project, you must properly cite it in your code (in comments) and your writeup. For the full honor code refer to the [CMSC733 Spring 2020 website](http://prg.cs.umd.edu/cmsc733).
+However, the code should be your own, and should be the result of you exercising your own understanding of it. If you reference anyone else's code in writing your project, you must properly cite it in your code (in comments) and your writeup. For the full honor code refer to the [RBE/CS549 Spring 2022 website](https://nitinjsanket.github.io/teaching/rbe549/fall2022.html).
 
 <a name='ack'></a>
 
-## 11. Acknowledgements
+## 12. Acknowledgements
 
-This fun project was inspired by our research in <a href="http://prg.cs.umd.edu/">Perception and Robotics Group</a> at University of Maryland, College Park.
+This fun homework was inspired by a similar project in University of Maryland's <a href="http://prg.cs.umd.edu/cmsc733">CMSC733</a> (Classical and Deep Learning Approaches for Geometric Computer Vision).
 
 ***
