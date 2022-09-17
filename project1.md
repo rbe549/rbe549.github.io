@@ -33,7 +33,7 @@ Table of Contents:
 
 <a name='due'></a>
 ## 1. Deadline 
-**11:59 PM, September 15, 2022.** This project is to be done in groups of 2.
+**11:59:59 PM, September 15, 2022.** This project is to be done in groups of 2.
 
 
 
@@ -313,7 +313,7 @@ P1TestSet.zip
 
 - Stich Panoramas of images from `Phase1` folder using the traditional approach, supervised homography and unsupervised homography.
 - Use images from `Phase2` folder to evaluate your deep learning based homography algorithms (both supervised and unsupervised). Here you can apply random perturbations as before on the center crop of the image (of size you chose during training). This Test is to evaluate how well your algorithm generalized to images outside the training set.
-(For this part, your algorithm will only run on the image size you chose during training, i.e., $$M_P\times N_P$$. A simple way to deal with this is to resize the test image to $$M_P\times N_P$$ to obtain the homography and then warp the original image or crop a central region of $$M_P\times N_P$$ or obtain random crops of size $$M_P\times N_P$$ and average all the predicted homography values. **Feel free to be creative here.** Mention what you did for this part in your report.)
+(For this part, your algorithm will only run on the image size you chose during training, i.e., \\(M_P\times N_P\\). A simple way to deal with this is to resize the test image to \\(M_P\times N_P\\) to obtain the homography and then warp the original image or crop a central region of \\(M_P\times N_P\\) or obtain random crops of size \\(M_P\times N_P\\) and average all the predicted homography values. **Feel free to be creative here.** Mention what you did for this part in your report.)
 
 
 <a name='extra'></a>
@@ -390,7 +390,7 @@ Test images will be released 24 hours before the deadline.
   <div style="clear:both;"></div>
 </div>
 
-- Present the average EPE (average L2 error between predicted and ground truth homographies) results for both supervised and unsupervised approaches along with algorithm run-time for forward pass of the network after the graph has been initialized. Present EPE results on Train, Val and Test sets. EPE is defined as the average of $$\vert \vert \widetilde{H_{4Pt}} - H_{4Pt} \vert \vert_2$$ for all the 4 points and all the images.
+- Present the average EPE (average L2 error between predicted and ground truth homographies) results for both supervised and unsupervised approaches along with algorithm run-time for forward pass of the network after the graph has been initialized. Present EPE results on Train, Val and Test sets. EPE is defined as the average of \\(\vert \vert \widetilde{H_{4Pt}} - H_{4Pt} \vert \vert_2\\) for all the 4 points and all the images.
 - Present the network architecture used in your report (a snapshot of the Tensorflow graph will do if the layers are named sensibly).
 - Present input and output panoramas using supervised and unsupervised approaches for all the test images from Phase 1's Test set. You dont need to present outputs of Train set here.
 
