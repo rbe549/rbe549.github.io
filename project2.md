@@ -121,16 +121,16 @@ Here, the Barycentric coordinate is given by $$ \begin{bmatrix} \alpha & \beta &
 
 Now, given the values of the matrix on the left hand size we will call \\( \mathcal{B}_{\Delta} \\) and the value of \\( \begin{bmatrix} x & y & 1 \end{bmatrix}^T \\) we can compute the value of \\(\begin{bmatrix} \alpha & \beta & \gamma \end{bmatrix}^T \\) as follows:
 
-\\(
+$$
  \begin{bmatrix} \alpha \\ \beta \\ \gamma \\ \end{bmatrix} = \mathcal{B}_{\Delta}^{-1} \begin{bmatrix} x \\ y \\ 1\\ \end{bmatrix}
-\\)
+$$
 Now, given the values of $$ \alpha, \beta, \gamma$$ we can say that a point $$x$$ lies inside the triangle if \\( \alpha \in [0, 1] \\), \\( \beta \in [0, 1] \\), \\(\gamma \in [0, 1] \\) and \\(\alpha + \beta + \gamma \in (0,1]\\). **DO NOT USE any built-in function for this part**.
 
 - **Step 2:** Compute the corresponding pixel position in the source image \\(\mathcal{A}\\) using the barycentric equation shown in the last step but with a different triangle coordinates. This is computed as follows:
 
-\\(
+$$
  \begin{bmatrix} x_{\mathcal{A}} \\ y_{\mathcal{A}} \\ z_{\mathcal{A}} \\ \end{bmatrix} = \mathcal{A}_{\Delta} \begin{bmatrix} \alpha \\ \beta \\ \gamma\\ \end{bmatrix}
-\\)
+$$
 
 Here, \\( \mathcal{A}_{\Delta} \\) is given as follows:
 
@@ -165,9 +165,9 @@ As we discussed before, triangulation assumes that we are doing affine transform
 points in \\(\mathcal{A}\\). Note that we need two splines, one for the \\(x\\) coordinate and one for the \\(y\\). Imagine a TPS to mathematically model beating a metal plate with a hammer. A thin
 plate spline has the following form:
 
-\\(
+$$
 f(x,y) = a_1 + (a_x)x + (a_y)y + \sum_{i=1}^p{w_i U\left( \vert \vert (x_i,y_i) - (x,y)\vert \vert_1\right)}
-\\)
+$$
 
 Here, \\( U(r) = r^2\log (r^2 )\\).
 
