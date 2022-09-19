@@ -111,11 +111,11 @@ Since, Delaunay Triangulation tries the maximize the smallest angle in each tria
 
 - **Step 1:** For each triangle in the target/destination face $$\mathcal{B}$$, compute the Barycentric coordinate. 
 
-\\( \begin{bmatrix}
+$$ \begin{bmatrix}
  \mathcal{B}_{a,x} & \mathcal{B}_{b,x} & \mathcal{B}_{c,x}\\
  \mathcal{B}_{a,y} & \mathcal{B}_{b,y} & \mathcal{B}_{c,y}\\
  1 & 1 & 1\\
- \end{bmatrix} \begin{bmatrix} \alpha \\ \beta \\ \gamma \\ \end{bmatrix} = \begin{bmatrix} x \\ y \\ 1\\ \end{bmatrix} \\)
+ \end{bmatrix} \begin{bmatrix} \alpha \\ \beta \\ \gamma \\ \end{bmatrix} = \begin{bmatrix} x \\ y \\ 1\\ \end{bmatrix} $$
 
 Here, the Barycentric coordinate is given by $$ \begin{bmatrix} \alpha & \beta & \gamma \end{bmatrix}^T $$. Note that, the matrix on the left hand size and it's inverse need to be computed only once per triangle. In this matrix, $$ a, b, c $$ represent the corners of the triangle and $$x,y$$ represent the $$x$$ and $$y$$ coordinates of the particular triangle corner respectively. 
 
@@ -134,19 +134,19 @@ Now, given the values of $$ \alpha, \beta, \gamma$$ we can say that a point $$x$
 
 Here, \\( \mathcal{A}_{\Delta} \\) is given as follows:
 
-\\(
+$$
 \mathcal{A}_{\Delta} = \begin{bmatrix}
  \mathcal{A}_{a,x} & \mathcal{A}_{b,x} & \mathcal{A}_{c,x}\\
  \mathcal{A}_{a,y} & \mathcal{A}_{b,y} & \mathcal{A}_{c,y}\\
  1 & 1 & 1\\
  \end{bmatrix}
-\\)
+$$
 
 Note that, after we obtain  \\(\begin{bmatrix} x_{\mathcal{A}} & y_{\mathcal{A}} & z_{\mathcal{A}} \end{bmatrix}^T\\), we need to convert the values to homogeneous coordinates as follows:
 
-\\(
+$$
 x_{\mathcal{A}} = \frac{x_{\mathcal{A}}}{z_{\mathcal{A}}} \text{ and } y_{\mathcal{A}} = \frac{y_{\mathcal{A}}}{z_{\mathcal{A}}}
-\\)
+$$
 
 - **Step 3:** Now, copy back the value of the pixel at \\( (x_{\mathcal{A}}, y_{\mathcal{A}} ) \\) to the target location. Use ``scipy.interpolate.interp2d`` to perform this operation.
 
@@ -175,19 +175,19 @@ Note that, again in this case we are performing inverse warping, i.e., finding p
 
 - **Step 1:** In the first step, we will estimate the parameters of the TPS. The solution of the TPS model requires solving the following equation:
 
-\\(
+$$
  \begin{bmatrix} K & P\\ P^T & 0\\ \end{bmatrix} 
   \begin{bmatrix} w_1 \\ w_2 \\ \vdots \\ w_p \\ a_x \\ a_y \\ a_1  \end{bmatrix}  =
   \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_p \\ 0 \\ 0 \\ 0 \end{bmatrix}  
-\\)
+$$
 
 where \\( K_{ij} = U\left( \vert \vert (x_i,y_i)-(x_j,y_j) \vert \vert_1 \right)\\). \\(v_i = f(x_i,y_i)\\) and the i<sup>th</sup> row of \\(P\\) is \\((x_i, y_i, 1)\\). \\(K\\) is a matrix of size size \\(p \times p\\), and \\(P\\) is a matrix of size \\(p \times 3\\). In order to have a stable solution you need to compute the solution by:
 
-\\(
+$$
  \begin{bmatrix} w_1 \\ w_2 \\ \vdots \\ w_p \\ a_x \\ a_y \\ a_1  \end{bmatrix}  = 
   \left(\begin{bmatrix} K & P\\ P^T & 0\\ \end{bmatrix}  + \lambda I(p+3, p+3)\right)^{-1}
  \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_p \\ 0 \\ 0 \\ 0 \end{bmatrix} 
- \\)
+ $$
 
 where \\(I(p+3,p+3)\\) is a \\(p+3 \times p+3\\) identity matrix. \\(\lambda \ge 0\\) but is generally very close to zero. Think about why we need this. Note that you need to do this step twice, once for 
 \\(x\\) co-ordinates and once for \\(y\\) co-ordinates. 
