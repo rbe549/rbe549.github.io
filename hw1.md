@@ -2,10 +2,8 @@
 layout: page
 mathjax: true
 title: AutoCalib
-permalink: /spring2022/hw/hw1/
+permalink: /fall2022/hw/hw1/
 ---
-
-**To be submitted individually**
 
 Table of Contents:
 - [1. Due Date](#due)
@@ -20,10 +18,12 @@ Table of Contents:
   - [6.1. File tree and naming](#files)
   - [6.2. Report](#report)
 - [7. Collaboration Policy](#coll)
+- [8. Acknowledgements](#ack)
+
 
 <a name='due'></a>
 ## 1. Due Date 
-**11:59PM, Thursday, April 7, 2022.**
+**11:59:59 PM, October 10, 2022. This homework is to be done individually.**
 
 <a name='intro'></a>
 ## 2. Introduction
@@ -86,7 +86,7 @@ Here $$x_{i,j}$$ and $$\hat x_{i,j}$$ are an inhomogeneous representation. Feel 
 <a name='files'></a>
 ### 6.1. File tree and naming
 
-Your submission on ELMS/Canvas must be a ``zip`` file, following the naming convention ``YourDirectoryID_hw1.zip``. If you email ID is ``abc@umd.edu`` or ``abc@terpmail.umd.edu``, then your ``DirectoryID`` is ``abc``. For our example, the submission file should be named ``abc_hw1.zip``. The file **must have the following directory structure** because we'll be autograding assignments. The file to run for your project should be called ``Wrapper.py``. You can have any helper functions in sub-folders as you wish, be sure to index them using relative paths and if you have command line arguments for your Wrapper codes, make sure to have default values too. Please provide detailed instructions on how to run your code in ``README.md`` file. Please **DO NOT** include data in your submission.
+Your submission on ELMS/Canvas must be a ``zip`` file, following the naming convention ``YourDirectoryID_hw1.zip``. If you email ID is ``abc@wpi.edu``, then your ``DirectoryID`` is ``abc``. For our example, the submission file should be named ``abc_hw1.zip``. The file **must have the following directory structure** because we'll be autograding assignments. The file to run for your project should be called ``Wrapper.py``. You can have any helper functions in sub-folders as you wish, be sure to index them using relative paths and if you have command line arguments for your Wrapper codes, make sure to have default values too. Please provide detailed instructions on how to run your code in ``README.md`` file. Please **DO NOT** include data in your submission.
 
 ```
 YourDirectoryID_hw1.zip
@@ -108,4 +108,13 @@ For each section of the homework, explain briefly what you did, and describe any
 
 <a name='coll'></a>
 ## 7. Collaboration Policy
-You are encouraged to discuss the ideas with your peers. However, the code should be your own, and should be the result of you exercising your own understanding of it. If you reference anyone else's code in writing your project, you must properly cite it in your code (in comments) and your writeup.  For the full honor code refer to the CMSC733 Spring 2019 website.
+<p style="background-color:#ddd; padding:5px">
+<b>NOTE:</b> 
+You are <b>STRONGLY</b> encouraged to discuss the ideas with your peers. Treat the class as a big group/family and enjoy the learning experience. 
+</p>
+
+However, the code should be your own, and should be the result of you exercising your own understanding of it. If you reference anyone else's code in writing your project, you must properly cite it in your code (in comments) and your writeup. For the full honor code refer to the [RBE/CS549 Spring 2022 website](https://nitinjsanket.github.io/teaching/rbe549/fall2022.html).
+
+<a name='ack'></a>
+## 8. Acknowledgements
+This fun homework was inspired by a similar homework in University of Maryland's <a href="http://prg.cs.umd.edu/cmsc733">CMSC733</a> (Classical and Deep Learning Approaches for Geometric Computer Vision).
