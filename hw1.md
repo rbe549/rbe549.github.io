@@ -88,7 +88,7 @@ Here $$x_{i,j}$$ and $$\hat x_{i,j}$$ are an inhomogeneous representation. Feel 
 <a name='sub'></a>
 ## 6. Submission Guidelines
 
-<b> If your submission does not comply with the following guidelines, you'll be given ZERO credit </b>
+<b> If your submission does not comply with the following guidelines, you'll be given ZERO credit. </b>
 
 <a name='files'></a>
 ### 6.1. File tree and naming
