@@ -52,7 +52,7 @@ the outer squares (the row and columns of squares on the edges of the checkerboa
 ## 4. Initial Parameter Estimation
 We are trying to get a good initial estimate of the parameters so that we can feed it into the non-linear optimizer. We will define the parameters we are using in the code next.
 
-$$x$$ denotes the image points, $$X$$ denotes the world points (points on the checkerboard), $$k$$ denotes the radial distortion parameters, $$K$$ denotes the camera calibration matrix, $$R$$ and $$t$$ represent the rotation matrix and the translation of the camera in the world frame.
+$$x$$ denotes the image points, $$X$$ denotes the world points (points on the checkerboard), $$k = \[k_1, k_2\]$$ denotes the radial distortion parameters, $$K$$ denotes the camera calibration matrix, $$R$$ and $$t$$ represent the rotation matrix and the translation of the camera in the world frame.
 
 <a name='solveK'></a>
 ### 4.1. Solving for approximate $$K$$ or camera intrinsic matrix
@@ -109,7 +109,7 @@ For each section of the homework, explain briefly what you did, and describe any
 - Your report **MUST** be typeset in LaTeX in the IEEE Tran format provided to you in the ``Draft`` folder and should of a conference quality paper.
 - Present images of checkerboard after rectification and reprojection of corners on rectified image.
 - Present the value of re-projection error. 
-- Clearly, specify the $$K$$ matrix in the report.
+- Clearly, specify the $$K$$ matrix and $$k$$ vector in the report.
 
 <a name='coll'></a>
 ## 7. Collaboration Policy
