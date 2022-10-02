@@ -1,7 +1,7 @@
 ---
 layout: page
 mathjax: true
-title: Buildings built in minutes - An SfM Approach
+title: Buildings built in minutes - An SfM&NERF Approach
 permalink: /spring2022/proj/p3/
 ---
 
