@@ -485,7 +485,7 @@ other observations in your report.
 
 ## 8. Collaboration Policy
 
-You are encouraged to discuss the ideas with your peers. However, the code should be your own, and should be the result of you exercising your own understanding of it. If you reference anyone else's code in writing your project, you must properly cite it in your code (in comments) and your writeup. For the full honor code refer to the [RBE/CS549 Spring 2022 website](https://nitinjsanket.github.io/teaching/rbe549/fall2022.html).
+You are encouraged to discuss the ideas with your peers. However, the code should be your own, and should be the result of you exercising your own understanding of it. If you reference anyone else's code in writing your project, you must properly cite it in your code (in comments) and your writeup. For the full honor code refer to the [RBE/CS549 Full 2022 website](https://nitinjsanket.github.io/teaching/rbe549/fall2022.html).
 
 <a name='ack'></a>
 
