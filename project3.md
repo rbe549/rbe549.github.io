@@ -373,7 +373,7 @@ You are going to be implementing the original NERF algorithm (from [this paper](
   <div style="clear:both;"></div>
 </div>
 
-This algorithm represents a scene using a fully-connected (non-convolution) deep neural network, whose input is a single continuous 5D coordinate (spatial location ($$ x, y, z $$) and viewing direction $$\theta, \psi$$) and whose output is the volume density and view-dependent emitted radiance at that spatial location.
+This algorithm represents a scene using a fully-connected (non-convolution) deep neural network, whose input is a single continuous 5D coordinate (spatial location (x, y, z) and viewing direction $$\theta, \psi$$) and whose output is the volume density and view-dependent emitted radiance at that spatial location.
 
 <div class="nerf_loss">
   <img src="/assets/2019/p3/nerf_loss.png" width="80%">
