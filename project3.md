@@ -5,8 +5,8 @@ title: Buildings built in minutes - An SfM Approach
 permalink: /spring2022/proj/p3/
 ---
 
-This article is written by Chahat Deep Singh. 
-If you have any questions/corrections regarding the article, please email at chahat[at]terpmail[dot]umd[edu].
+This article is edited by Lening Li.
+If you have any questions/corrections regarding the article, please email at lli4[at]wpi[dot][edu].
 
 **To be submitted in a group of two.**
 
@@ -15,7 +15,7 @@ Table of Contents:
 - [2. Introduction](#intro)
 - [3. Phase 1: Traditional Approach](#trad)
 	- [3.1. Feature Matching](#featmatch)
-	- [3.2. Estimating Fundamental Matrix](#estfundmatrix)  
+	- [3.2. Estimating Fundamental Matrix](#estfundmatrix)
 		- [3.2.1. Epipolar Geometry](#epipole)
 		- [3.2.2. Fundamental Matrix](#fundmatrix)
 		- [3.2.3. Match Outlier Rejection using RANSAC](#ransac)
@@ -36,23 +36,23 @@ Table of Contents:
 
 - [4. Putting the pipeline together](#combine)
 
-- [5. Notes about Data Set](#dataset)
+- [5. Phase: 2 Deep Learning Approache](#nerf)
 
-- [6. Submission Guidelines](#sub)
-	
-	- [6.1. File tree and naming](#files)
-	
-	- [6.2. Report](#report)
-	
-- [7. Collaboration Policy](#coll)
+- [6. Notes about Data Set](#dataset)
+
+- [7. Submission Guidelines](#sub)
+	- [7.1. File tree and naming](#files)
+	- [7.2. Report](#report)
+
+- [8. Collaboration Policy](#coll)
 
 <a name='due'></a>
-## 1. Deadline 
+## 1. Deadline
 **11:59PM, April 28, 2022.**
 
 <a name='intro'></a>
 ## 2. Introduction
-We have been playing with images for so long, mostly in 2D scene. Recall [project 1](/2019/proj/p1) where we stitched multiple images with about 30-50% common features between a couple of images. Now let's learn how to **reconstruct a 3D scene and simultaneously obtain the camera poses** of a monocular camera w.r.t. the given scene. This procedure is known as Structure from Motion (SfM). As the name suggests, you are creating the entire **rigid** structure from a set of images with different view points (or equivalently a camera in motion). A few years ago, Agarwal et. al published [Building Rome in a Day](http://grail.cs.washington.edu/rome/rome_paper.pdf) in which they reconstructed the entire city just by using a large collection of photos from the Internet. Ever heard of Microsoft [Photosynth?](https://en.wikipedia.org/wiki/Photosynth) _Facinating? isn't it!?_ There are a few open source SfM algorithm available online like [VisualSFM](http://ccwu.me/vsfm/). _Try them!_ 
+We have been playing with images for so long, mostly in 2D scene. Recall [project 1](/2019/proj/p1) where we stitched multiple images with about 30-50% common features between a couple of images. Now let's learn how to **reconstruct a 3D scene and simultaneously obtain the camera poses** of a monocular camera w.r.t. the given scene. This procedure is known as Structure from Motion (SfM). As the name suggests, you are creating the entire **rigid** structure from a set of images with different view points (or equivalently a camera in motion). A few years ago, Agarwal et. al published [Building Rome in a Day](http://grail.cs.washington.edu/rome/rome_paper.pdf) in which they reconstructed the entire city just by using a large collection of photos from the Internet. Ever heard of Microsoft [Photosynth?](https://en.wikipedia.org/wiki/Photosynth) _Facinating? isn't it!?_ There are a few open source SfM algorithm available online like [VisualSFM](http://ccwu.me/vsfm/). _Try them!_
 
 Let's learn how to recreate such algorithm. There are a few steps that collectively form SfM:
 
@@ -60,7 +60,7 @@ Let's learn how to recreate such algorithm. There are a few steps that collectiv
 - Estimating **Fundamental Matrix**
 - Estimating **Essential Matrix** from Fundamental Matrix
 - Estimate **Camera Pose** from Essential Matrix
-- Check for **Cheirality Condition** using **Triangulation** 
+- Check for **Cheirality Condition** using **Triangulation**
 - **Perspective-n-Point**
 - **Bundle Adjustment**
 
