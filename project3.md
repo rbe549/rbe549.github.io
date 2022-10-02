@@ -373,7 +373,7 @@ You are going to be implementing the original NERF algorithm (from [this paper](
   <div style="clear:both;"></div>
 </div>
 
-This algorithm represents a scene using a fully-connected (non-convolution) deep neural network, whose input is a single continuous 5D coordinate (spatial location ($$x, y, z$$) and viewing direction $$\theta, \psi$$) and whose output is the volume density and view-dependent emitted radiance at that spatial location.
+This algorithm represents a scene using a fully-connected (non-convolution) deep neural network, whose input is a single continuous 5D coordinate (spatial location ($$ x, y, z $$) and viewing direction $$\theta, \psi$$) and whose output is the volume density and view-dependent emitted radiance at that spatial location.
 
 <div class="nerf_loss">
   <img src="/assets/2019/p3/nerf_loss.png" width="80%">
@@ -422,7 +422,7 @@ Also, capture a set of images and run your SfM algorithm. DO NOT steal images fr
 
 ### 7.1. File tree and naming
 
-Your submission on ELMS/Canvas must be a ``zip`` file, following the naming convention ``YourDirectoryID_p3.zip``. If you email ID is ``abc@umd.edu`` or ``abc@terpmail.umd.edu``, then your ``DirectoryID`` is ``abc``. For our example, the submission file should be named ``abc_p1.zip``. The file **must have the following directory structure** because we'll be autograding assignments. The file to run for your project should be called ``Wrapper.py``. You can have any helper functions in sub-folders as you wish, be sure to index them using relative paths and if you have command line arguments for your Wrapper codes, make sure to have default values too. Please provide detailed instructions on how to run your code in ``README.md`` file. Please **DO NOT** include data in your submission.
+Your submission on ELMS/Canvas must be a ``zip`` file, following the naming convention ``YourDirectoryID_p3.zip``. If you email ID is ``abc@wpi.edu``, then your ``DirectoryID`` is ``abc``. For our example, the submission file should be named ``abc_p3.zip``. The file **must have the following directory structure** because we'll be autograding assignments. The file to run for your project should be called ``Wrapper.py``. You can have any helper functions in sub-folders as you wish, be sure to index them using relative paths and if you have command line arguments for your Wrapper codes, make sure to have default values too. Please provide detailed instructions on how to run your code in ``README.md`` file. Please **DO NOT** include data in your submission.
 
 ```bash
 YourDirectoryID_p3.zip
