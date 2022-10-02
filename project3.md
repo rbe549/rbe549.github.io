@@ -39,7 +39,7 @@ Table of Contents:
 
 - [4. Putting the pipeline together](#combine)
 
-- [5. Phase: 2 Deep Learning Approache](#nerf)
+- [5. Phase: 2 Deep Learning Approach](#nerf)
 
 - [6. Notes about Data Set](#dataset)
 
@@ -359,11 +359,24 @@ Also, compare your result against VSfM output. You can download the off-the-shel
   <div style="clear:both;"></div>
 </div>
 
+<a name="nerf"></a>
+
+## 5. Phase: 2 Deep Learning Approach
+
+You are going to be implementing the original NERF algorithm (from [this paper](https://arxiv.org/abs/2003.08934)). NERF is a method that achieves state-of-the-art results for synthesizing novel views of complex scenes by optimizing an underlying continuous volumetric scene function using a sparse set of input views.
+
+<div class="nerf_dataflow">
+  <img src="/assets/2019/p3/nerf_dataflow.svg" width="80%">
+  <div class="figcaption">
+  Figure: The input and output of the NERF algorithm.
+  <div style="clear:both;"></div>
+</div>
+
 <a name='testset'></a>
 
-## 5. Notes about the Data Set
+## 6. Notes about the Data Set
 
-Run your SfM algorithm on the images provided [here](https://github.com/cmsc733/cmsc733.github.io/blob/master/assets/2019/p3/Data.zip). The data given to you are a set of 6 images of building in-front of Levine Hall at UPenn, using a GoPro Hero 3 with fisheye lens distortion corrected. Keypoints matching (SIFT keypoints and descriptors used) data is also provided in the same folder for pairs of images. The data folder contains 5 matching files named `matching*.txt` where `*` refers to numbers from 1 to 5. For eg., `matching3.txt` contains the matching between the third image and the fourth, fifth and sixth images, i.e., $$\mathcal{I}_3 \leftrightarrow \mathcal{I}_4$$, $$\mathcal{I}_3 \leftrightarrow \mathcal{I}_5$$ and $$\mathcal{I}_3 \leftrightarrow \mathcal{I}_6$$ . Therefore, `matching6.txt` does not exist because it is the matching by itself.
+Run your SfM/NERF algorithm on the images provided [here](https://github.com/cmsc733/cmsc733.github.io/blob/master/assets/2019/p3/Data.zip). The data given to you are a set of 6 images of building in-front of Levine Hall at UPenn, using a GoPro Hero 3 with fisheye lens distortion corrected. Keypoints matching (SIFT keypoints and descriptors used) data is also provided in the same folder for pairs of images. The data folder contains 5 matching files named `matching*.txt` where `*` refers to numbers from 1 to 5. For eg., `matching3.txt` contains the matching between the third image and the fourth, fifth and sixth images, i.e., $$\mathcal{I}_3 \leftrightarrow \mathcal{I}_4$$, $$\mathcal{I}_3 \leftrightarrow \mathcal{I}_5$$ and $$\mathcal{I}_3 \leftrightarrow \mathcal{I}_6$$ . Therefore, `matching6.txt` does not exist because it is the matching by itself.
 
 The file format of the matching file is described next. Each matching file is formatted as
 follows for the i th matching file:
@@ -389,18 +402,18 @@ Also, capture a set of images and run your SfM algorithm. DO NOT steal images fr
 
 <a name='sub'></a>
 
-## 6. Submission Guidelines
+## 7. Submission Guidelines
 
 <b> If your submission does not comply with the following guidelines, you'll be given ZERO credit </b>
 
 <a name='files'></a>
 
-### 6.1. File tree and naming
+### 7.1. File tree and naming
 
 Your submission on ELMS/Canvas must be a ``zip`` file, following the naming convention ``YourDirectoryID_p3.zip``. If you email ID is ``abc@umd.edu`` or ``abc@terpmail.umd.edu``, then your ``DirectoryID`` is ``abc``. For our example, the submission file should be named ``abc_p1.zip``. The file **must have the following directory structure** because we'll be autograding assignments. The file to run for your project should be called ``Wrapper.py``. You can have any helper functions in sub-folders as you wish, be sure to index them using relative paths and if you have command line arguments for your Wrapper codes, make sure to have default values too. Please provide detailed instructions on how to run your code in ``README.md`` file. Please **DO NOT** include data in your submission.
 
 ```bash
-YourDirectoryID_hw1.zip
+YourDirectoryID_p3.zip
 │   README.md
 |   Your Code files
 |   ├── GetInliersRANSAC.py
@@ -426,10 +439,9 @@ YourDirectoryID_hw1.zip
 |   ├── Imgs/
 └── Report.pdf
 ```
-
 <a name='report'></a>
 
-### 6.2. Report
+### 7.2. Report
 
 There will be no Test Set for this project.
 For each section of the project, explain briefly what you did, and describe any interesting problems you encountered and/or solutions you implemented.  You must include the following details in your writeup:
@@ -447,6 +459,6 @@ other observations in your report.
 
 <a name='coll'></a>
 
-## 7. Collaboration Policy
+## 8. Collaboration Policy
 
 You are encouraged to discuss the ideas with your peers. However, the code should be your own, and should be the result of you exercising your own understanding of it. If you reference anyone else's code in writing your project, you must properly cite it in your code (in comments) and your writeup. For the full honor code refer to the CMSC733 Spring 2019 website.
