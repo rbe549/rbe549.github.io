@@ -369,6 +369,7 @@ You are going to be implementing the original NERF algorithm (from [this paper](
   <img src="/assets/2019/p3/nerf_dataflow.svg" width="80%">
   <div class="figcaption">
   Figure: The input and output of the NERF algorithm.
+  </div>
   <div style="clear:both;"></div>
 </div>
 
