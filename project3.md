@@ -81,13 +81,13 @@ We have already learned about keypoint matching using SIFT keypoints and descrip
 
 
 <a name='estfundmatrix'></a>
-### 3.2. Estimating Fundamental Matrix 
-The fundamental matrix, denoted by $$F$$, is a $$3\times 3$$ (_rank 2_) matrix that relates the corresponding set of points in two images from different views (or stereo images). But in order to understand what fundamental matrix actually is, we need to understand what _epipolar geometry_ is! The epipolar geometry is the intrinsic projective geometry between two views. It only depends on the cameras' internal parameters ($$K$$ matrix) and the relative pose _i.e._ it is **independent of the scene structure**.  
+### 3.2. Estimating Fundamental Matrix
+The fundamental matrix, denoted by $$F$$, is a $$3\times 3$$ (_rank 2_) matrix that relates the corresponding set of points in two images from different views (or stereo images). But in order to understand what fundamental matrix actually is, we need to understand what _epipolar geometry_ is! The epipolar geometry is the intrinsic projective geometry between two views. It only depends on the cameras' internal parameters ($$K$$ matrix) and the relative pose _i.e._ it is **independent of the scene structure**.
 
 <a name='epipole'></a>
 #### 3.2.1. Epipolar Geometry
-Let's say a point $$\mathbf{X}$$ in the 3D-space (viewed in two images) is captured as $$\mathbf{x}$$ in the first image and $$\mathbf{x'}$$ in the second. _Can you think how to formulate the relation between the corresponding image points $$\mathbf{x}$$ and $$\mathbf{x'}$$?_ Consider Fig. 2. Let $$\mathbf{C}$$ and $$\mathbf{C'}$$ be the respective camera centers which forms the baseline for the stereo system. Clearly, the points $$\mathbf{x}$$, $$\mathbf{x'}$$ and $$\mathbf{X}$$ (or $$\mathbf{C}$$, $$\mathbf{C'}$$ and $$\mathbf{X}$$) are coplanar _i.e._  $$\mathbf{\overrightarrow{Cx}}\cdot \left(\mathbf{\overrightarrow{CC'}}\times\mathbf{\overrightarrow{C'x'}}\right)=0$$ 
-and the plane formed can be denoted by $$\pi$$. Since these points are coplanar, the rays back-projected from $$\mathbf{x}$$ and $$\mathbf{x'}$$ intersect at $$\mathbf{X}$$. This is the most significant property in searching for a correspondence. 
+Let's say a point $$\mathbf{X}$$ in the 3D-space (viewed in two images) is captured as $$\mathbf{x}$$ in the first image and $$\mathbf{x'}$$ in the second. _Can you think how to formulate the relation between the corresponding image points $$\mathbf{x}$$ and $$\mathbf{x'}$$?_ Consider Fig. 2. Let $$\mathbf{C}$$ and $$\mathbf{C'}$$ be the respective camera centers which forms the baseline for the stereo system. Clearly, the points $$\mathbf{x}$$, $$\mathbf{x'}$$ and $$\mathbf{X}$$ (or $$\mathbf{C}$$, $$\mathbf{C'}$$ and $$\mathbf{X}$$) are coplanar _i.e._  $$\mathbf{\overrightarrow{Cx}}\cdot \left(\mathbf{\overrightarrow{CC'}}\times\mathbf{\overrightarrow{C'x'}}\right)=0$$
+and the plane formed can be denoted by $$\pi$$. Since these points are coplanar, the rays back-projected from $$\mathbf{x}$$ and $$\mathbf{x'}$$ intersect at $$\mathbf{X}$$. This is the most significant property in searching for a correspondence.
 
 <div class="fig fighighlight">
   <img src="/assets/2019/p3/epipole1.png"  width="120%">
@@ -104,9 +104,9 @@ and the plane formed can be denoted by $$\pi$$. Since these points are coplanar,
 
 Now, let us say that only $$\mathbf{x}$$ is known, not $$\mathbf{x'}$$. We know that the point $$\mathbf{x'}$$ lies in the plane $$\pi$$ which is governed by the camera baseline $$\mathbf{CC'}$$ and $$\mathbf{\overrightarrow{Cx}}$$.  Hence the point $$\mathbf{x'}$$ lies on the line of intersetion of $$\mathbf{l'}$$ of $$\pi$$ with the second image plane. The line $$\mathbf{l'}$$ is the image in the second view of the ray back-projected from $$\mathbf{x}$$. This line $$\mathbf{l'}$$ is called the _epipolar line_ corresponding to $$\mathbf{x}$$. The benifit is that you don't need to search for the point corresponding to $$\mathbf{x}$$ in the entire image plane as it can be restricted to the $$\mathbf{l'}$$.
 
-- **Epipole** is the point of intersection of the line joining the camera centers with the image plane. (see $$\mathbf{e}$$ and $$\mathbf{e'}$$ in the Fig. 2(a)) 
+- **Epipole** is the point of intersection of the line joining the camera centers with the image plane. (see $$\mathbf{e}$$ and $$\mathbf{e'}$$ in the Fig. 2(a))
 - **Epipolar plane** is the plane containing the baseline.
-- **Epipolar line** is the intersection of an epipolar plane with the image plane. *All the epipolar lines intersect at the epipole.* 
+- **Epipolar line** is the intersection of an epipolar plane with the image plane. *All the epipolar lines intersect at the epipole.*
 
 <a name='estfundmatrix'></a>
 #### 3.2.2. The Fundamental Matrix $$\mathbf{F}$$
@@ -114,12 +114,12 @@ Now, let us say that only $$\mathbf{x}$$ is known, not $$\mathbf{x'}$$. We know 
 The $$\mathbf{F}$$ matrix is only an algebraic representation of epipolar geometry and can both geometrically _(contructing the epipolar line)_ and arithematically. ([See derivation (Page 242)](http://cvrs.whu.edu.cn/downloads/ebooks/Multiple%20View%20Geometry%20in%20Computer%20Vision%20(Second%20Edition).pdf)) ([Fundamental Matrix Song](https://www.youtube.com/watch?v=DgGV3l82NTk))
 As a result, we obtain:
 $$\mathbf{x}_i'^{\ \mathbf{T}}\mathbf{F} \mathbf{x}_i = 0$$
-where $$i=1,2,....,m.$$ 
+where $$i=1,2,....,m.$$
 This is known as epipolar constraint or correspondance condition (or _Longuet-Higgins_ equation). Since, $$\mathbf{F}$$ is a $$3\times3$$ matrix, we can set up a homogenrous linear system with 9 unknowns:
 
 $$\begin{bmatrix} x'_i & y'_i & 1 \end{bmatrix}
 \begin{bmatrix}f_{11} & f_{12} & f_{13} \\ f_{21} & f_{22} & f_{23} \\ f_{31} & f_{32} & f_{33} \end{bmatrix}
-\begin{bmatrix} x_i \\ y_i \\ 1 \end{bmatrix} = 0$$ 
+\begin{bmatrix} x_i \\ y_i \\ 1 \end{bmatrix} = 0$$
 
 
 $$\begin{equation}x_i x'_i f_{11} + x_i y'_i f_{21} + x_i f_{31} + y_i x'_i f_{12} + y_i y'_i f_{22} + y_i f_{32} +  x'_i f_{13} + y'_i f_{23} + f_{33}=0\end{equation}$$
@@ -129,7 +129,7 @@ Simplifying for $$m$$ correspondences,
 
 $$\begin{bmatrix} x_1 x'_1 & x_1 y'_1 & x_1 & y_1 x'_1 & y_1 y'_1 & y_1 &  x'_1 & y'_1 & 1 \\ \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots \\ x_m x'_m & x_m y'_m & x_m & y_m x'_m & y_m y'_m & y_m &  x'_m & y'_m & 1 \end{bmatrix}\begin{bmatrix} f_{11} \\ f_{21} \\ f_{31} \\ f_{12} \\ f_{22} \\ f_{32} \\ f_{13} \\f_{23} \\ f_{33}\end{bmatrix} = 0$$
 
-**_How many points do we need to solve the above equation? Think! Twice!_** 
+**_How many points do we need to solve the above equation? Think! Twice!_**
 Remember _homography_, where each point correspondence contributes two constraints? Unlike homography, in $$\mathbf{F}$$ matrix estimation, each point only contributes one constraints as the epipolar constraint is a scalar equation.
 Thus, we require at least 8 points to solve the above homogenous system. That is why it is known as [Eight-point algorithm](https://en.wikipedia.org/wiki/Eight-point_algorithm).
 
@@ -185,20 +185,20 @@ Below is the pseduo-code that returns the $$\mathbf{F}$$ matrix for a set of mat
 <a name='estE'></a>
 ### 3.3. Estimate *Essential Matrix* from Fundamental Matrix
 
-Since we have computed the $$\mathbf{F}$$ using epipolar constrains, we can find the relative camera poses between the two images. This can be computed using the *Essential Matrix*, $$\mathbf{E}$$. Essential matrix is another $$3\times3$$ matrix, but with some additional properties that relates the corresponding points assuming that the cameras obeys the pinhole model (unlike $$\mathbf{F}$$). More specifically, 
+Since we have computed the $$\mathbf{F}$$ using epipolar constrains, we can find the relative camera poses between the two images. This can be computed using the *Essential Matrix*, $$\mathbf{E}$$. Essential matrix is another $$3\times3$$ matrix, but with some additional properties that relates the corresponding points assuming that the cameras obeys the pinhole model (unlike $$\mathbf{F}$$). More specifically,
 $$\mathbf{E}$$ = $$\mathbf{K^TFK}$$
 where $$\mathbf{K}$$ is the camera calibration matrix or camera intrinsic matrix. Clearly, the essential matrix can be extracted from $$\mathbf{F}$$ and $$\mathbf{K}$$. As in the case of $$\mathbf{F}$$ matrix computation, the singular values of $$\mathbf{E}$$ are not necessarily $$(1,1,0)$$ due to the noise in $$\mathbf{K}$$. This can be corrected by reconstructing it with $$(1,1,0)$$ singular values, _i.e._
 $$\mathbf{E}=U\begin{bmatrix}1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 0 \end{bmatrix}V^T$$
 
 _It is important to note that the $$\mathbf{F}$$ is defined in the original image space (i.e. pixel coordinates) whereas $$\mathbf{E}$$ is in the normalized image coordinates. Normalized image coordinates have the origin at the optical center of the image. Also, relative camera poses between two views can be computed using $$\mathbf{E}$$ matrix. Moreover, $$\mathbf{F}$$ has 7 degrees of freedom while $$\mathbf{E}$$ has 5 as it takes camera parameters in account. ([5-Point Motion Estimation Made Easy](http://users.cecs.anu.edu.au/~hongdong/new5pt_cameraREady_ver_1.pdf))_
 
-**Given $$F$$ , estimate the essential matrix $$E = K^T F K$$ by implementing the function `EssentialMatrixFromFundamentalMatrix.py`.**
+**Given $$F$$, estimate the essential matrix $$E = K^T F K$$ by implementing the function `EssentialMatrixFromFundamentalMatrix.py`.**
 
 <a name='essential'></a>
 ### 3.4. Estimate **Camera Pose** from Essential Matrix
 The camera pose consists of 6 degrees-of-freedom (DOF) Rotation (Roll, Pitch, Yaw) and Translation (X, Y, Z) of the camera with respect to the world. Since the $$\mathbf{E}$$ matrix is identified, the four camera pose configurations: $$(C_1, R_1), (C_2, R_2), (C_3, R_3)$$ and $$(C_4, R4)$$ where $$\ C\in\mathbb{R}^3$$ is the camera center and $$R\in SO(3)$$ is the rotation matrix, can be computed. Thus, the camera pose can be written as:
 $$P = KR\begin{bmatrix}I_{3\times3} & -C\end{bmatrix}$$
-These four pose configurations can be computed from $$\mathbf{E}$$ matrix. Let $$\mathbf{E}=UDV^T$$ and $$W=\begin{bmatrix}0 & -1 & 0\\ 1 & 0 & 0\\ 0 & 0 & 1\end{bmatrix}$$. The four configurations can be written as: 
+These four pose configurations can be computed from $$\mathbf{E}$$ matrix. Let $$\mathbf{E}=UDV^T$$ and $$W=\begin{bmatrix}0 & -1 & 0\\ 1 & 0 & 0\\ 0 & 0 & 1\end{bmatrix}$$. The four configurations can be written as:
 1. $$C_1=U(:, 3)$$ and $$R_1=UWV^T$$
 2. $$C_2=-U(:, 3)$$ and $$R_2=UWV^T$$
 3. $$C_3=U(:, 3)$$ and $$R_3=UW^TV^T$$
@@ -209,15 +209,15 @@ These four pose configurations can be computed from $$\mathbf{E}$$ matrix. Let $
 **Implement the function `ExtractCameraPose.py`, given $$E$$.$$**
 
 <a name='tri'></a>
-### 3.5. **Triangulation** Check for **Cheirality Condition** 
-In the previous section, we computed four different possible camera poses for a pair of images using essential matrix. In this section we will triangulate the 3D points, given two camera poses. 
+### 3.5. **Triangulation** Check for **Cheirality Condition**
+In the previous section, we computed four different possible camera poses for a pair of images using essential matrix. In this section we will triangulate the 3D points, given two camera poses.
 
 **Given two camera poses, $$(C_1, R_1)$$ and $$(C_2, R_2)$$, and correspondences, $$x_1 \leftrightarrow x_2$$, triangulate 3D points using linear least squares. Implement the function `LinearTriangulation.py`.**
 
 Though, in order to find the _correct_ unique camera pose, we need to remove the disambiguity. This can be accomplish by checking the **cheirality condition** _i.e._ *the reconstructed points must be in front of the cameras*. 
 To check the cheirality condition, triangulate the 3D points (given two camera poses) using **linear least squares** to check the sign of the depth $$Z$$ in the camera coordinate system w.r.t. camera center. A 3D point $$X$$ is in front of the camera iff:
 $$r_3\mathbf{(X-C)} > 0$$
-where $$r_3$$ is the third row of the rotation matrix (z-axis of the camera). Not all triangulated points satisfy this coniditon due of the presence of correspondence noise. The best camera configuration, $$(C, R, X)$$ is the one that produces the maximum number of points satisfying the cheirality condition. 
+where $$r_3$$ is the third row of the rotation matrix (z-axis of the camera). Not all triangulated points satisfy this condition due of the presence of correspondence noise. The best camera configuration, $$(C, R, X)$$ is the one that produces the maximum number of points satisfying the cheirality condition.
 
 <div class="fig fighighlight">
   <img src="/assets/2019/p3/lintria.png"  width="60%">
@@ -236,7 +236,7 @@ cameras (implement the function `DisambiguateCameraPose.py`).**
 Given two camera poses and linearly triangulated points, $$X$$, the locations of the 3D points that minimizes the reprojection error (Recall [Project 2](https://cmsc426.github.io/pano/#reproj)) can be refined. The linear triangulation minimizes the algebraic error. Though, the reprojection error is geometrically meaningful error and can be computed by measuring error between measurement and projected 3D point:<br>
 $$\underset{x}{\operatorname{min}}$$ $$\sum_{j=1,2}\left(u^j - \frac{P_1^{jT}\widetilde{X}}{P_3^{jT}{X}}\right)^2 + \left(v^j - \frac{P_2^{jT}\widetilde{X}}{P_3^{jT}{X}}\right)^2$$
 
-Here, $$j$$ is the index of each camera, $$\widetilde{X}$$ is the hoomogeneous representation of $$X$$. $$P_i^T$$ is each row of camera projection matrix, $$P$$. This minimization is highly nonlinear due to the divisions. The initial guess of the solution, $$X_0$$, is estimated via the linear triangulation to minimize the cost function. This minimization can be solved using nonlinear optimization functions such as `scipy.optimize.leastsq` or `scipy.optimize.least_squares` in Scipy library. 
+Here, $$j$$ is the index of each camera, $$\widetilde{X}$$ is the homogeneous representation of $$X$$. $$P_i^T$$ is each row of camera projection matrix, $$P$$. This minimization is highly nonlinear due to the divisions. The initial guess of the solution, $$X_0$$, is estimated via the linear triangulation to minimize the cost function. This minimization can be solved using nonlinear optimization functions such as `scipy.optimize.leastsq` or `scipy.optimize.least_squares` in Scipy library.
 
 <div class="fig fighighlight">
   <img src="/assets/2019/p3/nonlintria.png"  width="100%">
@@ -290,8 +290,7 @@ here $$\widetilde{X}$$ is the homogeneous representation of $$X$$. $$P_i^T$$ is 
 
 $$\underset{C,q}{\operatorname{min}} \sum_{i=1,J} \left(u^j - \frac{P_1^{jT}\widetilde{X_j}}{P_3^{jT}{\widetilde{X_j}}}\right)^2 + \left(v^j - \frac{P_2^{jT}\widetilde{X_j}}{P_3^{jT}{X_j}}\right)^2$$
 
-This minimization is highly nonlinear because of the divisions and quaternion parameteriza-
-tion. The initial guess of the solution, $$(C_0, R_0)$$, estimated via the linear PnP is needed to
+This minimization is highly nonlinear because of the divisions and quaternion parameterization. The initial guess of the solution, $$(C_0, R_0)$$, estimated via the linear PnP is needed to
 minimize the cost function. This minimization can be solved using a nonlinear optimization
 function such as `scipy.optimize.leastsq` or `scipy.optimize.least_squares` in Scipy library.
 
@@ -321,7 +320,7 @@ poses and 3D points simultaneously by minimizing the following reprojection erro
 $$q_{i_{i=1}}^I$$ and $$X_{j_{j=1}}^J$$.
 
 
-The optimization problem can formulated as following:
+The optimization problem can be formulated as following:
 
 $$\underset{\{C_i, q_i\}_{i=1}^i,\{X\}_{j=1}^J}{\operatorname{min}}\sum_{i=1}^I\sum_{j=1}^J V_{ij}\left(\left(u^j - \dfrac{P_1^{jT}\tilde{X}}{P_3^{jT}\tilde{X}}\right)^2 + \left(v^j - \dfrac{P_2^{jT}\tilde{X}}{P_3^{jT}\tilde{X}}\right)^2\right)$$
 where $$V_{ij}$$ is the visibility matrix.
@@ -330,7 +329,7 @@ Clearly, solving such a method to compute the structure from motion is complex a
 
 ## 4. Putting the pipeline together
 
-Write a program `Wrapper.py` that run the full pipeline of structure from motion based on the above algorithm. 
+Write a program `Wrapper.py` that run the full pipeline of structure from motion based on the above algorithm.
 
 Also, compare your result against VSfM output. You can download the off-the-shelf SfM software here: [VSfM](http://ccwu.me/vsfm/).
 
@@ -381,7 +380,7 @@ Your submission on ELMS/Canvas must be a ``zip`` file, following the naming conv
 ```
 YourDirectoryID_hw1.zip
 │   README.md
-|   Your Code files 
+|   Your Code files
 |   ├── GetInliersRANSAC.py
 |   ├── EstimateFundamentalMatrix.py
 |   ├── EssentialMatrixFromFundamentalMatrix.py
@@ -395,7 +394,7 @@ YourDirectoryID_hw1.zip
 |   ├── BundleAdjustment.py
 |   ├── Wrapper.py
 |   ├── Any subfolders you want along with files
-|   Wrapper.py 
+|   Wrapper.py
 |   Data
 |   ├── BundleAdjustmentOutputForAllImage
 |   ├── FeatureCorrespondenceOutputForAllImageSet
@@ -408,7 +407,7 @@ YourDirectoryID_hw1.zip
 <a name='report'></a>
 ### 6.2. Report
 
-There will be no Test Set for this project. 
+There will be no Test Set for this project.
 For each section of the project, explain briefly what you did, and describe any interesting problems you encountered and/or solutions you implemented.  You must include the following details in your writeup:
 
 - Please make your report extremely detailed with re-projection error after each step (Linear, Non-linear triangulation, Linear, Non-linear PnP before and after BA and so on). Describe all the steps (anything that is not obvious) and any
@@ -418,7 +417,7 @@ other observations in your report.
 
 - Present the Data you collected in ``Data/Imgs/``.
 
-- Present failure cases and explanation, if any. 
+- Present failure cases and explanation, if any.
 
 - Do not use any function that directly implements a part of the pipeline. If you have any doubts, please contact us via Piazza.
 
