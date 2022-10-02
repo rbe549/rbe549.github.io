@@ -380,7 +380,7 @@ This algorithm represents a scene using a fully-connected (non-convolution) deep
   <div class="figcaption">
   Figure: The loss of the NERF.
   <div style="clear:both;"></div>
-<\div>
+</div>
 
 They synthesize views by querying 5D coordinates along camera rays and use classic volume rendering techniques to project the output colors and densities into an image. Because volume rendering is naturally differentiable, the only input required to optimize our representation is a set of images with known camera poses. They describe how to effectively optimize neural radiance fields to render photorealistic novel views of scenes with complicated geometry and appearance, and demonstrate results that outperform prior work on neural rendering and view synthesis.
 
