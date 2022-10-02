@@ -392,6 +392,7 @@ They synthesize views by querying 5D coordinates along camera rays and use class
 
 <a name="synthetic_results"></a>
 ### 5.2 Synthetic Results
+TO BE ADDED
 
 <a name='testset'></a>
 
