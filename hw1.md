@@ -52,7 +52,7 @@ the outer squares (the row and columns of squares on the edges of the checkerboa
 ## 4. Initial Parameter Estimation
 We are trying to get a good initial estimate of the parameters so that we can feed it into the non-linear optimizer. We will define the parameters we are using in the code next.
 
-$$x$$ denotes the image points, $$X$$ denotes the world points (points on the checkerboard), $$k = \[k_1, k_2\]$$ denotes the radial distortion parameters, $$K$$ denotes the camera calibration matrix, $$R$$ and $$t$$ represent the rotation matrix and the translation of the camera in the world frame.
+$$x$$ denotes the image points, $$X$$ denotes the world points (points on the checkerboard), $$k = [k_1, k_2]$$ denotes the radial distortion parameters, $$K$$ denotes the camera calibration matrix, $$R$$ and $$t$$ represent the rotation matrix and the translation of the camera in the world frame.
 
 <a name='solveK'></a>
 ### 4.1. Solving for approximate $$K$$ or camera intrinsic matrix
