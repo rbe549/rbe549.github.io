@@ -12,7 +12,7 @@ Table of Contents:
 - [4. Initial Parameter Estimation](#init)
   - [4.1. Solving for approximate $$K$$ or camera intrinsic matrix](#solveK)
   - [4.2. Estimate approximate $$R$$ and $$t$$ or camera extrinsics](#solveRT)
-  - [4.3. Approximate Distortion $$k_c$$](#solvedist)
+  - [4.3. Approximate Distortion $$k$$](#solvedist)
 - [5. Non-linear Geometric Error Minimization](#nonlinmin)
 - [6. Submission Guidelines](#sub)
   - [6.1. File tree and naming](#files)
@@ -45,14 +45,14 @@ and radial distortion parameters are denoted by $$k_1$$ and $$k_2$$ respectively
 ## 3. Data
 The Zhang's paper relies on a calibration target (checkerboard in our case) to estimate camera intrinsic parameters. The calibration target used can be found in the file ``checkerboardPattern.pdf`` [Link](https://github.com/cmsc733/cmsc733.github.io/raw/master/assets/2019/hw1/checkerboardPattern.pdf). This was
 printed on an A4 paper and the size of each square was 21.5mm. Note that the $$Y$$ axis has odd number of squares and $$X$$ axis has even number of squares. It is a general practice to neglect
-the outer squares (extreme square on each side and in both directions). Thirteen images taken from a Google Pixel XL phone with focus locked can be downloaded from [here](https://github.com/cmsc733/cmsc733.github.io/raw/master/assets/2019/hw1/Calibration_Imgs.zip) which you will use to calibrate.
+the outer squares (the row and columns of squares on the edges of the checkerboard). For example, if you have a $$5\times8$$ grid, you'll only consider the inner $$3\times6$$ grid for computation. **Again, this is not necessary but a common practice.** Thirteen images taken from a Google Pixel XL phone with focus locked can be downloaded from [here](https://github.com/cmsc733/cmsc733.github.io/raw/master/assets/2019/hw1/Calibration_Imgs.zip) which you will use to calibrate.
 
 
 <a name='init'></a>
 ## 4. Initial Parameter Estimation
 We are trying to get a good initial estimate of the parameters so that we can feed it into the non-linear optimizer. We will define the parameters we are using in the code next.
 
-$$x$$ denotes the image points, $$X$$ denotes the world points (points on the checkerboard), $$k_s$$ denotes the radial distortion parameters, $$K$$ denotes the camera calibration matrix, $$R$$ and $$t$$ represent the rotation matrix and the translation of the camera in the world frame.
+$$x$$ denotes the image points, $$X$$ denotes the world points (points on the checkerboard), $$k$$ denotes the radial distortion parameters, $$K$$ denotes the camera calibration matrix, $$R$$ and $$t$$ represent the rotation matrix and the translation of the camera in the world frame.
 
 <a name='solveK'></a>
 ### 4.1. Solving for approximate $$K$$ or camera intrinsic matrix
@@ -64,15 +64,20 @@ Refer to Section 3.1 in [this paper](https://www.microsoft.com/en-us/research/wp
 Refer to Section 3.1 in [this paper](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tr98-71.pdf)  for details on how to estimate $$R$$ and $$t$$. Note that the author mentions a method to convert a normal matrix to a rotation matrix in Appendix C, this can be neglected most of the times.
 
 <a name='solvedist'></a>
-### 4.3. Approximate Distortion $$k_c$$
-Because we assumed that the camera has minimal distortion we can assume that $$k_c = [0, 0]^T$$ for a good initial estimate.
+### 4.3. Approximate Distortion $$k$$
+Because we assumed that the camera has minimal distortion we can assume that $$k = [0, 0]^T$$ for a good initial estimate.
 
 <a name='nonlinmin'></a>
 ## 5. Non-linear Geometric Error Minimization
-We have the initial estimates of $$K, R, t, k_s$$, now we want to minimize the geometric error defined as given below
+We have the initial estimates of $$K, R, t, k$$, now we want to minimize the geometric error defined as given below
 
 $$
-\sum_{i=1}^N \sum_{j=1}^M \vert \vert x_{i,j} - \hat x_{i,j}\left(K, R_i, t_i, X_j, k_s \right)\vert \vert
+\sum_{i=1}^N \sum_{j=1}^M \vert \vert x_{i,j} - \hat x_{i,j}\left(K, R_i, t_i, X_j, k \right)\vert \vert
+$$
+
+Formally, the optimization problem is as follows:
+$$
+\text{argmin}_{f_x, f_y, c_x, c_y, k_1, k_2}{\sum_{i=1}^N \sum_{j=1}^M \vert \vert x_{i,j} - \hat x_{i,j}\left(K, R_i, t_i, X_j, k \right)\vert \vert}
 $$
 
 Here $$x_{i,j}$$ and $$\hat x_{i,j}$$ are an inhomogeneous representation. Feel free to use ``scipy.optimize`` to minimize the loss function described above. Refer to Section 3.3 in [this paper](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/tr98-71.pdf) for a detailed explanation of the distortion model, you'll need this part for the minimization function.
