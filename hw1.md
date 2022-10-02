@@ -77,6 +77,7 @@ $$
 
 Formally, the optimization problem is as follows:
 
+
 $$
 \text{argmin}_{f_x, f_y, c_x, c_y, k_1, k_2}{\sum_{i=1}^N \sum_{j=1}^M \vert \vert x_{i,j} - \hat x_{i,j}\left(K, R_i, t_i, X_j, k \right)\vert \vert}
 $$
