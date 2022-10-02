@@ -25,17 +25,17 @@ Table of Contents:
     - [3.2.3. Match Outlier Rejection using RANSAC](#ransac)
   - [3.3. Estimate *Essential Matrix* from Fundamental Matrix](#estE)
 
-	- [3.4. Estimate Camera Pose from Essential Matrix](#essential)
+  - [3.4. Estimate Camera Pose from Essential Matrix](#essential)
 
-	- [3.5. Check for Cheirality Condition using Triangulation](#tri)
-		- [3.5.1. Non-Linear Triangulation](#nonlintri)
-	- [3.6. Perspective-$$n$$-points](#pnp)
-		- [3.6.1. Linear Camera Pose Estimation](#campose)
-		- [3.6.2. PnP RANSAC](#pnpransac)
-		- [3.6.3. NonLinear PnP](#nonpnp)
-	- [3.7. Bundle Adjustment](#ba)
-		- [3.7.1. Visibility Matrix](#vismatrix)
-		- [3.7.2. Bundle Adjustment](#sba)
+  - [3.5. Check for Cheirality Condition using Triangulation](#tri)
+    - [3.5.1. Non-Linear Triangulation](#nonlintri)
+  - [3.6. Perspective-$$n$$-points](#pnp)
+    - [3.6.1. Linear Camera Pose Estimation](#campose)
+    - [3.6.2. PnP RANSAC](#pnpransac)
+    - [3.6.3. NonLinear PnP](#nonpnp)
+  - [3.7. Bundle Adjustment](#ba)
+    - [3.7.1. Visibility Matrix](#vismatrix)
+    - [3.7.2. Bundle Adjustment](#sba)
 
 - [4. Putting the pipeline together](#combine)
 
@@ -44,8 +44,8 @@ Table of Contents:
 - [6. Notes about Data Set](#dataset)
 
 - [7. Submission Guidelines](#sub)
-	- [7.1. File tree and naming](#files)
-	- [7.2. Report](#report)
+  - [7.1. File tree and naming](#files)
+  - [7.2. Report](#report)
 
 - [8. Collaboration Policy](#coll)
 
@@ -71,7 +71,7 @@ Let's learn how to recreate such algorithm. There are a few steps that collectiv
 - **Perspective-n-Point**
 - **Bundle Adjustment**
 
-<a name='intradtro'></a>
+<a name='trad'></a>
 
 ## 3. Traditional Approach to the SfM problem
 
@@ -105,12 +105,12 @@ and the plane formed can be denoted by $$\pi$$. Since these points are coplanar,
 <div class="fig fighighlight">
   <img src="/assets/2019/p3/epipole1.png"  width="120%">
   <div class="figcaption">
- 	Figure 2(a): Caption goes here.
+  Figure 2(a): Caption goes here.
   </div>
 <br><br>
   <img src="/assets/2019/p3/epipole2.png"  width="120%">
   <div class="figcaption">
-  	Figure 2(b): Caption goes here.
+   Figure 2(b): Caption goes here.
   </div>
 </div>
 
@@ -146,14 +146,12 @@ Remember *homography*, where each point correspondence contributes two constrain
 Thus, we require at least 8 points to solve the above homogenous system. That is why it is known as [Eight-point algorithm](https://en.wikipedia.org/wiki/Eight-point_algorithm).
 
 With $$N \geq 8$$ correspondences between two images, the fundamental matrix, $$F$$ can be obtained as:
-By stacking the above equation in a matrix $$A$$, the equation
-$$Ax=0$$ is obtained.
-	This system of equation can be answered by solving the linear least squares using Singular Value Decomposition (SVD) as explained in the <a href="https://cmsc426.github.io/math-tutorial/#svd">Math module</a>. When applying SVD to matrix $$\mathbf{A}$$, the decomposition $$\mathbf{USV^T}$$ would be obtained with $$\mathbf{U}$$ and $$\mathbf{V}$$ orthonormal matrices and a diagonal matrix $$\mathbf{S}$$ that contains the singular values. The singular values $$\sigma_i$$ where $$i\in[1,9], i\in\mathbb{Z}$$, are positive and are in decreasing order with $$\sigma_9=0$$ since we have 8 equations for 9 unknowns. Thus, the last column of $$\mathbf{V}$$ is the true solution given that $$\sigma_i\neq 0 \  \forall i\in[1,8], i\in\mathbb{Z}$$. However, due to noise in the correspondences, the estimated $$\mathbf{F}$$ matrix can be of rank 3 *i.e.* $$\sigma_9\neq0$$. So, to enforce the rank 2 constraint, the last singular value of the estimated $$\mathbf{F}$$ must be set to zero. If $$F$$ has a full rank then it will have an empty null-space *i.e.* it won't have any point that is on entire set of lines. Thus, there wouldn't be any epipoles. See Fig. 3 for full rank comparisons for $$F$$ matrices.
+By stacking the above equation in a matrix $$A$$, the equation $$Ax=0$$ is obtained. This system of equation can be answered by solving the linear least squares using Singular Value Decomposition (SVD) as explained in the <a href="https://cmsc426.github.io/math-tutorial/#svd">Math module</a>. When applying SVD to matrix $$\mathbf{A}$$, the decomposition $$\mathbf{USV^T}$$ would be obtained with $$\mathbf{U}$$ and $$\mathbf{V}$$ orthonormal matrices and a diagonal matrix $$\mathbf{S}$$ that contains the singular values. The singular values $$\sigma_i$$ where $$i\in[1,9], i\in\mathbb{Z}$$, are positive and are in decreasing order with $$\sigma_9=0$$ since we have 8 equations for 9 unknowns. Thus, the last column of $$\mathbf{V}$$ is the true solution given that $$\sigma_i\neq 0 \  \forall i\in[1,8], i\in\mathbb{Z}$$. However, due to noise in the correspondences, the estimated $$\mathbf{F}$$ matrix can be of rank 3 *i.e.* $$\sigma_9\neq0$$. So, to enforce the rank 2 constraint, the last singular value of the estimated $$\mathbf{F}$$ must be set to zero. If $$F$$ has a full rank then it will have an empty null-space *i.e.* it won't have any point that is on entire set of lines. Thus, there wouldn't be any epipoles. See Fig. 3 for full rank comparisons for $$F$$ matrices.
 
 <div class="fig fighighlight">
   <img src="/assets/2019/p3/FMatrixRank.png"  width="120%">
   <div class="figcaption">
- 	Figure 3: F Matrix: Rank 3 vs Rank 2 comparison
+  Figure 3: F Matrix: Rank 3 vs Rank 2 comparison
   </div>
   <div style="clear:both;"></div>
 </div>
@@ -178,13 +176,13 @@ Below is the pseduo-code that returns the $$\mathbf{F}$$ matrix for a set of mat
 <div class="fig fighighlight">
   <img src="/assets/2019/p3/ransac.png"  width="80%">
   <div class="figcaption">
- 	Algorithm 1: Get Inliers RANSAC
+  Algorithm 1: Get Inliers RANSAC
   </div>
   <div style="clear:both;"></div>
 <br><br>
   <img src="/assets/2019/p3/featmatchransac.png"  width="100%">
   <div class="figcaption">
- 	Figure 4: Feature matching after RANSAC. (Green: Selected correspondences; Red: Rejected correspondences)
+  Figure 4: Feature matching after RANSAC. (Green: Selected correspondences; Red: Rejected correspondences)
   </div>
   <div style="clear:both;"></div>
 </div>
@@ -237,7 +235,7 @@ where $$r_3$$ is the third row of the rotation matrix (z-axis of the camera). No
 <div class="fig fighighlight">
   <img src="/assets/2019/p3/lintria.png"  width="60%">
   <div class="figcaption">
-  	Figure 5: Initial triangulation plot with disambiguity, showing all four possible camera poses.
+   Figure 5: Initial triangulation plot with disambiguity, showing all four possible camera poses.
   </div>
   <div style="clear:both;"></div>
 </div>
@@ -258,7 +256,7 @@ Here, $$j$$ is the index of each camera, $$\widetilde{X}$$ is the homogeneous re
 <div class="fig fighighlight">
   <img src="/assets/2019/p3/nonlintria.png"  width="100%">
   <div class="figcaption">
- 	Figure 6: Comparison between non-linear vs linear triangulation.
+  Figure 6: Comparison between non-linear vs linear triangulation.
   </div>
   <div style="clear:both;"></div>
 </div>
@@ -279,7 +277,7 @@ Given 2D-3D correspondences, $$X\leftrightarrow x$$ and the intrinsic parameter 
 <div class="fig fighighlight">
   <img src="/assets/2019/p3/PnPRANSAC.png"  width="50%">
   <div class="figcaption">
- 	Figure: Plot of the camera poses with feature points. Different color represents feature correspondences from different pair of images. Blue points are features from Image 1 and Image 2; Red points are features from Image 2 and Image 3 etc.
+  Figure: Plot of the camera poses with feature points. Different color represents feature correspondences from different pair of images. Blue points are features from Image 1 and Image 2; Red points are features from Image 2 and Image 3 etc.
   </div>
   <div style="clear:both;"></div>
 </div>
@@ -293,7 +291,7 @@ The alogrithm below depicts the solution with RANSAC.
 <div class="fig fighighlight">
   <img src="/assets/2019/p3/pnpransac.png"  width="80%">
   <div class="figcaption">
- 	Algorithm 2: PnP RANSAC
+  Algorithm 2: PnP RANSAC
   </div>
   <div style="clear:both;"></div>
 </div>
@@ -358,7 +356,7 @@ Also, compare your result against VSfM output. You can download the off-the-shel
 <div class="fig fighighlight">
   <img src="/assets/2019/p3/summary.png"  width="80%">
   <div class="figcaption">
- 	Figure: The overview.
+  Figure: The overview.
   </div>
   <div style="clear:both;"></div>
 </div>
