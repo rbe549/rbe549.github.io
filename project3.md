@@ -372,6 +372,17 @@ You are going to be implementing the original NERF algorithm (from [this paper](
   <div style="clear:both;"></div>
 </div>
 
+This algorithm represents a scene using a fully-connected (non-convolution) deep neural network, whose input is a single continuous 5D coordinate (spatial location ($$x, y, z$$) and viewing direction $$\theta, \psi$$) and whose output is the volume density and view-dependent emitted radiance at that spatial location.
+
+<div class="nerf_loss">
+  <img src="/assets/2019/p3/nerf_loss.png" width="80%>
+  <div class="figcaption">
+  Figure: The loss of the NERF.
+  <div style="clear:both;"></div>
+<\div>
+
+They synthesize views by querying 5D coordinates along camera rays and use classic volume rendering techniques to project the output colors and densities into an image. Because volume rendering is naturally differentiable, the only input required to optimize our representation is a set of images with known camera poses. They describe how to effectively optimize neural radiance fields to render photorealistic novel views of scenes with complicated geometry and appearance, and demonstrate results that outperform prior work on neural rendering and view synthesis.
+
 <a name='testset'></a>
 
 ## 6. Notes about the Data Set
