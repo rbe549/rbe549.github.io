@@ -40,6 +40,8 @@ Table of Contents:
 - [4. Putting the pipeline together](#combine)
 
 - [5. Phase: 2 Deep Learning Approach](#nerf)
+  - [5.1 Abstract and Method](#abstract_and_method)
+  - [5.2 Synthetic Results](#synthetic_results)
 
 - [6. Notes about Data Set](#dataset)
 
@@ -364,6 +366,8 @@ Also, compare your result against VSfM output. You can download the off-the-shel
 ## 5. Phase: 2 Deep Learning Approach
 
 You are going to be implementing the original NERF algorithm (from [this paper](https://arxiv.org/abs/2003.08934)).
+
+<a name="abstract_and_method"></a>
 ### 5.1 Abstract and Method
 NERF is a method that achieves state-of-the-art results for synthesizing novel views of complex scenes by optimizing an underlying continuous volumetric scene function using a sparse set of input views.
 
@@ -386,6 +390,7 @@ This algorithm represents a scene using a fully-connected (non-convolution) deep
 
 They synthesize views by querying 5D coordinates along camera rays and use classic volume rendering techniques to project the output colors and densities into an image. Because volume rendering is naturally differentiable, the only input required to optimize our representation is a set of images with known camera poses. They describe how to effectively optimize neural radiance fields to render photorealistic novel views of scenes with complicated geometry and appearance, and demonstrate results that outperform prior work on neural rendering and view synthesis.
 
+<a name="synthetic_results"></a>
 ### 5.2 Synthetic Results
 
 <a name='testset'></a>
