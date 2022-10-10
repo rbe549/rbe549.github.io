@@ -2,7 +2,7 @@
 layout: page
 mathjax: true
 title: Buildings built in minutes - An SfM&NERF Approach
-permalink: /spring2022/proj/p3/
+permalink: /fall2022/proj/p3/
 ---
 
 Table of Contents:
@@ -418,7 +418,7 @@ TO BE ADDED
 
 Your submission on ELMS/Canvas must be a ``zip`` file, following the naming convention ``YourDirectoryID_p3.zip``. If you email ID is ``abc@wpi.edu``, then your ``DirectoryID`` is ``abc``. For our example, the submission file should be named ``abc_p3.zip``. The file **must have the following directory structure** because we'll be autograding assignments. The file to run for your project should be called ``Wrapper.py``. You can have any helper functions in sub-folders as you wish, be sure to index them using relative paths and if you have command line arguments for your Wrapper codes, make sure to have default values too. Please provide detailed instructions on how to run your code in ``README.md`` file. Please **DO NOT** include data in your submission.
 
-```bash
+```
 YourDirectoryID_p3.zip
 │   README.md
 |   Your Code files
