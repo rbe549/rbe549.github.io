@@ -380,6 +380,7 @@ Also, capture a set of images and run your SfM algorithm. DO NOT steal images fr
 You are going to be implementing the original NERF method (from [this paper](https://arxiv.org/abs/2003.08934)).
 
 <a name="abstract_and_method"></a>
+
 ### 6.1 Abstract and Method
 NERF is a method that sparked a new revolution in the represention of 3D scenes by being able to synthesize novel views of complex scenes by optimizing an underlying continuous volumetric scene function using a sparse set of input views.
 
@@ -403,6 +404,7 @@ This approach represents a scene using a fully-connected (non-convolution) deep 
 They synthesize views by querying 5D coordinates along camera rays and use classic volume rendering techniques to project the output colors and densities into an image. Because volume rendering is naturally differentiable, the only input required to optimize our representation is a set of images with known camera poses. They describe how to effectively optimize neural radiance fields to render photorealistic novel views of scenes with complicated geometry and appearance, and demonstrate results that outperform prior work on neural rendering and view synthesis.
 
 <a name="synthetic_results"></a>
+
 ### 6.2 Synthetic Results
 TO BE ADDED
 
@@ -417,7 +419,7 @@ TO BE ADDED
 ### 7.1. File tree and naming
 
 Your submission on ELMS/Canvas must be a ``zip`` file, following the naming convention ``YourDirectoryID_p3.zip``. If you email ID is ``abc@wpi.edu``, then your ``DirectoryID`` is ``abc``. For our example, the submission file should be named ``abc_p3.zip``. The file **must have the following directory structure** because we'll be autograding assignments. The file to run for your project should be called ``Wrapper.py``. You can have any helper functions in sub-folders as you wish, be sure to index them using relative paths and if you have command line arguments for your Wrapper codes, make sure to have default values too. Please provide detailed instructions on how to run your code in ``README.md`` file. Please **DO NOT** include data in your submission.
-
+<!-- 
 ```
 YourDirectoryID_p3.zip
 │   README.md
@@ -444,7 +446,7 @@ YourDirectoryID_p3.zip
 |   ├── PnPOutputForAllImageSetShowingCameraPoses
 |   ├── Imgs/
 └── Report.pdf
-```
+``` -->
 
 <a name='report'></a>
 
