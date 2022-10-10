@@ -5,28 +5,18 @@ title: Buildings built in minutes - An SfM&NERF Approach
 permalink: /spring2022/proj/p3/
 ---
 
-This article is edited by Lening Li.
-If you have any questions/corrections regarding the article, please email at lli4[at]wpi[dot][edu].
-
-**To be submitted in a group of two.**
-
 Table of Contents:
 
 - [1. Deadline](#due)
 - [2. Introduction](#intro)
-
 - [3. Phase 1: Traditional Approach](#trad)
-
   - [3.1. Feature Matching](#featmatch)
-
   - [3.2. Estimating Fundamental Matrix](#estfundmatrix)
     - [3.2.1. Epipolar Geometry](#epipole)
     - [3.2.2. Fundamental Matrix](#fundmatrix)
     - [3.2.3. Match Outlier Rejection using RANSAC](#ransac)
   - [3.3. Estimate *Essential Matrix* from Fundamental Matrix](#estE)
-
   - [3.4. Estimate Camera Pose from Essential Matrix](#essential)
-
   - [3.5. Check for Cheirality Condition using Triangulation](#tri)
     - [3.5.1. Non-Linear Triangulation](#nonlintri)
   - [3.6. Perspective-$$n$$-points](#pnp)
@@ -36,28 +26,22 @@ Table of Contents:
   - [3.7. Bundle Adjustment](#ba)
     - [3.7.1. Visibility Matrix](#vismatrix)
     - [3.7.2. Bundle Adjustment](#sba)
-
 - [4. Putting the pipeline together](#combine)
-
-- [5. Phase: 2 Deep Learning Approach](#nerf)
-  - [5.1 Abstract and Method](#abstract_and_method)
-  - [5.2 Synthetic Results](#synthetic_results)
-
-- [6. Notes about Data Set](#dataset)
-
+- [5. Dataset for Classical SfM](#dataclassical)
+- [6. Phase 2: Deep Learning Approach](#nerf)
+  - [6.1 Abstract and Method](#abstract_and_method)
+  - [6.2 Synthetic Results](#synthetic_results)
 - [7. Submission Guidelines](#sub)
   - [7.1. File tree and naming](#files)
   - [7.2. Report](#report)
-
 - [8. Collaboration Policy](#coll)
-
 - [9. Acknowledgements](#ack)
 
 <a name='due'></a>
 
 ## 1. Deadline
 
-**11:59PM, April 28, 2022.**
+**11:59PM, Nov 05, 2022. This project is to be done in groups of 2.**
 
 <a name='intro'></a>
 
@@ -353,62 +337,27 @@ Write a program `Wrapper.py` that run the full pipeline of structure from motion
 
 Also, compare your result against VSfM output. You can download the off-the-shelf SfM software here: [VSfM](http://ccwu.me/vsfm/).
 
-## Project Overview
-
 <div class="fig fighighlight">
   <img src="/assets/2019/p3/summary.png"  width="80%">
   <div class="figcaption">
-  Figure: The overview.
+  Figure 8: Alogrithmic overview of SfM.
   </div>
   <div style="clear:both;"></div>
 </div>
 
-<a name="nerf"></a>
+<a name='dataclassical'></a>
 
-## 5. Phase: 2 Deep Learning Approach
+## 5. Dataset for Classical SfM
 
-You are going to be implementing the original NERF algorithm (from [this paper](https://arxiv.org/abs/2003.08934)).
-
-<a name="abstract_and_method"></a>
-### 5.1 Abstract and Method
-NERF is a method that achieves state-of-the-art results for synthesizing novel views of complex scenes by optimizing an underlying continuous volumetric scene function using a sparse set of input views.
-
-<div class="nerf_dataflow">
-  <img src="/assets/2019/p3/nerf_dataflow.svg" width="80%">
-  <div class="figcaption">
-  Figure: The input and output of the NERF algorithm.
-  </div>
-  <div style="clear:both;"></div>
-</div>
-
-This algorithm represents a scene using a fully-connected (non-convolution) deep neural network, whose input is a single continuous 5D coordinate (spatial location ($$x, y, z$$) and viewing direction $$\theta, \psi$$) and whose output is the volume density and view-dependent emitted radiance at that spatial location.
-
-<div class="nerf_loss">
-  <img src="/assets/2019/p3/nerf_loss.png" width="80%">
-  <div class="figcaption">
-  Figure: The loss of the NERF.
-  <div style="clear:both;"></div>
-</div>
-
-They synthesize views by querying 5D coordinates along camera rays and use classic volume rendering techniques to project the output colors and densities into an image. Because volume rendering is naturally differentiable, the only input required to optimize our representation is a set of images with known camera poses. They describe how to effectively optimize neural radiance fields to render photorealistic novel views of scenes with complicated geometry and appearance, and demonstrate results that outperform prior work on neural rendering and view synthesis.
-
-<a name="synthetic_results"></a>
-### 5.2 Synthetic Results
-TO BE ADDED
-
-<a name='testset'></a>
-
-## 6. Notes about the Data Set
-
-Run your SfM/NERF algorithm on the images provided [here](https://github.com/cmsc733/cmsc733.github.io/blob/master/assets/2019/p3/Data.zip). The data given to you are a set of 6 images of building in-front of Levine Hall at UPenn, using a GoPro Hero 3 with fisheye lens distortion corrected. Keypoints matching (SIFT keypoints and descriptors used) data is also provided in the same folder for pairs of images. The data folder contains 5 matching files named `matching*.txt` where `*` refers to numbers from 1 to 5. For eg., `matching3.txt` contains the matching between the third image and the fourth, fifth and sixth images, i.e., $$\mathcal{I}_3 \leftrightarrow \mathcal{I}_4$$, $$\mathcal{I}_3 \leftrightarrow \mathcal{I}_5$$ and $$\mathcal{I}_3 \leftrightarrow \mathcal{I}_6$$ . Therefore, `matching6.txt` does not exist because it is the matching by itself.
+Run your classical SfM algorithm on the images provided [here](https://github.com/cmsc733/cmsc733.github.io/blob/master/assets/2019/p3/Data.zip). The data given to you are a set of 6 images of building in-front of Levine Hall at UPenn, using a GoPro Hero 3 with fisheye lens distortion corrected. Keypoints matching (SIFT keypoints and descriptors used) data is also provided in the same folder for pairs of images. The data folder contains 5 matching files named `matching*.txt` where `*` refers to numbers from 1 to 5. For eg., `matching3.txt` contains the matching between the third image and the fourth, fifth and sixth images, i.e., \\(\mathcal{I}_3 \leftrightarrow \mathcal{I}_4, \mathcal{I}_3 \leftrightarrow \mathcal{I}_5\\) and \\(\mathcal{I}_3 \leftrightarrow \mathcal{I}_6\\) . Therefore, `matching6.txt` does not exist because it is the matching by itself.
 
 The file format of the matching file is described next. Each matching file is formatted as
 follows for the i th matching file:
 
-**nFeatures:** (the number of feature points of the $$i^{th}$$ image - each following row specifies
-matches across images given a feature location in the $$i^{th}$$ image.)
+**nFeatures:** (the number of feature points of the \\(i^{th}\\) image - each following row specifies
+matches across images given a feature location in the \\(i^{th}\\) image.)
 
-**Each Row:** (the number of matches for the $$j^{th}$$ feature) (Red Value) (Green Value) (Blue Value) ($$u_{\texttt{current image}}$$) ($$v_{\texttt{current image}}$$) (image id) ($$u_{\texttt{image id image}}$$) ($$v_{\texttt{image id image}}$$) (image id) ($$u_{\texttt{image id image}}$$)
+**Each Row:** (the number of matches for the $$j^{th}$$ feature) (Red Value) (Green Value) (Blue Value) (\\(u_{\texttt{current image}}\\)) (\\(v_{\texttt{current image}}\\)) (image id) (\\(u_{\texttt{image id image}}\\)) (\\(v_{\texttt{image id image}}\\)) (image id) (\\(u_{\texttt{image id image}}\\))
 (v_{image id image}) ...
 
 An example of matching1.txt is given below:
@@ -419,10 +368,43 @@ nFeatures: 2002
 2 137 128 105 454.740000 392.370000 4 447.580000 479.360000
 ```
 
-The images are taken at 1280 × 960 resolution and the camera intrinsic parameters $$K$$ are given in `calibration.txt` file. You will program this full pipeline guided by the functions described in following sections.
+The images are taken at 1280 × 960 resolution and the camera intrinsic parameters \\(K\\) are given in `calibration.txt` file. You will program this full pipeline guided by the functions described in following sections.
 
 **For the extra credit:**
 Also, capture a set of images and run your SfM algorithm. DO NOT steal images from the internet. Analyze the success and the failure of your algorithm and showcase that in your report. Note: You need to capture images, calibrate them and undistort them. Feel free to use any in-built calibration tool for this. MATLAB's calibration tool in Computer Vision toolbox will be handy.
+
+<a name="nerf"></a>
+
+## 6. Phase: 2 Deep Learning Approach
+
+You are going to be implementing the original NERF method (from [this paper](https://arxiv.org/abs/2003.08934)).
+
+<a name="abstract_and_method"></a>
+### 6.1 Abstract and Method
+NERF is a method that sparked a new revolution in the represention of 3D scenes by being able to synthesize novel views of complex scenes by optimizing an underlying continuous volumetric scene function using a sparse set of input views.
+
+<div class="nerf_dataflow">
+  <img src="/assets/2019/p3/nerf_dataflow.svg" width="80%">
+  <div class="figcaption">
+  Figure 9: The input and output of NERF.
+  </div>
+  <div style="clear:both;"></div>
+</div>
+
+This approach represents a scene using a fully-connected (non-convolution) deep neural network, whose input is a single continuous 5D coordinate (spatial location (\\(x, y, z\\)) and viewing direction \\(\theta, \psi\\)) and whose output is the volume density and view-dependent emitted radiance at that spatial location.
+
+<div class="nerf_loss">
+  <img src="/assets/2019/p3/nerf_loss.png" width="80%">
+  <div class="figcaption">
+  Figure 10: Physical Interpretation of NERF.
+  <div style="clear:both;"></div>
+</div>
+
+They synthesize views by querying 5D coordinates along camera rays and use classic volume rendering techniques to project the output colors and densities into an image. Because volume rendering is naturally differentiable, the only input required to optimize our representation is a set of images with known camera poses. They describe how to effectively optimize neural radiance fields to render photorealistic novel views of scenes with complicated geometry and appearance, and demonstrate results that outperform prior work on neural rendering and view synthesis.
+
+<a name="synthetic_results"></a>
+### 6.2 Synthetic Results
+TO BE ADDED
 
 <a name='sub'></a>
 
@@ -492,4 +474,4 @@ You are encouraged to discuss the ideas with your peers. However, the code shoul
 
 ## 9. Acknowledgements
 
-This fun project was inspired by a similar project in UPenn's CIS581 (Computer Vision & Computational Photography) and University of Maryland's CMSC733 (Classical and Deep Learning Approaches for Geometric Computer Vision).
+This fun project was inspired by a similar project in UPenn's CIS581 (Computer Vision & Computational Photography), University of Maryland's CMSC733 (Classical and Deep Learning Approaches for Geometric Computer Vision) and Carnegie Mellon University's 16-889 (Learning for 3D Vision).

@@ -29,7 +29,7 @@ Table of Contents:
 
 <a name='due'></a>
 ## 1. Deadline 
-**11:59:59PM, October 01, 2022.** This project is to be done in groups of 2.
+**11:59:59PM, October 01, 2022. This project is to be done in groups of 2.** 
 
 <a name='intro'></a>
 ## 2. Introduction
