@@ -275,7 +275,7 @@ P$$n$$P is prone to error as there are outliers in the given set of point corres
 The alogrithm below depicts the solution with RANSAC.
 
 <div class="fig fighighlight">
-  <img src="/assets/2019/p3/pnpransac.png"  width="80%">
+  <img src="/assets/2019/p3/pnpransacalgo.png"  width="80%">
   <div class="figcaption">
   Algorithm 2: PnP RANSAC
   </div>
