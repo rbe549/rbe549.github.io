@@ -289,7 +289,7 @@ $$\underset{x}{\operatorname{min}}$$ $$\sum_{j=1,2}\left(u^j - \frac{P_1^{jT}\wi
 Here, $$j$$ is the index of each camera, $$\widetilde{X}$$ is the homogeneous representation of $$X$$. $$P_i^T$$ is each row of camera projection matrix, $$P$$. This minimization is highly nonlinear due to the divisions. The initial guess of the solution, $$X_0$$, is estimated via the linear triangulation to minimize the cost function. This minimization can be solved using nonlinear optimization functions such as `scipy.optimize.leastsq` or `scipy.optimize.least_squares` in Scipy library.
 
 <div class="fig fighighlight">
-  <img src="/assets/2019/p3/lin_vs_nonlin_1_2.png"  width="100%">
+  <img src="/assets/2019/p3/lin_vs_nonlin_1_2.png"  width="60%">
   <div class="figcaption">
   Figure 7: Comparison between non-linear vs linear triangulation.
   </div>
@@ -322,7 +322,7 @@ Now, since we have a set of $$n$$ 3D points in the world, their $$2D$$ projectio
 Given 2D-3D correspondences, $$X\leftrightarrow x$$ and the intrinsic parameter $$K$$, estimate the camera pose using linear least squares (implement the function `LinearPnP.py`. 2D points can be normalized by the intrinsic parameter to isolate camera parameters, $$(C,R)$$, i.e. $$K^{-1}x$$. A linear least squares system that relates the 3D and 2D points can be solved for $$(t, R)$$ where $$t = −R^T C$$. Since the linear least square solve does not enforce orthogonality of the rotation matrix, $$R \in SO(3)$$, the rotation matrix must be corrected by $$R = UV^T$$ where $$R=UDV^T$$. If the corrected rotation has $$-1$$ determinant, $$R = −R$$. This linear PnP requires at least 6 correspondences. *(Think why?)*
 
 <div class="fig fighighlight">
-  <img src="/assets/2019/p3/LinNonLinPnP.png"  width="50%">
+  <img src="/assets/2019/p3/LinNonLinPnP.png"  width="100%">
   <div class="figcaption">
   Figure 9: Left to right: Linear (red) and non-linear PnP (blue) outputs of Image (1, 3), (1, 4) and finally (1, 5).
   </div>
@@ -368,7 +368,7 @@ function such as `scipy.optimize.leastsq` or `scipy.optimize.least_squares` in S
 Once you have computed all the camera poses and 3D points, we need to refine the poses and 3D points together, initialized by previous reconstruction by minimizing reprojection error.
 
 <div class="fig fighighlight">
-  <img src="/assets/2019/p3/bund_adj_1_to_3.png"  width="80%">
+  <img src="/assets/2019/p3/bund_adj_1_to_3.png"  width="60%">
   <div class="figcaption">
   Figure 10: The final reconstructed scene after Sparse Bundle Adjustment (SBA) for images 1 to 3.
   </div>
@@ -401,7 +401,7 @@ Clearly, solving such a method to compute the structure from motion is complex a
 Write a program `Wrapper.py` that run the full pipeline of structure from motion based on the above algorithm.
 
 <div class="fig fighighlight">
-  <img src="/assets/2019/p3/bund_adj_1_to_5.png"  width="80%">
+  <img src="/assets/2019/p3/bund_adj_1_to_5.png"  width="60%">
   <div class="figcaption">
   Figure 11: The final reconstructed scene after Sparse Bundle Adjustment (SBA) for images 1 to 5.
   </div>
@@ -419,7 +419,7 @@ Write a program `Wrapper.py` that run the full pipeline of structure from motion
 Also, you can compare your result against VSfM output. You can download the off-the-shelf SfM software here: [VSfM](http://ccwu.me/vsfm/). The output is shown below:
 
 <div class="fig fighighlight">
-  <img src="/assets/2019/p3/VSfM.png"  width="80%">
+  <img src="/assets/2019/p3/VSfM.png"  width="100%">
   <div class="figcaption">
   Figure 12: Outputs from Visual SfM. Left to right: Top view, oblique view and dense reconstruction.
   </div>
@@ -444,7 +444,7 @@ Download the lego data for NeRF from the original author's link [here](https://d
 NERF is a method that sparked a new revolution in the represention of 3D scenes by being able to synthesize novel views of complex scenes by optimizing an underlying continuous volumetric scene function using a sparse set of input views.
 
 <div class="nerf_dataflow">
-  <img src="/assets/2019/p3/nerf_dataflow.svg" width="80%">
+  <img src="/assets/2019/p3/nerf_dataflow.svg" width="60%">
   <div class="figcaption">
   Figure 13: The input and output of NERF.
   </div>
@@ -454,7 +454,7 @@ NERF is a method that sparked a new revolution in the represention of 3D scenes 
 This approach represents a scene using a fully-connected (non-convolution) deep neural network, whose input is a single continuous 5D coordinate (spatial location (\\(x, y, z\\)) and viewing direction \\(\theta, \psi\\)) and whose output is the volume density and view-dependent emitted radiance at that spatial location.
 
 <div class="nerf_loss">
-  <img src="/assets/2019/p3/nerf_loss.png" width="80%">
+  <img src="/assets/2019/p3/nerf_loss.png" width="100%">
   <div class="figcaption">
   Figure 14: Physical Interpretation of NERF.
   <div style="clear:both;"></div>
@@ -469,7 +469,7 @@ They synthesize views by querying 5D coordinates along camera rays and use class
 If you render a view to go around the Lego dataset, it should look like this:
 
 <div class="legonerfout">
-  <img src="/assets/2019/p3/nerflego.gif" width="80%">
+  <img src="/assets/2019/p3/nerflego.gif" width="60%">
   <div class="figcaption">
   Figure 15: Output Video of NeRF dataset.
   <div style="clear:both;"></div>
