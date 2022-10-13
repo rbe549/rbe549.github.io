@@ -67,7 +67,7 @@ Let's learn how to recreate such algorithm. There are a few steps that collectiv
 
 ## 3. Dataset for Classical SfM
 
-You are going to run classical SfM algorithm on the images provided [here](). The data given to you are a set of 5 images of Unity Hall at WPI (See Fig. 1), using a Samsung S22 Ultra's primary camera.
+You are going to run classical SfM algorithm on the data provided [here](https://drive.google.com/file/d/1DLdCpX5ojtSN4RjYZ2UwpV2fAJn3sX_k/view?usp=sharing). The data given to you are a set of 5 images of Unity Hall at WPI (See Fig. 1), using a Samsung S22 Ultra's primary camera at f/1.8 aperture, ISO 50 and 1/500 sec shutter speed.
 
 
 <div class="fig fighighlight">
@@ -78,7 +78,7 @@ You are going to run classical SfM algorithm on the images provided [here](). Th
   <div style="clear:both;"></div>
 </div>
 
-The camera is calibrated after resizing using a Radial-Tangential model with 2 radial parameters and 1 tangential parameter using the MATLAB Camera Calibrator Application (See Fig. 2). 
+The camera is calibrated after resizing using a Radial-Tangential model with 2 radial parameters and 1 tangential parameter using the MATLAB R2022a's Camera Calibrator Application (See Fig. 2). 
 
 <div class="fig fighighlight">
   <img src="/assets/2019/p3/Calib.png"  width="80%">
