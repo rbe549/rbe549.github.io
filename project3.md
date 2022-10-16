@@ -436,7 +436,9 @@ You are going to be implementing the original NERF method (from [this paper](htt
 
 ### 6.1 Dataset For NeRF
 
-Download the lego data for NeRF from the original author's link [here](https://drive.google.com/drive/folders/1lrDkQanWtTznf48FCaW5lX9ToRdNDF1a_). **You are required to write your own data loader, parser, network and loss function for this phase.**
+Download the lego data for NeRF from the original author's link [here](https://drive.google.com/drive/folders/1lrDkQanWtTznf48FCaW5lX9ToRdNDF1a). **You are required to write your own data loader, parser, network and loss function for this phase.**
+
+
 
 <a name="abstract_and_method"></a>
 
