@@ -50,7 +50,7 @@ The starter code can be downloaded from <a href="https://drive.google.com/file/d
 <div class="fig fighighlight">
   <img src="/assets/2019/p4/FileStructure.png" width="100%">
   <div class="figcaption">
-    Figure 1: Function structure of the ``msckf.py``. A red pencil icon indicates that you need to implement that function.
+    Figure 1: Function structure of the msckf.py. A red pencil icon indicates that you need to implement that function. Please zoom in or open the image in a new tab to see the function names clearly.
   </div>
   <div style="clear:both;"></div>
 </div>
