@@ -33,9 +33,7 @@ Table of Contents:
 
 <a name='due'></a>
 ## 1. Deadline 
-**11:59:59 PM, September 15, 2022.** This project is to be done in groups of 2.
-
-
+**11:59:59 PM, February 02, 2023.** This project is to be done in groups of 2.
 
 <a name='prob'></a>
 ## 2. Problem Statement 
@@ -106,7 +104,7 @@ A sample output of ANMS for two different images are shown below.
 ### 4.3. Feature Descriptor
 In the previous step, you found the feature points (locations of the $$N_{best}$$ best corners after ANMS are called the feature point locations). You need to describe each feature point by a feature vector, this is like encoding the information at each feature point by a vector. One of the easiest feature descriptor is described next.
 
-Take a patch of size $$40 \times 40$$ centered **(this is very important)** around the keypoint/feature point. Now apply gaussian blur (feel free to play around with the parameters, for a start you can use OpenCV's default parameters in ``cv2.GaussianBlur`` command. Now, sub-sample the blurred output (this reduces the dimension) to $$8 \times 8$$. Then reshape to obtain a $$64 \times 1$$ vector. Standardize the vector to have zero mean and variance of 1. Standardization is used to remove bias and to achieve some amount of illumination invariance.
+Take a patch of size $$41 \times 41$$ centered **(this is very important)** around the keypoint/feature point. Now apply gaussian blur (feel free to play around with the parameters, for a start you can use OpenCV's default parameters in ``cv2.GaussianBlur`` command. Now, sub-sample the blurred output (this reduces the dimension) to $$8 \times 8$$. Then reshape to obtain a $$64 \times 1$$ vector. Standardize the vector to have zero mean and variance of 1. Standardization is used to remove bias and to achieve some amount of illumination invariance.
 
 
 <a name='feat-match'></a>
@@ -291,9 +289,9 @@ Note that, we didn't talk about the network architecture here, feel free to use 
 
 <a name='testset'></a>
 ## 6. Notes about Test Set
-<!-- One day (24 hours) before the deadline, a test set will be released on which we expect you to run your code from both the parts and present the results in your report (more on this [later](#sub)). -->
-
-The Test Set can be downloaded from [here](https://drive.google.com/file/d/1a62PbNlU2N_vN-kboRnGedJ_xTDeGxna/view?usp=sharing). The Test Set has the following folder structure.
+One day (24 hours) before the deadline, a test set will be released on which we expect you to run your code from both the parts and present the results in your report (more on this [later](#sub)).
+<!-- 
+The Test Set can be downloaded from [here](https://drive.google.com/file/d/1a62PbNlU2N_vN-kboRnGedJ_xTDeGxna/view?usp=sharing). The Test Set has the following folder structure. -->
 
 ```
 P1TestSet.zip
@@ -418,7 +416,7 @@ Test images will be released 24 hours before the deadline.
 - Any third party code for implementing architecture or augmentation
 - `Keras` or any other layer API
 
-If you have any doubts regarding allowed and disallowed functions, please drop a public post on [Piazza](https://piazza.com/wpi/fall2022/rbe549).  
+If you have any doubts regarding allowed and disallowed functions, please drop a public post on [Piazza](https://piazza.com/wpi/spring2023/rbecs549).  
 
 
 <a name='extracredit'></a>
@@ -435,7 +433,7 @@ Perform creative things in your code to improve results or tackle corner cases t
 You are <b>STRONGLY</b> encouraged to discuss the ideas with your peers. Treat the class as a big group/family and enjoy the learning experience. 
 </p>
 
-However, the code should be your own, and should be the result of you exercising your own understanding of it. If you reference anyone else's code in writing your project, you must properly cite it in your code (in comments) and your writeup. For the full honor code refer to the [RBE/CS549 Spring 2022 website](https://nitinjsanket.github.io/teaching/rbe549/fall2022.html).
+However, the code should be your own, and should be the result of you exercising your own understanding of it. If you reference anyone else's code in writing your project, you must properly cite it in your code (in comments) and your writeup. For the full honor code refer to the [RBE/CS549 Spring 2023 website](https://nitinjsanket.github.io/teaching/rbe549/spring2023.html).
 
 <a name='ack'></a>
 
