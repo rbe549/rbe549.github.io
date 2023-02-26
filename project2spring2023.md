@@ -2,7 +2,7 @@
 layout: page
 mathjax: true
 title: Buildings built in minutes - SfM and NeRF
-permalink: /spring2023/proj/p3/
+permalink: /spring2023/proj/p2/
 ---
 
 Table of Contents:
