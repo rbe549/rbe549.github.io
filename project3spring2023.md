@@ -294,4 +294,3 @@ However, the code should be your own, and should be the result of you exercising
 ## 11. Acknowledgements
 
 The beautiful visualizations are from <a href="https://www.tesla.com/">Tesla's</a> products and a lot of the images are adapted from <a href="https://www.notateslaapp.com/tesla-reference/636/all-tesla-fsd-visualizations-and-what-they-mean">here</a>.
-***
