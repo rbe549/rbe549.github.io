@@ -23,9 +23,9 @@ Table of Contents:
 
 <a name='due'></a>
 ## 1. Deadline 
-**11:59:59 PM, April 02, 2023.** This project is to be done in groups of 2 and has a 10 min presentation. Various checkpoints are due at different dates and are given below:
+**11:59:59 PM, April 01, 2023.** This project is to be done in groups of 2 and has a 10 min presentation. Various checkpoints are due at different dates and are given below:
 - Checkpoint 1 is due on **11:59:59 PM, March 24, 2023.**
-- Checkpoints 2 and 3 (and extra credit) are due on **11:59:59 PM, April 02, 2023.**
+- Checkpoints 2 and 3 (and extra credit) are due on **11:59:59 PM, April 01, 2023.**
 
 <a name='prob'></a>
 ## 2. Problem Statement 
