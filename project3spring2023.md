@@ -63,32 +63,25 @@ Tesla's recent dashboard (Fig. 3) is a really good example of visualization whic
 </div>
 
 
-In this project, you will build an visualization inspired from Tesla's dashboard (see Fig. 4) and hence the name ;)😉, wherein you are provided with a set of videos recorded from cameras of a 2023 Tesla Model S (shown in Fig. 4). You are required to output a rendered video of your visualizations: atleast showing the view in front of the car and your car, you can also show everything around the car. You are free to use any approach (deep learning based or classical) available in the world and render the visualizations using <a href="https://www.blender.org/">Blender</a>. This project is open-ended and hence there are multiple right solutions. You are graded for your creativity in approaching the problem, the effectiveness and prettiness of the visualizations. 
+In this project, you will build an visualization inspired and bettered version of Tesla's dashboard (see Vid. 1 and Fig. 3) and hence the name 😉, wherein you are provided with a set of videos recorded from cameras of a 2023 Tesla Model S (shown in Vid. 1). You are required to output a rendered video of your visualizations: atleast showing the view in front of the car and your car, you can also show everything around the car. You are free to use any approach (deep learning based or classical) available in the world and render the visualizations using <a href="https://www.blender.org/">Blender</a>. This project is open-ended and hence there are multiple right solutions. You are graded for your creativity in approaching the problem, the effectiveness and prettiness of the visualizations. 
 
 <div class="fig fighighlight">
   <div class="figcaption">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/2q96i2vf8oA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    Fig 4: Video showing Tesla's FSD Visualization.
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2q96i2vf8oA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><br>
+    Video 1: Video showing Tesla's FSD Visualization.
   </div>
   <div style="clear:both;"></div>
 </div>
 
 
 <div class="fig fighighlight">
-  <img src="/assets/2023/p3/teslamodels.png" width="100%">
-  <div class="figcaption">
-    Fig 4: 2023 Tesla Model S used to capture data.
-  </div>
-  <div style="clear:both;"></div>
-</div>
-
-<div class="fig fighighlight">
-  <img src="/assets/2023/p3/teslamodels.png" width="100%">
+  <img src="/assets/2023/p3/teslamodels.jpg" width="100%">
   <div class="figcaption">
     Fig 4: 2023 Tesla Model S used to capture data.
   </div>
   <div style="clear:both;"></div>
 </div>
+
 
 <a name='data'></a>
 ## 3. Dataset
@@ -118,7 +111,7 @@ In this checkpoint, you are required to implement basic features which are absol
 
 
 <div class="fig fighighlight">
-  <img src="/assets/2023/p3/teslaped.png" width="100%">
+  <img src="/assets/2023/p3/teslaped.jpg" width="100%">
   <div class="figcaption">
     Fig 6: A sample showing different vehicles, different lanes (white solid lines, white dashed lines and double yellow solid lines).
   </div>
@@ -187,7 +180,7 @@ In this checkpoint, we try to add further cognitive abilities for better decisio
 
 
 <div class="fig fighighlight">
-  <img src="/assets/2023/p3/teslaindicator.png" width="100%">
+  <img src="/assets/2023/p3/teslaindicator.jpg" width="100%">
   <div class="figcaption">
     Fig 11: Visualization showing brake lights and indicators.
   </div>
@@ -204,7 +197,7 @@ Implementing the extra credit can give you upto 25% of bonus score. Like a cherr
 2. Collision prediction of pedestrians or other vehicles as red highlight (See Fig. 13): This accounts for 15% of bonus score
 
 <div class="fig fighighlight">
-  <img src="/assets/2023/p3/teslaspeedbump.png" width="100%">
+  <img src="/assets/2023/p3/teslaspeedbump.jpg" width="100%">
   <div class="figcaption">
     Fig 12: Visualization of speed bumps.
   </div>
@@ -213,7 +206,7 @@ Implementing the extra credit can give you upto 25% of bonus score. Like a cherr
 
 
 <div class="fig fighighlight">
-  <img src="/assets/2023/p3/teslapedcoll.png" width="100%">
+  <img src="/assets/2023/p3/teslapedcoll.jpg" width="100%">
   <div class="figcaption">
     Fig 13: Visualization of collision of the pedestrian (left) and car (right).
   </div>
