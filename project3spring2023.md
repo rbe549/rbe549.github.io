@@ -102,7 +102,7 @@ In this checkpoint, you are required to implement basic features which are absol
 
 
 <div class="fig fighighlight">
-  <img src="/assets/2023/p3/teslalanes.png" width="100%">
+  <img src="/assets/2023/p3/teslalanes.jpg" width="100%">
   <div class="figcaption">
     Fig 5: A sample showing pedestrians, different vehicles, double yellow solid lines, traffic lights, stop sign and arrows on the road.
   </div>
@@ -129,7 +129,7 @@ In this checkpoint, you are required to implement basic features which are absol
 
 
 <div class="fig fighighlight">
-  <img src="/assets/2023/p3/teslaspeedsign.png" width="100%">
+  <img src="/assets/2023/p3/teslaspeedsign.png" width="50%">
   <div class="figcaption">
     Fig 8: A visualization showing the speed limit sign highlighted in red.
   </div>
