@@ -13,13 +13,15 @@ Table of Contents:
 - [5. Checkpoint 2: Advanced Features](#ckpt2)
 - [6. Checkpoint 3: Bells and Whistles](#ckpt3)
 - [7. Extra Credit: Cherry on Top](#extra)
-- [8. Submission Guidelines](#sub)
-  - [8.1. File tree and naming](#files)
-  - [8.2. Report](#report)
-  - [8.3. Presentation](#present)
-- [9. Allowed and Disallowed functions](#funcs)
-- [10. Collaboration Policy](#coll)
-- [11. Acknowledgements](#ack)
+- [8. Hints, Tips and Tricks](#hints)
+- [9. Submission Guidelines](#sub)
+  - [9.1. File tree and naming](#files)
+  - [9.2. Report](#report)
+  - [9.3. Presentation](#present)
+- [10. Allowed and Disallowed functions](#funcs)
+- [11. Collaboration Policy](#coll)
+- [12
+. Acknowledgements](#ack)
 
 <a name='due'></a>
 ## 1. Deadline 
@@ -177,6 +179,7 @@ In this checkpoint, we try to add further cognitive abilities for better decisio
 
 1. **Break lights and indicators of the other vehicles:** Identify and display the vehicle break lights and indicator signals (See Fig. 11). This helps the navigation module in making better lane changing decisions. 
 2. **Pedestrian pose:** You need to identify pedestrian pose each frame instead of just classifying them and display them (See Fig. 6).
+3. **Parked and Moving Vehicles:** Distiguish between parked and moving vehicles and display (make it subtle but identifiable). 
 
 
 <div class="fig fighighlight">
@@ -193,8 +196,8 @@ In this checkpoint, we try to add further cognitive abilities for better decisio
 ## 7. Extra Credit: Cherry on Top
 Implementing the extra credit can give you upto 25% of bonus score. Like a cherry on the top, you need to identify and indicate:
 
-1. Speed bumps (See Fig. 12): This accounts for 10% of bonus score.
-2. Collision prediction of pedestrians or other vehicles as red highlight (See Fig. 13): This accounts for 15% of bonus score
+1. **Speed bumps:** (See Fig. 12) This accounts for 10% of bonus score.
+2. **Collision prediction of pedestrians or other vehicles as red highlight:**  (See Fig. 13) This accounts for 15% of bonus score
 
 <div class="fig fighighlight">
   <img src="/assets/2023/p3/teslaspeedbump.jpg" width="100%">
@@ -214,15 +217,35 @@ Implementing the extra credit can give you upto 25% of bonus score. Like a cherr
 </div>
 
 
+
+
+<a name='hints'></a>
+
+## 8. Hints, Tips and Tricks
+This project involves a lot of concepts from various aspects of computer vision and robotics. Here are a few tips that can get you started:
+
+- Refer to websites like <a href="https://paperswithcode.com/">Papers with code</a> to obtain a collated list sorted by accuracy for research papers of computer vision tasks.
+- Ensure that object detection/recognition/segmentation models were trained on North American datasets as the data you are given is from the United States.
+- Do not worry about inference speed or the number of models used (feel free to use multiple to boost accuracy of a single task) for this project.
+- Try to refrain from training your own models unless absolutely essential. The goal here is also to learn how to design a system with pre-trained models and making the algorithm work in context of any problem.
+- Sometimes, a very trivial method (such as color thresolding) could be used to solve the problem. Think creatively and do not be bound by how other people solve the problem.
+- Here are a few keywords that can aid in finding methods to help solve the problems:
+  - **Monocular depth estimation:** Can be utilized to obtain relative scale of objects.
+  - **Absolute scale estimation using road markers:** You can use sizes of "known" objects on the roads such as signboards, other cars and so on to normalize scale across frames.
+  - **Object Detection and Classification:** Can aid in detecting and sub-classifying objects.
+  - **Pose estimation:** Depending on the scenario, you can use this to estimate pose of pedestrians, other objects and/or the motion of your camera.
+  - **Optical Flow:** This is how pixels have moved between two image frames. Can help in classifying motion.
+
+
 <a name='sub'></a>
 
-## 8. Submission Guidelines
+## 9. Submission Guidelines
 
 **If your submission does not comply with the following guidelines, you'll be given ZERO credit.**
 
 <a name='files'></a>
 
-### 8.1. File tree and naming
+### 9.1. File tree and naming
 
 Your submission on ELMS/Canvas must be a ``zip`` file, following the naming convention ``YourDirectoryID_p3.zip``. If you email ID is ``abc@wpi.edu``, then your ``DirectoryID`` is ``abc``. For our example, the submission file should be named ``abc_p3.zip``. The file **must have the following directory structure**. Please provide detailed instructions on how to run your code in ``README.md`` file. 
 
@@ -247,7 +270,7 @@ YourDirectoryID_p3.zip
 
 <a name='report'></a>
 
-### 8.2. Report
+### 9.2. Report
 
 For each section/checkpoint of the project, explain briefly what you did, and describe any interesting problems you encountered and/or solutions you implemented. You must include the following details in your writeup:
 
@@ -261,13 +284,13 @@ For each section/checkpoint of the project, explain briefly what you did, and de
 
 <a name='present'></a>
 
-### 8.3. Presentation
+### 9.3. Presentation
 
 You are required to do an in-person presentation for 10mins (all team members MUST present) during the time decided (look out for a post on timings on <a href="https://piazza.com/wpi/spring2023/rbecs549">Piazza</a>) explaining your approach, the results as video. Explain what all problems you tackled during this project and how you overcame them. Further, talk about non-obvious observations, corner cases and failure modes along with potential ways to solve them. Also, give an in-depth analysis of your proposed approach. The presentation has to be professional of a conference quality presented to a wide range of audience ranging from a lay-person to an expert in the field. 
 
 <a name='funcs'></a>
 
-## 9. Allowed and Disallowed functions
+## 10. Allowed and Disallowed functions
 
 <b> Allowed:
 
@@ -281,7 +304,7 @@ If you have any doubts regarding allowed and disallowed functions, please drop a
 
 <a name='coll'></a>
 
-## 10. Collaboration Policy
+## 11. Collaboration Policy
 <p style="background-color:#ddd; padding:5px">
 <b>NOTE:</b> 
 You are <b>STRONGLY</b> encouraged to discuss the ideas with your peers. Treat the class as a big group/family and enjoy the learning experience. 
@@ -291,6 +314,6 @@ However, the code should be your own, and should be the result of you exercising
 
 <a name='ack'></a>
 
-## 11. Acknowledgements
+## 12. Acknowledgements
 
 The beautiful visualizations are from <a href="https://www.tesla.com/">Tesla's</a> products and a lot of the images are adapted from <a href="https://www.notateslaapp.com/tesla-reference/636/all-tesla-fsd-visualizations-and-what-they-mean">here</a>.
