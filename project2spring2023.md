@@ -44,7 +44,7 @@ Table of Contents:
 
 ## 1. Deadline
 
-**11:59:59 PM, Mar 10, 2023. This project is to be done in groups of 2.**
+**11:59:59 PM, Mar 12, 2023. This project is to be done in groups of 2.**
 
 <a name='intro'></a>
 
