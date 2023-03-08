@@ -20,12 +20,11 @@ Table of Contents:
   - [9.3. Presentation](#present)
 - [10. Allowed and Disallowed functions](#funcs)
 - [11. Collaboration Policy](#coll)
-- [12
-. Acknowledgements](#ack)
+- [12. Acknowledgements](#ack)
 
 <a name='due'></a>
 ## 1. Deadline 
-**11:59:59 PM, April 01, 2023.** This project is to be done in groups of 2 and has a 10 min presentation. Various checkpoints are due at different dates and are given below:
+**11:59:59 PM, March 24, 2023 and 11:59:59 PM, April 01, 2023.** This project is to be done in groups of 2 and has a 10 min presentation. Various checkpoints are due at different dates and are given below:
 - Checkpoint 1 is due on **11:59:59 PM, March 24, 2023.**
 - Checkpoints 2 and 3 (and extra credit) are due on **11:59:59 PM, April 01, 2023.**
 
