@@ -86,9 +86,11 @@ In this project, you will build an visualization inspired and bettered version o
 
 <a name='data'></a>
 ## 3. Dataset
-- Models
+- Models (Cars: Sedan, SUV, Pickup truck, Bicycle, motorcycle, Truck, Traffic signal, Stop Sign, Traffic Cone, Traffic Pole, Speed Sign, Speed Hump, Pedestrian, vehicle pose)
 - Videos
 - Calibration
+- Parked cars
+- Vehicles color
 
 
 <a name='ckpt1'></a>
