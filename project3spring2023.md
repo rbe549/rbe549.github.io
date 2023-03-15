@@ -8,7 +8,7 @@ permalink: /spring2023/proj/p3/
 Table of Contents:
 - [1. Deadline](#due)
 - [2. Problem Statement](#prob)
-- [3. Data Collection](#data)
+- [3. Data](#data)
 - [4. Checkpoint 1: Basic Features](#ckpt1)
 - [5. Checkpoint 2: Advanced Features](#ckpt2)
 - [6. Checkpoint 3: Bells and Whistles](#ckpt3)
@@ -20,7 +20,7 @@ Table of Contents:
   - [9.3. Presentation](#present)
 - [10. Allowed and Disallowed functions](#funcs)
 - [11. Collaboration Policy](#coll)
-- [12. Acknowledgements](#ack)
+- [12. Acknowledgments](#ack)
 
 <a name='due'></a>
 ## 1. Deadline 
@@ -85,12 +85,13 @@ In this project, you will build an visualization inspired and bettered version o
 
 
 <a name='data'></a>
-## 3. Dataset
-- Models (Cars: Sedan, SUV, Pickup truck, Bicycle, motorcycle, Truck, Traffic signal, Stop Sign, Traffic Cone, Traffic Pole, Speed Sign, Speed Hump, Pedestrian, vehicle pose)
-- Videos
-- Calibration
-- Parked cars
-- Vehicles color
+## 3. Data
+Please download the data package from <a href='https://drive.google.com/file/d/1LKPKo0b5XxPOK8GQNgwwnWsw9uzftyxR/view?usp=share_link'>here</a>. 
+
+The data given to you contains the following:
+- Assets (Blender models in the ``Assets`` folder) for various things like Cars: Sedan, SUV, Pickup truck, Bicycle, motorcycle, Truck, Traffic signal, Stop Sign, Traffic Cone, Traffic Pole, Speed Sign and Pedestrian. We also include texture images for stop sign and a blank speed sign (add your own speed as text here).
+- Videos (Undistorted and Raw in the ``Sequences`` folder) for 13 sequences under various conditions with what scenarios are encountered in the respective markdown files in each folder.
+- Calibration Videos (in the ``Calib`` folder) used to calibrate the cameras.
 
 
 <a name='ckpt1'></a>
@@ -101,7 +102,7 @@ In this checkpoint, you are required to implement basic features which are absol
 2. **Vehicles:** Here, identify all cars (but you do not need to classify as different types) and represent them as a car shape (See Fig. 5, all your cars will look the same).
 3. **Pedestrians:**  You need identify and locate pedestrians in the scene (See Figs. 5 and 6, all your pedestrians will look the same, i.e., they will face the same way).
 4. **Traffic lights:** Indicate the traffic signals and it’s color (See Fig. 7, note that you do not need to classify arrows in the traffic signals here).
-5. **Road signs:** There are sign boards on the road you need identify and represent. In this checkpoint, you need to primarily indicate stop signs (Fig. 6) and speed limit signs (Fig. 8). 
+5. **Road signs:** There are sign boards on the road you need identify and represent. In this checkpoint, you need to primarily indicate stop signs (Fig. 6) and speed limit signs (Fig. 8). The models and texture images are given separately and you need to apply the textures appropriately. The speed limit texture is blank and hence you need to add the numbers appropriately. 
 
 
 <div class="fig fighighlight">
@@ -180,7 +181,7 @@ In this checkpoint, we try to add further cognitive abilities for better decisio
 
 1. **Break lights and indicators of the other vehicles:** Identify and display the vehicle break lights and indicator signals (See Fig. 11). This helps the navigation module in making better lane changing decisions. 
 2. **Pedestrian pose:** You need to identify pedestrian pose each frame instead of just classifying them and display them (See Fig. 6).
-3. **Parked and Moving Vehicles:** Distiguish between parked and moving vehicles and display (make it subtle but identifiable). 
+3. **Parked and Moving Vehicles:** Distinguish between parked and moving vehicles and display (make it subtle but identifiable). 
 
 
 <div class="fig fighighlight">
@@ -197,8 +198,8 @@ In this checkpoint, we try to add further cognitive abilities for better decisio
 ## 7. Extra Credit: Cherry on Top
 Implementing the extra credit can give you upto 25% of bonus score. Like a cherry on the top, you need to identify and indicate:
 
-1. **Speed bumps:** (See Fig. 12) This accounts for 10% of bonus score.
-2. **Collision prediction of pedestrians or other vehicles as red highlight:**  (See Fig. 13) This accounts for 15% of bonus score
+1. **Speed bumps:** (See Fig. 12) This accounts for 10% of bonus score. No asset is given for this. Feel free to make your own.
+2. **Collision prediction of pedestrians or other vehicles as red highlight:**  (See Fig. 13) This accounts for 15% of bonus score. This is as simple as changing the material color when the crash is detected.
 
 <div class="fig fighighlight">
   <img src="/assets/2023/p3/teslaspeedbump.jpg" width="100%">
@@ -229,7 +230,7 @@ This project involves a lot of concepts from various aspects of computer vision 
 - Ensure that object detection/recognition/segmentation models were trained on North American datasets as the data you are given is from the United States.
 - Do not worry about inference speed or the number of models used (feel free to use multiple to boost accuracy of a single task) for this project.
 - Try to refrain from training your own models unless absolutely essential. The goal here is also to learn how to design a system with pre-trained models and making the algorithm work in context of any problem.
-- Sometimes, a very trivial method (such as color thresolding) could be used to solve the problem. Think creatively and do not be bound by how other people solve the problem.
+- Sometimes, a very trivial method (such as color thresholding) could be used to solve the problem. Think creatively and do not be bound by how other people solve the problem.
 - Here are a few keywords that can aid in finding methods to help solve the problems:
   - **Monocular depth estimation:** Can be utilized to obtain relative scale of objects.
   - **Absolute scale estimation using road markers:** You can use sizes of "known" objects on the roads such as signboards, other cars and so on to normalize scale across frames.
@@ -262,12 +263,16 @@ YourDirectoryID_p3.zip
 |   ├── Code 
 |   |   └── Any subfolders you want along with files
 |   └── Videos
-|       └── OutputVisualizationVideos.mp4
+|       ├── OutputVisualizationVideoSeq1.mp4
+|       ├── ....
+|       └── OutputVisualizationVideoSeq13.mp4
 ├── Report.pdf
 ├── Presentation.pdf or Presentation.pptx
 └── README.md
 
 ```
+
+The ``OutputVisualizationVideoSeq1.mp4`` is the output of your rendered visualization for ``Seq1`` (or ``scene1``). You'll have 13 such videos, one for each sequence.
 
 <a name='report'></a>
 
@@ -287,7 +292,7 @@ For each section/checkpoint of the project, explain briefly what you did, and de
 
 ### 9.3. Presentation
 
-You are required to do an in-person presentation for 10mins (all team members MUST present) during the time decided (look out for a post on timings on <a href="https://piazza.com/wpi/spring2023/rbecs549">Piazza</a>) explaining your approach, the results as video. Explain what all problems you tackled during this project and how you overcame them. Further, talk about non-obvious observations, corner cases and failure modes along with potential ways to solve them. Also, give an in-depth analysis of your proposed approach. The presentation has to be professional of a conference quality presented to a wide range of audience ranging from a lay-person to an expert in the field. 
+You are required to do an in-person presentation for 10 mins (all team members MUST present) during the time decided (look out for a post on timings on <a href="https://piazza.com/wpi/spring2023/rbecs549">Piazza</a>) explaining your approach, the results as video. Explain what all problems you tackled during this project and how you overcame them. Further, talk about non-obvious observations, corner cases and failure modes along with potential ways to solve them. Also, give an in-depth analysis of your proposed approach. The presentation has to be professional of a conference quality presented to a wide range of audience ranging from a lay-person to an expert in the field. 
 
 <a name='funcs'></a>
 
@@ -315,6 +320,10 @@ However, the code should be your own, and should be the result of you exercising
 
 <a name='ack'></a>
 
-## 12. Acknowledgements
+## 12. Acknowledgments
 
 The beautiful visualizations are from <a href="https://www.tesla.com/">Tesla's</a> products and a lot of the images are adapted from <a href="https://www.notateslaapp.com/tesla-reference/636/all-tesla-fsd-visualizations-and-what-they-mean">here</a>.
+
+
+
+

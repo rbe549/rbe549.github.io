@@ -119,7 +119,18 @@ The output for Phase 1 is from the code visualization is shown in Fig. 2. But yo
 
 ### 5.2. Phase 2
 
-Just like the last phase, you are expected to show a plot of the ground truth trajectory and it's evaluation along with the predictions from your neural network. Present and compare results from the output of the previous phase, vision data only (training and predictions with only two images as the input), inertial data only (training and predictions with only IMU data as the input) and finally visual-inertial data predictions (training and predictions with two images and inertial data between them as the input).
+Just like the last phase, you are expected to show a plot of the ground truth trajectory and it's evaluation along with the predictions from your neural network. Present and compare results from the output of the previous phase, vision data only (training and predictions with only two images as the input, see Fig. 4a), inertial data only (training and predictions with only IMU data as the input, see Fig. 4b) and finally visual-inertial data predictions (training and predictions with two images and inertial data between them as the input, see Fig. 4c).
+
+
+<div class="fig fighighlight">
+  <img src="/assets/2023/p4/DeepVIO.png" width="70%">
+  <div class="figcaption">
+    Figure 4: Three cases for which deep learning based odometry is trained and evaluated. (a) Vision only, (b) Inertial only, (c) Visual and Inertial.
+  </div>
+  <div style="clear:both;"></div>
+</div>
+
+
 
 <a name='sub'></a>
 

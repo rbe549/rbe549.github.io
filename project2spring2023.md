@@ -38,7 +38,7 @@ Table of Contents:
   - [8.1. Phase 1](#extracreditphase1)
   - [8.2. Phase 2](#extracreditphase2)
 - [9. Collaboration Policy](#coll)
-- [10. Acknowledgements](#ack)
+- [10. Acknowledgments](#ack)
 
 <a name='due'></a>
 
@@ -580,7 +580,7 @@ You are encouraged to discuss the ideas with your peers. However, the code shoul
 
 <a name='ack'></a>
 
-## 10. Acknowledgements
+## 10. Acknowledgments
 
 This fun project was inspired by a similar project in UPenn's CIS581 (Computer Vision & Computational Photography), University of Maryland's CMSC733 (Classical and Deep Learning Approaches for Geometric Computer Vision) and Carnegie Mellon University's 16-889 (Learning for 3D Vision).
 

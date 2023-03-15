@@ -17,7 +17,7 @@ Table of Contents:
   - [5.2. Report](#report)
   - [5.3. Mapping Video](#video)
 - [6. Collaboration Policy](#coll)
-- [7. Acknowledgements](#ack)
+- [7. Acknowledgments](#ack)
 
 <a name='due'></a>
 ## 1. Due Date 
@@ -136,5 +136,5 @@ You are <b>STRONGLY</b> encouraged to discuss the ideas with your peers. Treat t
 However, the code should be your own, and should be the result of you exercising your own understanding of it. If you reference anyone else's code in writing your project, you must properly cite it in your code (in comments) and your writeup. For the full honor code refer to the [RBE/CS549 Spring 2022 website](https://nitinjsanket.github.io/teaching/rbe549/fall2022.html).
 
 <a name='ack'></a>
-## 7. Acknowledgements
+## 7. Acknowledgments
 This super fun homework was suggested by <a href="http://naitri.github.io/">Naitri Rajyaguru</a> from the University of Maryland, College Park. 

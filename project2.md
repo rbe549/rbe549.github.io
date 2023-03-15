@@ -25,7 +25,7 @@ Table of Contents:
 - [9. Allowed and Disallowed functions](#allowed)
 - [10. Extra Credit](#extracredit)
 - [11. Collaboration Policy](#coll)
-- [12. Acknowledgements](#ack)
+- [12. Acknowledgments](#ack)
 
 <a name='due'></a>
 ## 1. Deadline 
@@ -323,6 +323,6 @@ However, the code should be your own, and should be the result of you exercising
 
 
 <a name='ack'></a>
-## 12. Acknowledgements
+## 12. Acknowledgments
 This fun project was inspired by a similar project in UPenn's <a href="https://alliance.seas.upenn.edu/~cis581/wiki/index.php?title=CIS_581:_Computer_Vision_%26_Computational_Photography">CIS581</a> (Computer Vision & Computational Photography) and University of Maryland's <a href="http://prg.cs.umd.edu/cmsc733">CMSC733</a> (Classical and Deep Learning Approaches for Geometric Computer Vision).
 

@@ -18,7 +18,7 @@ Table of Contents:
   - [6.1. File tree and naming](#files)
   - [6.2. Report](#report)
 - [7. Collaboration Policy](#coll)
-- [8. Acknowledgements](#ack)
+- [8. Acknowledgments](#ack)
 
 
 <a name='due'></a>
@@ -123,5 +123,5 @@ You are <b>STRONGLY</b> encouraged to discuss the ideas with your peers. Treat t
 However, the code should be your own, and should be the result of you exercising your own understanding of it. If you reference anyone else's code in writing your project, you must properly cite it in your code (in comments) and your writeup. For the full honor code refer to the [RBE/CS549 Spring 2022 website](https://nitinjsanket.github.io/teaching/rbe549/fall2022.html).
 
 <a name='ack'></a>
-## 8. Acknowledgements
+## 8. Acknowledgments
 This fun homework was inspired by a similar homework in University of Maryland's <a href="http://prg.cs.umd.edu/cmsc733">CMSC733</a> (Classical and Deep Learning Approaches for Geometric Computer Vision).

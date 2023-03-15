@@ -35,7 +35,7 @@ Table of Contents:
     - [4.3. Report](#report)
 - [5. Allowed and Disallowed functions](#funcs) 
 - [6. Collaboration Policy](#coll)
-- [7. Acknowledgements](#ack)
+- [7. Acknowledgments](#ack)
 
 <a name='due'></a>
 
@@ -413,6 +413,6 @@ However, the code should be your own, and should be the result of you exercising
 
 <a name='ack'></a>
 
-## 7. Acknowledgements
+## 7. Acknowledgments
 
 This fun homework was inspired by a similar project in University of Maryland's <a href="http://prg.cs.umd.edu/cmsc733">CMSC733</a> (Classical and Deep Learning Approaches for Geometric Computer Vision) and Brown University's <a href="http://cs.brown.edu/courses/cs143/2011/proj2/">CS 143</a> (Introduction to Computer Vision).

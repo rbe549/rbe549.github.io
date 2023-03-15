@@ -18,7 +18,7 @@ Table of Contents:
   - [6.1. File tree and naming](#files)
   - [6.2. Report](#report)
 - [7. Collaboration Policy](#coll)
-- [8. Acknowledgements](#ack)
+- [8. Acknowledgments](#ack)
 
 
 <a name='due'></a>
