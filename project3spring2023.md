@@ -30,7 +30,7 @@ Table of Contents:
 
 <a name='prob'></a>
 ## 2. Problem Statement 
-A key component of any product which a human has to interact with are beautiful visualizations. This is the first step in a human building a trust with an autonomous machine. Think for example of your first smartphone and the UI it had versus how it looks now. This not only makes things easier to use but also more efficient and intuitive. To recap, our visualization takes in sensory information and provide insights into how the robot is thinking. Visualizations are not only important for debugging the issues in the software but they are also a basic Human Robot Interaction (HRI) problem as we mentioned before. One such classic visualization is the infamous `rviz` as shown in Fig. 1.
+A key component of any product which a human has to interact with are beautiful visualizations. This is the first step for a human to build trust with an autonomous machine. For example, think of your first smartphone's UI and compare it to how it looks now. This not only makes things easier to use but also more efficient and intuitive. In summary, a good visualization system takes in sensory information and provide intuitive insights into how the robot is thinking. Visualizations are not only important for debugging the issues in the software but they are also a basic Human Robot Interaction (HRI) problem as we mentioned before. One such classic visualization is the infamous `rviz` as shown in Fig. 1.
 
 <div class="fig fighighlight">
   <img src="/assets/2023/p3/rviz.png" width="100%">
@@ -40,12 +40,12 @@ A key component of any product which a human has to interact with are beautiful 
   <div style="clear:both;"></div>
 </div>
 
-Another example of this looks in a Tesla car is shown in Fig. 2.
+Another example of the visualization looks in a Tesla car is shown in Fig. 2.
 
 <div class="fig fighighlight">
   <img src="/assets/2023/p3/teslavisionrudimentary.png" width="100%">
   <div class="figcaption">
-    Fig 2: Tesla's backend visulization in autonomous mode.
+    Fig 2: Tesla's backend visualization in autonomous mode.
   </div>
   <div style="clear:both;"></div>
 </div>
@@ -53,12 +53,12 @@ Another example of this looks in a Tesla car is shown in Fig. 2.
 
 Both rviz and Tesla's earlier dashboards fail at the HRI problem, rendering (pun intended) it useless for common usage.
  
-Tesla's recent dashboard (Fig. 3) is a really good example of visualization which not only provides a lot of insights about information it perceives, it is intuitive and interactive. 
+Tesla's latest visualization (Fig. 3) is a really good example of visualization which provides a lot of intuitive insights about information it perceives. 
 
 <div class="fig fighighlight">
   <img src="/assets/2023/p3/teslavision.png" width="100%">
   <div class="figcaption">
-    Fig 3: Tesla's frontend visulization in autonomous mode.
+    Fig 3: Tesla's frontend visualization in autonomous mode.
   </div>
   <div style="clear:both;"></div>
 </div>
@@ -252,7 +252,7 @@ Your submission on ELMS/Canvas must be a ``zip`` file, following the naming conv
 
 <p style="background-color:#ddd; padding:5px">
 <b>NOTE:</b> 
-Please <b>DO NOT</b> include data in your submission. Furthermore, the size of your submission file should <b>NOT</b> exceed more than <b>100MB</b>.
+Please <b>DO NOT</b> include data in your submission. Furthermore, the size of your submission file should <b>NOT</b> exceed more than <b>500MB</b>.
 </p>
 
 The file tree of your submission <b>SHOULD</b> resemble this:
