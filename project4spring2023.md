@@ -1,7 +1,7 @@
 ---
 layout: page
 mathjax: true
-title: Visual Inertial Odometry
+title: Deep and Un-Deep Visual Inertial Odometry
 permalink: /spring2023/proj/p4/
 ---
 
