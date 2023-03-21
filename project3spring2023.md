@@ -15,17 +15,19 @@ Table of Contents:
 - [7. Extra Credit: Cherry on Top](#extra)
 - [8. Hints, Tips and Tricks](#hints)
 - [9. Submission Guidelines](#sub)
-  - [9.1. File tree and naming](#files)
-  - [9.2. Report](#report)
-  - [9.3. Presentation](#present)
+  - [9.1. Checkpoint 1 Submission](#chkpt1sub)
+  - [9.2. Final File tree and naming](#files)
+  - [9.3. Final Report](#report)
+  - [9.4. Final Presentation](#present)
 - [10. Allowed and Disallowed functions](#funcs)
 - [11. Collaboration Policy](#coll)
 - [12. Acknowledgments](#ack)
 
+
 <a name='due'></a>
 ## 1. Deadline 
 **11:59:59 PM, March 24, 2023 and 11:59:59 PM, April 01, 2023.** This project is to be done in groups of 2 and has a 10 min presentation. Various checkpoints are due at different dates and are given below:
-- Checkpoint 1 is due on **11:59:59 PM, March 24, 2023.**
+- Checkpoint 1 is due on **11:59:59 PM, March 24, 2023.** 
 - Checkpoints 2 and 3 (and extra credit) are due on **11:59:59 PM, April 01, 2023.**
 
 <a name='prob'></a>
@@ -245,9 +247,22 @@ This project involves a lot of concepts from various aspects of computer vision 
 
 **If your submission does not comply with the following guidelines, you'll be given ZERO credit.**
 
+<a name='chkpt1sub'></a>
+
+## 9.1. Checkpoint 1 Submission
+
+You're required to submit two sets of things all zipped into a folder called ``YourDirectoryID_p3ph1.zip`` on Canvas and have a meeting with the course instructors as described below.
+1. Rendered images of various cases as ``png/jpg`` images. Feel free to have as many images as you want to show the cases we requested for in Phase 1 (Lanes, Vehicles, Pedestrians, Traffic lights, Road signs and speed limit signs). 
+2. A small ``.md`` file called ``References.md`` with the packages you used for your implementation along with one sentence of how you used it.
+3. Meet the instructors on **Monday, March 27th from 2PM to 4PM in UH250E** to discuss your progress and approach.
+
+
+Note that, you **CAN** use late days for the submission but the instructor meeting time is fixed. This checkpoint accounts for 30% of the project grade.
+
+
 <a name='files'></a>
 
-### 9.1. File tree and naming
+### 9.2. Final File tree and naming
 
 Your submission on ELMS/Canvas must be a ``zip`` file, following the naming convention ``YourDirectoryID_p3.zip``. If you email ID is ``abc@wpi.edu``, then your ``DirectoryID`` is ``abc``. For our example, the submission file should be named ``abc_p3.zip``. The file **must have the following directory structure**. Please provide detailed instructions on how to run your code in ``README.md`` file. 
 
@@ -276,7 +291,7 @@ The ``OutputVisualizationVideoSeq1.mp4`` is the output of your rendered visualiz
 
 <a name='report'></a>
 
-### 9.2. Report
+### 9.3. Final Report
 
 For each section/checkpoint of the project, explain briefly what you did, and describe any interesting problems you encountered and/or solutions you implemented. You must include the following details in your writeup:
 
@@ -290,7 +305,7 @@ For each section/checkpoint of the project, explain briefly what you did, and de
 
 <a name='present'></a>
 
-### 9.3. Presentation
+### 9.4. Final Presentation
 
 You are required to do an in-person presentation for 10 mins (all team members MUST present) during the time decided (look out for a post on timings on <a href="https://piazza.com/wpi/spring2023/rbecs549">Piazza</a>) explaining your approach, the results as video. Explain what all problems you tackled during this project and how you overcame them. Further, talk about non-obvious observations, corner cases and failure modes along with potential ways to solve them. Also, give an in-depth analysis of your proposed approach. The presentation has to be professional of a conference quality presented to a wide range of audience ranging from a lay-person to an expert in the field. 
 
