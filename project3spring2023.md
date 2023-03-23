@@ -88,7 +88,9 @@ In this project, you will build an visualization inspired and bettered version o
 
 <a name='data'></a>
 ## 3. Data
-Please download the data package from <a href='https://drive.google.com/file/d/1LKPKo0b5XxPOK8GQNgwwnWsw9uzftyxR/view?usp=share_link'>here</a>. 
+Please download the data package from <a href='https://drive.google.com/file/d/1LKPKo0b5XxPOK8GQNgwwnWsw9uzftyxR/view?usp=share_link'>here</a>. Also please watch this awesome Blender tutorial by Ramana. You can also download the tutorial from <a href="https://drive.google.com/drive/folders/1Shr6cQDLWiov53f1tXZArhBBfoPczNTp">here</a>.
+
+<iframe src="https://drive.google.com/file/d/1zWn7Pkytcg2ElhWZYySJnPGk7D5Vr8Ic/preview" width="320" height="240" allow="autoplay"></iframe>
 
 The data given to you contains the following:
 - Assets (Blender models in the ``Assets`` folder) for various things like Cars: Sedan, SUV, Pickup truck, Bicycle, motorcycle, Truck, Traffic signal, Stop Sign, Traffic Cone, Traffic Pole, Speed Sign and Pedestrian. We also include texture images for stop sign and a blank speed sign (add your own speed as text here).
