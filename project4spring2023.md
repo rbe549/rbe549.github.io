@@ -28,9 +28,9 @@ Table of Contents:
 
 ## 1. Deadline
 
-**11:59:59 PM, April 18, 2023 and 11:59PM, May 01, 2022.** This project is to be done in groups of 2 and has a 10 min presentation. Various checkpoints are due at different dates and are given below:
-- Checkpoint 1 is due on **11:59:59 PM, April 18, 2023.**
-- Checkpoint 2 is due on **11:59:59 PM, May 01, 2023.**<br>
+**11:59:59 PM, April 14, 2023 and 11:59PM, April 28, 2023.** This project is to be done in groups of 2 and has a 10 min presentation. Various checkpoints are due at different dates and are given below:
+- Checkpoint 1 is due on **11:59:59 PM, April 14, 2023.**
+- Checkpoint 2 is due on **11:59:59 PM, April 28, 2023.**<br>
 **You cannot use any LATE days for this assignment.**
 
 <a name='intro'></a>
