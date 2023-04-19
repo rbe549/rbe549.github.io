@@ -86,7 +86,7 @@ Once you finish the implementation of the previous stage, you might have realize
 
 ### 4.1. Data
 
-We will be using the Machine Hall 02 easy (``MH_02_easy``), Machine Hall 03 medium (``MH_03_medium``), Machine Hall 04 difficult (``MH_04_difficult``) abd Machine Hall 05 difficult (``difficult``) subsets of the <a href="https://projects.asl.ethz.ch/datasets/doku.php?id=kmavvisualinertialdatasets">EuRoC dataset</a> for training the neural network. Present your results on Machine Hall 01 easy (``MH_01_easy``) subset of the <a href="https://projects.asl.ethz.ch/datasets/doku.php?id=kmavvisualinertialdatasets">EuRoC dataset</a>. **Feel free to download the data in any format and utilize any code for data handling and processing.** Here, the data is collected using a VI sensor carried by a quadrotor flying a trajectory. The ground truth is provided by a sub-mm accurate Vicon Motion capture system. 
+We will be using the Machine Hall 02 easy (``MH_02_easy``), Machine Hall 03 medium (``MH_03_medium``), Machine Hall 04 difficult (``MH_04_difficult``) and Machine Hall 05 difficult (``difficult``) subsets of the <a href="https://projects.asl.ethz.ch/datasets/doku.php?id=kmavvisualinertialdatasets">EuRoC dataset</a> for training the neural network. Present your results on Machine Hall 01 easy (``MH_01_easy``) subset of the <a href="https://projects.asl.ethz.ch/datasets/doku.php?id=kmavvisualinertialdatasets">EuRoC dataset</a>. **Feel free to download the data in any format and utilize any code for data handling and processing.** Here, the data is collected using a VI sensor carried by a quadrotor flying a trajectory. The ground truth is provided by a sub-mm accurate Vicon Motion capture system. 
 
 
 <a name='expout'></a>
