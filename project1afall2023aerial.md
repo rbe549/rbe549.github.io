@@ -1,7 +1,7 @@
 ---
 layout: page
 mathjax: true
-coursetitle: RBE595-F02-ST: Hands-On Autonomous Aerial Robotics
+coursetitle: RBE595-F02-ST -- Hands-On Autonomous Aerial Robotics
 title: Magic Madgwick Filter for Attitude Estimation 
 permalink: /rbe595/fall2023/proj/p1a/
 ---
