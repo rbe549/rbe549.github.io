@@ -22,7 +22,7 @@ Table of Contents:
 
 <a name='due'></a>
 ## 1. Deadline 
-**11:59 PM, September 1, 2019.**
+**11:59:59 PM, September 1, 2019.**
 
 <a name='prob'></a>
 ## 2. Problem Statement 

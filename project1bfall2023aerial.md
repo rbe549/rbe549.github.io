@@ -19,7 +19,7 @@ Table of Contents:
 
 <a name='due'></a>
 ## 1. Deadline 
-**11:59 PM, September 15, 2023.**
+**11:59:59 PM, September 15, 2023.**
 
 <a name='prob'></a>
 ## 2. Problem Statement 
@@ -94,7 +94,7 @@ For each section of the project, explain briefly what you did, and describe any 
 
 - Any function that implements in-part or full UKF
 
-If you have any doubts regarding allowed and disallowed functions, please drop a public post on [Piazza](https://piazza.com/umd/fall2019/enae788m). 
+If you have any doubts regarding allowed and disallowed functions, please drop a public post on [Piazza](https://piazza.com/wpi/fall2023/rbe595). 
 
 <a name='coll'></a>
 

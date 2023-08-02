@@ -1,6 +1,8 @@
 TODO:
 - Update forward link of index.html to teaching
+- Fix course title
 - Change top bar  
+- Move Teaching WPI courses to PeAR
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171009851-1"></script>
