@@ -2,7 +2,7 @@
 layout: page
 mathjax: true
 coursetitle: RBE595-F02-ST -- Hands-On Autonomous Aerial Robotics
-title: The Final Race!
+title: Navigating The Unknown!
 permalink: /rbe595/fall2023/proj/p4/
 ---
 
@@ -23,24 +23,38 @@ Table of Contents:
 
 <a name='due'></a>
 ## 1. Deadline 
-**11:59:59 PM, Nov 18, 2023.**
+**11:59:59 PM, Nov 20, 2023.**
 
 TODO: Add real experiment photos.
 
 <a name='prob'></a>
 ## 2. Problem Statement 
-In this project, you will implement a planning and control stack and integrate it with the perception stack from Project 3a on a real quadrotor.  
+Flight through known windows is very cool and exciting but often in the real-world you have to fly through irregular and unknown shaped windows for search and rescue, exploration or reconnaissance purposes. To this end, experts in the field have developed a multitude of algorithms and approaches for building or sensing a 3D model of the world. Although this works very well, it is computationally and weight-wise prohibitive for our tiny little drones. In such a resource-constrained scenario, what can we do? Well you can think creatively, in one of the works from Prof. Sanket named <a href="https://prg.cs.umd.edu/GapFlyt.html">GapFlyt</a>, the team utilized the movement of the quadrotor to obtain additional ques for detection of the gap. The sky is the limit here (pun intended) for all the approaches you can come up with to detect a gap of unknown shape, size and location (assuming it is in the field of view) to detect it and fly through it. The project is completely open-ended and you are free to use any third party code to detect and fly though a gap of unknown shape, size and location. The only constraint is that your code has to run on the NVIDIA Jetson Orin Nano without any cloud computation during experiments. 
+
+TODO: Add image of gap
+
+In this project, you will implement a planning and control stack and integrate it with the perception stack from Project 3a on a real quadrotor (DJI Tello Edu).  
 
 <a name='environment'></a>
 ## 3. Environment
 
 TODO: Add real photos
 
-The track is made of multiple windows with their approximate 3D positions known but unknown orientations (within a reasonable range). Now given the 3D pose of the closest window from project 3a, your goal is to navigate through the window from your current position. Note that there are no other obstacles apart from windows in the scene. More details on the algorithmic parts of the navigation stack (planning and control) are explained in the next section.  
+The environment has arbitrary shaped window(s) which can be 'seen' from the approximate location given in the environment file format from project 3. The window is made of foamcore with texture stuck on it. The board can be assumed to be nearly planar and can have multiple holes/gaps, in which case you'll choose the largest one to fly through. The largest gap (if multiple gaps are present) will be large enough for the quadrotor to fly through it safely. In other words, the smaller gaps might not be large enough for the quadrotor to fly through. 
 
 <a name='navigationstack'></a>
 ## 4. Navigation Stack
-You are free to use any method to plan your path from the current position to the closet window. This is relatively simple as you are given the approximate position of the window and there are no other obstacles in the scene. Hence, if you fly close to the approximate position, you'll be able to see atleast a part of the window. Then you can center the quadrotor towards the window and fly though it. In this ideology, you are generating position waypoints for your controller to follow (for which you'll use the `DJITelloPy` package). Alternatively, you can also perform visual servoing to center yourself towards the window and fly through it.  
+
+<a name='perceptionstack'></a>
+## 4.1. Perception Stack 
+You are free to use any method to detect and track the window to fly through it. Methods can include estimating depth (if they generalize), estimating optical flow, estimating occlusions to name a few. You are allowed to use any third party code for this as long as they run on the DJI Orin Nano without any cloud computing. 
+
+
+<a name='planandcontrolstack'></a>
+## 4.2. Planning and Control Stack 
+You are free to use any method to generate waypoints to fly through the window (you'll use the `DJITelloPy` package for follow). The planner could be something simple like a hierarchical task planner (such as a state machine) or a 3D planner such as RRT*. The controller again can be 3D waypoint following or simple alignment on the image plane. The design choice is all yours. The goal is to fly through the gap that you can fit through safely without any collisions. 
+
+Note that we have **ZERO** tolerance to collisions and your attempt ends the moment the quadrotor makes contact with anything else.
 
 
 
@@ -59,7 +73,7 @@ TODO: Decide window location format
 
 <a name='testset'></a>
 ## 5. Testing (Live Demo) And Grading
-On the day of the deadline, each team will be given a 15 minute slot for demoing their code in action to the instructors. The instructors will place the windows as they wish (approximate window locations will be given to you). The task is the fly through all windows/gates as fast as possible without any collisions. You can get as many attempts as you want to accomplish this within your 15 minute time slot. Your final grade for the demo is decided based on completion (the number of gates you fly through) and time. 
+On the day of the deadline, each team will be given a 15 minute slot for demoing their code in action to the instructors. The instructors will place the window as they wish (approximate window pose will be given to you). The task is the fly through the an unknown gap as fast as possible without any collisions. You can get as many attempts as you want to accomplish this within your 15 minute time slot. Your final grade for the demo is decided based on completion (successful flight through a window) and time. 
 
 
 <a name='sub'></a>

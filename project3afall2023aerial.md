@@ -10,6 +10,7 @@ Table of Contents:
 - [1. Deadline](#due)
 - [2. Problem Statement](#prob)
 - [3. Environment](#environment)
+  - [3.1. Window Locations](#windowloc)
 - [4. Implementation](#implementation)
   -[4.1. Collision Handling](#collision)
 - [5. Testing (Live Demo)](#testset)
@@ -39,6 +40,31 @@ In this project, you'll build an autonomy stack to navigate through multiple win
 TODO: Add real photos
 
 The track is made of multiple windows with their approximate 3D positions known but unknown orientations (within a reasonable range). In the first stage of project 3, i.e., project 3a, the goal would be to detect/segment the closest window using a deep learning approach and compute it's 3D pose. More details on the algorithmic parts of the perception stack are explained in the next section.  
+
+<a name='windowloc'></a>
+### 3.1. Window Locations
+An example of the window location file format is given below:
+
+```
+# An example window environment file
+# boundary xmin ymin zmin xmax ymax zmax
+# window x y z xdelta ydelta zdelta qw qx qy qz xangdelta yangdelta zangdelta
+boundary 0 0 0 45 35 6
+window 1 1 1 0.2 0.2 0.2 0.52 0.85 0 0 5 5 5
+```
+- The format uses # for comments.
+- The rectangular boundary extents for this environment are `(x0, y0, z0) = (0, 0, 0)` (lower left) and `(x1, y1, z1) = (45, 35, 6)` (upper right).
+- A window line also specifies the center of the window, its approximate pose and variances. All values are whitespace  delimited and all numerical values are represented as a float. 
+- Specifically, `x y z` represents the approximate center of the window in **meters**. 
+- `xdelta ydelta zdelta` represents the variation in **meters** that is possible from `x y z` values (note that this is a uniform distribution and the probability of the window being outside this is 0).
+- `qw qx qy qz` represents the approximate orientation of the window.
+- `xangdelta yangdelta zangdelta` represents the ZYX euler angle variation in **degrees** that is possible from the approximate orientation given (again this is a uniform distribution and the probability of the window being outside this is 0). 
+- No windows can overlap
+- Please pay attention to the units.
+
+
+TODO: Define frames of reference
+
 
 <a name='perceptionstack'></a>
 ## 4. Perception Stack

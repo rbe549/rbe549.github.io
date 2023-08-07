@@ -2,8 +2,8 @@
 layout: page
 mathjax: true
 coursetitle: RBE595-F02-ST -- Hands-On Autonomous Aerial Robotics
-title: Magic Madgwick Filter for Attitude Estimation 
-permalink: /rbe595/fall2023/proj/p1a/
+title: Alohomora
+permalink: /rbe595/fall2023/proj/p0/
 ---
 
 Table of Contents:
@@ -12,21 +12,20 @@ Table of Contents:
 - [3. Reading the data](#data)
 - [4. Sensor Calibration](#calib)
 - [5. Implementation](#implementation)
-- [6. Notes About Test Set](#testset)
-- [7. Submission Guidelines](#sub)
-  - [7.1. File tree and naming](#files)
-  - [7.2. Report](#report)
-- [8. Allowed and Disallowed functions](#funcs)
-- [9. Collaboration Policy](#coll)
-- [10. Acknowledgements](#ack)
+- [6. Submission Guidelines](#sub)
+  - [6.1. File tree and naming](#files)
+  - [6.2. Report](#report)
+- [7. Allowed and Disallowed functions](#funcs)
+- [8. Collaboration Policy](#coll)
+- [9. Acknowledgements](#ack)
 
 <a name='due'></a>
 ## 1. Deadline 
-**11:59:59 PM, September 1, 2023.**
+**11:59:59 PM, August 24, 2023.**
 
 <a name='prob'></a>
 ## 2. Problem Statement 
-In this project, you will implement a Madgwick filter to estimate the three dimensional orientation/attitude. You are given data from an [ArduIMU+ V2](https://www.sparkfun.com/products/retired/9956) six degree of freedom Inertial Measurement Unit (6-DoF IMU) sensor i.e. readings from a 3-axis gyroscope and a 3-axis accelerometer. You will estimate the underlying 3D orientation and compare it with the ground truth data given by a [Vicon motion capture system](https://www.vicon.com/).
+In this project, you will implement three methods to estimate the three dimensional orientation/attitude. You are given data from an [ArduIMU+ V2](https://www.sparkfun.com/products/retired/9956) six degree of freedom Inertial Measurement Unit (6-DoF IMU) sensor i.e. readings from a 3-axis gyroscope and a 3-axis accelerometer. You will estimate the underlying 3D orientation and compare it with the ground truth data given by a [Vicon motion capture system](https://www.vicon.com/).
 
 <a name='data'></a>
 ## 3. Reading the Data
@@ -80,17 +79,12 @@ The Vicon and IMU data are NOT hardware synchronized, although the timestamps `t
 <a name='implementation'></a>
 ## 5. Implementation
 
-1. You will write a function that computes orientation only based on gyro data (using integration, assume that you know the initial orientation from Vicon). Check if that works well. Plot the results and verify. Add the plot to your report file.
-2. You will write another function that computes orientation only based on accelerometer data (assume that the IMU is only rotating). Verify if that function works well before you try to integrate them into a single filter. THIS IS VERY IMPORTANT! Add the plot to your report file.
-3. You will write a third function that uses simple complementary filter to fuse estimates from both the gyroscope and accelerometer. Make sure this works well before you implement the next step. You should observe the estimates to be almost an average of the previous two estimates. Report the value of fusion factor $$\alpha$$ in your report. Also, add the plot to your report file.
-3. Now, write a function for Madgwick filter that computes orientation based on gyroscope and accelerometer data only. Make sure you plot the orientation in all axis and compare with Vicon plots. Show the plot in your report as well.
+1. You will write a function that computes orientation only based on gyro data (using integration, assume that you know the initial orientation from Vicon). Check if that works well. Plot the results and verify. Add the plot to your report file. For references, watch the video <a href="https://www.youtube.com/watch?v=8hRoASoBEwY&list=PLZgpos4wVnCYhf5jsl2HcsCl_Pql6Kigk&index=3">here</a> and read the tutorial here <a href="https://nitinjsanket.github.io/tutorials/attitudeest/imu.html"></a>. Feel free to explore other resources to learn these concepts. Usage of ChatGPT is also encouraged as long as you do not blatantly plagiarize. 
+2. You will write another function that computes orientation only based on accelerometer data (assume that the IMU is only rotating). Verify if that function works well before you try to integrate them into a single filter. Add the plot to your report file.For references, watch the video <a href="https://www.youtube.com/watch?v=8hRoASoBEwY&list=PLZgpos4wVnCYhf5jsl2HcsCl_Pql6Kigk&index=3">here</a> and read the tutorial here <a href="https://nitinjsanket.github.io/tutorials/attitudeest/imu.html"></a>. Feel free to explore other resources to learn these concepts. Usage of ChatGPT is also encouraged as long as you do not blatantly plagiarize.
+3. You will write a third function that uses simple complementary filter to fuse estimates from both the gyroscope and accelerometer. Make sure this works well before you implement the next step. You should observe the estimates to be almost an average of the previous two estimates. Report the value of fusion factor $$\alpha$$ in your report. Also, add the plot to your report file.For references, watch the video <a href="https://www.youtube.com/watch?v=8hRoASoBEwY&list=PLZgpos4wVnCYhf5jsl2HcsCl_Pql6Kigk&index=3">here</a> and read the tutorial here <a href="https://nitinjsanket.github.io/tutorials/attitudeest/imu.html"></a>. Feel free to explore other resources to learn these concepts. Usage of ChatGPT is also encouraged as long as you do not blatantly plagiarize.
+
 
 In the starter code, a function called `rotplot.py` is also included. Use this function to visualize the orientation of your output. To plot the orientation, you need to give a $$3 \times 3$$ rotation matrix as an input.
-
-
-<a name='testset'></a>
-## 6. Notes About Test Set
-A test set will be released 24 hours before the deadline. You can download the test set from <b>here</b>. Your report MUST include the output from both the train and test sets. 
 
 <a name='sub'></a>
 
