@@ -37,27 +37,70 @@ TODO: Add image of gap
 
 Remember that your DJI Tello Edu comes with a suite of sensors, a front facing RGB color camera, a down facing grayscale camera, an IMU along with the altimeter on-board. You can obtain the camera feed (only one camera works at a time), attitude estimates and altimeter measurements from the <a href="https://djitellopy.readthedocs.io/en/latest/tello/">`DJITelloPy`</a> package. You are **ALLOWED** to use any package to access any other information on the quadrotor. You can use any/all of the sensors to complete the course as quickly as you can. Also, the structure of the track (obstacle course) is known before along with a prior on pose of the obstacles as a uniform distribution, similar to previous projects. An oblique overview of the track is shown in Fig. 1.
 
+TODO: Add real photos of the track
+
+
+
 <a name='environment'></a>
 ## 3. Environment
+The final track has **four** stages. Description of each stage is given next. As in the previous projects, you are given approximate locations of all the obstacles on the track in the environment file.
 
-TODO: Add real photos
+<a name='racingwindows'></a>
+## 3.1. Racing Windows
 
-The environment has arbitrary shaped window(s) which can be 'seen' from the approximate location given in the environment file format from project 3. The window is made of foamcore with texture stuck on it. The board can be assumed to be nearly planar and can have multiple holes/gaps, in which case you'll choose the largest one to fly through. The largest gap (if multiple gaps are present) will be large enough for the quadrotor to fly through it safely. In other words, the smaller gaps might not be large enough for the quadrotor to fly through. 
+In the first stage, you will take off from the helipad and you have to navigate though a set of three drone racing windows from project 3 as fast as possible without any collisions. The description of the windows are the same as in project 3.
 
-<a name='navigationstack'></a>
-## 4. Navigation Stack
+<a name='unknwonwindow'></a>
+## 3.2. Unknown Window
 
-<a name='perceptionstack'></a>
-## 4.1. Perception Stack 
-You are free to use any method to detect and track the window to fly through it. Methods can include estimating depth (if they generalize), estimating optical flow, estimating occlusions to name a few. You are allowed to use any third party code for this as long as they run on the DJI Orin Nano without any cloud computing. 
+In the second stage, you have to navigate though an unknown shaped window from project 3 as fast as possible without any collisions. The description of the window is the same as in project 4.
+
+<a name='dynamicwindow'></a>
+## 3.3. Dynamic Window
+
+In the third/penultimate stage, you have to navigate though an "orange" square window with a clock like hand rotating in the middle. The rotation speed of the hand is fixed but is unknown. You have to fly through this dynamic window as fast as possible without any collisions. The dimensions of the window are shown in Fig. ZZ.
 
 
-<a name='planandcontrolstack'></a>
-## 4.2. Planning and Control Stack 
-You are free to use any method to generate waypoints to fly through the window (you'll use the `DJITelloPy` package for follow). The planner could be something simple like a hierarchical task planner (such as a state machine) or a 3D planner such as RRT*. The controller again can be 3D waypoint following or simple alignment on the image plane. The design choice is all yours. The goal is to fly through the gap that you can fit through safely without any collisions. 
+<a name='flyback'></a>
+## 3.4. Fly back
 
-Note that we have **ZERO** tolerance to collisions and your attempt ends the moment the quadrotor makes contact with anything else.
+Once you have passed through the three stages, you have to fly back through the second racing window to end your attempt. 
 
+<a name='attemptterm'></a>
+## 4. Attempt Termination
+
+Doing any of the following will instantly terminate your attempt:
+- Crossing the yellow line on the floor.
+- Flying over a height of 2.5 m.
+- Failing to navigate in any of the previous stages before proceeding to the next one.
+- Crashing into any of the obstacles/track objects and/or the nets.
+- Landing due to battery failsafe.
+- Going over the maximum time of 2 mins per attempt.
+
+<a name='scoring'></a>
+## 5. Scoring Criterion
+Taking off from the helipad gives the team 10 points, then the stages 1 through 4 (finish) have the following point splits: 20, 20, 30, 20, totalling a maximum of 100 points for each attempt. The team's attempt will be terminated if any of the things mentioned in <a href="#attemptterm">Section 4</a> happen. If the number of stages between two teams are tied, then the team with the lower time comes out on top.
+
+
+<a name='dday'></a>
+## 6. D-Day of the Competition
+
+On the day of the competition, the teams will go in the order of their team number. Each team will have a maximum time of 2 minutes per attempt and a maximum time of 15 minutes for all attempts combined. Between attempts, the team can use any amount of time (within the alloted 15 minutes of maximum time) to fix any software/hardware bugs or do changes in hardware/software (including change of batteries). Only the best trial will be graded.
+
+A sample photo of the real track is shown in Fig. ZZ.
+
+
+Exactly 2 hours before the demo, each team can go and check the track, collect any data you will need. You will also be given the environment file at this time. No one will be allowed to enter the track 1 hour before the demo. The instructors will displace each obstacle randomly with a maximum disturbance as given in the environment file.
+
+The team with the highest points will win. Note that, completing the course (within the 2 minute slot per attempt) will get that team the maximum of 100 points.
+
+The teams can place the quadrotor on the helipad in any desired orientation. Also, if a team wants to improve their live-demo score, they can request for an additional slot after all the teams have finished their demo with a penalty of 20 points of the total project 5 grade.
+
+
+<a name='implementation'></a>
+## 7. Implementation
+
+This project is totally open! You can use any open-source code available online to solve any part of the problem. Make sure you CITE them. You are expected to use the implementations from the previous four projects but are NOT limited to it. You are NOT allowed to modify the DJI Tello Edu or the NVIDIA Jetson Orin Nano platform. This includes adding/subtracting any sensors. All your codes **MUST** run on the NVIDIA Jetson Orin Nano without any cloud computation. Your results are ONLY limited by your imagination and creativity!
 
 
 Evaluation, Plot, Video
