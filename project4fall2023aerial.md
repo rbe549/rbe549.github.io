@@ -146,5 +146,5 @@ If you have any doubts regarding allowed and disallowed functions, please drop a
 You are <b>STRONGLY</b> encouraged to discuss the ideas with your peers. Treat the class as a big group/family and enjoy the learning experience. 
 </p>
 
-However, the code should be your own, and should be the result of you exercising your own understanding of it. If you reference anyone else's code in writing your project, you must properly cite it in your code (in comments) and your writeup. For the full honor code refer to the [RBE5959-F02-ST Fall 2023 website](https://nitinjsanket.github.io/teaching/rbe595/fall2023.html).
+However, the code should be your own, and should be the result of you exercising your own understanding of it. If you reference anyone else's code in writing your project, you must properly cite it in your code (in comments) and your writeup. For the full honor code refer to the [RBE595-F02-ST Fall 2023 website](https://nitinjsanket.github.io/teaching/rbe595/fall2023.html).
 

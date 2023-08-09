@@ -8,10 +8,15 @@ permalink: /rbe595/fall2023/proj/p0/
 
 Table of Contents:
 - [1. Deadline](#due)
-- [2. Problem Statement](#prob)
-- [3. Reading the data](#data)
-- [4. Sensor Calibration](#calib)
-- [5. Implementation](#implementation)
+- [2. Phase 1: IMU Attitude Estimation](#phase1)
+  - [2.1. Problem Statement](#prob1)
+  - [2.2. Reading the data](#data1)
+  - [2.3. Sensor Calibration](#calib1)
+  - [2.4. Implementation](#implementation1)
+- [3. Phase 2: Waypoint Navigation and AprilTag Landing](#phase2)
+  - [3.1. Problem Statement](#prob2)
+  - [3.2. Codebase](#codebase)
+  - [3.3. Implementation](#implementation2)
 - [6. Submission Guidelines](#sub)
   - [6.1. File tree and naming](#files)
   - [6.2. Report](#report)
@@ -23,13 +28,16 @@ Table of Contents:
 ## 1. Deadline 
 **11:59:59 PM, August 24, 2023.**
 
-<a name='prob'></a>
-## 2. Problem Statement 
-In this project, you will implement three methods to estimate the three dimensional orientation/attitude. You are given data from an [ArduIMU+ V2](https://www.sparkfun.com/products/retired/9956) six degree of freedom Inertial Measurement Unit (6-DoF IMU) sensor i.e. readings from a 3-axis gyroscope and a 3-axis accelerometer. You will estimate the underlying 3D orientation and compare it with the ground truth data given by a [Vicon motion capture system](https://www.vicon.com/).
+<a name='phase1'></a>
+## 2. Phase 1: IMU Attitude Estimation
 
-<a name='data'></a>
-## 3. Reading the Data
-The `Data` folder has two subfolders, one which has the raw IMU data `Data\Train\IMU` and another one which has the Vicon data `Data\Train\Vicon`. The data in each folder is numbered for correspondence, i.e., `Data\Train\IMU\imuRaw1.mat` corresponds to `Data\Train\Vicon\viconRot1.mat`. Download the data from [here](https://drive.google.com/file/d/14iIGleYdRmsQFgz5P0feKpW_tkLJ1r9m/view?usp=sharing). These data files are given in a `.mat` format. In order to read these files in Python, use the snippet provided below:
+<a name='prob1'></a>
+### 2.1. Problem Statement 
+In this phase, you will implement three methods to estimate the three dimensional orientation/attitude. You are given data from an [ArduIMU+ V2](https://www.sparkfun.com/products/retired/9956) six degree of freedom Inertial Measurement Unit (6-DoF IMU) sensor i.e. readings from a 3-axis gyroscope and a 3-axis accelerometer. You will estimate the underlying 3D orientation and compare it with the ground truth data given by a [Vicon motion capture system](https://www.vicon.com/).
+
+<a name='data1'></a>
+### 2.2. Reading the Data
+The `Phase1\Data` folder has two subfolders, one which has the raw IMU data `Phase1\Data\Train\IMU` and another one which has the Vicon data `Phase1\Data\Train\Vicon`. The data in each folder is numbered for correspondence, i.e., `Phase1\Data\Train\IMU\imuRaw1.mat` corresponds to `Phase1\Data\Train\Vicon\viconRot1.mat`. Download the project 0 package from [here](https://drive.google.com/file/d/14iIGleYdRmsQFgz5P0feKpW_tkLJ1r9m/view?usp=sharing) which includes the data in `Phase1` folder. These data files are given in a `.mat` format. In order to read these files in Python, use the snippet provided below:
 
 ```
 >>> from scipy import io
@@ -69,15 +77,15 @@ An image of the rig used for data collection is shown below:
 </div>
 
 
-<a name='calib'></a>
-## 4. Sensor Calibration
+<a name='calib1'></a>
+### 2.3. Sensor Calibration
 Note that the registration between the IMU coordinate system and the Vicon global coordinate system might not be aligned at start. You might have to align them. 
 
 The Vicon and IMU data are NOT hardware synchronized, although the timestamps `ts` of the respective data are correct. Use `ts` as the reference while plotting the orientation from Vicon and IMU. You can also do a software synchronization using the time stamps. You can align the data from the two closest timestamps from IMU and Vicon data respectively or interpolate using <a href="https://en.wikipedia.org/wiki/Slerp">Slerp</a>. **You can use any third party code for alignment of timestamps.**
 
 
-<a name='implementation'></a>
-## 5. Implementation
+<a name='implementation1'></a>
+### 2.4. Implementation
 
 1. You will write a function that computes orientation only based on gyro data (using integration, assume that you know the initial orientation from Vicon). Check if that works well. Plot the results and verify. Add the plot to your report file. For references, watch the video <a href="https://www.youtube.com/watch?v=8hRoASoBEwY&list=PLZgpos4wVnCYhf5jsl2HcsCl_Pql6Kigk&index=3">here</a> and read the tutorial here <a href="https://nitinjsanket.github.io/tutorials/attitudeest/imu.html"></a>. Feel free to explore other resources to learn these concepts. Usage of ChatGPT is also encouraged as long as you do not blatantly plagiarize. 
 2. You will write another function that computes orientation only based on accelerometer data (assume that the IMU is only rotating). Verify if that function works well before you try to integrate them into a single filter. Add the plot to your report file.For references, watch the video <a href="https://www.youtube.com/watch?v=8hRoASoBEwY&list=PLZgpos4wVnCYhf5jsl2HcsCl_Pql6Kigk&index=3">here</a> and read the tutorial here <a href="https://nitinjsanket.github.io/tutorials/attitudeest/imu.html"></a>. Feel free to explore other resources to learn these concepts. Usage of ChatGPT is also encouraged as long as you do not blatantly plagiarize.
@@ -85,6 +93,37 @@ The Vicon and IMU data are NOT hardware synchronized, although the timestamps `t
 
 
 In the starter code, a function called `rotplot.py` is also included. Use this function to visualize the orientation of your output. To plot the orientation, you need to give a $$3 \times 3$$ rotation matrix as an input.
+
+<a name='phase2'></a>
+## 3. Phase 2: Waypoint Navigation and AprilTag Landing
+
+<a name='prob2'></a>
+### 3.1. Problem Statement 
+In this phase, you will design and implement a navigation and landing system for a simulated quadrotor in an environment. The quadrotor is equipped with the ability to navigate to the provided 3D position waypoint. You are required to autonomously navigate through a sequence of predefined waypoints, perform AprilTag scanning after you reach every waypoint, and execute a landing maneuver on an AprilTag with the ID value of `4`, note that you still have to navigate through all waypoints for completion of the mission. For e.g., if you have 3 waypoints with Tag ID's (unknown before) as 1,4,2. You will navigate to waypoint 1 and then continue to waypoint 2, then land on waypoint 2, takeoff again and continue to waypoint 3 for completion. 
+
+
+
+TODO: Add video of the above example in action.
+TODO: Add an image of the scene
+
+
+<a name='codebase'></a>
+### 3.2. Codebase
+
+To setup the codebase, install Blender 3.6 from the <a href="https://www.blender.org/">official website</a>. Further install the following python libraries: `imath numpy opencv-python scipy pyquaternion`. The codebase and the `.blend` file are included in the project 0 package from Sec. <a href="#data1">2.2</a> in the `Phase2` folder. 
+
+For running the code, please watch <a href="">this video</a>, also attached below from your awesome TA Manoj.
+
+TODO: ADD VIDEO HERE!
+
+<a name='implementation2'></a>
+### 3.3. Implementation
+
+You need to implement the following:
+- A state machine to monitor and supply the next waypoint. Note that you are given a template starter code in `Phase2\src\usercode.py` with the template class `state_machine`. You are required to fill the `step()` function of this class, where you need to monitor if you have reached the current desired waypoint (you will need to check the Euclidean distance between the current position given as `currpos` in your `step()` function and the desired waypoint) and switch to the landing/next waypoint based on the April Tag ID. 
+- AprilTag detection for next task to be performed. Your quadrotor is equipped with a down-facing camera and you are provided with a function `fetchLatestImage()` that returns the current camera frame. You can use utilize the <a href="https://pypi.org/project/apriltag/">`apriltag`</a> library to detect april tags, note that you are given tags from the `36h11` tag family. Once you reach a waypoint, fetch the latest camera frame, detect the April Tag ID, if it is `4`, invoke a land command. To land, you have to generate a waypoint with the same `XY` location and `Z` location of 0.1m. Once you have landed, you can takeoff again, i.e., maintain same `XY` location and make the `Z` location 2m. Then continue onto the next waypoint if any. If there are no more waypoints left, terminate your code and dance!
+
+
 
 <a name='sub'></a>
 
@@ -104,7 +143,7 @@ Please <b>DO NOT</b> include data in your submission. Furthermore, the size of y
 The file tree of your submission <b>SHOULD</b> resemble this:
 
 ```
-YourDirectoryID_p1a.zip
+YourDirectoryID_p0.zip
 ├── Code
 |   ├── Wrapper.py
 |   └── Any subfolders you want along with files
@@ -112,9 +151,11 @@ YourDirectoryID_p1a.zip
 └── README.md
 ```
 
+
+
 <a name='report'></a>
 
-### 7.2. Report
+### 7.2. Report for Phase 1
 
 For each section of the project, explain briefly what you did, and describe any interesting problems you encountered and/or solutions you implemented. You must include the following details in your writeup:
 
@@ -122,6 +163,13 @@ For each section of the project, explain briefly what you did, and describe any 
 - Link to the `rotplot` videos comparing attitude estimation using Gyro Integration, Accelerometer Estimation, Madgwick Filter and Vicon. Sample video can be seen [here](https://www.youtube.com/watch?feature=player_embedded&v=iCe3o-9moUM).
 - Plots for all the train and test sets. In each plot have the angles estimated from gyro only, accelerometer only, madgwick filter and Vicon along with proper legend.  
 - A sample report for a similar project is given in the `.zip` file given to you with the name `SampleReport.pdf`. Treat this report as the benchmark or gold standard which we'll compare your reports to for grading.
+
+<a name='video'></a>
+
+### 7.3. Video for Phase 2
+
+TODO: Show what video you want exactly.
+
 
 <a name='funcs'></a>
 
@@ -135,6 +183,7 @@ For each section of the project, explain briefly what you did, and describe any 
 - Quaternion libraries
 - Any library that perform transformation between various representations of attitude
 - Any code for alignment of timestamps
+- Usage of ChatGPT (TODO: MORE NOTES!)
 
 <b> Disallowed:</b>
 
@@ -151,7 +200,7 @@ If you have any doubts regarding allowed and disallowed functions, please drop a
 You are <b>STRONGLY</b> encouraged to discuss the ideas with your peers. Treat the class as a big group/family and enjoy the learning experience. 
 </p>
 
-However, the code should be your own, and should be the result of you exercising your own understanding of it. If you reference anyone else's code in writing your project, you must properly cite it in your code (in comments) and your writeup. For the full honor code refer to the [RBE5959-F02-ST Fall 2023 website](https://nitinjsanket.github.io/teaching/rbe595/fall2023.html).
+However, the code should be your own, and should be the result of you exercising your own understanding of it. If you reference anyone else's code in writing your project, you must properly cite it in your code (in comments) and your writeup. For the full honor code refer to the [RBE595-F02-ST Fall 2023 website](https://nitinjsanket.github.io/teaching/rbe595/fall2023.html).
 
 <a name='ack'></a>
 
