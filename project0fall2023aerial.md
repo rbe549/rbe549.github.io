@@ -17,12 +17,13 @@ Table of Contents:
   - [3.1. Problem Statement](#prob2)
   - [3.2. Codebase](#codebase)
   - [3.3. Implementation](#implementation2)
-- [6. Submission Guidelines](#sub)
-  - [6.1. File tree and naming](#files)
-  - [6.2. Report](#report)
-- [7. Allowed and Disallowed functions](#funcs)
-- [8. Collaboration Policy](#coll)
-- [9. Acknowledgements](#ack)
+- [4. Submission Guidelines](#sub)
+  - [4.1. File tree and naming](#files)
+  - [4.2. Report](#report)
+  - [4.3. Video for Phase 2](#video) 
+- [5. Allowed and Disallowed functions](#funcs)
+- [6. Collaboration Policy](#coll)
+- [7. Acknowledgements](#ack)
 
 <a name='due'></a>
 ## 1. Deadline 
@@ -33,11 +34,11 @@ Table of Contents:
 
 <a name='prob1'></a>
 ### 2.1. Problem Statement 
-In this phase, you will implement three methods to estimate the three dimensional orientation/attitude. You are given data from an [ArduIMU+ V2](https://www.sparkfun.com/products/retired/9956) six degree of freedom Inertial Measurement Unit (6-DoF IMU) sensor i.e. readings from a 3-axis gyroscope and a 3-axis accelerometer. You will estimate the underlying 3D orientation and compare it with the ground truth data given by a [Vicon motion capture system](https://www.vicon.com/).
+In this phase, you will implement three methods to estimate the three dimensional orientation/attitude. You are given data from an [ArduIMU+ V2](https://www.sparkfun.com/products/retired/9956), a six degree of freedom Inertial Measurement Unit (6-DoF IMU) sensor i.e., readings from a 3-axis gyroscope and a 3-axis accelerometer. You will estimate the underlying 3D orientation and compare it with the ground truth data given by a [Vicon motion capture system](https://www.vicon.com/).
 
 <a name='data1'></a>
 ### 2.2. Reading the Data
-The `Phase1\Data` folder has two subfolders, one which has the raw IMU data `Phase1\Data\Train\IMU` and another one which has the Vicon data `Phase1\Data\Train\Vicon`. The data in each folder is numbered for correspondence, i.e., `Phase1\Data\Train\IMU\imuRaw1.mat` corresponds to `Phase1\Data\Train\Vicon\viconRot1.mat`. Download the project 0 package from [here](https://drive.google.com/file/d/14iIGleYdRmsQFgz5P0feKpW_tkLJ1r9m/view?usp=sharing) which includes the data in `Phase1` folder. These data files are given in a `.mat` format. In order to read these files in Python, use the snippet provided below:
+The `Phase1\Data` folder has two subfolders, one which has the raw IMU data `Phase1\Data\Train\IMU` and another one which has the Vicon data `Phase1\Data\Train\Vicon`. The data in each folder is numbered for correspondence, i.e., `Phase1\Data\Train\IMU\imuRaw1.mat` corresponds to `Phase1\Data\Train\Vicon\viconRot1.mat`. Download the project 0 package from [here](https://drive.google.com/file/d/1EhSywBhsXSyUUijVkeRaEO-5auc8paVO/view?usp=sharing) which includes the data in `Phase1` folder. These data files are given in a `.mat` format. In order to read these files in Python, use the snippet provided below:
 
 ```
 >>> from scipy import io
@@ -99,12 +100,16 @@ In the starter code, a function called `rotplot.py` is also included. Use this f
 
 <a name='prob2'></a>
 ### 3.1. Problem Statement 
-In this phase, you will design and implement a navigation and landing system for a simulated quadrotor in an environment. The quadrotor is equipped with the ability to navigate to the provided 3D position waypoint. You are required to autonomously navigate through a sequence of predefined waypoints, perform AprilTag scanning after you reach every waypoint, and execute a landing maneuver on an AprilTag with the ID value of `4`, note that you still have to navigate through all waypoints for completion of the mission. For e.g., if you have 3 waypoints with Tag ID's (unknown before) as 1,4,2. You will navigate to waypoint 1 and then continue to waypoint 2, then land on waypoint 2, takeoff again and continue to waypoint 3 for completion. 
+In this phase, you will design and implement a navigation and landing system for a simulated quadrotor in an environment. The quadrotor is equipped with the ability to navigate to the provided 3D position waypoint. You are required to autonomously navigate through a sequence of predefined waypoints, perform AprilTag scanning after you reach every waypoint, and execute a landing maneuver on an AprilTag with the ID value of `4`, note that you still have to navigate through all waypoints for completion of the mission. For e.g., if you have 3 waypoints with Tag ID's (unknown before) as 1,4,2 (See Fig. 2). You will navigate to waypoint 1 and then continue to waypoint 2, then land on waypoint 2, takeoff again and continue to waypoint 3 for completion. 
 
 
-
-TODO: Add video of the above example in action.
-TODO: Add an image of the scene
+<div class="fig fighighlight">
+  <img src="/assets/2023/rbe595/p0/DroneExample.png" width="50%">
+  <div class="figcaption">
+    Figure 2: Sample drone scenario.
+  </div>
+  <div style="clear:both;"></div>
+</div>
 
 
 <a name='codebase'></a>
@@ -112,28 +117,28 @@ TODO: Add an image of the scene
 
 To setup the codebase, install Blender 3.6 from the <a href="https://www.blender.org/">official website</a>. Further install the following python libraries: `imath numpy opencv-python scipy pyquaternion`. The codebase and the `.blend` file are included in the project 0 package from Sec. <a href="#data1">2.2</a> in the `Phase2` folder. 
 
-For running the code, please watch <a href="">this video</a>, also attached below from your awesome TA Manoj.
+For running the code, please watch <a href="https://drive.google.com/file/d/1-M7xDqk84THtnoylcP2t6DEcSeHWf1hJ/view?usp=sharing">this video</a>, also attached below from your awesome TA Manoj. If you are super new to Blender, you can also check out <a href="https://drive.google.com/drive/folders/1Shr6cQDLWiov53f1tXZArhBBfoPczNTp">this</a> awesome Blender tutorial by Ramana which was made for the Computer Vision class. 
 
-TODO: ADD VIDEO HERE!
+<iframe src="https://drive.google.com/file/d/1-M7xDqk84THtnoylcP2t6DEcSeHWf1hJ/preview" width="640" height="480" allow="autoplay"></iframe>
+
 
 <a name='implementation2'></a>
 ### 3.3. Implementation
 
 You need to implement the following:
-- A state machine to monitor and supply the next waypoint. Note that you are given a template starter code in `Phase2\src\usercode.py` with the template class `state_machine`. You are required to fill the `step()` function of this class, where you need to monitor if you have reached the current desired waypoint (you will need to check the Euclidean distance between the current position given as `currpos` in your `step()` function and the desired waypoint) and switch to the landing/next waypoint based on the April Tag ID. 
-- AprilTag detection for next task to be performed. Your quadrotor is equipped with a down-facing camera and you are provided with a function `fetchLatestImage()` that returns the current camera frame. You can use utilize the <a href="https://pypi.org/project/apriltag/">`apriltag`</a> library to detect april tags, note that you are given tags from the `36h11` tag family. Once you reach a waypoint, fetch the latest camera frame, detect the April Tag ID, if it is `4`, invoke a land command. To land, you have to generate a waypoint with the same `XY` location and `Z` location of 0.1m. Once you have landed, you can takeoff again, i.e., maintain same `XY` location and make the `Z` location 2m. Then continue onto the next waypoint if any. If there are no more waypoints left, terminate your code and dance!
-
+- A state machine to monitor and supply the next waypoint. Note that you are given a template starter code in `Phase2\src\usercode.py` with the template class `state_machine`. You are required to fill the `step()` function of this class, where you need to monitor if you have reached the current desired waypoint (you will need to check the Euclidean distance between the current position given as `currpos` in your `step()` function and the desired waypoint) and switch to the landing/next waypoint based on the April Tag ID. To run the code you'll run the `Phase2\src\main.py` and **NOT** `Phase2\src\usercode.py`.
+- AprilTag detection for next task to be performed. Your quadrotor is equipped with a down-facing camera and you are provided with a function `fetchLatestImage()` that returns the current camera frame. You can use utilize the <a href="https://pypi.org/project/apriltag/">`apriltag`</a> library to detect april tags, note that you are given tags from the `36h11` tag family. Once you reach a waypoint, fetch the latest camera frame, detect the April Tag ID, if it is `4`, invoke a land command. To land, you have to generate a waypoint with the same `XY` location and `Z` location of 0.1m. Once you have landed, you can takeoff again, i.e., maintain same `XY` location and make the `Z` location 2m. Then continue onto the next waypoint if any. If there are no more waypoints left, terminate your code and dance (in real-life)! Note that you do not need the images to test your waypoint switching logic but you'll need the image to know when to land. So you can test your state switching code without landing without the need to render images, this will make your debugging fast.
 
 
 <a name='sub'></a>
 
-## 7. Submission Guidelines
+## 4. Submission Guidelines
 
 **If your submission does not comply with the following guidelines, you'll be given ZERO credit.**
 
-### 7.1. File tree and naming
+### 4.1. File tree and naming
 
-Your submission on ELMS/Canvas must be a ``zip`` file, following the naming convention ``YourDirectoryID_p1.zip``. If you email ID is ``abc@wpi.edu``, then your ``DirectoryID`` is ``abc``. For our example, the submission file should be named ``abc_p1a.zip``. The file **must have the following directory structure**. The file to run for your project should be called ``YourDirectoryID_p1a/Code/Wrapper.py``. You can have any helper functions in sub-folders as you wish, be sure to index them using relative paths and if you have command line arguments for your Wrapper codes, make sure to have default values too. Please provide detailed instructions on how to run your code in ``README.md`` file. 
+Your submission on ELMS/Canvas must be a ``zip`` file, following the naming convention ``YourDirectoryID_p0.zip``. If you email ID is ``abc@wpi.edu``, then your ``DirectoryID`` is ``abc``. For our example, the submission file should be named ``abc_p0.zip``. The file **must have the following directory structure**. The file to run for the phase 1 of the project should be called ``YourDirectoryID_p1a/Code/Wrapper.py`` and for phase 2 it should be `main.py` as shown in the file structure below. You can have any helper functions in sub-folders as you wish, be sure to index them using relative paths and if you have command line arguments for your Wrapper codes, make sure to have default values too. Please provide detailed instructions on how to run your code in ``README.md`` file. 
 
 <p style="background-color:#ddd; padding:5px">
 <b>NOTE:</b> 
@@ -144,18 +149,30 @@ The file tree of your submission <b>SHOULD</b> resemble this:
 
 ```
 YourDirectoryID_p0.zip
-├── Code
-|   ├── Wrapper.py
-|   └── Any subfolders you want along with files
-├── Report.pdf
+├── Phase1
+|    └── Code
+|        ├── Wrapper.py
+|        ├── Any subfolders you want along with files
+|        └── Report.pdf
+|
+├── Phase2
+|    ├── log
+|    ├── src
+|    |    ├── usercode.py
+|    |    ├── main.py
+|    |    └── Other supporting files
+|    ├── models
+|    ├── outputs
+|    ├── indoor.blend   
+|    ├── main.blend    
+|    └── Video.mp4   
 └── README.md
 ```
 
 
-
 <a name='report'></a>
 
-### 7.2. Report for Phase 1
+### 4.2. Report for Phase 1
 
 For each section of the project, explain briefly what you did, and describe any interesting problems you encountered and/or solutions you implemented. You must include the following details in your writeup:
 
@@ -166,14 +183,15 @@ For each section of the project, explain briefly what you did, and describe any 
 
 <a name='video'></a>
 
-### 7.3. Video for Phase 2
+### 4.3. Video for Phase 2
 
-TODO: Show what video you want exactly.
+The video should be a screen capture of your code in action from both an oblique and top view as shown in the <a href="https://drive.google.com/file/d/1M8eFTep7xnmnh_rSPhul49IDT_Kr8jhr/view?usp=sharing">video below</a>. Note that a screen capture is not a video recorded from your phone. 
 
+<iframe src="https://drive.google.com/file/d/1M8eFTep7xnmnh_rSPhul49IDT_Kr8jhr/preview" width="640" height="480" allow="autoplay"></iframe>
 
 <a name='funcs'></a>
 
-## 8. Allowed and Disallowed functions
+## 5. Allowed and Disallowed functions
 
 <b> Allowed:</b>
 
@@ -183,17 +201,18 @@ TODO: Show what video you want exactly.
 - Quaternion libraries
 - Any library that perform transformation between various representations of attitude
 - Any code for alignment of timestamps
-- Usage of ChatGPT (TODO: MORE NOTES!)
+- Usage of ChatGPT (or any other LLM) is allowed as long as you include the prompts used in your report and blatantly do not plagiarize from ChatGPT (includes copy pasting entire code)
 
 <b> Disallowed:</b>
 
-- Any function that implements in-part or full Gyroscope integration, accelerometer attitude estimation, Complementary filter or Madgwick filter
+- Any function that implements in-part or full Gyroscope integration, accelerometer attitude estimation, Complementary filter or Madgwick filter including usage of LLMs such as ChatGPT to write code for this
+
 
 If you have any doubts regarding allowed and disallowed functions, please drop a public post on [Piazza](https://piazza.com/wpi/fall2023/rbe595). 
 
 <a name='coll'></a>
 
-## 9. Collaboration Policy
+## 6. Collaboration Policy
 
 <p style="background-color:#ddd; padding:5px">
 <b>NOTE:</b> 
@@ -204,7 +223,7 @@ However, the code should be your own, and should be the result of you exercising
 
 <a name='ack'></a>
 
-## 10. Acknowledgements
+## 7. Acknowledgements
 
-This data for this fun project was obtained by the ESE 650: Learning In Robotics course at the University of Pennsylvania and this project is inspired by <a href="https://prg.cs.umd.edu/enae788m">ENAE788M: Hands-On Autonomous Aerial Robotics</a> at the University of Maryland, College Park. 
+This data for this fun project was obtained by the ESE 650: Learning In Robotics course at the University of Pennsylvania.
 
