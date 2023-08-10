@@ -177,8 +177,8 @@ YourDirectoryID_p0.zip
 For each section of the project, explain briefly what you did, and describe any interesting problems you encountered and/or solutions you implemented. You must include the following details in your writeup:
 
 - Your report **MUST** be typeset in LaTeX in the IEEE Tran format provided to you in the ``Draft`` folder and should of a conference quality paper. Feel free to use any online tool to edit such as [Overleaf](https://www.overleaf.com) or install LaTeX on your local machine.
-- Link to the `rotplot` videos comparing attitude estimation using Gyro Integration, Accelerometer Estimation, Madgwick Filter and Vicon. Sample video can be seen [here](https://www.youtube.com/watch?feature=player_embedded&v=iCe3o-9moUM).
-- Plots for all the train and test sets. In each plot have the angles estimated from gyro only, accelerometer only, madgwick filter and Vicon along with proper legend.  
+- Link to the `rotplot` videos comparing attitude estimation using Gyro Integration, Accelerometer Estimation, complementary filter and Vicon. Sample video can be seen [here](https://www.youtube.com/watch?feature=player_embedded&v=iCe3o-9moUM).
+- Plots for all the train and test sets. In each plot have the angles estimated from gyro only, accelerometer only, complementary filter and Vicon along with proper legend.  
 - A sample report for a similar project is given in the `.zip` file given to you with the name `SampleReport.pdf`. Treat this report as the benchmark or gold standard which we'll compare your reports to for grading.
 
 <a name='video'></a>
