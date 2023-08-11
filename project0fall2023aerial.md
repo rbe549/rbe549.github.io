@@ -63,7 +63,7 @@ $$
 \tilde{\omega} = \frac{3300}{1023} \times \frac{\pi}{180} \times 0.3 \times \left(\omega - b_{g}\right)
 $$
 
-Here, $$\tilde{\omega}$$ representes the value of $$\omega$$ in physical units and $$b_g$$ is the bias. $$b_g$$ is calculated as the average of first few hundred samples (assuming that the IMU is at rest in the beginning). 
+Here, $$\tilde{\omega}$$ represents the value of $$\omega$$ in physical units and $$b_g$$ is the bias. $$b_g$$ is calculated as the average of first few hundred samples (assuming that the IMU is at rest in the beginning). 
 
 From the Vicon data, you will need the following 2 keys: `ts` and `rots`. `ts` is the timestamps of size $$1 \times N$$ as before and `rots` is a $$3\times 3\times  N$$ matrix denoting the `Z-Y-X` Euler Angles rotation matrix estimated by Vicon. 
 
