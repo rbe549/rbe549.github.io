@@ -20,7 +20,7 @@ Table of Contents:
 - [4. Submission Guidelines](#sub)
   - [4.1. File tree and naming](#files)
   - [4.2. Report](#report)
-  - [4.3. Video for Phase 2](#video) 
+  - [4.3. Video for Phase 2](#video) ''
 - [5. Allowed and Disallowed functions](#funcs)
 - [6. Collaboration Policy](#coll)
 - [7. Acknowledgements](#ack)
@@ -70,7 +70,7 @@ From the Vicon data, you will need the following 2 keys: `ts` and `rots`. `ts` i
 An image of the rig used for data collection is shown below:
 
 <div class="fig fighighlight">
-  <img src="/assets/2019/p1/IMURig.png" width="100%">
+  <img src="/assets/2023/rbe595/p0/IMURig.png" width="50%">
   <div class="figcaption">
     Figure 1: IMU Rig used for data collection.
   </div>
@@ -205,7 +205,7 @@ The video should be a screen capture of your code in action from both an oblique
 
 <b> Disallowed:</b>
 
-- Any function that implements in-part or full Gyroscope integration, accelerometer attitude estimation, Complementary filter or Madgwick filter including usage of LLMs such as ChatGPT to write code for this
+- Any function that implements in-part or full Gyroscope integration, accelerometer attitude estimation, Complementary filter including usage of LLMs such as ChatGPT to write code for this
 
 
 If you have any doubts regarding allowed and disallowed functions, please drop a public post on [Piazza](https://piazza.com/wpi/fall2023/rbe595). 
