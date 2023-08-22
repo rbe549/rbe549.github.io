@@ -23,19 +23,18 @@ Table of Contents:
 
 <a name='prob'></a>
 ## 2. Problem Statement 
-In this project, you will implement an Unscented Kalman Filter (UKF) to track three dimensional orientation. Given IMU sensor readings from gyroscopes and accelerometers, you will estimate the underlying 3D orientation and compare it with the ground truth data given by a Vicon motion capture system. 
+Continuing from project 1a, in this project, you will implement an Unscented Kalman Filter (UKF) to track three dimensional orientation. Given IMU sensor readings from gyroscopes and accelerometers, you will estimate the underlying 3D orientation and compare it with the ground truth data given by a Vicon motion capture system. 
 
 Follow the steps 3 to 4 from [Project 1a](https://rbe549.github.io/rbe595/fall2023/proj/p1a/) for instructions on reading the data and sensor calibration.
 
 
 <a name='implementation'></a>
 ## 3. Implementation
-You estimated the orientation using a Madgick Filter in Project 1a, now it's time to implement a non-linear filter - UKF. Follow [this paper](https://ieeexplore.ieee.org/document/1257247) by Edgar Kraft for more details.  You can compare your resulting orientation estimate with the “ground truth” estimate from the Vicon. A simple plotting function is provided in `rotplot.py.` This function provides basic visualization and can be modified as you see fit. 
-Make sure you plot the orientation in all axis and compare with Vicon plots.
+You estimated the orientation using a Madgick Filter in Project 1a, now it's time to implement a non-linear filter - UKF. Follow [this paper](https://ieeexplore.ieee.org/document/1257247) by Edgar Kraft for more details.  You can compare your resulting orientation estimate with the ''ground truth'' estimate from the Vicon. A simple plotting function is provided in `rotplot.py.` This function provides basic visualization and can be modified as you see fit. Make sure you plot the orientation in all axis and compare with Vicon plots.
 
 <a name='testset'></a>
 ## 4. Notes About Test Set
-A test set will be released 24 hours before the deadline. You can download the test set from <b>here</b>. Your report MUST include the output from both the train and test sets. 
+A test set will be released 24 hours before the deadline. You can download the test set from <b>here</b>. Your report MUST include the output (gyroscope orientation, accelerometer orientation, complementary filter orientation and Madgwick filter orientation) from both the train and test sets. 
 
 
 <a name='sub'></a>
@@ -46,7 +45,7 @@ A test set will be released 24 hours before the deadline. You can download the t
 
 ### 5.1. File tree and naming
 
-Your submission on ELMS/Canvas must be a ``zip`` file, following the naming convention ``YourDirectoryID_p1.zip``. If you email ID is ``abc@wpi.edu``, then your ``DirectoryID`` is ``abc``.For our example, the submission file should be named ``abc_p1b.zip``. The file **must have the following directory structure**. The file to run for your project should be called ``YourDirectoryID_p1b/Code/Wrapper.py``. You can have any helper functions in sub-folders as you wish, be sure to index them using relative paths and if you have command line arguments for your Wrapper codes, make sure to have default values too. Please provide detailed instructions on how to run your code in ``README.md`` file. 
+Your submission on ELMS/Canvas must be a ``zip`` file, following the naming convention ``YourDirectoryID_p1b.zip``. If you email ID is ``abc@wpi.edu``, then your ``DirectoryID`` is ``abc``.For our example, the submission file should be named ``abc_p1b.zip``. The file **must have the following directory structure**. The file to run for your project should be called ``YourDirectoryID_p1b/Code/Wrapper.py``. You can have any helper functions in sub-folders as you wish, be sure to index them using relative paths and if you have command line arguments for your Wrapper codes, make sure to have default values too. Please provide detailed instructions on how to run your code in ``README.md`` file. 
 
 <p style="background-color:#ddd; padding:5px">
 <b>NOTE:</b> 
@@ -71,8 +70,8 @@ YourDirectoryID_p1b.zip
 For each section of the project, explain briefly what you did, and describe any interesting problems you encountered and/or solutions you implemented. You must include the following details in your writeup:
 
 - Your report **MUST** be typeset in LaTeX in the IEEE Tran format provided to you in the ``Draft`` folder and should of a conference quality paper. Feel free to use any online tool to edit such as [Overleaf](https://www.overleaf.com) or install LaTeX on your local machine.
-- Link to the `rotplot` videos comparing attitude estimation using Madgwick Filter from Project 1a, UKF and Vicon. Sample video can be seen [here](https://www.youtube.com/watch?feature=player_embedded&v=iCe3o-9moUM).
-- Plots for all the train and test sets. In each plot have the angles estimated from madgwick filter, UKF and Vicon along with proper legend.  
+- Link to the `rotplot` videos comparing attitude estimation using filters from project 0, Madgwick Filter from project 1a, UKF and Vicon. Sample video can be seen [here](https://www.youtube.com/watch?feature=player_embedded&v=iCe3o-9moUM).
+- Plots for all the train and test sets. In each plot have the angles estimated from complementary filter, madgwick filter, UKF and Vicon along with proper legend.  
 - A sample report for a similar project is given in the `.zip` file given to you with the name `SampleReport.pdf`. Treat this report as the benchmark or gold standard which we'll compare your reports to for grading.
 
 
@@ -88,6 +87,8 @@ For each section of the project, explain briefly what you did, and describe any 
 - Quaternion libraries
 - Any library that perform transformation between various representations of attitude
 - Any code for alignment of timestamps
+- Any code from project 0 and project 1a that you have written
+
 
 
 <b> Disallowed:</b>

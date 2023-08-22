@@ -26,11 +26,11 @@ Table of Contents:
 
 <a name='prob'></a>
 ## 2. Problem Statement 
-In this project, you will implement a Madgwick filter to estimate the three dimensional orientation/attitude. You are given data from an [ArduIMU+ V2](https://www.sparkfun.com/products/retired/9956) six degree of freedom Inertial Measurement Unit (6-DoF IMU) sensor i.e. readings from a 3-axis gyroscope and a 3-axis accelerometer. You will estimate the underlying 3D orientation and compare it with the ground truth data given by a [Vicon motion capture system](https://www.vicon.com/).
+In this project, you will implement a Madgwick filter to estimate the three dimensional orientation/attitude. You are given data from an [ArduIMU+ V2](https://www.sparkfun.com/products/retired/9956), a six degree of freedom Inertial Measurement Unit (6-DoF IMU) sensor i.e., readings from a 3-axis gyroscope and a 3-axis accelerometer. You will estimate the underlying 3D orientation and compare it with the ground truth data given by a [Vicon motion capture system](https://www.vicon.com/). This is very similar to Project 0.
 
 <a name='data'></a>
 ## 3. Reading the Data
-The `Data` folder has two subfolders, one which has the raw IMU data `Data\Train\IMU` and another one which has the Vicon data `Data\Train\Vicon`. The data in each folder is numbered for correspondence, i.e., `Data\Train\IMU\imuRaw1.mat` corresponds to `Data\Train\Vicon\viconRot1.mat`. Download the data from [here](https://drive.google.com/file/d/14iIGleYdRmsQFgz5P0feKpW_tkLJ1r9m/view?usp=sharing). These data files are given in a `.mat` format. In order to read these files in Python, use the snippet provided below:
+The data is the same as given from Project 0. The `Data` folder has two subfolders, one which has the raw IMU data `Data\Train\IMU` and another one which has the Vicon data `Data\Train\Vicon`. The data in each folder is numbered for correspondence, i.e., `Data\Train\IMU\imuRaw1.mat` corresponds to `Data\Train\Vicon\viconRot1.mat`. Download the data from [here](https://drive.google.com/file/d/14iIGleYdRmsQFgz5P0feKpW_tkLJ1r9m/view?usp=sharing). These data files are given in a `.mat` format. In order to read these files in Python, use the snippet provided below:
 
 ```
 >>> from scipy import io
@@ -62,7 +62,7 @@ From the Vicon data, you will need the following 2 keys: `ts` and `rots`. `ts` i
 An image of the rig used for data collection is shown below:
 
 <div class="fig fighighlight">
-  <img src="/assets/2019/p1/IMURig.png" width="100%">
+  <img src="/assets/2023/rbe595/p0/IMURig.png" width="100%">
   <div class="figcaption">
     Figure 1: IMU Rig used for data collection.
   </div>
@@ -80,10 +80,10 @@ The Vicon and IMU data are NOT hardware synchronized, although the timestamps `t
 <a name='implementation'></a>
 ## 5. Implementation
 
-1. You will write a function that computes orientation only based on gyro data (using integration, assume that you know the initial orientation from Vicon). Check if that works well. Plot the results and verify. Add the plot to your report file.
-2. You will write another function that computes orientation only based on accelerometer data (assume that the IMU is only rotating). Verify if that function works well before you try to integrate them into a single filter. THIS IS VERY IMPORTANT! Add the plot to your report file.
-3. You will write a third function that uses simple complementary filter to fuse estimates from both the gyroscope and accelerometer. Make sure this works well before you implement the next step. You should observe the estimates to be almost an average of the previous two estimates. Report the value of fusion factor $$\alpha$$ in your report. Also, add the plot to your report file.
-3. Now, write a function for Madgwick filter that computes orientation based on gyroscope and accelerometer data only. Make sure you plot the orientation in all axis and compare with Vicon plots. Show the plot in your report as well.
+1. Take your function from Project 0 that computes orientation only based on gyro data (using integration, assume that you know the initial orientation from Vicon). Add the plot to your report file.
+2. Take the function that computes orientation only based on accelerometer data from Project 0 (assume that the IMU is only rotating). Add the plot to your report file.
+3. Again, take your complementary filter function that fuses estimates from both the gyroscope and accelerometer from your Project 0. Report the value of fusion factor $$\alpha$$ in your report. Also, add the plot to your report file.
+4. Now, **new to Project 1a**, write a function for Madgwick filter that computes orientation based on gyroscope and accelerometer data only. Make sure you plot the orientation in all axis and compare with Vicon plots. Show the plot in your report as well.
 
 In the starter code, a function called `rotplot.py` is also included. Use this function to visualize the orientation of your output. To plot the orientation, you need to give a $$3 \times 3$$ rotation matrix as an input.
 
@@ -100,7 +100,7 @@ A test set will be released 24 hours before the deadline. You can download the t
 
 ### 7.1. File tree and naming
 
-Your submission on ELMS/Canvas must be a ``zip`` file, following the naming convention ``YourDirectoryID_p1.zip``. If you email ID is ``abc@wpi.edu``, then your ``DirectoryID`` is ``abc``. For our example, the submission file should be named ``abc_p1a.zip``. The file **must have the following directory structure**. The file to run for your project should be called ``YourDirectoryID_p1a/Code/Wrapper.py``. You can have any helper functions in sub-folders as you wish, be sure to index them using relative paths and if you have command line arguments for your Wrapper codes, make sure to have default values too. Please provide detailed instructions on how to run your code in ``README.md`` file. 
+Your submission on ELMS/Canvas must be a ``zip`` file, following the naming convention ``YourDirectoryID_p1a.zip``. If you email ID is ``abc@wpi.edu``, then your ``DirectoryID`` is ``abc``. For our example, the submission file should be named ``abc_p1a.zip``. The file **must have the following directory structure**. The file to run for your project should be called ``YourDirectoryID_p1a/Code/Wrapper.py``. You can have any helper functions in sub-folders as you wish, be sure to index them using relative paths and if you have command line arguments for your Wrapper codes, make sure to have default values too. Please provide detailed instructions on how to run your code in ``README.md`` file. 
 
 <p style="background-color:#ddd; padding:5px">
 <b>NOTE:</b> 
@@ -141,6 +141,7 @@ For each section of the project, explain briefly what you did, and describe any 
 - Quaternion libraries
 - Any library that perform transformation between various representations of attitude
 - Any code for alignment of timestamps
+- Any code from project 0 that you have written
 
 <b> Disallowed:</b>
 
@@ -157,7 +158,7 @@ If you have any doubts regarding allowed and disallowed functions, please drop a
 You are <b>STRONGLY</b> encouraged to discuss the ideas with your peers. Treat the class as a big group/family and enjoy the learning experience. 
 </p>
 
-However, the code should be your own, and should be the result of you exercising your own understanding of it. If you reference anyone else's code in writing your project, you must properly cite it in your code (in comments) and your writeup. For the full honor code refer to the [RBE595-F02-ST Fall 2023 website](https://nitinjsanket.github.io/teaching/rbe595/fall2023.html).
+However, the code should be your own, and should be the result of you exercising your own understanding of it. If you reference anyone else's code in writing your project, you must properly cite it in your code (in comments) and your writeup. For the full honor code refer to the [RBE595-F02-ST Fall 2023 website](https://pear.wpi.edu/teaching/rbe595/fall2023.html).
 
 <a name='ack'></a>
 
