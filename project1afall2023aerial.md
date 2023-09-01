@@ -90,7 +90,7 @@ In the starter code, a function called `rotplot.py` is also included. Use this f
 
 <a name='testset'></a>
 ## 6. Notes About Test Set
-A test set will be released 24 hours before the deadline. You can download the test set from <b>here</b>. Your report MUST include the output from both the train and test sets. 
+A test set will be released 24 hours before the deadline. You can download the test set from <a href="https://drive.google.com/file/d/15x5d49CqQ40vAcWfX_kLeuje1K7-URVJ/view?usp=sharing">here</a>. Your report MUST include the output from both the train and test sets. 
 
 <a name='sub'></a>
 
