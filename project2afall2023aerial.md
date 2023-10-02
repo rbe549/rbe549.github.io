@@ -127,7 +127,7 @@ You will then tune a cascaded controller that makes sure that your quadrotor fol
 
 <a name='testset'></a>
 ## 5. Notes About Test Set
-A test set will be released 24 hours before the deadline. You can download the test set from <b>here</b>. Your report MUST include the output from both the train and test sets. This will include the maps and the start and goal locations.
+A test set will be released 24 hours before the deadline. You can download the test set from <a href="https://drive.google.com/file/d/1TaAmSDYPab69xQ3cQu9Dm82C-P3_nXol/view?usp=drive_link">here</a>. Your report MUST include the output from both the train and test sets. This will include the maps and the start and goal locations as $$(X,Y,Z)$$ tuple (you can manually feed these inputs and do not need to write a parsing function). 
 
 
 <a name='sub'></a>
