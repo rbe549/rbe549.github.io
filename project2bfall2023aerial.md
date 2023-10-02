@@ -33,11 +33,11 @@ In this project, you will implement the navigation (planning and control) stack 
 
 <a name='environment'></a>
 ## 3. Environment
-The map is known prior-art through a map file format from Project 2a (which can change during your live demo, more details on this later). 
+The map is known prior-art through a map file format from Project 2a (which can change during your live demo, more details on this later). An example map file for the real experiments can be downloaded from <a href="">here</a>. Note that you will be given a similar map file during the live demo.
 
 <a name='implementation'></a>
 ## 4. Implementation
-You will be using the DJI Tello Edu Quadrotor for the experiments (See Fig. 1). The goal is to navigate through a known map given the oracle position. Essentially, you will be implementing a path planner, waypoint trajectory generator and a position controller. To do this, you will modify your code from Project 2a and integrate it with the <a href="https://github.com/damiafuentes/DJITelloPy">DJITelloPy</a> package or any other package that allows for control of the DJI Tello Edu using Python.
+You will be using the DJI Tello Edu Quadrotor for the experiments (See Fig. 1). The goal is to navigate through a known map given the oracle position (you will assume that your odometry and controls are perfect in this case). Essentially, you will be implementing a path planner, waypoint trajectory generator and a position controller. To do this, you will modify your code from Project 2a and integrate it with the <a href="https://github.com/damiafuentes/DJITelloPy">DJITelloPy</a> package or any other package that allows for control of the DJI Tello Edu using Python. You are free to perform this project either with a position controller or a velocity controller. The goal is to navigate though the scene as fast as possible. <b>Show your quadrotor pose in the map in Blender using the odometry through the run.</b>.
 
 
 <div class="fig fighighlight">
@@ -52,8 +52,7 @@ You will be using the DJI Tello Edu Quadrotor for the experiments (See Fig. 1). 
 
 <a name='collision'></a>
 ## 4.1. Collision Handling
-Your quadrotor should  fly as fast as possible. However, a real quadrotor is not allowed to collide with anything (<a href="https://www.youtube.com/watch?v=TVrxvqYlCDs">video</a>). Therefore, we have zero tolerance towards collision - if you
-collide, you crash, you get zero for that test. For this part, collisions will be counted as if the free space of the robot is an open set; if you are on the boundary of a collision, you are in collision.
+Your quadrotor should  fly as fast as possible. However, a real quadrotor is not allowed to collide with anything (<a href="https://www.youtube.com/watch?v=TVrxvqYlCDs">video</a>). Therefore, we have zero tolerance towards collision - if you collide, you crash, you get zero for that test. For this part, collisions will be counted as if the free space of the robot is an open set; if you are on the boundary of a collision, you are in collision.
 
 As you program your controller, you'll know how well it works, it will have overshoots. Additionally, trajectory smoothing may also deviate the actual trajectory from the planned path. Therefore, you should make good use of the margin parameter and set your speed carefully. Please be aware that the robot is assumed to be a cuboid with a tall vertical height. You should make sure that no part of the robot collides with any obstacles. Furthermore, one practical tip is to have relatively large margins for obstacles such that odometry errors (your oracle state is coming from the odometry of the robot) are not large enough for the robot to crash into obstacles.
 
@@ -62,7 +61,7 @@ As you program your controller, you'll know how well it works, it will have over
 
 <a name='testset'></a>
 ## 5. Testing (Live Demo)
-On the day of the deadline, each team will be given a 15 minute slot for demoing their code in action to the instructors. The instructors will place the obstacles as they wish (obstacle locations will be given to you in the map). The task is the fly to the goal location as fast as possible without any collisions. You can get as many attempts as you want to accomplish this within your 15 minute time slot.
+On the day of the deadline, each team will be given a 15 minute slot for demoing their code in action to the instructors in the given map file, start and goal locations. The instructors will place the obstacles as they wish (obstacle locations will be given to you in the map). The task is the fly to the goal location as fast as possible without any collisions. You can get as many attempts as you want to accomplish this within your 15 minute time slot.
 
 
 <a name='sub'></a>
@@ -88,7 +87,8 @@ YourDirectoryID_p2a.zip
 |   ├── Wrapper.py
 |   └── Any subfolders you want along with files
 ├── Report.pdf
-├── Video.mp4
+├── RunVideo.mp4
+├── VisVideo.mp4
 └── README.md
 ```
 
@@ -105,7 +105,9 @@ For each section of the project, explain briefly what you did, and describe any 
 
 ### 6.3. Video
 
-Record your successful run in `.mp4` format during your demo or before and submit it in the zip file. Make sure to name it as `Video.mp4`. Record the video in the higest resolution and fastest fps possible on your recording device with minimum being 1080p at 30fps. Record the video horizontally and such that the nets do not cover the frame. Use a super steady hand or a tripod for good quality shots.
+Record your successful run in `.mp4` format during your demo or before and submit it in the zip file,. Make sure to name it as `RunVideo.mp4`. Record the video in the highest resolution and fastest fps possible on your recording device with minimum being 1080p at 30fps. Record the video horizontally and such that the nets do not cover the frame. Use a super steady hand or a tripod for good quality shots. 
+
+Record the visualization of your run, where the quadrotor will navigate through the scene. Use odometry from the Tello as a position source on your map. Name this video as `VisVideo.mp4` and keep the resolution atleast 1080p at 30fps.  
 
 <a name='funcs'></a>
 
@@ -115,7 +117,8 @@ Record your successful run in `.mp4` format during your demo or before and submi
 
 - Any functions regarding reading, writing and displaying/plotting images in `cv2`, `matplotlib`
 - Basic math utilities including convolution operations in `numpy` and `math`
-- Any functions for pretty plots
+- Any functions for pretty plots and visualizations
+- Any assets for visualizations
 - Quaternion libraries
 - Any library that perform transformation between various representations of attitude
 - Any code for alignment of timestamps
