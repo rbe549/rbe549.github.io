@@ -11,7 +11,7 @@ Table of Contents:
 - [2. Problem Statement](#prob)
 - [3. Environment](#environment)
 - [4. Implementation](#implementation)
-  -[4.1. Collision Handling](#collision)
+  - [4.1. Collision Handling](#collision)
 - [5. Testing (Live Demo)](#testset)
 - [6. Submission Guidelines](#sub)
   - [6.1. File tree and naming](#files)
