@@ -60,7 +60,7 @@ You will be using the DJI Tello Edu Quadrotor for the experiments (See Figs. 2 a
 <div class="fig fighighlight">
   <img src="/assets/2023/rbe595/p2/Tellos.png" width="100%">
   <div class="figcaption">
-    Figure 3: Army of DJI Tello Edu's and their respective NVIDIA Jetson Orin Nano computers used in experiments.
+    Figure 3: Army of DJI Tello Edu's and their respective NVIDIA Jetson Orin Nano computers for usage in experiments.
   </div>
   <div style="clear:both;"></div>
 </div>
