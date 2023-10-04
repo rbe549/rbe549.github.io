@@ -27,7 +27,7 @@ Table of Contents:
 
 <a name='prob'></a>
 ## 2. Problem Statement 
-In this project, you will implement the navigation (planning and control) stack from Project 2a on a real quadrotor. The starter code and the map can be download from <a href="https://github.com/pearwpi/rbe595_p2b">here</a>. The maps and start and goal locations are inside `TrainSetP2b.zip` file.
+In this project, you will implement the navigation (planning and control) stack from Project 2a on a real quadrotor. The starter code and the map can be download from <a href="https://github.com/pearwpi/rbe595_p2b">here</a>. The maps and start and goal locations are inside `TrainSetP2b.zip` file. All the codes have to run on the provided NVIDIA Jetson Orin Nano (you can install whatever packages you need) and the trajectory has to be executed on the DJI Tello Edu Quadrotor. 
 
 <a name='environment'></a>
 ## 3. Environment
@@ -75,7 +75,7 @@ As you program your controller, you'll know how well it works, it will have over
 
 <a name='testset'></a>
 ## 5. Testing (Live Demo)
-On the day of the deadline, each team will be given a 15 minute slot for demoing their code in action to the instructors in the given map file, start and goal locations. The instructors will place the obstacles as they wish (obstacle locations will be given to you in the map). The task is the fly to the goal location as fast as possible without any collisions. You can get as many attempts as you want to accomplish this within your 15 minute time slot.
+On the day of the deadline, each team will be given a 15 minute slot for demoing their code in action to the instructors in the given map file, start and goal locations. The instructors will place the obstacles as they wish (obstacle locations will be given to you in the map). The task is the fly to the goal location as fast as possible without any collisions. You can get as many attempts as you want to accomplish this within your 15 minute time slot. All the codes have to run on the provided NVIDIA Jetson Orin Nano (you can install whatever packages you need) and the trajectory has to be executed on the DJI Tello Edu Quadrotor. 
 
 
 <a name='sub'></a>
