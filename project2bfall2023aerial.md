@@ -35,7 +35,7 @@ The map is known prior-art through a map file format from Project 2a (which can 
 
 
 <div class="fig fighighlight">
-  <img src="https://umdausfire.github.io/img/fire198/asn5/Frames.png" width="100%">
+  <img src="/assets/2023/rbe595/p2/Frames.png" width="100%">
   <div class="figcaption">
     Fig 1: Sample environment for testing in real world given in map1.txt. Left: Panoramic view of the environment, Right: Perspective view of the environment with coordinate axes. Red and green circles show start and goal locations respectively.  
   </div>
@@ -49,7 +49,7 @@ You will be using the DJI Tello Edu Quadrotor for the experiments (See Figs. 2 a
 
 
 <div class="fig fighighlight">
-  <img src="https://umdausfire.github.io/img/fire198/asn5/Tellos.png" width="100%">
+  <img src="https://umdausfire.github.io/img/fire198/asn5/DJITelloInAction2.png" width="100%">
   <div class="figcaption">
     Fig 2: DJI Tello Edu we'll be using in the flight experiments, Left: In action, Right: Zoomed-in view.
   </div>
@@ -58,7 +58,7 @@ You will be using the DJI Tello Edu Quadrotor for the experiments (See Figs. 2 a
 
 
 <div class="fig fighighlight">
-  <img src="/assets/2023/rbe595/p2/Overview.png" width="100%">
+  <img src="/assets/2023/rbe595/p2/Tellos.png" width="100%">
   <div class="figcaption">
     Figure 3: Army of DJI Tello Edu's and their respective NVIDIA Jetson Orin Nano computers used in experiments.
   </div>
