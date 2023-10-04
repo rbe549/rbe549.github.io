@@ -31,13 +31,13 @@ In this project, you will implement the navigation (planning and control) stack 
 
 <a name='environment'></a>
 ## 3. Environment
-The map is known prior-art through a map file format from Project 2a (which can change during your live demo, more details on this later). An example map file for the real experiments is given in the starter code. The map of this environment is shown in Fig. 1. The coordinate frames are also defined as shown in Fig. 1 and the start and goal locations are marked as red and green circles respectively. If the start/goal location are given as 0 in the Z axis, that means you need to takeoff/land in that location respectively. In this case, you are expected to fly at a height of 1m after takeoff and before landing. Note that you will be given a similar map file during the live demo (with same coordinate conventions).
+The map is known prior-art through a map file format from Project 2a (which can change during your live demo, more details on this later). An example map file for the real experiments is given in the starter code. The map of this environment is shown in Fig. 1. The coordinate frames are also defined as shown in Fig. 1 and the start and goal locations are marked as red and green circles respectively. If the start/goal location are given as 0 in the Z axis, that means you need to takeoff/land in that location respectively. In this case, you are expected to fly at a height of 1m after takeoff and before landing. Note that you will be given a similar map file during the live demo (with same coordinate conventions). Although the boxes in Fig. 1 are not 2m in height (Z), you have to assume that it covers the entire area as given in `map1.txt`, this means that you are not allowed to fly over the boxes.
 
 
 <div class="fig fighighlight">
-  <img src="https://umdausfire.github.io/img/fire198/asn5/DJITelloInAction2.png" width="100%">
+  <img src="https://umdausfire.github.io/img/fire198/asn5/Frames.png" width="100%">
   <div class="figcaption">
-    Fig 1: Sample environment for testing in real world given in ```map1.txt```.
+    Fig 1: Sample environment for testing in real world given in map1.txt. Left: Panoramic view of the environment, Right: Perspective view of the environment with coordinate axes. Red and green circles show start and goal locations respectively.  
   </div>
   <div style="clear:both;"></div>
 </div>
@@ -49,7 +49,7 @@ You will be using the DJI Tello Edu Quadrotor for the experiments (See Figs. 2 a
 
 
 <div class="fig fighighlight">
-  <img src="https://umdausfire.github.io/img/fire198/asn5/DJITelloInAction2.png" width="100%">
+  <img src="https://umdausfire.github.io/img/fire198/asn5/Tellos.png" width="100%">
   <div class="figcaption">
     Fig 2: DJI Tello Edu we'll be using in the flight experiments, Left: In action, Right: Zoomed-in view.
   </div>
