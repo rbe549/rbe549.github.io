@@ -27,7 +27,7 @@ Table of Contents:
 
 <a name='prob'></a>
 ## 2. Problem Statement 
-In this project, you will implement the navigation (planning and control) stack from Project 2a on a real quadrotor. The starter code and the map can be download from <a href="">here</a>.
+In this project, you will implement the navigation (planning and control) stack from Project 2a on a real quadrotor. The starter code and the map can be download from <a href="https://github.com/pearwpi/rbe595_p2b">here</a>. The maps and start and goal locations are inside `TrainSetP2b.zip` file.
 
 <a name='environment'></a>
 ## 3. Environment
