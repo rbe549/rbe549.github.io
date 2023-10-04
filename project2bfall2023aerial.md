@@ -23,31 +23,47 @@ Table of Contents:
 
 <a name='due'></a>
 ## 1. Deadline 
-**11:59:59 PM, Oct 09, 2023.**
-
-TODO: Add real experiment photos.
+**11:59:59 PM, Oct 09, 2023.** Live demos are due on the same day as well for which you will need to book time slots (More details on this will be posted on Piazza). 
 
 <a name='prob'></a>
 ## 2. Problem Statement 
-In this project, you will implement the navigation (planning and control) stack from Project 2a on a real quadrotor.  
+In this project, you will implement the navigation (planning and control) stack from Project 2a on a real quadrotor. The starter code and the map can be download from <a href="">here</a>.
 
 <a name='environment'></a>
 ## 3. Environment
-The map is known prior-art through a map file format from Project 2a (which can change during your live demo, more details on this later). An example map file for the real experiments can be downloaded from <a href="">here</a>. Note that you will be given a similar map file during the live demo.
-
-<a name='implementation'></a>
-## 4. Implementation
-You will be using the DJI Tello Edu Quadrotor for the experiments (See Fig. 1). The goal is to navigate through a known map given the oracle position (you will assume that your odometry and controls are perfect in this case). Essentially, you will be implementing a path planner, waypoint trajectory generator and a position controller. To do this, you will modify your code from Project 2a and integrate it with the <a href="https://github.com/damiafuentes/DJITelloPy">DJITelloPy</a> package or any other package that allows for control of the DJI Tello Edu using Python. You are free to perform this project either with a position controller or a velocity controller. The goal is to navigate though the scene as fast as possible. <b>Show your quadrotor pose in the map in Blender using the odometry through the run.</b>.
+The map is known prior-art through a map file format from Project 2a (which can change during your live demo, more details on this later). An example map file for the real experiments is given in the starter code. The map of this environment is shown in Fig. 1. The coordinate frames are also defined as shown in Fig. 1 and the start and goal locations are marked as red and green circles respectively. If the start/goal location are given as 0 in the Z axis, that means you need to takeoff/land in that location respectively. In this case, you are expected to fly at a height of 1m after takeoff and before landing. Note that you will be given a similar map file during the live demo (with same coordinate conventions).
 
 
 <div class="fig fighighlight">
   <img src="https://umdausfire.github.io/img/fire198/asn5/DJITelloInAction2.png" width="100%">
   <div class="figcaption">
-    Fig 1: DJI Tello Edu we'll be using in the flight experiments, Left: In action, Right: Zoomed-in view.
+    Fig 1: Sample environment for testing in real world given in ```map1.txt```.
   </div>
   <div style="clear:both;"></div>
 </div>
 
+
+<a name='implementation'></a>
+## 4. Implementation
+You will be using the DJI Tello Edu Quadrotor for the experiments (See Figs. 2 and 3). The goal is to navigate through a known map given the oracle position (you will assume that your odometry and controls are perfect in this case). Essentially, you will be implementing a path planner, waypoint trajectory generator and a position controller. To do this, you will modify your code from Project 2a and integrate it with the <a href="https://github.com/damiafuentes/DJITelloPy">DJITelloPy</a> package or any other package that allows for control of the DJI Tello Edu using Python. You are free to perform this project either with a position controller or a velocity controller. The goal is to navigate though the scene as fast as possible. <b>Show your quadrotor pose in the map in Blender using the odometry through the run.</b>.
+
+
+<div class="fig fighighlight">
+  <img src="https://umdausfire.github.io/img/fire198/asn5/DJITelloInAction2.png" width="100%">
+  <div class="figcaption">
+    Fig 2: DJI Tello Edu we'll be using in the flight experiments, Left: In action, Right: Zoomed-in view.
+  </div>
+  <div style="clear:both;"></div>
+</div>
+
+
+<div class="fig fighighlight">
+  <img src="/assets/2023/rbe595/p2/Overview.png" width="100%">
+  <div class="figcaption">
+    Figure 3: Army of DJI Tello Edu's and their respective NVIDIA Jetson Orin Nano computers used in experiments.
+  </div>
+  <div style="clear:both;"></div>
+</div>
 
 
 <a name='collision'></a>
@@ -55,8 +71,6 @@ You will be using the DJI Tello Edu Quadrotor for the experiments (See Fig. 1). 
 Your quadrotor should  fly as fast as possible. However, a real quadrotor is not allowed to collide with anything (<a href="https://www.youtube.com/watch?v=TVrxvqYlCDs">video</a>). Therefore, we have zero tolerance towards collision - if you collide, you crash, you get zero for that test. For this part, collisions will be counted as if the free space of the robot is an open set; if you are on the boundary of a collision, you are in collision.
 
 As you program your controller, you'll know how well it works, it will have overshoots. Additionally, trajectory smoothing may also deviate the actual trajectory from the planned path. Therefore, you should make good use of the margin parameter and set your speed carefully. Please be aware that the robot is assumed to be a cuboid with a tall vertical height. You should make sure that no part of the robot collides with any obstacles. Furthermore, one practical tip is to have relatively large margins for obstacles such that odometry errors (your oracle state is coming from the odometry of the robot) are not large enough for the robot to crash into obstacles.
-
-<!-- - Global and local based on noise! -->
 
 
 <a name='testset'></a>
@@ -82,7 +96,7 @@ Please <b>DO NOT</b> include data in your submission. Furthermore, the size of y
 The file tree of your submission <b>SHOULD</b> resemble this:
 
 ```
-YourDirectoryID_p2a.zip
+YourDirectoryID_p2b.zip
 ├── Code
 |   ├── Wrapper.py
 |   └── Any subfolders you want along with files
@@ -107,7 +121,7 @@ For each section of the project, explain briefly what you did, and describe any 
 
 Record your successful run in `.mp4` format during your demo or before and submit it in the zip file,. Make sure to name it as `RunVideo.mp4`. Record the video in the highest resolution and fastest fps possible on your recording device with minimum being 1080p at 30fps. Record the video horizontally and such that the nets do not cover the frame. Use a super steady hand or a tripod for good quality shots. 
 
-Record the visualization of your run, where the quadrotor will navigate through the scene. Use odometry from the Tello as a position source on your map. Name this video as `VisVideo.mp4` and keep the resolution atleast 1080p at 30fps.  
+Record the visualization of your run, where the quadrotor will navigate through the scene. Use odometry from the Tello as a position source on your map. Name this video as `VisVideo.mp4` and keep the resolution atleast 1080p at 30fps. Show the RRT* tree, planned path and trajectory as in Project 2a. 
 
 <a name='funcs'></a>
 
