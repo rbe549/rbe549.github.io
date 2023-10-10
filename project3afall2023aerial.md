@@ -33,7 +33,7 @@ Drone racing is a fast growing sport that is a great combination of technology a
 In this project, you'll build an autonomy stack to navigate through multiple windows inspired by the AlphaPilot competition. The project is split into two parts: the first part being the perception stack and the second part being the planning, control and integration stack deployed on a real quadrotor.
 
 <div class="fig fighighlight">
-  <img src="/assets/2023/rbe595/p3/DroneRacing.png" width="100%">
+  <img src="/assets/2023/rbe595/p3/DroneRacingCombined.png" width="100%">
   <div class="figcaption">
     Fig 1: Left: Real drone racing, Right: drone racing in our Blender simulator.  
   </div>
