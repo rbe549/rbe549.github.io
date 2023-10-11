@@ -44,11 +44,6 @@ In this project, you'll build an autonomy stack to navigate through multiple win
 <a name='environment'></a>
 ## 3. Environment
 
-TODO: Add real photos of window (Manoj)
-TODO: Make example map file (Manoj)
-TODO: Starter Package
-
-
 The track is made of multiple windows with their approximate 3D pose known apriori. In the first stage of project 3, i.e., project 3a, the goal would be to detect/segment the closest window using a deep learning approach and compute it's 3D pose (See for example Fig. 1 right). More details on the algorithmic parts of the perception stack are explained in the next section.  
 
 <a name='windowloc'></a>
@@ -68,10 +63,10 @@ window 1 1 1 0.2 0.2 0.2 0.52 0.85 0 0 5 5 5
 - Specifically, `x y z` represents the approximate center of the window in **meters**. 
 - `xdelta ydelta zdelta` represents the variation in **meters** that is possible from `x y z` values (note that this is a uniform distribution and the probability of the window being outside this is 0).
 - `qw qx qy qz` represents the approximate orientation of the window as a quaternion.
-- `xangdelta yangdelta zangdelta` represents the ZYX euler angle variation in **degrees** that is possible from the approximate orientation given (again this is a uniform distribution and the probability of the window being outside this is 0). 
+- `xangdelta yangdelta zangdelta` represents the ZYX Euler angle variation in **degrees** that is possible from the approximate orientation given (again this is a uniform distribution and the probability of the window being outside this is 0). 
 - No windows can overlap
 - Please pay attention to the units.
-- The coordinate frame definitions are shown in Fig. 1.
+- The coordinate frame definitions are the same from project 2b.
 
 
 <a name='perceptionstack'></a>
@@ -82,7 +77,7 @@ There are three distinct parts in the perception stack.
 ## 4.1. Window Detector
 In the first step, implement a deep network to detect/segment the corners of the window or detect/segment the entire window. Here you have a flexibility in the design choice. You can use any network architecture of your choice. Furthermore, your network has to run fast enough on the NVIDIA Orin Nano, so be cognizant of your parameters and architecture. 
 
-Your goal would be to build a lightweight neural network that has good accuracy that can be used in the next steps. To accomplish this, you will have to generate windows in simulation (Blender) from different views and backgrounds and scenarios and train your network (See Fig. 2). We will describe the specifications of the window next. The window is almost a square with checkerboard pattern on the edges. Each checkerboard pattern is (highlighted in blue in Fig. 3) of a grid of size $$7 \times 6$$ (for X or horizontal and Y or vertical) directions. The distance from checkboard pattern to either edge is the same dimension as one checkerboard square (yellow highlight in Fig. 3). The WPI logo will always be centered vertically and the PeAR logo will be centered horizontally (however, these can be absent too or be changed to other logos). The window will be the same WPI crimson color `(rgb(172, 43, 55))` but can appear different in different lighting. Your data can randomize the viewpoint (or window pose), window lighting, window design with respect to logos, noise, the background among others. The thickness of the window is negligible compared to the height and width of the window. There can be multiple windows in the frame. Also, each window is X-Y symmetric. A high resolution `PNG` image and the associated `PPTX` file used to generate the windows are given in the starter package in the `textures` folder.   
+Your goal would be to build a lightweight neural network that has good accuracy that can be used in the next steps. To accomplish this, you will have to generate windows in simulation (Blender) from different views and backgrounds and scenarios and train your network (See Fig. 2). Be sure to maintain the aspect ratio of the window accurately when generating data for good generalization to the real world (the real windows are printed with no scaling). We will describe the specifications of the window next. The window is almost a square with checkerboard pattern on the edges. Each checkerboard pattern is (highlighted in blue in Fig. 3) of a grid of size $$7 \times 6$$ (for X or horizontal and Y or vertical) directions. The distance from checkerboard pattern to either edge is the same dimension as one checkerboard square (yellow highlight in Fig. 3). The WPI logo will always be centered vertically and the PeAR logo will be centered horizontally (however, these can be absent too or be changed to other logos). The window will be the same WPI crimson color `(rgb(172, 43, 55))` but can appear different in different lighting. Your data can randomize the viewpoint (or window pose), window lighting, window design with respect to logos, noise, the background among others. The thickness of the window is negligible compared to the height and width of the window. There can be multiple windows in the frame. Also, each window is X-Y symmetric. A high resolution `PNG` image and the associated `PPTX` file used to generate the windows are given in the starter package in the `textures` folder which can be downloaded from <a href="https://drive.google.com/file/d/1-NcfhStLT3FdokRvxCtAUkd_EiMIS_5B/view?usp=drive_link">here</a>.   
 
 <div class="fig fighighlight">
   <img src="/assets/2023/rbe595/p3/Windows.png" width="100%">
@@ -95,7 +90,7 @@ Your goal would be to build a lightweight neural network that has good accuracy 
 <div class="fig fighighlight">
   <img src="/assets/2023/rbe595/p3/WindowWithAnnotation.png" width="100%">
   <div class="figcaption">
-    Fig 3: The Window used in the experiments with annotation. Blue indicates checkerboard pattern. All the checkrboard squares are of the size of the yellow square as shown.
+    Fig 3: The Window used in the experiments with annotation. Blue indicates checkerboard pattern. All the checkerboard squares are of the size of the yellow square as shown.
   </div>
   <div style="clear:both;"></div>
 </div>
@@ -117,7 +112,7 @@ Once you have obtained detections/segmentations from the previous step, you migh
 
 <a name='sim2real'></a>
 ## 4.3. Sim2Real
-You have trained your neural network in simulation with domain randomization in the hopes of a good sim2real transfer. To test this, you will collect data from your DJI Tello's camera (you don't have to fly it if you don't want to for this part). Then run inference on your collected data and inspect to see how well your perception stack works. If it does not work well (as well as you think, it will **NOT** be perfect, do not worry), go back and change your data generation or use other methods to perform a better sim2real transfer like we talked about in class. You can also reconstruct the entire scene using <a href="http://ccwu.me/vsfm/index.html">VisualSfM</a> or <a href="https://github.com/kakaobrain/nerf-factory">nerf-factory</a> or <a href="https://github.com/graphdeco-inria/gaussian-splatting">Gaussian Splatting</a> and import the models into Blender to render novel views that look photorealistic. Let your creativity run wild in each of the parts here.
+You have trained your neural network in simulation with domain randomization in the hopes of a good sim2real transfer. To test this, you will collect data from your DJI Tello's camera (you don't have to fly it if you don't want to for this part, See Fig. 7 for some sample images). Then run inference on your collected data and inspect to see how well your perception stack works. If it does not work well (as well as you think, it will **NOT** be perfect, do not worry), go back and change your data generation or use other methods to perform a better sim2real transfer like we talked about in class. You can also reconstruct the entire scene using <a href="http://ccwu.me/vsfm/index.html">VisualSfM</a> or <a href="https://github.com/kakaobrain/nerf-factory">nerf-factory</a> or <a href="https://github.com/graphdeco-inria/gaussian-splatting">Gaussian Splatting</a> and import the models into Blender to render novel views that look photorealistic. Let your creativity run wild in each of the parts here.
 
 
 <a name='pose'></a>
@@ -129,6 +124,7 @@ In order for the quadrotor to fly through the window in the project 3b, the easi
 Camera Intrinsic calibration entails with estimating the camera calibration matrix $$K$$ which includes the focal length and the principal point and the distortion parameters. You'll can use the awesome calibration package developed by ETHZ [Kalibr](https://github.com/ethz-asl/kalibr/wiki/multiple-camera-calibration) or the <a href="https://www.mathworks.com/help/vision/camera-calibration.html">Matlab's Calibration toolbox</a> or any other calibration toolbox of your liking to do this. You'll need either a checkerboard or an april grid to calibrate the camera (See Fig. 5). We found that using the April grid gave us superior results. Feel free to print one (don't forget to turn off autoscaling or scaling of any sort before printing, you can download these calibration targets from <a href="https://github.com/ethz-asl/kalibr/wiki/calibration-targets">here</a>). Bigger April Grids or checkerboard in general give more accurate results. Large calibration targets from <a href="https://calib.io/?gad=1&gclid=Cj0KCQjw2qKmBhCfARIsAFy8buJ6-5FR2Kehobn5eJlkqbKqofbV3DYM-HAFvoXqYQNxD-Nvb2xM4XYaAmVQEALw_wcB">calib.io</a> are located in UH100B (Fig. 5) which you are free to use if you don't want to print your own. Please be careful with these calibration targets as they are super expensive and hard to replace. For calibration in Blender to test your method in simulation, you can create a "fake" checkerboard/aprilgrid in Blender and calibrate using that :) (See Fig. 5)
 
 
+
 <div class="fig fighighlight">
   <img src="/assets/2023/rbe595/p3/CheckboardSimReal.png" width="100%">
   <div class="figcaption">
@@ -138,11 +134,10 @@ Camera Intrinsic calibration entails with estimating the camera calibration matr
 </div>
 
 
-
-You also sometimes need to color calibrate the camera. A simple way to do this is to use a color calibration grid as shown in Fig. 6. It has different standard colors which you'll match up visually. Another simple way is to capture a scene with "gray" color and make sure that it looks gray. Note that your results will vary based on your monitor's color calibration as well. Color calibration is important so that the complete dynamic range of all channels are used when converting from bayer to RGB image. You might not need this step is your data has enough variation such that your neural network models are robust to color variation.
+You also sometimes need to color calibrate the camera. A simple way to do this is to use a color calibration grid as shown in Fig. 6. It has different standard colors which you'll match up visually. Another simple way is to capture a scene with "gray" color and make sure that it looks gray. Note that your results will vary based on your monitor's color calibration as well. Color calibration is important so that the complete dynamic range of all channels are used when converting from Bayer to RGB image. You might not need this step is your data has enough variation such that your neural network models are robust to color variation.
 
 <div class="fig fighighlight">
-  <img src="/assets/2023/rbe595/p3/ColorGrid.png" width="100%">
+  <img src="/assets/2023/rbe595/p3/ColorGrid.jpg" width="100%">
   <div class="figcaption">
     Fig 6: Example color calibration target.
   </div>
@@ -152,7 +147,7 @@ You also sometimes need to color calibrate the camera. A simple way to do this i
 
 <a name='pnp'></a>
 ## 4.4.2. Pose Using PnP
-Now that you have the camera calibration matrix $$K$$, the detections of window corners from your deep learning + filtering stack on the 2D image, the 3D dimensions of parts of the window, you can estimate the 3D pose $$[R, T]$$ of the window using the <a href="https://docs.opencv.org/4.x/d5/d1f/calib3d_solvePnP.html">`solvePnP`</a> function in OpenCV or any other similar functions.
+Now that you have the camera calibration matrix $$K$$, the detections of window corners from your deep learning + filtering stack on the 2D image, the 3D dimensions of parts of the window (including anything you want to measure), you can estimate the 3D pose $$[R, T]$$ of the window using the <a href="https://docs.opencv.org/4.x/d5/d1f/calib3d_solvePnP.html">`solvePnP`</a> function in OpenCV or any other similar functions.
 
 
 <a name='posefilt'></a>
@@ -162,13 +157,22 @@ Optionally, if your detections are not very accurate, you can filter your pose u
 
 <a name='testset'></a>
 ## 5. Testing (Live Demo)
-On the day of the deadline, each team will be given a 15 minute slot for demoing their code in action to the instructors. The instructors will hold the quadrotor as they wish and move the drone around with their hand (without flying). The instructors can vary the pose, lighting, color, background and so on. You are required to show us the real-time detections along with their estimated 3D pose in Blender (visualization does not have to be real-time, you can save images and run inference, but inference has to be shown real-time). A sample frame of how this can look is shown in Fig. 7. To obtain the highlight as shown in Fig. 7, we set alpha to 0.33, emission color to blue and texture to Window texture.
+On the day of the deadline, each team will be given a 15 minute slot for demoing their code in action to the instructors. The instructors will hold the quadrotor as they wish and move the drone around with their hand (without flying). The instructors can vary the pose, lighting, color, occlusions, background and so on (See Fig. 7). You are required to show us the real-time detections along with their estimated 3D pose in Blender (visualization does not have to be real-time, you can save images and run inference, but inference has to be shown real-time). A sample frame of how this can look is shown in Fig. 8. To obtain the highlight as shown in Fig. 8, we set alpha to 0.33, emission color to blue and texture to Window texture.
+
+
+<div class="fig fighighlight">
+  <img src="/assets/2023/rbe595/p3/RealWindows.png" width="100%">
+  <div class="figcaption">
+    Fig 7: Different conditions the of the window during instructor testung.
+  </div>
+  <div style="clear:both;"></div>
+</div>
 
 
  <div class="fig fighighlight">
   <img src="/assets/2023/rbe595/p3/WindowGTComparison2.png" width="100%">
   <div class="figcaption">
-    Fig 7: Comparison of pose estimated from current frame (solid red) and filtered (blue overlay).
+    Fig 8: Comparison of pose estimated from current frame (solid red) and filtered (blue overlay).
   </div>
   <div style="clear:both;"></div>
 </div>
