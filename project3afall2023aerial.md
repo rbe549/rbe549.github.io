@@ -25,8 +25,8 @@ Table of Contents:
   - [6.2. Report](#report)
   - [6.3. Video](#video)
 - [7. Allowed and Disallowed functions](#funcs)
-- [8. Collaboration Policy](#coll)
-- [9. Acknowledgements](#ack)
+- [8. Tips, Tricks And Hints](#tips)
+- [9. Collaboration Policy](#coll)
 
 <a name='due'></a>
 ## 1. Deadline 
@@ -250,9 +250,39 @@ Record the data from the live demo in `.mp4` format and submit it in the zip fil
 
 If you have any doubts regarding allowed and disallowed functions, please drop a public post on [Piazza](https://piazza.com/wpi/fall2023/rbe595). 
 
+<a name='tips'></a>
+
+## 8. Tips, Tricks And Hints
+
+Generating data using Blender can be fun, exciting and equally frustrating at the same time. We are adding some hints, tricks and tips to ease this process. We will do this as a series of question and answers: <br><br>
+
+<b> 1. How do I obtain a segmentation mask of the object in the scene? Can I do this for multiple objects together? </b><br>
+To obtain the segmentation mask, you will use something called the `Pass Index` in Blender. For each object, go to `Object Properties > Relations > Pass Index` and set this to a unique number. Now, in your compositing tab, you can use the `ID Mask` node and look for this `Index` and write that into a file using the `File Output` node. You can do this for as many objects as you want as long as they all have a unique `Pass Index`. This can give you the closest window mask even if you have multiple windows in the scene. Note that this will only work if you have enabled `Object Index` in `View Layer Properties > Passes > Data > Indexes` tab.<br><br>
+
+
+<b> 2. How do I obtain the locations of the corners if I want to train my network to predict corners? </b><br>
+One way is to mark the corners in 3D on the window you crafted. Now, to obtain the image locations on the image, you will use the projection equation to know where each corner lies. This is going to be the most accurate way to obtain corners and you can easily do this for as many points as you want. If you want an easier but less accurate method, here it is: you can create transparent objects (such as a circle or square or anything your heart desires and setting the `Material` to `Principles BSDF` shader and `Alpha` parameter to 0) at the corner locations and have a rigid relation with the window (if you changing window pose). Now assign a unique `Pass Index` to each of these transparent objects and obtain the mask. However, transparent objects are not rendered in the `Pass Index` by default. To enable this, you will need to enable `Object Properties > Visibility > Holdout` for the particular transparent object.<br><br>
+
+<b> 3. What are we trying to predict? Can you talk about the input and output of the network? </b><br>
+The overall goal of the project is to obtain 3D pose of the window from 2D image(s). You are free to use one or more neural networks for any part of the perception stack. You input could be one or more images (temporally) and the output could be either a segmentation mask of the window or some corner points or the 3D pose. These are all design choices you are free to make. Your architecture will vary based on the choice of input and output. Generally, breaking down the problem into sub-problems makes it easier for the network to be trained and generalized from sim2real better.<br><br>
+
+<b> 4. Is it advisable to predict segmentations or the corners for the windows?  </b><br>
+Both have pros and cons. Predictions of segmentations might generalize better and you get more data to work with, but this means that you need a better post-processing step. Corner predictions might be harder to train but are easier to interpret at the end. You might want to think about predicting corners more carefully, predicting directly the pixel co-ordinates is generally not advisable due to large numbers, you might want to normalize this with respect to the center of the image (here, image varies from -1 to 1 in each X and Y directions, with (0,0) being in the center). Also, be cognizant of the loss function you are using in both cases. Furthermore, think carefully about how you'll find the closest window if there are multiple windows in the frame. Also think about how you will find the window if one of the corners or parts of the window are occluded or not detected.<br><br>
+
+<b> 5. How many images do I need to train on? </b><br>
+This depends heavily on the number of parameters in your network. The larger your network, the more data you will need. For example, a 10MB ResNet inspired model needs a minimum of 10K to 100K images with large variations for a good generalized performance. The rule of thumb is that if you increase model size by a factor of $$N$$, then you need to increase data amount by $$N^2$$. A trick used for better generalization is to train the network in simulation and then fine-tune on real data (this can be as little as 1/10th the amount of simulation data).<br><br>
+
+
+<b> 6. The data generation is super slow. What can I do? </b><br>
+You can lose photorealism and train in material preview mode. This will not generalize as well but you can train your network first on material preview mode images and then fine-tune on more photo-realistic images. This is generally called curriculum learning.<br><br>
+
+
+<b> 7. Is there a trick/hack to get photorealistic data faster? Do you have any tips for better sim2real transfer? </b><br>
+One way is to reconstruct the real scene/window in a dense manner using photogrammetry like <a href="http://ccwu.me/vsfm/index.html">Visual SfM</a> or newer tools like <a href="https://github.com/kakaobrain/nerf-factory">NeRF</a> or <a href="https://poly.cam/gaussian-splatting">Gaussian Splats</a>. If you have an iPhone or an iPad with a LIDAR sensor, you can use apps like <a href="https://poly.cam/">Polycam</a> or  <a href="https://www.kiriengine.com/">Kiri Engine</a> (also works on Android without a LIDAR) ton reconstruct the scene. You can import these <a href="https://www.youtube.com/watch?v=kwpj7ZUtnac">point clouds</a> or meshes into Blender to obtain "photo-realistic data" for "free". This approach coupled with Blender simulation data would most likely lead to a great sim2real generalization. <br><br>
+
 <a name='coll'></a>
 
-## 8. Collaboration Policy
+## 9. Collaboration Policy
 <p style="background-color:#ddd; padding:5px">
 <b>NOTE:</b> 
 You are <b>STRONGLY</b> encouraged to discuss the ideas with your peers. Treat the class as a big group/family and enjoy the learning experience. 
