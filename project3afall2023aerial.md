@@ -169,7 +169,7 @@ On the day of the deadline, each team will be given a 15 minute slot for demoing
 <div class="fig fighighlight">
   <img src="/assets/2023/rbe595/p3/RealWindows.png" width="100%">
   <div class="figcaption">
-    Fig 7: Different conditions the of the window during instructor testung.
+    Fig 7: Different conditions the of the window during instructor testing.
   </div>
   <div style="clear:both;"></div>
 </div>
