@@ -23,11 +23,13 @@ Table of Contents:
 
 <a name='due'></a>
 ## 1. Deadline 
-**11:59:59 PM, Nov 20, 2023.**
+**11:59:59 PM, Dec 15, 2023. Live Race on the same day that is open to public. Teams will go in the order of their team number.** 
 
 **YOU ARE NOT ALLOWED TO USE ANY LATE DAYS FOR THIS PROJECT!**
 
+TODO: Add Cartoon image of track.
 TODO: Add real experiment photos.
+
 
 <a name='prob'></a>
 ## 2. Problem Statement 
@@ -38,7 +40,6 @@ TODO: Add image of gap
 Remember that your DJI Tello Edu comes with a suite of sensors, a front facing RGB color camera, a down facing grayscale camera, an IMU along with the altimeter on-board. You can obtain the camera feed (only one camera works at a time), attitude estimates and altimeter measurements from the <a href="https://djitellopy.readthedocs.io/en/latest/tello/">`DJITelloPy`</a> package. You are **ALLOWED** to use any package to access any other information on the quadrotor. You can use any/all of the sensors to complete the course as quickly as you can. Also, the structure of the track (obstacle course) is known before along with a prior on pose of the obstacles as a uniform distribution, similar to previous projects. An oblique overview of the track is shown in Fig. 1.
 
 TODO: Add real photos of the track
-
 
 
 <a name='environment'></a>
@@ -58,13 +59,11 @@ In the second stage, you have to navigate though an unknown shaped window from p
 <a name='dynamicwindow'></a>
 ## 3.3. Dynamic Window
 
+TODO: Add dynamic window image (Manoj)
+
 In the third/penultimate stage, you have to navigate though an "orange" square window with a clock like hand rotating in the middle. The rotation speed of the hand is fixed but is unknown. You have to fly through this dynamic window as fast as possible without any collisions. The dimensions of the window are shown in Fig. ZZ.
 
 
-<a name='flyback'></a>
-## 3.4. Fly back
-
-Once you have passed through the three stages, you have to fly back through the second racing window to end your attempt. 
 
 <a name='attemptterm'></a>
 ## 4. Attempt Termination

@@ -67,7 +67,7 @@ window 1 1 1 0.2 0.2 0.2 0.52 0.85 0 0 5 5 5
 - The rectangular boundary extents for this environment are `(x0, y0, z0) = (0, 0, 0)` (lower left) and `(x1, y1, z1) = (45, 35, 6)` (upper right).
 - A window line also specifies the center of the window, its approximate pose and variances. All values are whitespace delimited and all numerical values are represented as a float. 
 - Specifically, `x y z` represents the approximate center of the window in **meters**. 
-- `xdelta ydelta zdelta` represents the variation in **meters** that is possible from `x y z` values (note that this is a uniform distribution and the probability of the window being outside this is 0).
+- `xdelta ydelta zdelta` represents the variation in **meters** that is possible from `x y z` values (note that this is a uniform distribution on either direction and the probability of the window being outside this is 0).
 - `qw qx qy qz` represents the approximate orientation of the window as a quaternion.
 - `xangdelta yangdelta zangdelta` represents the ZYX Euler angle variation in **degrees** that is possible from the approximate orientation given (again this is a uniform distribution and the probability of the window being outside this is 0). 
 - No windows can overlap
