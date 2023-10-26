@@ -30,7 +30,7 @@ Table of Contents:
 
 <a name='due'></a>
 ## 1. Deadline 
-**11:59:59 PM, Oct 27, 2023.**
+**Live Demo due on 11:59:59 PM, Oct 27, 2023. Everything else due on **11:59:59 PM, Nov 07, 2023.**
 
 <a name='prob'></a>
 ## 2. Problem Statement 
