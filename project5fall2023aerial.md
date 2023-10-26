@@ -30,8 +30,6 @@ Table of Contents:
 
 **YOU ARE NOT ALLOWED TO USE ANY LATE DAYS FOR THIS PROJECT!**
 
-TODO: Add real experiment photos.
-
 
 <a name='prob'></a>
 ## 2. Problem Statement 
@@ -54,11 +52,13 @@ TODO: Add real photos of the track
 ## 3. Environment
 The final track has **three** stages. Description of each stage is given next. In this project, you are allowed to measure the approximate distances between parts of the course 2 hours before the final demonstration (no one is allowed one hour before the final demonstration, so essentially everyone gets one hour on the track together). However, after this, the instructors will nudge each obstacle (not changing the order) by upto 0.5m in either direction (X, Y and Z) and angles by upto 20 degrees in all directions. A blender environment of the track can be downloaded from <a href="">here</a>.
 
+TODO: Release environment of the track
+
 
 <a name='racingwindows'></a>
 ## 3.1. Racing Windows
 
-In the first stage (see Fig. 1), you will take off from the helipad/origin and you have to navigate though a set of three drone racing windows from project 3 as fast as possible without any collisions. The description of the windows are the same as in project 3.
+In the first stage (see Fig. 1), you will take off from the helipad/origin and you have to navigate though a set of two drone racing windows from project 3 as fast as possible without any collisions. The description of the windows are the same as in project 3.
 
 <a name='unknwonwindow'></a>
 ## 3.2. Unknown Window
