@@ -30,7 +30,6 @@ Table of Contents:
 
 **YOU ARE NOT ALLOWED TO USE ANY LATE DAYS FOR THIS PROJECT!**
 
-TODO: Add Cartoon image of track.
 TODO: Add real experiment photos.
 
 

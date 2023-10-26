@@ -163,7 +163,7 @@ Optionally, if your detections are not very accurate, you can filter your pose u
 
 <a name='testset'></a>
 ## 5. Testing (Live Demo)
-On the day of the deadline, each team will be given a 15 minute slot for demoing their code in action to the instructors. The instructors will hold the quadrotor as they wish and move the drone around with their hand (without flying). The instructors can vary the pose, lighting, color, occlusions, background and so on (See Fig. 7). You are required to show us the real-time detections along with their estimated 3D pose in Blender (visualization does not have to be real-time, you can save images and run inference, but inference has to be shown real-time). A sample frame of how this can look is shown in Fig. 8. To obtain the highlight as shown in Fig. 8, we set alpha to 0.33, emission color to blue and texture to Window texture.
+On the day of the deadline, each team will be given a 15 minute slot for demoing their code in action to the instructors. The instructors will hold the quadrotor as they wish and move the drone around with their hand (without flying). The instructors can vary the pose, lighting, color, occlusions, background and so on (See Fig. 7). Note that multiple windows will be present during testing as shown in Fig. 8. You are required to show us the real-time detections along with their estimated 3D pose in Blender (visualization does not have to be real-time, you can save images and run inference, but inference has to be shown real-time). A sample frame of how this can look is shown in Fig. 9. To obtain the highlight as shown in Fig. 9, we set alpha to 0.33, emission color to blue and texture to Window texture.
 
 
 <div class="fig fighighlight">
@@ -174,11 +174,20 @@ On the day of the deadline, each team will be given a 15 minute slot for demoing
   <div style="clear:both;"></div>
 </div>
 
+<div class="fig fighighlight">
+  <img src="/assets/2023/rbe595/p3/RealWindows2.png" width="100%">
+  <div class="figcaption">
+    Fig 8: Multiple windows will be present during instructor testing. 
+  </div>
+  <div style="clear:both;"></div>
+</div>
+
+
 
  <div class="fig fighighlight">
   <img src="/assets/2023/rbe595/p3/WindowGTComparison2.png" width="100%">
   <div class="figcaption">
-    Fig 8: Comparison of pose estimated from current frame (solid red) and filtered (blue overlay).
+    Fig 9: Comparison of pose estimated from current frame (solid red) and filtered (blue overlay).
   </div>
   <div style="clear:both;"></div>
 </div>

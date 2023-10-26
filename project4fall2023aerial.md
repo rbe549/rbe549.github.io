@@ -26,8 +26,6 @@ Table of Contents:
 ## 1. Deadline 
 **11:59:59 PM, Nov 21, 2023.**
 
-TODO: Add real experiment photos. (Manoj, send me window images from WB108)
-
 <a name='prob'></a>
 ## 2. Problem Statement 
 Flight through known windows is very cool and exciting but often in the real-world you have to fly through irregular and unknown shaped windows for search and rescue, exploration or reconnaissance purposes (See Fig. 1). To this end, experts in the field have developed a multitude of algorithms and approaches for building or sensing a 3D model of the world. Although this works very well, it is computationally and weight-wise prohibitive for our tiny little drones. In such a resource-constrained scenario, what can we do? Well you can think creatively, in one of the works from Prof. Sanket named <a href="https://prg.cs.umd.edu/GapFlyt.html">GapFlyt</a> (See Fig. 1 left), the team utilized the movement of the quadrotor to obtain additional cues for detection of the gap. The sky is the limit here (pun intended) for all the approaches you can come up with to detect a gap of unknown shape, size and location (assuming it is in the field of view) to detect it and fly through it. The project is completely open-ended and you are free to use any third party code to detect and fly though a gap of unknown shape, size and location. The only constraint is that your code has to run on the NVIDIA Jetson Orin Nano without any cloud computation during experiments. 
@@ -45,13 +43,12 @@ In this project, you will implement a planning and control stack and integrate i
 <a name='environment'></a>
 ## 3. Environment
 
-TODO: Add real photos
 
 The environment has an arbitrary shaped window(s) which can be 'seen' from the origin location. The window is made of foamcore with texture stuck on it. You do not know the texture prior but we will ensure that the windows are not textureless or they dont fully blend into the background texture. Also, the colors on the window and the background can be similar but patterns will not be exactly the same. The board can be assumed to be nearly planar and can have multiple holes/gaps, in which case you'll choose the largest one to fly through. The largest gap (if multiple gaps are present) will be large enough for the quadrotor to fly through it safely. The quadrotor will be placed at the origin and the window will be between 1.8 to 3.5 m in front (positive Y axis) at yaw angle between -20 to +20 degrees. Furthermore, there is no guarantee that the window center will be at the center of the foamcore and that it will be aligned with X axis as zero, it can be offset by 0.5m on either side of the X axis. Once you take off, you should be able to see a part of the window atleast, you might need additional exploratory maneuvers to see the entire window. An example of an arbitrary shaped window is shown in Fig. 2. In other words, the smaller gaps might not be large enough for the quadrotor to fly through. Also, flying from the side of the foamcore does not count as a successful navigation. You can also assume that the window shape is nearly convex.
 
 
 <div class="fig fighighlight">
-  <img src="/assets/2023/rbe595/p4/GapFlyts.png" width="100%">
+  <img src="/assets/2023/rbe595/p4/RealGap.jpg" width="100%">
   <div class="figcaption">
     Fig 2: An example real arbitrary shaped window.
   </div>

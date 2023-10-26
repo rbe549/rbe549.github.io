@@ -48,9 +48,9 @@ You are free to design any method to plan your path from the current position to
 
 
 <div class="fig fighighlight">
-  <img src="/assets/2023/rbe595/TraditionalOverview.png" width="100%">
+  <img src="/assets/2023/rbe595/p3/RealWindows2.png" width="100%">
   <div class="figcaption">
-    Fig 1: ADD REAL PHOTOS HERE.
+    Fig 1: An example environment with multiple windows to fly through from different start poses.
   </div>
   <div style="clear:both;"></div>
 </div>
