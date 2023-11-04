@@ -32,9 +32,6 @@ In this project, you will implement a planning and control stack and integrate i
 <a name='environment'></a>
 ## 3. Environment
 
-TODO: Add real photos
-TODO: Add real experiment photos.
-TODO: Add Example Environment file.
 
 The track is made of multiple windows with their approximate 3D pose known apriori. Now given the 3D pose of the closest window from project 3a, your goal is to navigate through the window from your current position. Note that there are no other obstacles apart from windows in the scene. More details on the algorithmic parts of the navigation stack (planning and control) are explained in the next section.  
 
@@ -58,7 +55,7 @@ You are free to design any method to plan your path from the current position to
 
 <a name='testset'></a>
 ## 5. Testing (Live Demo) And Grading
-On the day of the deadline, each team will be given a 15 minute slot for demoing their code in action to the instructors. The instructors will place the windows as they wish (approximate window locations will be given to you). The task is the fly through all windows/gates as fast as possible without any collisions. Note that parts of the window can be occluded, logos can be missing, window corners/surfaces can be damaged, lighting can be variable and so on. Be sure to handle as many corner cases as possible once you have a functional algorithm. You can get as many attempts as you want to accomplish this within your 15 minute time slot. Your final grade for the demo is decided based on completion (the number of gates you fly through) and time. You are required to show us the real-time detections (either a mask or the corners of the window as shown in Fig. 2 or anything else you predict) along with their estimated 3D pose of the camera/quadrotor with respect to the window in Blender (visualization does not have to be real-time, you can save images and run inference, but inference has to be shown real-time). A sample frame of how the pose visualization can look is shown in Fig. 3. 
+On the day of the deadline, each team will be given a 15 minute slot for demoing their code in action to the instructors. The instructors will place the windows as they wish (approximate window locations will be given to you) and the quadrotor will start at the origin in zero pose. The task is the fly through all windows/gates as fast as possible without any collisions. Note that parts of the window can be occluded, logos can be missing, window corners/surfaces can be damaged, lighting can be variable and so on. Be sure to handle as many corner cases as possible once you have a functional algorithm. You can get as many attempts as you want to accomplish this within your 15 minute time slot. Your final grade for the demo is decided based on completion (the number of gates you fly through) and time. You are required to show us the real-time detections (either a mask or the corners of the window as shown in Fig. 2 or anything else you predict) along with their estimated 3D pose of the camera/quadrotor with respect to the window in Blender (visualization does not have to be real-time, you can save images and run inference, but inference has to be shown real-time). A sample frame of how the pose visualization can look is shown in Fig. 3. 
 
 <div class="fig fighighlight">
   <img src="/assets/2023/rbe595/p3/WindowDetectionsP3b.png" width="100%">
@@ -77,6 +74,27 @@ On the day of the deadline, each team will be given a 15 minute slot for demoing
   <div style="clear:both;"></div>
 </div>
 
+An example test environment file is given below (the final test file will be very similar):
+```
+# An example window environment file for P3b testing
+# boundary xmin ymin zmin xmax ymax zmax
+# window x y z xdelta ydelta zdelta qw qx qy qz xangdelta yangdelta zangdelta
+boundary -1.73 -1.15 0.0 1.73 7.4 2.0
+window 0.65 1.83 1.36 0.5 0.5 0.5 0.9816 0 0 0.1908 5 5 20 
+window -0.55 3.57 1.36 0.5 0.5 0.5 1 0 0 0 5 5 20
+window 0.6 5.59 1.36 0.5 0.5 0.5 0.9890 0 0 0.1478 5 5 20
+```
+Different views of the environment in the above example is shown in Fig. 4.
+
+The quadrotor will be placed at the origin with zero pose. The attempt ends when you pass through the final gate and continue to hover/land.
+
+ <div class="fig fighighlight">
+  <img src="/assets/2023/rbe595/p3/WindowTest.png" width="100%">
+  <div class="figcaption">
+    Fig 4: An example test set where you have to fly through three windows.
+  </div>
+  <div style="clear:both;"></div>
+</div>
 
 <a name='sub'></a>
 

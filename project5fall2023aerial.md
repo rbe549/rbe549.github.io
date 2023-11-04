@@ -37,8 +37,6 @@ Congratulations for making this far into the course. We know that you've worked 
 
 Remember that your DJI Tello Edu comes with a suite of sensors, a front facing RGB color camera, a down facing grayscale camera, an IMU along with the altimeter on-board. You can obtain the camera feed (only one camera works at a time), attitude estimates and altimeter measurements from the <a href="https://djitellopy.readthedocs.io/en/latest/tello/">`DJITelloPy`</a> package. You are **ALLOWED** to use any package to access any other information on the quadrotor. You can use any/all of the sensors to complete the course as quickly as you can. Also, the structure of the track (obstacle course) is known before along with a prior on pose of the obstacles as a uniform distribution, similar to previous projects. An oblique overview of the simulation and real track is shown in Fig. 1 with the various stages marked.
 
-TODO: Add real photos of the track
-
 <div class="fig fighighlight">
   <img src="/assets/2023/rbe595/p5/Track.png" width="100%">
   <div class="figcaption">
@@ -51,8 +49,6 @@ TODO: Add real photos of the track
 <a name='environment'></a>
 ## 3. Environment
 The final track has **three** stages. Description of each stage is given next. In this project, you are allowed to measure the approximate distances between parts of the course 2 hours before the final demonstration (no one is allowed one hour before the final demonstration, so essentially everyone gets one hour on the track together). However, after this, the instructors will nudge each obstacle (not changing the order) by upto 0.5m in either direction (X, Y and Z) and angles by upto 20 degrees in all directions. A blender environment of the track can be downloaded from <a href="">here</a>.
-
-TODO: Release environment of the track
 
 
 <a name='racingwindows'></a>
@@ -68,9 +64,9 @@ In the second stage (see Fig. 1), you have to navigate though an unknown shaped 
 <a name='dynamicwindow'></a>
 ## 3.3. Dynamic Window
 
-TODO: Add dynamic window image (Manoj)
+<video width="800" height="450" controls><source src="/assets/2023/rbe595/p5/DynamicWindow.mp4" type="video/mp4">
 
-In the third/penultimate stage (see Fig. 1), you have to navigate though an "orange" square window with a clock like hand rotating in the middle. The rotation speed of the hand is fixed but is unknown. You have to fly through this dynamic window as fast as possible without any collisions. The dimensions of the window are known apriori and you are free to measure them. 
+In the third/penultimate stage (see Fig. 1), you have to navigate though an "cyan" square window with a pink clock like hand rotating in the middle (See Vid. 1). The rotation speed of the hand is fixed but is unknown. You have to fly through this dynamic window as fast as possible without any collisions. The dimensions of the window are known apriori and you are free to measure them. 
 
 Once you pass through the dynamic window or the attempt is terminated (see next section), your run is complete and your time is recorded.
 
@@ -130,7 +126,7 @@ Please <b>DO NOT</b> include data in your submission. Furthermore, the size of y
 The file tree of your submission <b>SHOULD</b> resemble this:
 
 ```
-YourDirectoryID_p3b.zip
+YourDirectoryID_p5.zip
 ├── Code
 |   ├── Wrapper.py
 |   └── Any subfolders you want along with files
