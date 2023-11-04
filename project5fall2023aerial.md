@@ -64,7 +64,7 @@ In the second stage (see Fig. 1), you have to navigate though an unknown shaped 
 <a name='dynamicwindow'></a>
 ## 3.3. Dynamic Window
 
-<video width="800" height="450" controls><source src="/assets/2023/rbe595/p5/DynamicWindow.mp4" type="video/mp4"></video>
+<video width="800" height="450" controls><source src="/assets/2023/rbe595/p5/DynamicWindow1.mp4" type="video/mp4"></video>
 
 In the third/penultimate stage (see Fig. 1), you have to navigate though an "cyan" square window with a pink clock like hand rotating in the middle (See Vid. 1). The rotation speed of the hand is fixed but is unknown. You have to fly through this dynamic window as fast as possible without any collisions. The dimensions of the window are known apriori and you are free to measure them. 
 
