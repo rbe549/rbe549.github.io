@@ -64,9 +64,16 @@ In the second stage (see Fig. 1), you have to navigate though an unknown shaped 
 <a name='dynamicwindow'></a>
 ## 3.3. Dynamic Window
 
-<video width="800" height="450" controls><source src="/assets/2023/rbe595/p5/DynamicWindow.avi" type="video/avi"></video>
+<!-- <video width="800" height="450" controls><source src="/assets/2023/rbe595/p5/DynamicWindow.avi" type="video/avi"></video> -->
+  <div class="fig fighighlight">
+  <img src="/assets/2023/rbe595/p5/DynamicWindow.gif" width="100%">
+  <div class="figcaption">
+    Fig 2: Dynamic window in action.
+  </div>
+  <div style="clear:both;"></div>
+</div>
 
-In the third/penultimate stage (see Fig. 1), you have to navigate though an "cyan" square window with a pink clock like hand rotating in the middle (See Vid. 1). The rotation speed of the hand is fixed but is unknown. You have to fly through this dynamic window as fast as possible without any collisions. The dimensions of the window are known apriori and you are free to measure them. 
+In the third/penultimate stage (see Fig. 1), you have to navigate though an "cyan" square window with a pink clock like hand rotating in the middle (See Fig. 2). The rotation speed of the hand is fixed but is unknown. You have to fly through this dynamic window as fast as possible without any collisions. The dimensions of the window are known apriori and you are free to measure them. 
 
 Once you pass through the dynamic window or the attempt is terminated (see next section), your run is complete and your time is recorded.
 
