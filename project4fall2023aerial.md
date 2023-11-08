@@ -30,6 +30,7 @@ Table of Contents:
 ## 2. Problem Statement 
 Flight through known windows is very cool and exciting but often in the real-world you have to fly through irregular and unknown shaped windows for search and rescue, exploration or reconnaissance purposes (See Fig. 1). To this end, experts in the field have developed a multitude of algorithms and approaches for building or sensing a 3D model of the world. Although this works very well, it is computationally and weight-wise prohibitive for our tiny little drones. In such a resource-constrained scenario, what can we do? Well you can think creatively, in one of the works from Prof. Sanket named <a href="https://prg.cs.umd.edu/GapFlyt.html">GapFlyt</a> (See Fig. 1 left), the team utilized the movement of the quadrotor to obtain additional cues for detection of the gap. The sky is the limit here (pun intended) for all the approaches you can come up with to detect a gap of unknown shape, size and location (assuming it is in the field of view) to detect it and fly through it. The project is completely open-ended and you are free to use any third party code to detect and fly though a gap of unknown shape, size and location. The only constraint is that your code has to run on the NVIDIA Jetson Orin Nano without any cloud computation during experiments. 
 
+
 <div class="fig fighighlight">
   <img src="/assets/2023/rbe595/p4/GapFlyts.png" width="100%">
   <div class="figcaption">
