@@ -38,8 +38,6 @@ Flight through known windows is very cool and exciting but often in the real-wor
   <div style="clear:both;"></div>
 </div>
 
-In this project, you will implement a planning and control stack and integrate it with the perception stack from Project 3a on a real quadrotor (DJI Tello Edu).  
-
 <a name='environment'></a>
 ## 3. Environment
 
