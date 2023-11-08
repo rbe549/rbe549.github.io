@@ -50,7 +50,7 @@ The environment has an arbitrary shaped window(s) which can be 'seen' from the o
 <div class="fig fighighlight">
   <img src="/assets/2023/rbe595/p4/RealGap.jpg" width="100%">
   <div class="figcaption">
-    Fig 2: An example real arbitrary shaped window.
+    Fig 2: An example showing multiple real arbitrary shaped windows.
   </div>
   <div style="clear:both;"></div>
 </div>
