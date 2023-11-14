@@ -43,7 +43,7 @@ Flight through known windows is very cool and exciting but often in the real-wor
 ## 3. Environment
 
 
-The environment has an arbitrary shaped window(s) which can be 'seen' from the origin location. The window is made of foamcore with texture stuck on it. You do not know the texture prior but we will ensure that the windows are not textureless or they dont fully blend into the background texture. Also, the colors on the window and the background can be similar but patterns will not be exactly the same. The board can be assumed to be nearly planar and can have multiple holes/gaps, in which case you'll choose the largest one to fly through. The largest gap (if multiple gaps are present) will be large enough for the quadrotor to fly through it safely. The quadrotor will be placed at the origin and the window will be between 1.8 to 3.5 m in front (positive Y axis) at yaw angle between -20 to +20 degrees. Furthermore, there is no guarantee that the window center will be at the center of the foamcore and that it will be aligned with X axis as zero, it can be offset by 0.5m on either side of the X axis. Once you take off, you should be able to see a part of the window atleast, you might need additional exploratory maneuvers to see the entire window. An example of an arbitrary shaped window is shown in Fig. 2. In other words, the smaller gaps might not be large enough for the quadrotor to fly through. Also, flying from the side of the foamcore does not count as a successful navigation. You can also assume that the window shape is nearly convex.
+The environment has an arbitrary shaped window(s) which can be 'seen' from the origin location. The window is made of foamcore with texture stuck on it. You do not know the texture prior but we will ensure that the windows are not textureless or they dont fully blend into the background texture. Also, the colors on the window and the background can be similar but patterns will not be exactly the same. The board can be assumed to be nearly planar and can have multiple holes/gaps, in which case you'll choose the largest one to fly through. The largest gap (if multiple gaps are present) will be large enough for the quadrotor to fly through it safely. The quadrotor will be placed at the origin (you are free to face the window or X-axis being 0) and the window will be between 1.8 to 3.5 m in front (positive Y axis) at yaw angle between -20 to +20 degrees. Furthermore, there is no guarantee that the window center will be at the center of the foamcore and that it will be aligned with X axis as zero, it can be offset by 0.5m on either side of the X axis. Once you take off, you should be able to see a part of the window atleast, you might need additional exploratory maneuvers to see the entire window. An example of an arbitrary shaped window is shown in Fig. 2. In other words, the smaller gaps might not be large enough for the quadrotor to fly through. Also, flying from the side of the foamcore does not count as a successful navigation. You can also assume that the window shape is nearly convex.
 
 
 <div class="fig fighighlight">
@@ -86,7 +86,7 @@ Testing on real-data with various arbitrary window shapes can be hard. Hence, to
 
 <a name='testset'></a>
 ## 6. Testing (Live Demo) And Grading
-On the day of the deadline, each team will be given a 15 minute slot for demoing their code in action to the instructors. The instructors will place the window as they wish (within the extents provided in the Environment description). The task is the fly through the an unknown gap as fast as possible without any collisions. You can get as many attempts as you want to accomplish this within your 15 minute time slot. Your final grade for the demo is decided based on completion (successful flight through a window) and time. You are required to show us a detection of the gap as an overlay as shown in Fig. 4 when you fly through it. Optionally you can also show us a visualization of the tracking of the gap.
+On the day of the deadline, each team will be given a 15 minute slot for demoing their code in action to the instructors. The instructors will place the window as they wish (within the extents provided in the Environment description). The quadrotor will be placed at the origin (you are free to face the window or X-axis being 0). The task is the fly through the an unknown gap as fast as possible without any collisions. You can get as many attempts as you want to accomplish this within your 15 minute time slot. Your final grade for the demo is decided based on completion (successful flight through a window) and time. You are required to show us a detection of the gap as an overlay as shown in Fig. 4 when you fly through it. Optionally you can also show us a visualization of the tracking of the gap.
 
 <div class="fig fighighlight">
   <img src="/assets/2023/rbe595/p4/ExampleOutput.png" width="100%">
@@ -132,7 +132,8 @@ YourDirectoryID_p4.zip
 For each section of the project, explain briefly what you did, and describe any interesting problems you encountered and/or solutions you implemented. You must include the following details in your writeup:
 
 - Your report **MUST** be typeset in LaTeX in the IEEE Tran format provided to you in the ``Draft`` folder and should of a conference quality paper. Feel free to use any online tool to edit such as [Overleaf](https://www.overleaf.com) or install LaTeX on your local machine.
-- Link to a ghosted photo?  
+- Results of testing on the four arbitrary window shapes provided in Blender.
+
 
 <a name='video'></a>
 
