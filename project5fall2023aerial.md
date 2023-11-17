@@ -87,7 +87,7 @@ Doing any of the following will instantly terminate your attempt:
 - Failing to navigate in any of the previous stages before proceeding to the next one.
 - Crashing into any of the obstacles/track objects and/or the nets.
 - Landing due to battery failsafe.
-- Going over the maximum time of 2 mins per attempt.
+- Going over the maximum time of 5 mins per attempt.
 
 
 <a name='scoring'></a>
@@ -98,13 +98,13 @@ Taking off from the helipad gives the team 10 points, then the stages 1 through 
 <a name='dday'></a>
 ## 6. D-Day of the Competition
 
-On the day of the competition, the teams will go in the order of their team number. Each team will have a maximum time of 2 minutes per attempt and a maximum time of 15 minutes for all attempts combined. Between attempts, the team can use any amount of time (within the allotted 15 minutes of maximum time) to fix any software/hardware bugs or do changes in hardware/software (including change of batteries). Only the best trial will be graded.
+On the day of the competition, the teams will go in the order of their team number. Each team will have a maximum time of 5 minutes per attempt and a maximum time of 25 minutes for all attempts combined. Between attempts, the team can use any amount of time (within the allotted 25 minutes of maximum time) to fix any software/hardware bugs or do changes in hardware/software (including change of batteries). Only the best trial will be graded.
 
 A sample photo of the real track is shown in Fig. 1.
 
-Exactly 2 hours before the demo, each team can go and check the track, collect any data you will need. No one will be allowed to enter the track 1 hour before the demo (so essentially everyone gets one hour on the track together). The instructors will displace each obstacle randomly with a maximum disturbance as mentioned in the Environment section.
+The competition will be from 10AM to 1PM. The lab will be setup close to the final track (only minor nudges will be made after) with the lighting conditions and so on at 7:30AM on the day of the competition. You can go and measure anything you want, collect any data you desire and check the track until 9:30AM on the day of the competition. From 9:30AM to 10:00AM nobody will be allowed near the arena and the instructors will displace each obstacle randomly with a maximum disturbance of +-0.5m in X and Y directions and +-20 degrees in Yaw (just enough that hard-coding will not work).
 
-The team with the highest points will win. Note that, completing the course (within the 2 minute slot per attempt) will get that team the maximum of 100 points.
+The team with the highest points will win. Note that, completing the course (within the 5 minute slot per attempt) will get that team the maximum of 100 points.
 
 The teams can place the quadrotor on the helipad in any desired orientation. Also, if a team wants to improve their live-demo score, they can request for an additional slot after all the teams have finished their demo with a penalty of 20 points of the total project 5 grade.
 
