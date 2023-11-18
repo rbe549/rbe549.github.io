@@ -48,7 +48,7 @@ Remember that your DJI Tello Edu comes with a suite of sensors, a front facing R
 
 <a name='environment'></a>
 ## 3. Environment
-The final track has **three** stages. Description of each stage is given next. In this project, you are allowed to measure the approximate distances between parts of the course 2 hours before the final demonstration (no one is allowed one hour before the final demonstration, so essentially everyone gets one hour on the track together). However, after this, the instructors will nudge each obstacle (not changing the order) by upto 0.5m in either direction (X, Y and Z) and angles by upto 20 degrees in all directions. A blender environment of the track can be downloaded from <a href="">here</a>.
+The final track has **three** stages. Description of each stage is given next. In this project, you are allowed to measure the approximate distances between parts of the course 2 hours before the final demonstration (no one is allowed one hour before the final demonstration, so essentially everyone gets one hour on the track together). However, after this, the instructors will nudge each obstacle (not changing the order) by upto 0.5m in either direction (X, Y and Z) and angles by upto 20 degrees in all directions. A blender environment of the track can be downloaded from <a href="https://drive.google.com/file/d/1Eksqw_L7y78TRAtRDJrzdE-Fnnf4YVwN/view?usp=sharing">here</a>.
 
 
 <a name='racingwindows'></a>
