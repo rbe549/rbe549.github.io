@@ -92,7 +92,7 @@ Doing any of the following will instantly terminate your attempt:
 
 <a name='scoring'></a>
 ## 5. Scoring Criterion
-Taking off from the helipad gives the team 10 points, then the stages 1 through 3 (finish) have the following point splits: 30, 25, 35 totalling a maximum of 100 points for each attempt. The team's attempt will be terminated if any of the things mentioned in <a href="#attemptterm">Section 4</a> happen. If the number of stages between two teams are tied, then the team with the lower time comes out on top.
+Taking off from the helipad gives the team 10 points, then the stages 1 through 3 (finish) have the following point splits: 30, 25, 35 totaling a maximum of 100 points for each attempt. The team's attempt will be terminated if any of the things mentioned in <a href="#attemptterm">Section 4</a> happen. If the number of stages between two teams are tied, then the team with the lower time comes out on top.
 
 
 <a name='dday'></a>
@@ -102,7 +102,7 @@ On the day of the competition, the teams will go in the order of their team numb
 
 A sample photo of the real track is shown in Fig. 1.
 
-The competition will be from 10AM to 1PM. The lab will be setup close to the final track (only minor nudges will be made after) with the lighting conditions and so on at 7:30AM on the day of the competition. You can go and measure anything you want, collect any data you desire and check the track until 9:30AM on the day of the competition. From 9:30AM to 10:00AM nobody will be allowed near the arena and the instructors will displace each obstacle randomly with a maximum disturbance of +-0.5m in X and Y directions and +-20 degrees in Yaw (just enough that hard-coding will not work).
+The competition will be from 10:00 AM to 1:00 PM. The lab will be setup close to the final track (only minor nudges will be made after) with the lighting conditions and so on at 7:30 AM on the day of the competition. You can go and measure anything you want, collect any data you desire and check the track until 9:30 AM on the day of the competition. From 9:30AM to 10:00 AM nobody will be allowed near the arena and the instructors will displace each obstacle randomly with a maximum disturbance of $$\pm$$0.5m in X and Y directions and $$\pm$$20 degrees in Yaw (just enough that hard-coding will not work).
 
 The team with the highest points will win. Note that, completing the course (within the 5 minute slot per attempt) will get that team the maximum of 100 points.
 
