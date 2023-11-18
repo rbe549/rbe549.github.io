@@ -98,7 +98,7 @@ Taking off from the helipad gives the team 10 points, then the stages 1 through 
 <a name='dday'></a>
 ## 6. D-Day of the Competition
 
-On the day of the competition, the teams will go in the order of their team number. Each team will have a maximum time of 5 minutes per attempt and a maximum time of 25 minutes for all attempts combined. Between attempts, the team can use any amount of time (within the allotted 25 minutes of maximum time) to fix any software/hardware bugs or do changes in hardware/software (including change of batteries). Only the best trial will be graded.
+On the day of the competition, the teams will go in the order of their team number. Each team will have a maximum time of 5 minutes per attempt and a maximum time of 25 minutes for all attempts combined. Between attempts, the team can use any amount of time (within the allotted 25 minutes of maximum time) to fix any software/hardware bugs or do changes in hardware/software (including change of batteries). Only the best trial will be graded. All the teams need to be present for the entirety of the competition and the teams will go in the order of their team number unless they have requested a different order before. 
 
 A sample photo of the real track is shown in Fig. 1.
 
