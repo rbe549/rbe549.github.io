@@ -41,7 +41,7 @@ Table of Contents:
 
 ## 1. Due Date 
 
-**11:59:59PM, Friday, Jan 12, 2023. (Individual Submissions)**
+**11:59:59PM, Friday, Jan 12, 2024. (Individual Submissions)**
 This homework is to be submitted individually. The aim of HW0 is to give you a gauge of the quality, expectation and difficulty of this course. You are expected to be able to solve HW0 before the class starts. <b>Remember that HW0 is graded and does count for your final grade.</b> Download starter Code from [here](#starter). 
 
 <p style="background-color:#ddd; padding:5px">
@@ -399,7 +399,7 @@ For each section of the homework, explain briefly what you did, and describe any
 - Any third party code for implementing architecture or augmentation
 - `Keras` or any other layer API or <b>built-in models for ResNet, ResNeXt or DenseNet</b>
 
-If you have any doubts regarding allowed and disallowed functions, please drop a public post on [Piazza](https://piazza.com/wpi/spring2023/rbecs549). 
+If you have any doubts regarding allowed and disallowed functions, please drop a public post on [Piazza](https://piazza.com/wpi/spring2024/rbecs549). 
 
 <a name='coll'></a>
 
@@ -409,7 +409,7 @@ If you have any doubts regarding allowed and disallowed functions, please drop a
 You are <b>STRONGLY</b> encouraged to discuss the ideas with your peers. Treat the class as a big group/family and enjoy the learning experience. 
 </p>
 
-However, the code should be your own, and should be the result of you exercising your own understanding of it. If you reference anyone else's code in writing your project, you must properly cite it in your code (in comments) and your writeup. For the full honor code refer to the [RBE/CS549 Spring 2023 website](https://pear.wpi.edu/teaching/rbe549/spring2024.html).
+However, the code should be your own, and should be the result of you exercising your own understanding of it. If you reference anyone else's code in writing your project, you must properly cite it in your code (in comments) and your writeup. For the full honor code refer to the [RBE/CS549 Spring 2024 website](https://pear.wpi.edu/teaching/rbe549/spring2024.html).
 
 <a name='ack'></a>
 
