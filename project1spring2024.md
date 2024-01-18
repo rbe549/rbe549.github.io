@@ -33,7 +33,7 @@ Table of Contents:
 
 <a name='due'></a>
 ## 1. Deadline 
-**11:59:59 PM, January 20, 2024 for Phase 1 and 11:59:59 PM, January 29, 2024 for Phase 2.** This project is to be done in groups of 2.
+**11:59:59 PM, January 29, 2024 for Phase 1 and 11:59:59 PM, January 29, 2024 for Phase 2.** This project is to be done in groups of 2.
 
 <a name='prob'></a>
 ## 2. Problem Statement 
