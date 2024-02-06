@@ -525,7 +525,7 @@ YourDirectoryID_p2.zip
 
 ### 7.2. Report
 
-There will be no Test Set for Phase 1 of this project. For each section of the project, explain briefly what you did, and describe any interesting problems you encountered and/or solutions you implemented.  You must include the following details in your writeup:
+There will be no Test Set for Phase 1 of this project and phase 2 Test set is already included. For each section of the project, explain briefly what you did, and describe any interesting problems you encountered and/or solutions you implemented.  You must include the following details in your writeup:
 
 <b>Phase 1:</b><br>
 - Please make your report extremely detailed with re-projection error (in a table form and show images with reprojections) after each step in Phase 1 (Linear, Non-linear triangulation, Linear, Non-linear PnP before and after BA and so on). Describe all the steps (anything that is not obvious) and any
