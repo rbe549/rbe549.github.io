@@ -28,7 +28,7 @@ Table of Contents:
 ## 1. Deadline 
 **11:59:59 PM, March 24, 2024 for Phase 1, 11:59:59 PM, March 30, 2024 for Phase 2, 11:59:59 PM, Apr 05, 2024 for Phase 3 (and extra credit), ** This project is to be done in groups of 2 and has a 10 min presentation. To summarize, various Phases are due at different dates and are given below:
 - Phase 1 is due on **11:59:59 PM, March 24, 2024** 
-- Phase 2 are due on **11:59:59 PM, March 30, 2024.**
+- Phase 2 are due on **11:59:59 PM, March 31, 2024.**
 - Phase 3 (and extra credit)  are due on **11:59:59 PM, Apr 05, 2024.**
 
 <a name='prob'></a>
@@ -95,7 +95,7 @@ Please download the data package from <a href='https://drive.google.com/file/d/1
 
 The data given to you contains the following:
 - Assets (Blender models in the ``Assets`` folder) for various things like Cars: Sedan, SUV, Pickup truck, Bicycle, motorcycle, Truck, Traffic signal, Stop Sign, Traffic Cone, Traffic Pole, Speed Sign and Pedestrian. We also include texture images for stop sign and a blank speed sign (add your own speed as text here).
-- Videos (Undistorted and Raw in the ``Sequences`` folder) for 13 sequences under various conditions with what scenarios are encountered in the respective markdown files in each folder.
+- Videos (Undistorted and Raw in the ``Sequences`` folder) for 13 sequences under various conditions with what scenarios are encountered in the respective markdown files in each folder. For each sequence, the content of the video are listed in a contents.md file.
 - Calibration Videos (in the ``Calib`` folder) used to calibrate the cameras.
 
 
@@ -105,7 +105,8 @@ In this Phase, you are required to implement basic features which are absolutely
 
 1. **Lanes:** Identify and show the different kinds of lanes on the road, they could be dashed, solid and/or of different color (white and yellow). Each lane has significance and are essential to identify (See Fig. 5).
 2. **Vehicles:** Here, identify all cars (but you do not need to classify as different types) and represent them as a car shape (See Fig. 5, all your cars will look the same).
-3. **Pedestrians and their pose:**  You need identify and locate pedestrians and their poses and display them in the scene (See Figs. 5 and 6, all your pedestrians will look the same, i.e., they will face the same way).
+<!-- 3. **Pedestrians and their pose:**  You need identify and locate pedestrians and their poses and display them in the scene (See Figs. 5 and 6, all your pedestrians will look the same, i.e., they will face the same way). -->
+3. **Pedestrians:**  You need identify and locate pedestrians and display them in the scene (See Figs. 5, all your pedestrians will look the same, i.e., they will face the same way).
 4. **Traffic lights:** Indicate the traffic signals and it’s color (See Fig. 7, note that you do not need to classify arrows in the traffic signals here).
 5. **Road signs:** There are sign boards on the road you need identify and represent. In this Phase, you need to primarily indicate stop signs (Fig. 6) . The models and texture images are given separately and you need to apply the textures appropriately. 
 
@@ -159,9 +160,11 @@ In this Phase, you will build on top of the previous one by enhancing and adding
   - Trucks
   - Bicycle
   - Motorcycle
+  You also need to identify the orientation of the vehicles and display them.
 2. **Traffic lights:** Additionally to the previous Phase, classify arrows on the traffic lights here (Fig. 7).
 3. **Road signs:** Along with the previously mentioned stop signs, you should also indicate road signs on the ground such as arrows (See Fig. 6) and speed limit signs (Fig. 8). The speed limit texture is blank and hence you need to add the numbers appropriately.
 4. **Objects:** You also need to indicate additional objects like dustbins, traffic poles, traffic cones and traffic cylinders as their respective 3D models in the renders (See Fig. 10). 
+5. **Pedestrian pose:** You need to identify pedestrian pose each frame instead of just classifying them and display them (See Fig. 6).
 
 
 <div class="fig fighighlight">
@@ -188,7 +191,11 @@ In this Phase, you will build on top of the previous one by enhancing and adding
 In this Phase, we try to add further cognitive abilities for better decision making in our planning stage.
 
 1. **Break lights and indicators of the other vehicles:** Identify and display the vehicle break lights and indicator signals (See Fig. 11). This helps the navigation module in making better lane changing decisions. 
-2. **Parked and Moving Vehicles:** Distinguish between parked and moving vehicles and display (make it subtle but identifiable). TODO: Add notes about Flow and Sampson Distance.
+2. **Parked and Moving Vehicles:** Distinguish between parked and moving vehicles and display (make it subtle but identifiable). For the moving cars, you also need to identify their moving direction and display them (with an arrow or anything else that you like).
+  Models that can directly output object motions with video input, like <a href='https://github.com/gengshan-y/rigidmask'>rigidmask</a>, are not allowed. You can consider using a network that can output optical flow and calculate <a href='https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html#gacbba2ee98258ca81d352a31faa15a021'>sampson distance</a>.
+
+  
+
 
 
 <div class="fig fighighlight">
@@ -203,7 +210,7 @@ In this Phase, we try to add further cognitive abilities for better decision mak
 
 <a name='extra'></a>
 ## 7. Extra Credit: Cherry on Top
-Implementing the extra credit can give you upto 25% of bonus score. Like a cherry on the top, you need to identify and indicate:
+Implementing the extra credit can give you up to 25% of bonus score. Like a cherry on the top, you need to identify and indicate:
 
 1. **Speed bumps:** (See Fig. 12) This accounts for 10% of bonus score. No asset is given for this. Feel free to make your own.
 2. **Collision prediction of pedestrians or other vehicles as red highlight:**  (See Fig. 13) This accounts for 15% of bonus score. This is as simple as changing the material color when the crash is detected.
@@ -255,9 +262,9 @@ This project involves a lot of concepts from various aspects of computer vision 
 ## 9.1. Phase 1 Submission
 
 You're required to submit two sets of things all zipped into a folder called ``YourDirectoryID_p3ph1.zip`` on Canvas and have a meeting with the course instructors as described below.
-1. Rendered images of various cases as ``png/jpg`` images. Feel free to have as many images as you want to show the cases we requested for in Phase 1 (Lanes, Vehicles, Pedestrians, Traffic lights, Road signs and speed limit signs). 
+1. Rendered images of various cases as ``png/jpg`` images. Feel free to have as many images as you want to show the cases we requested for in Phase 1 (Lanes, Vehicles, Pedestrians, Traffic lights, stop sign). 
 2. A small ``.md`` file called ``References.md`` with the packages you used for your implementation along with one sentence of how you used it.
-3. Meet the instructors on **Monday, March 27th from 2PM to 4PM in UH250E** to discuss your progress and approach.
+3. Meet the instructors on **(TBD)Monday, March 26th from 2PM to 4PM in UH250E** to discuss your progress and approach.
 
 
 Note that, you **CAN** use late days for the submission but the instructor meeting time is fixed. This Phase accounts for 30% of the project grade.
@@ -265,7 +272,14 @@ Note that, you **CAN** use late days for the submission but the instructor meeti
 
 <a name='files'></a>
 
-### 9.2. Final File tree and naming
+## 9.1. Phase 2 Submission
+You're required to submit two sets of things all zipped into a folder called ``YourDirectoryID_p3ph2.zip`` on Canvas.
+1. Some example videos to show the detection performance of the features that are required in Phase 2. (Different videos, Different pose pedestrians, Objects, Road signs, Traffic lights with arrow)
+2. A small ``.md`` file called ``References.md`` with the packages you used for your implementation along with one sentence of how you used it.
+
+Note that, you **CAN** use late days for the submission. This Phase accounts for 30% of the project grade.
+
+### 9.3. Final File tree and naming
 
 Your submission on ELMS/Canvas must be a ``zip`` file, following the naming convention ``YourDirectoryID_p3.zip``. If you email ID is ``abc@wpi.edu``, then your ``DirectoryID`` is ``abc``. For our example, the submission file should be named ``abc_p3.zip``. The file **must have the following directory structure**. Please provide detailed instructions on how to run your code in ``README.md`` file. 
 
@@ -321,7 +335,8 @@ You are required to do an in-person presentation for 10 mins (all team members M
 - Absolutely anything in the world!
 
 <b> Disallowed:
-- Absolutely nothing in the world!
+<!-- - Absolutely nothing in the world! -->
+For Phase 3, Models that can directly output object motions with video input are not allowed.
 
 If you have any doubts regarding allowed and disallowed functions, please drop a public post on [Piazza](https://piazza.com/wpi/spring2023/rbecs549).  
 
