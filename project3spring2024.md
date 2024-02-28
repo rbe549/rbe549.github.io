@@ -95,7 +95,7 @@ Please download the data package from <a href='https://drive.google.com/file/d/1
 
 The data given to you contains the following:
 - Assets (Blender models in the ``Assets`` folder) for various things like Cars: Sedan, SUV, Pickup truck, Bicycle, motorcycle, Truck, Traffic signal, Stop Sign, Traffic Cone, Traffic Pole, Speed Sign and Pedestrian. We also include texture images for stop sign and a blank speed sign (add your own speed as text here).
-- Videos (Undistorted and Raw in the ``Sequences`` folder) for 13 sequences under various conditions with what scenarios are encountered in the respective markdown files in each folder. For each sequence, the content of the video are listed in a contents.md file.
+- Videos (Undistorted and Raw in the ``Sequences`` folder) for 13 sequences under various conditions with what scenarios are encountered in the respective markdown files in each folder. For each sequence, the content of the video are listed in a `contents.md` file.
 - Calibration Videos (in the ``Calib`` folder) used to calibrate the cameras.
 
 
@@ -155,12 +155,11 @@ In this Phase, you are required to implement basic features which are absolutely
 In this Phase, you will build on top of the previous one by enhancing and adding more features. Here, we add more granularity to the vision system which can aid in algorithmic decisions in navigation modules.  
 
 
-1. **Vehicles:** Here, you need to classify (identify different vehicles) and subclassify them (identify different kinds of a type of vehicle). Note that you have to display these detections as the respective 3D model in your renders (See Fig. 9). More particularly, 
+1. **Vehicles:** Here, you need to classify (identify different vehicles) and subclassify them (identify different kinds of a type of vehicle). You also need to identify the orientation of the vehicles and display them. Note that you have to display these detections as the respective 3D model in your renders (See Fig. 9). More particularly, 
   - Cars: Sedan, SUV, hatchback, Pickup trucks
   - Trucks
   - Bicycle
   - Motorcycle
-  You also need to identify the orientation of the vehicles and display them.
 2. **Traffic lights:** Additionally to the previous Phase, classify arrows on the traffic lights here (Fig. 7).
 3. **Road signs:** Along with the previously mentioned stop signs, you should also indicate road signs on the ground such as arrows (See Fig. 6) and speed limit signs (Fig. 8). The speed limit texture is blank and hence you need to add the numbers appropriately.
 4. **Objects:** You also need to indicate additional objects like dustbins, traffic poles, traffic cones and traffic cylinders as their respective 3D models in the renders (See Fig. 10). 
@@ -191,11 +190,7 @@ In this Phase, you will build on top of the previous one by enhancing and adding
 In this Phase, we try to add further cognitive abilities for better decision making in our planning stage.
 
 1. **Break lights and indicators of the other vehicles:** Identify and display the vehicle break lights and indicator signals (See Fig. 11). This helps the navigation module in making better lane changing decisions. 
-2. **Parked and Moving Vehicles:** Distinguish between parked and moving vehicles and display (make it subtle but identifiable). For the moving cars, you also need to identify their moving direction and display them (with an arrow or anything else that you like).
-  Models that can directly output object motions with video input, like <a href='https://github.com/gengshan-y/rigidmask'>rigidmask</a>, are not allowed. You can consider using a network that can output optical flow and calculate <a href='https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html#gacbba2ee98258ca81d352a31faa15a021'>sampson distance</a>.
-
-  
-
+2. **Parked and Moving Vehicles:** Distinguish between parked and moving vehicles and display (make it subtle but identifiable). For the moving cars, you also need to identify their moving direction and display them (with an arrow or anything else that you like). Models that can directly output object motions with video input, like <a href='https://github.com/gengshan-y/rigidmask'>rigidmask</a>, are not allowed. You can consider using a network that can output optical flow, such as <a href='https://github.com/princeton-vl/RAFT'>RAFT</a>, and calculate <a href='https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html#gacbba2ee98258ca81d352a31faa15a021'>sampson distance</a> (See Fig. 12).
 
 
 <div class="fig fighighlight">
@@ -206,19 +201,27 @@ In this Phase, we try to add further cognitive abilities for better decision mak
   <div style="clear:both;"></div>
 </div>
 
+<div class="fig fighighlight">
+  <img src="/assets/2024/p3/video5_frame_195_296.jpg" width="100%">
+  <div class="figcaption">
+    Fig 12: Example optical flow output (bottom left) and sampson distance map (bottom right) of two consecutive frames (top two).
+  </div>
+  <div style="clear:both;"></div>
+</div>
+
 
 
 <a name='extra'></a>
 ## 7. Extra Credit: Cherry on Top
 Implementing the extra credit can give you up to 25% of bonus score. Like a cherry on the top, you need to identify and indicate:
 
-1. **Speed bumps:** (See Fig. 12) This accounts for 10% of bonus score. No asset is given for this. Feel free to make your own.
-2. **Collision prediction of pedestrians or other vehicles as red highlight:**  (See Fig. 13) This accounts for 15% of bonus score. This is as simple as changing the material color when the crash is detected.
+1. **Speed bumps:** (See Fig. 13) This accounts for 10% of bonus score. No asset is given for this. Feel free to make your own.
+2. **Collision prediction of pedestrians or other vehicles as red highlight:**  (See Fig. 14) This accounts for 15% of bonus score. This is as simple as changing the material color when the crash is detected.
 
 <div class="fig fighighlight">
   <img src="/assets/2023/p3/teslaspeedbump.jpg" width="100%">
   <div class="figcaption">
-    Fig 12: Visualization of speed bumps.
+    Fig 13: Visualization of speed bumps.
   </div>
   <div style="clear:both;"></div>
 </div>
@@ -227,7 +230,7 @@ Implementing the extra credit can give you up to 25% of bonus score. Like a cher
 <div class="fig fighighlight">
   <img src="/assets/2023/p3/teslapedcoll.jpg" width="100%">
   <div class="figcaption">
-    Fig 13: Visualization of collision of the pedestrian (left) and car (right).
+    Fig 14: Visualization of collision of the pedestrian (left) and car (right).
   </div>
   <div style="clear:both;"></div>
 </div>
@@ -249,6 +252,31 @@ This project involves a lot of concepts from various aspects of computer vision 
   - **Object Detection and Classification:** Can aid in detecting and sub-classifying objects.
   - **Pose estimation:** Depending on the scenario, you can use this to estimate pose of pedestrians, other objects and/or the motion of your camera.
   - **Optical Flow:** This is how pixels have moved between two image frames. Can help in classifying motion.
+- Refer to the project reports in <a href="https://pear.wpi.edu/teaching/rbe549/spring2023studentoutputs.html#p3">2023</a>. Many models has been tested and could be good starts. Some example output are shown below.
+
+<div class="fig fighighlight">
+  <img src="/assets/2024/p3/BlenderResult_PedestrianPose.png" width="100%">
+  <div class="figcaption">
+    Fig 15: Example of vehicle, lane, and pedestrian pose detection.
+  </div>
+  <div style="clear:both;"></div>
+</div>
+
+<div class="fig fighighlight">
+  <img src="/assets/2024/p3/BlenderResult_TrafficLight.png" width="100%">
+  <div class="figcaption">
+    Fig 16: Example of traffic light detection.
+  </div>
+  <div style="clear:both;"></div>
+</div>
+
+<div class="fig fighighlight">
+  <img src="/assets/2024/p3/speedbump_detection.png" width="100%">
+  <div class="figcaption">
+    Fig 17: Example of showing speed bump.
+  </div>
+  <div style="clear:both;"></div>
+</div>
 
 
 <a name='sub'></a>
@@ -264,10 +292,10 @@ This project involves a lot of concepts from various aspects of computer vision 
 You're required to submit two sets of things all zipped into a folder called ``YourDirectoryID_p3ph1.zip`` on Canvas and have a meeting with the course instructors as described below.
 1. Rendered images of various cases as ``png/jpg`` images. Feel free to have as many images as you want to show the cases we requested for in Phase 1 (Lanes, Vehicles, Pedestrians, Traffic lights, stop sign). 
 2. A small ``.md`` file called ``References.md`` with the packages you used for your implementation along with one sentence of how you used it.
-3. Meet the instructors on **(TBD)Monday, March 26th from 2PM to 4PM in UH250E** to discuss your progress and approach.
+3. Meet the instructors on **(TBD) in UH250E** to discuss your progress and approach.
 
 
-Note that, you **CAN** use late days for the submission but the instructor meeting time is fixed. This Phase accounts for 30% of the project grade.
+Note that, you **CAN** use late days for the submission but the instructor meeting time is fixed.
 
 
 <a name='files'></a>
@@ -277,7 +305,7 @@ You're required to submit two sets of things all zipped into a folder called ``Y
 1. Some example videos to show the detection performance of the features that are required in Phase 2. (Different videos, Different pose pedestrians, Objects, Road signs, Traffic lights with arrow)
 2. A small ``.md`` file called ``References.md`` with the packages you used for your implementation along with one sentence of how you used it.
 
-Note that, you **CAN** use late days for the submission. This Phase accounts for 30% of the project grade.
+Note that, you **CAN** use late days for the submission.
 
 ### 9.3. Final File tree and naming
 
@@ -336,7 +364,7 @@ You are required to do an in-person presentation for 10 mins (all team members M
 
 <b> Disallowed:
 <!-- - Absolutely nothing in the world! -->
-For Phase 3, Models that can directly output object motions with video input are not allowed.
+- For Phase 3, Models that can directly output object motions with video input are not allowed.
 
 If you have any doubts regarding allowed and disallowed functions, please drop a public post on [Piazza](https://piazza.com/wpi/spring2023/rbecs549).  
 
