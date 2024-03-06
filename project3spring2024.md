@@ -26,7 +26,7 @@ Table of Contents:
 
 <a name='due'></a>
 ## 1. Deadline 
-**11:59:59 PM, March 24, 2024 for Phase 1, 11:59:59 PM, March 30, 2024 for Phase 2, 11:59:59 PM, Apr 05, 2024 for Phase 3 (and extra credit), ** This project is to be done in groups of 2 and has a 10 min presentation. To summarize, various Phases are due at different dates and are given below:
+**11:59:59 PM, March 24, 2024 for Phase 1, 11:59:59 PM, March 30, 2024 for Phase 2, 11:59:59 PM, Apr 05, 2024 for Phase 3 (and extra credit).** This project is to be done in groups of 2 and has a 10 min presentation. To summarize, various Phases are due at different dates and are given below:
 - Phase 1 is due on **11:59:59 PM, March 24, 2024** 
 - Phase 2 are due on **11:59:59 PM, March 31, 2024.**
 - Phase 3 (and extra credit)  are due on **11:59:59 PM, Apr 05, 2024.**
@@ -67,7 +67,7 @@ Tesla's latest visualization (Fig. 3) is a really good example of visualization 
 </div>
 
 
-In this project, you will build an visualization inspired and bettered version of Tesla's dashboard (see Vid. 1 and Fig. 3) and hence the name 😉, wherein you are provided with a set of videos recorded from cameras of a 2023 Tesla Model S (shown in Vid. 1). You are required to output a rendered video of your visualizations: atleast showing the view in front of the car and your car, you can also show everything around the car. You are free to use any approach (deep learning based or classical) available in the world and render the visualizations using <a href="https://www.blender.org/">Blender</a>. This project is open-ended and hence there are multiple right solutions. You are graded for your creativity in approaching the problem, the effectiveness and prettiness of the visualizations. 
+In this project, you will build an visualization inspired and bettered version of Tesla's dashboard (see Vid. 1 and Fig. 3) and hence the name 😉, wherein you are provided with a set of videos recorded from cameras of a 2023 Tesla Model S (shown in Vid. 1). You are required to output a rendered video of your visualizations: atleast showing the view in front of the car and your car, you can also show everything around the car. You are free to use any approach (deep learning based or classical) available in the world and render the visualizations using <a href="https://www.blender.org/">Blender</a>. This project is open-ended and hence there are multiple right solutions. **You are graded for your creativity in approaching the problem, the effectiveness and prettiness of the visualizations.** 
 
 <div class="fig fighighlight">
   <div class="figcaption">
@@ -190,7 +190,7 @@ In this Phase, you will build on top of the previous one by enhancing and adding
 In this Phase, we try to add further cognitive abilities for better decision making in our planning stage.
 
 1. **Break lights and indicators of the other vehicles:** Identify and display the vehicle break lights and indicator signals (See Fig. 11). This helps the navigation module in making better lane changing decisions. 
-2. **Parked and Moving Vehicles:** Distinguish between parked and moving vehicles and display (make it subtle but identifiable). For the moving cars, you also need to identify their moving direction and display them (with an arrow or anything else that you like). Models that can directly output object motions with video input, like <a href='https://github.com/gengshan-y/rigidmask'>rigidmask</a>, are not allowed. You can consider using a network that can output optical flow, such as <a href='https://github.com/princeton-vl/RAFT'>RAFT</a>, and calculate <a href='https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html#gacbba2ee98258ca81d352a31faa15a021'>sampson distance</a> (See Fig. 12).
+2. **Parked and Moving Vehicles:** Distinguish between parked and moving vehicles and display (make it subtle but identifiable). For the moving cars, you also need to identify their moving direction and display them (with an arrow or anything else that you like). Models that can directly output object motions with video input, like <a href='https://github.com/gengshan-y/rigidmask'>rigidmask</a>, are not allowed. You can consider using a network that can output optical flow, such as <a href='https://github.com/princeton-vl/RAFT'>RAFT</a>, and calculate <a href='https://docs.opencv.org/4.x/d9/d0c/group__calib3d.html#gacbba2ee98258ca81d352a31faa15a021'>Sampson distance</a> (See Fig. 12).
 
 
 <div class="fig fighighlight">
@@ -204,7 +204,7 @@ In this Phase, we try to add further cognitive abilities for better decision mak
 <div class="fig fighighlight">
   <img src="/assets/2024/p3/video5_frame_195_296.jpg" width="100%">
   <div class="figcaption">
-    Fig 12: Example optical flow output (bottom left) and sampson distance map (bottom right) of two consecutive frames (top two).
+    Fig 12: Top row: Input image frames. Bottom row (left to right): Example optical flow output and sampson distance (brighter has higher Sampson distance value).
   </div>
   <div style="clear:both;"></div>
 </div>
@@ -352,7 +352,7 @@ For each section/Phase of the project, explain briefly what you did, and describ
 
 ### 9.4. Final Presentation
 
-You are required to do an in-person presentation for 10 mins (all team members MUST present) during the time decided (look out for a post on timings on <a href="https://piazza.com/wpi/spring2023/rbecs549">Piazza</a>) explaining your approach, the results as video. Explain what all problems you tackled during this project and how you overcame them. Further, talk about non-obvious observations, corner cases and failure modes along with potential ways to solve them. Also, give an in-depth analysis of your proposed approach. The presentation has to be professional of a conference quality presented to a wide range of audience ranging from a lay-person to an expert in the field. 
+You are required to do an in-person presentation for 5 mins (all team members MUST present) during the time decided (look out for a post on timings on <a href="https://piazza.com/wpi/spring2023/rbecs549">Piazza</a>) explaining your approach, the results as video. Explain what all problems you tackled during this project and how you overcame them. Further, talk about non-obvious observations, corner cases and failure modes along with potential ways to solve them. Also, give an in-depth analysis of your proposed approach. The presentation has to be professional of a conference quality presented to a wide range of audience ranging from a lay-person to an expert in the field. 
 
 <a name='funcs'></a>
 
@@ -377,7 +377,7 @@ If you have any doubts regarding allowed and disallowed functions, please drop a
 You are <b>STRONGLY</b> encouraged to discuss the ideas with your peers. Treat the class as a big group/family and enjoy the learning experience. 
 </p>
 
-However, the code should be your own, and should be the result of you exercising your own understanding of it. If you reference anyone else's code in writing your project, you must properly cite it in your code (in comments) and your writeup. For the full honor code refer to the [RBE/CS549 Spring 2023 website](https://nitinjsanket.github.io/teaching/rbe549/spring2023.html).
+However, the code should be your own, and should be the result of you exercising your own understanding of it. If you reference anyone else's code in writing your project, you must properly cite it in your code (in comments) and your writeup. For the full honor code refer to the [RBE/CS549 Spring 2024 website](https://pear.wpi.edu/teaching/rbe549/spring2024.html).
 
 <a name='ack'></a>
 
