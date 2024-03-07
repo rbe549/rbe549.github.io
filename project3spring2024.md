@@ -352,7 +352,7 @@ For each section/Phase of the project, explain briefly what you did, and describ
 
 ### 9.4. Final Presentation
 
-You are required to do an in-person presentation for 5 mins (all team members MUST present) during the time decided (look out for a post on timings on <a href="https://piazza.com/wpi/spring2023/rbecs549">Piazza</a>) explaining your approach, the results as video. Explain what all problems you tackled during this project and how you overcame them. Further, talk about non-obvious observations, corner cases and failure modes along with potential ways to solve them. Also, give an in-depth analysis of your proposed approach. The presentation has to be professional of a conference quality presented to a wide range of audience ranging from a lay-person to an expert in the field. 
+You are required to do an in-person presentation for 5 mins (all team members MUST present) during the time decided (look out for a post on timings on <a href="https://piazza.com/wpi/spring2024/rbecs549">Piazza</a>) explaining your approach, the results as video. Explain what all problems you tackled during this project and how you overcame them. Further, talk about non-obvious observations, corner cases and failure modes along with potential ways to solve them. Also, give an in-depth analysis of your proposed approach. The presentation has to be professional of a conference quality presented to a wide range of audience ranging from a lay-person to an expert in the field. 
 
 <a name='funcs'></a>
 
@@ -366,7 +366,7 @@ You are required to do an in-person presentation for 5 mins (all team members MU
 <!-- - Absolutely nothing in the world! -->
 - For Phase 3, Models that can directly output object motions with video input are not allowed.
 
-If you have any doubts regarding allowed and disallowed functions, please drop a public post on [Piazza](https://piazza.com/wpi/spring2023/rbecs549).  
+If you have any doubts regarding allowed and disallowed functions, please drop a public post on [Piazza](https://piazza.com/wpi/spring2024/rbecs549).  
 
 
 <a name='coll'></a>
