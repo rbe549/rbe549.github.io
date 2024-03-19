@@ -26,7 +26,7 @@ Table of Contents:
 
 <a name='due'></a>
 ## 1. Deadline 
-**11:59:59 PM, March 24, 2024 for Phase 1, 11:59:59 PM, March 30, 2024 for Phase 2, 11:59:59 PM, Apr 05, 2024 for Phase 3 (and extra credit).** This project is to be done in groups of 2 and has a 10 min presentation. To summarize, various Phases are due at different dates and are given below:
+**11:59:59 PM, March 24, 2024 for Phase 1, 11:59:59 PM, March 31, 2024 for Phase 2, 11:59:59 PM, Apr 05, 2024 for Phase 3 (and extra credit).** This project is to be done in groups of 2 and has a 10 min presentation. To summarize, various Phases are due at different dates and are given below:
 - Phase 1 is due on **11:59:59 PM, March 24, 2024** 
 - Phase 2 are due on **11:59:59 PM, March 31, 2024.**
 - Phase 3 (and extra credit)  are due on **11:59:59 PM, Apr 05, 2024.**
