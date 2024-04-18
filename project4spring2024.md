@@ -13,9 +13,10 @@ Table of Contents:
   - [3.1. Data](#data)
   - [3.2. Starter Code](#startercode)
 - [4. Phase 2: Deep Visual-Inertial Odometry](#deep)
+  - [4.1. Data And Method](#datadl)
 - [5. Expected Output](#expout)
   - [5.1. Phase 1](#ph1out)
-  - [5.2. Phase 2](#ph2out)
+  <!-- - [5.2. Phase 2](#ph2out) -->
 - [6. Submission Guidelines](#sub)
   - [6.1. File tree and naming](#files)
   - [6.2. Report](#report)
@@ -84,9 +85,20 @@ Once you finish the implementation of the previous stage, you might have realize
 
 <a name='datadl'></a>
 
-### 4.1. Data
+### 4.1. Data And Method
 
-We will be using the Machine Hall 02 easy (``MH_02_easy``), Machine Hall 03 medium (``MH_03_medium``), Machine Hall 04 difficult (``MH_04_difficult``) and Machine Hall 05 difficult (``difficult``) subsets of the <a href="https://projects.asl.ethz.ch/datasets/doku.php?id=kmavvisualinertialdatasets">EuRoC dataset</a> for training the neural network. Present your results on Machine Hall 01 easy (``MH_01_easy``) subset of the <a href="https://projects.asl.ethz.ch/datasets/doku.php?id=kmavvisualinertialdatasets">EuRoC dataset</a>. **Feel free to download the data in any format and utilize any code for data handling and processing.** Here, the data is collected using a VI sensor carried by a quadrotor flying a trajectory. The ground truth is provided by a sub-mm accurate Vicon Motion capture system. 
+Since life is a full circle, we will wrap up this course where we started, i.e., with Homographies. Specifically, we will learn to estimate odometry (or relative pose) estimates from a combination of a down-facing camera and an 6-DoF IMU (3-axis accelerometer and 3-axis gyroscope) on an aerial robot looking at a planar surface. Obtaining data for such scenarios can be arduous and the available datasets are generally very challenging. Hence, you will generate your own synthetic data in Blender. In particular, you will generate data (realistic IMU data and RGB images) with known poses between them. Coming up with good mathematical models for IMU that comply with real data are hard and is a research topic on its own. Hence, you are allowed to use any third party models/code for this (some examples are: <a href="https://github.com/prgumd/Oystersim/blob/master/code/ImuUtils.py">OysterSim</a>, <a href="https://github.com/Aceinna/gnss-ins-sim">GNSS INS Sim</a> and <a href="https://www.mathworks.com/help/nav/ref/imusensor-system-object.html">Matlab's IMU Model</a>). Furthermore, estimating biases from a neural network can be challenging, hence you can assume that the biases at the start of each sequence are zero as in most works such as <a href="https://arxiv.org/abs/2006.06753">PRGFlow</a>, <a href="https://arxiv.org/abs/2208.13935">CUAHN-VIO</a> and <a href="https://arxiv.org/abs/2006.05768">Deep Drone Acrobatics</a>. Furthermore, you can assume that the Roll and Pitch angles of the camera do not exceed 45$$^\circ$$, Yaw can be any angle but be realistic with the angular rates. You can neglect realistic effects such as motion blur, depth of field or lighting changes (you can use global illumination lighting). 
+
+
+To generate data, create a large plane with an image texture on it. Make sure that the camera is looking at the floor and you command (generated ground truth) the camera position to obtain images. You do not have to write any dynamics equations to generate data, but be realistic in the movement profiles, for eg., the camera cannot move 100m in 0.1sec. Furthermore, the data rates of the IMU and camera are not the same. To make life easier, you can generate both camera and IMU data at the same rate but only use every 10th sample of the image as input. For eg., if the data is generated at 1000Hz for 1sec, you will have 1000 RGB frames and IMU values. For your training purposes, you will only use every 10th RGB frame but all the IMU values in between mimicking a 1000Hz IMU and a 100Hz Camera. Randomize the image textures on the floor (you can obtain any image from the internet) and their scale (or initial $$Z$$ axis of the camera). Make sure that you cannot see the edges of the plane from the camera for high quality data. You can fix the camera $$K$$ matrix to make life a little easier and assume no distortion. For fast renders, you can render in material preview mode since we are not worried about sim2real transfer. For tips on what trajectories to use, we refer you to the <a href="https://arxiv.org/abs/1810.01987">Black Bird Dataset</a> from MIT or the <a href="https://arxiv.org/abs/2006.06753">PRGFlow paper</a> from Prof. Sanket. Finally once you obtain the relative poses between frames, you can obtain the odometry (to obtain trajectory in 3D) using dead-reckoning. 
+
+
+You are required to train 3 networks to output relative pose/odometry:
+- Using Vision Data only (only RGB frames as shown in Fig. 4a)
+- Using IMU Data only (only 6-DoF IMU data as shown in Fig. 4b)
+- Using both Vision and IMU Data (using both RGB frames and 6-DoF IMU data as shown in Fig. 4c)
+
+**Test your approach on sequences not used for training.** Just like the last phase, you are expected to show a plot of the ground truth trajectory and it's evaluation along with the predictions from your neural network on the generated test trajectories. Note that you will have to perform dead-reckoning to obtain odometry from frame to frame incremental poses. Present and compare results for the test trajectories for vision data only (training and predictions with only two images as the input, see Fig. 4a), inertial data only (training and predictions with only IMU data as the input, see Fig. 4b) and finally visual-inertial data predictions (training and predictions with two images and inertial data between them as the input, see Fig. 4c).
 
 
 <a name='expout'></a>
@@ -116,22 +128,10 @@ The output for Phase 1 is from the code visualization is shown in Fig. 2. But yo
 </div>
 
 
-<a name='ph2out'></a>
+<!-- <a name='ph2out'></a>
 
 ### 5.2. Phase 2
-
-Since life is a full circle, we will wrap up this course where we started, i.e., with Homographies. Specifically, we will learn to estimate odometry (or relative pose) estimates from a combination of a down-facing camera and an 6-DoF IMU (3-axis accelerometer and 3-axis gyroscope) on an aerial robot looking at a planar surface. Obtaining data for such scenarios can be arduous and the available datasets are generally very challenging. Hence, you will generate your own synthetic data in Blender. In particular, you will generate data (realistic IMU data and RGB images) with known poses between them. Coming up with good mathematical models for IMU that comply with real data are hard and is a research topic on its own. Hence, you are allowed to use any third party models/code for this (some examples are: <a href="https://github.com/prgumd/Oystersim/blob/master/code/ImuUtils.py">OysterSim</a>, <a href="https://github.com/Aceinna/gnss-ins-sim">GNSS INS Sim</a> and <a href="https://www.mathworks.com/help/nav/ref/imusensor-system-object.html">Matlab's IMU Model</a>). Furthermore, estimating biases from a neural network can be challenging, hence you can assume that the biases at the start of each sequence are zero as in most works such as <a href="https://arxiv.org/abs/2006.06753">PRGFlow</a>, <a href="https://arxiv.org/abs/2208.13935">CUAHN-VIO</a> and <a href="https://arxiv.org/abs/2006.05768">Deep Drone Acrobatics</a>. Furthermore, you can assume that the Roll and Pitch angles of the camera do not exceed 45$$^\circ$$, Yaw can be any angle but be realistic with the angular rates. You can neglect realistic effects such as motion blur, depth of field or lighting changes (you can use global illumination lighting). 
-
-
-To generate data, create a large plane with an image texture on it. Make sure that the camera is looking at the floor and you command (generated ground truth) the camera position to obtain images. You do not have to write any dynamics equations to generate data, but be realistic in the movement profiles, for eg., the camera cannot move 100m in 0.1sec. Furthermore, the data rates of the IMU and camera are not the same. To make life easier, you can generate both camera and IMU data at the same rate but only use every 10th sample of the image as input. For eg., if the data is generated at 1000Hz for 1sec, you will have 1000 RGB frames and IMU values. For your training purposes, you will only use every 10th RGB frame but all the IMU values in between mimicking a 1000Hz IMU and a 100Hz Camera. Randomize the image textures on the floor (you can obtain any image from the internet) and their scale (or initial $$Z$$ axis of the camera). Make sure that you cannot see the edges of the plane from the camera for high quality data. You can fix the camera $$K$$ matrix to make life a little easier and assume no distortion. For fast renders, you can render in material preview mode since we are not worried about sim2real transfer. For tips on what trajectories to use, we refer you to the <a href="https://arxiv.org/abs/1810.01987">Black Bird Dataset</a> from MIT or the <a href="https://arxiv.org/abs/2006.06753">PRGFlow paper</a> from Prof. Sanket. Finally once you obtain the relative poses between frames, you can obtain the odometry (to obtain trajectory in 3D) using dead-reckoning. 
-
-
-You are required to train 3 networks to output relative pose/odometry:
-- Using Vision Data only (only RGB frames as shown in Fig. 4a)
-- Using IMU Data only (only 6-DoF IMU data as shown in Fig. 4b)
-- Using both Vision and IMU Data (using both RGB frames and 6-DoF IMU data as shown in Fig. 4c)
-
-**Test your approach on sequences not used for training.** Just like the last phase, you are expected to show a plot of the ground truth trajectory and it's evaluation along with the predictions from your neural network on the generated test trajectories. Note that you will have to perform dead-reckoning to obtain odometry from frame to frame incremental poses. Present and compare results for the test trajectories for vision data only (training and predictions with only two images as the input, see Fig. 4a), inertial data only (training and predictions with only IMU data as the input, see Fig. 4b) and finally visual-inertial data predictions (training and predictions with two images and inertial data between them as the input, see Fig. 4c).
+ -->
 
 
 <div class="fig fighighlight">
@@ -141,7 +141,6 @@ You are required to train 3 networks to output relative pose/odometry:
   </div>
   <div style="clear:both;"></div>
 </div>
-
 
 
 <a name='sub'></a>
