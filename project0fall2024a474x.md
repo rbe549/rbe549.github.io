@@ -20,7 +20,7 @@ Table of Contents:
 
 <a name='due'></a>
 ## 1. Deadline 
-**11:59:59 PM, August 25, 2024. Individual Submissions**
+**11:59:59 PM, August 25, 2024. Individual Submissions.**
 
 <a name='due'></a>
 ## 2. Starter Package
