@@ -24,7 +24,7 @@ Table of Contents:
 
 <a name='due'></a>
 ## 2. Starter Package
-The Starter Package with the code and data can be downloaded from <a href="">here</a>. The starter code is in a <a href="https://jupyter.org/">Jupyter notebook</a> with instructions.
+The Starter Package with the code and data can be downloaded from <a href="https://github.com/pearwpi/rbe474x_p0">here</a>. The starter code is in a <a href="https://jupyter.org/">Jupyter notebook</a> with instructions.
 
 <a name='part1'></a>
 ## 3. Part 1: Basic Filtering
@@ -34,7 +34,7 @@ This part has to be completed for both the undergraduate and graduate version of
 <a name='part2'></a>
 ## 4. Part 2: Color Filtering Using Gaussians
 
-This part has to be completed for graduate version of the course along with part 1. The details can be found in the `part2.ipynb` file. Undergraduates can complete this part for a maximum of 20\% extra credit.
+This part has to be completed for graduate version of the course along with part 1. The details can be found in the `part2.ipynb` file. Undergraduates can complete this part for a maximum of 20% extra credit.
 
 
 <a name='sub'></a>
@@ -56,16 +56,13 @@ The file tree of your submission <b>SHOULD</b> resemble this:
 
 ```
 YourDirectoryID_p0.zip
-├── Part1
-|    └── Code
-|        ├── part1.ipynb
-|        └── Any subfolders you want along with files
-├── Phase2
-|    ├── log
-|    ├── Code
-|    |    ├── part2.ipynb
-|    |    └── Any subfolders you want along with files
-|    └── Report.pdf 
+├── part1
+|      ├── part1.ipynb
+|      └── Any subfolders you want along with files
+├── part2
+|      ├── part2.ipynb
+|      └── Any subfolders you want along with files
+├── Report.pdf 
 └── README.md
 ```
 
