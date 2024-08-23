@@ -109,5 +109,5 @@ However, the code should be your own, and should be the result of you exercising
 
 ## 8. Acknowledgements
 
-This project was partly inspired by University of Maryland's CMSC426 (Computer Vision)) course.
+This project was partly inspired by University of Maryland's CMSC426 (Computer Vision) course.
 
