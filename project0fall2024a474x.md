@@ -2,7 +2,7 @@
 layout: page
 mathjax: true
 coursetitle: RBE474X/595-A01-SP -- Deep Learning for Perception
-title: Alohomora
+title: Alohomora!
 permalink: /rbe474x/fall2024a/proj/p0/
 ---
 
