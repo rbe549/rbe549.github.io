@@ -57,12 +57,12 @@ The file tree of your submission <b>SHOULD</b> resemble this:
 ```
 GroupGROUPNUM_p1.zip
 ├── src
-    ├── main_notebook.ipynb
-    ├── artifacts/
-    ├── Other code files
-    ├── mlp.pth
-    ├── cnn_inbuilt.pth
-    ├── cnn_custom.pth
+|    ├── main_notebook.ipynb
+|    ├── artifacts/
+|    ├── Other code files
+|    ├── mlp.pth
+|    ├── cnn_inbuilt.pth
+|    └── cnn_custom.pth
 ├── Report.pdf 
 └── README.md
 ```
