@@ -56,8 +56,13 @@ The file tree of your submission <b>SHOULD</b> resemble this:
 
 ```
 GroupGROUPNUM_p1.zip
-├── part1.ipynb
-├── Any subfolders you want along with files
+├── src
+    ├── main_notebook.ipynb
+    ├── artifacts/
+    ├── Other code files
+    ├── mlp.pth
+    ├── cnn_inbuilt.pth
+    ├── cnn_custom.pth
 ├── Report.pdf 
 └── README.md
 ```
