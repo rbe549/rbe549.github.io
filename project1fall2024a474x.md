@@ -9,8 +9,8 @@ permalink: /rbe474x/fall2024a/proj/p1/
 Table of Contents:
 - [1. Deadline](#due)
 - [2. Starter Package](#starterpkg)
-- [3. Parts 1 to 4: The 474X Package](#part14)
-- [4. Parts 5 and 6: The 595 Package](#part56)
+- [3. Parts 1 to 3: The 474X Package](#part14)
+- [4. Parts 4 and 5: The 595 Package](#part56)
 - [5. Submission Guidelines](#sub)
   - [5.1. File tree and naming](#files)
   - [5.2. Report](#report)
@@ -27,14 +27,14 @@ Table of Contents:
 The Starter Package with the code and data can be downloaded from <a href="https://github.com/pearwpi/rbe474x_p1">here</a>. The starter code is in a <a href="https://jupyter.org/">Jupyter notebook</a> with instructions.
 
 <a name='part14'></a>
-## 3. Parts 1 to 4: The 474X Package
+## 3. Parts 1 to 3: The 474X Package
 
-This part has to be completed for both the undergraduate and graduate version of the course. The details can be found in the Parts 1 to 4 of the `.ipynb` file.
+This part has to be completed for both the undergraduate and graduate version of the course. The details can be found in the Parts 1 to 3 of the `.ipynb` file.
 
 <a name='part56'></a>
-## 4. Parts 5 and 6: The 595 Package
+## 4. Parts 4 and 5: The 595 Package
 
-This part has to be completed for graduate version of the course along with parts 1 to 4. The details can be found in Parts 5 and 6 of the `.ipynb` fil. Undergraduates can complete this part for a maximum of 25% extra credit.
+This part has to be completed for graduate version of the course along with parts 1 to 3. The details can be found in Parts 4 and 5 of the `.ipynb` fil. Undergraduates can complete this part for a maximum of 25% extra credit.
 
 
 <a name='sub'></a>
