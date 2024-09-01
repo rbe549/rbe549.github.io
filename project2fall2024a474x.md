@@ -12,8 +12,7 @@ Table of Contents:
 - [3. Parts 1 to 2: The 474X Package](#part14)
 - [4. Parts 3: The 595 Package](#part56)
 - [5. Submission Guidelines](#sub)
-  - [5.1. File tree and naming](#files)
-  - [5.2. Report](#report)
+  - [5.1. Report](#report)
 - [6. Allowed and Disallowed functions](#funcs)
 - [7. Collaboration Policy](#coll)
 - [8. Acknowledgements](#ack)
@@ -45,7 +44,7 @@ This part has to be completed for graduate version of the course along with part
 
 <a name='report'></a>
 
-### 5.2. Report 
+### 5.1. Report 
 For each part of the project, explain briefly what you did, and describe any interesting problems you encountered and/or solutions you implemented. You must include the following details in your writeup:
 
 - Your report **MUST** be typeset in LaTeX in the IEEE Tran format provided to you in the ``Draft`` folder and should of a conference quality paper. Feel free to use any online tool to edit such as [Overleaf](https://www.overleaf.com) or install LaTeX on your local machine.
