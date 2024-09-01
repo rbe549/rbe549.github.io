@@ -2,7 +2,7 @@
 layout: page
 mathjax: true
 coursetitle: RBE474X/595-A01-SP -- Deep Learning for Perception
-title: Nifty Neural Networks!
+title: Dramatic Data!
 permalink: /rbe474x/fall2024a/proj/p2/
 ---
 
