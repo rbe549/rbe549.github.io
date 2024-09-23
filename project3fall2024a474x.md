@@ -18,7 +18,7 @@ Table of Contents:
 
 <a name='due'></a>
 ## 1. Deadline 
-**11:59:59 PM, Sept 27, 2024. Group Submissions (Groups of 3).**
+**11:59:59 PM, Sept 28, 2024. Group Submissions (Groups of 3).**
 
 <a name='due'></a>
 ## 2. Starter Package
