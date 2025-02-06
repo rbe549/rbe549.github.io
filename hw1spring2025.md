@@ -119,7 +119,7 @@ For each section of the homework, explain briefly what you did, and describe any
 You are <b>STRONGLY</b> encouraged to discuss the ideas with your peers. Treat the class as a big group/family and enjoy the learning experience. 
 </p>
 
-However, the code should be your own, and should be the result of you exercising your own understanding of it. If you reference anyone else's code in writing your project, you must properly cite it in your code (in comments) and your writeup. For the full honor code refer to the [RBE/CS549 Spring 2024 website](https://pear.wpi.edu/teaching/rbe549/spring2024.html).
+However, the code should be your own, and should be the result of you exercising your own understanding of it. If you reference anyone else's code in writing your project, you must properly cite it in your code (in comments) and your writeup. For the full honor code refer to the [RBE/CS549 Spring 2025 website](https://pear.wpi.edu/teaching/rbe549/spring2025.html).
 
 <a name='ack'></a>
 ## 8. Acknowledgements
