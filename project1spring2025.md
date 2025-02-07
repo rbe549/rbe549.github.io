@@ -290,9 +290,9 @@ Note that, we didn't talk about the network architecture here, feel free to use 
 <a name='testset'></a>
 ## 6. Notes about Test Set
 One day (24 hours) before each deadline, a test set will be released on which we expect you to run your code from both the parts and present the results in your report (more on this [later](#sub)).
-The Test Set for Phase 1 can be downloaded from [here](https://app.box.com/s/3o21zvw1z5acr1ck060ui8aq4enkdhxd). The Test Set has the following folder structure.
+The Test Set for Phase 1 can be downloaded from [here](https://app.box.com/s/3o21zvw1z5acr1ck060ui8aq4enkdhxd). The Test Set for Phase 2 can be downloaded from [here](https://app.box.com/s/i4ms19q1tetrng260ojx7tqjnd07n74f) The Test Set has the following folder structure.
 
-```
+ ```
 P1Ph1TestSet.zip
    Phase1 
    ├── TestSet1
@@ -304,20 +304,10 @@ P1Ph1TestSet.zip
 	 └── TestSet4
 		 └── *.jpg
 
+``` 
+ 
 ```
-
-<!--
-```
-P1TestSet.zip
-|   Phase1 
-|   ├── TestSet1
-| | └── *.jpg
-| ├── TestSet2
-| | └── *.jpg
-| ├── TestSet3
-| | └── *.jpg
-| └── TestSet4
-|   └── *.jpg
+P1Ph2TestSet.zip
 ├── Phase2Pano
 | ├── tower
 | |   └── *.jpg
@@ -331,7 +321,7 @@ P1TestSet.zip
 └── Phase2
   └── *.jpg
 ```
--->
+
 
 - Stich Panoramas of images from `Phase1` folder using the traditional approach, supervised homography and unsupervised homography.
 - Use images from `Phase2` folder to evaluate your deep learning based homography algorithms (both supervised and unsupervised). Here you can apply random perturbations as before on the center crop of the image (of size you chose during training). This Test is to evaluate how well your algorithm generalized to images outside the training set.
