@@ -122,8 +122,9 @@ Setup VizFlyt framework from <a href="https://github.com/pearwpi/VizFlyt">here</
 ### 3.3. Implementation
 
 You need to implement the following:
-- A state machine to monitor and supply the next waypoint. Note that you are given a template starter code in `Phase2\src\usercode.py` with the template class `state_machine`. You are required to fill the `step()` function of this class, where you need to monitor if you have reached the current desired waypoint (you will need to check the Euclidean distance between the current position given as `currpos` in your `step()` function and the desired waypoint) and switch to the landing/next waypoint based on the April Tag ID. To run the code you'll run the `Phase2\src\main.py` and **NOT** `Phase2\src\usercode.py`.
-- AprilTag detection for next task to be performed. Your quadrotor is equipped with a down-facing camera and you are provided with a function `fetchLatestImage()` that returns the current camera frame. You can use utilize the <a href="https://pypi.org/project/apriltag/">`apriltag`</a> library to detect april tags, note that you are given tags from the `36h11` tag family. Once you reach a waypoint, fetch the latest camera frame, detect the April Tag ID, if it is `4`, invoke a land command. To land, you have to generate a waypoint with the same `XY` location and `Z` location of 0.1m. Once you have landed, you can takeoff again, i.e., maintain same `XY` location and make the `Z` location 1.5m. Then continue onto the next waypoint if any. If there are no more waypoints left, terminate your code and dance (in real-life)! Note that you do not need the images to test your waypoint switching logic but you'll need the image to know when to land. So you can test your state switching code without landing without the need to render images, this will make your debugging fast.
+- Waypoint state machine - In `Phase2/main.py`, complete `load_waypoints_csv()` to read `waypoints.csv` from the starter package and return the waypoint list. Then implement the logic in `guidance_update()` to run a simple state machine that feeds the current target and advances when the vehicle reaches it. Use `get_next_waypoint()` for the “reached?” test (feel free to tune its distance threshold).
+- Landing to Takeoff cycle - On the first waypoint whose height `Z < 0.18 m`, switch the state machine to `LAND`. Consider the landing “complete” when the altitude satisfies the minimum-landing criterion defined in `utils.py (class LandTakeoffCfg)`. Then transition to `TAKEOFF` and, return to NAVIGATE, and continue through the remaining waypoints.
+- A rendering function has already been implemented for you to generate RGB and Depth frames. It will store the frames in `render` folder. After the drone has reached the last waypoint, you then need to create a video consisting of RGB, Depth and a 3D trajectory followed by the robot with the groundtruth waypoints (appended side by side, as shown in Fig. 3). You can use `matplotlib` for the 3D trajectory plot.
 
 
 <a name='sub'></a>
@@ -143,7 +144,7 @@ Please <b>DO NOT</b> include data in your submission. Furthermore, the size of y
 
 The file tree of your submission <b>SHOULD</b> resemble this:
 
-```
+<!-- ```
 YourDirectoryID_p0.zip
 ├── Phase1
 |    └── Code
@@ -152,9 +153,11 @@ YourDirectoryID_p0.zip
 |        └── Report.pdf
 |
 ├── Phase2
-|    ├── log
-|    ├── src
-|    |    ├── usercode.py
+
+|    ├── wb_frames_colmap
+|    ├── wb_frames_splat
+|    ├── main.py
+|    
 |    |    ├── main.py
 |    |    └── Other supporting files
 |    ├── models
@@ -162,9 +165,35 @@ YourDirectoryID_p0.zip
 |    ├── indoor.blend   
 |    ├── main.blend    
 |    └── Video.mp4   
+
+└── README.md
+``` -->
+```
+YourDirectoryID_p0.zip
+├── Phase1
+│   └── Code
+│       ├── Wrapper.py
+│       ├── Any subfolders you want along with files
+│       └── Report.pdf
+│
+├── Phase2
+│   ├── main.py
+│   ├── generate_waypoints.py
+│   ├── waypoints.csv
+│   ├── utils.py
+│   ├── splat_render.py
+│   ├── quad_dynamics.py
+│   ├── drone.py
+│   ├── control.c
+│   ├── control.cpython-311-x86_64-linux-gnu.so
+│   ├── setup.py
+│   ├── build/
+│   ├── wb_frames_colmap/
+│   ├── wb_frames_splat/
+│   └── Video.mp4
+│
 └── README.md
 ```
-
 
 <a name='report'></a>
 
@@ -181,7 +210,7 @@ For each section of the project, explain briefly what you did, and describe any 
 
 ### 4.3. Video for Phase 2
 
-The video should be a screen capture of your code in action from both an oblique and top view as shown in the <a href="https://drive.google.com/file/d/1M8eFTep7xnmnh_rSPhul49IDT_Kr8jhr/view?usp=sharing">video below</a>. Note that a screen capture is not a video recorded from your phone. 
+The video should include a side by side concatenated frame of RGB, Depth, 3D trajectory as shown in Fig. 3. Note that it cannot be a screen capture or a video recorded from your phone. 
 
 <iframe src="https://drive.google.com/file/d/1M8eFTep7xnmnh_rSPhul49IDT_Kr8jhr/preview" width="640" height="480" allow="autoplay"></iframe>
 
