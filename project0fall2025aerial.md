@@ -38,7 +38,7 @@ In this phase, you will implement three methods to estimate the three dimensiona
 
 <a name='data1'></a>
 ### 2.2. Reading the Data
-The `Phase1\Data` folder has two subfolders, one which has the raw IMU data `Phase1\Data\Train\IMU` and another one which has the Vicon data `Phase1\Data\Train\Vicon`. The data in each folder is numbered for correspondence, i.e., `Phase1\Data\Train\IMU\imuRaw1.mat` corresponds to `Phase1\Data\Train\Vicon\viconRot1.mat`. Download the project 0 package from [here](https://drive.google.com/file/d/1EhSywBhsXSyUUijVkeRaEO-5auc8paVO/view?usp=sharing) which includes the data in `Phase1` folder. These data files are given in a `.mat` format. In order to read these files in Python, use the snippet provided below:
+The `Phase1\Data` folder has two subfolders, one which has the raw IMU data `Phase1\Data\Train\IMU` and another one which has the Vicon data `Phase1\Data\Train\Vicon`. The data in each folder is numbered for correspondence, i.e., `Phase1\Data\Train\IMU\imuRaw1.mat` corresponds to `Phase1\Data\Train\Vicon\viconRot1.mat`. Download the project 0 package from [here](https://app.box.com/s/3vndm5l48but6veezujjxlwvt6pfpt9m) which includes the data in `Phase1` folder. These data files are given in a `.mat` format. In order to read these files in Python, use the snippet provided below:
 
 ```
 >>> from scipy import io
@@ -212,7 +212,7 @@ For each section of the project, explain briefly what you did, and describe any 
 
 The video should include a side by side concatenated frame of RGB, Depth, 3D trajectory as shown in Fig. 3. Note that it cannot be a screen capture or a video recorded from your phone. 
 
-<iframe src="https://drive.google.com/file/d/1M8eFTep7xnmnh_rSPhul49IDT_Kr8jhr/preview" width="640" height="480" allow="autoplay"></iframe>
+<iframe src="https://app.box.com/embed/s/rjodgug22prup2docao5cqqcqdzke3it?sortColumn=date" width="500" height="400" frameBorder="0" allowfullscreen webkitallowfullscreen msallowfullscreen></iframe>
 
 <a name='funcs'></a>
 
