@@ -34,8 +34,8 @@ You estimated the orientation using a Madgick Filter in Project 1a, now it's tim
 
 <a name='testset'></a>
 ## 4. Notes About Test Set
-A test set will be released 24 hours before the deadline. <!-- You can download the test set from <b>here</b>. Your report MUST include the output (gyroscope orientation, accelerometer orientation, complementary filter orientation and Madgwick filter orientation) from both the train and test sets.  -->
-
+The test set is the same as that of Project 1a. Your report MUST include the output (gyroscope orientation, accelerometer orientation, complementary filter orientation and Madgwick filter orientation) from both the train and test sets. 
+<!-- A test set will be released 24 hours before the deadline. You can download the test set from <b>here</b>. Your report MUST include the output (gyroscope orientation, accelerometer orientation, complementary filter orientation and Madgwick filter orientation) from both the train and test sets.  --> 
 
 <a name='sub'></a>
 
