@@ -166,7 +166,7 @@ For each section of the project, explain briefly what you did, and describe any 
 
 ### 6.3. Video
 
-The video should be a screen capture of your code in action from both an oblique and top view as shown in the video below. Note that a screen capture is not a video recorded from your phone. 
+The video should be a screen capture of your code in action from both an oblique and top view as shown in the video below (you can also download it from <a href="https://app.box.com/embed/s/wvji9blw9zou8qkg42du14qe7upuj7zi">here</a>. Note that a screen capture is not a video recorded from your phone. 
 
 
 <iframe src="https://app.box.com/embed/s/wvji9blw9zou8qkg42du14qe7upuj7zi?sortColumn=date" width="500" height="400" frameBorder="0" allowfullscreen webkitallowfullscreen msallowfullscreen></iframe>
