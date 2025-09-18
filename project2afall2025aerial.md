@@ -14,7 +14,7 @@ Table of Contents:
   - [4.1. Map](#map)
   - [4.2. Path Planner](#pathplanner)
   - [4.3. Trajectory Generation](#trajgen)
-    -[4.3.1. Collision Handling](#collision)
+    - [4.3.1. Collision Handling](#collision)
   - [4.4. Controller](#controller)
 - [5. Notes About Test Set](#testset)
 - [6. Submission Guidelines](#sub)
