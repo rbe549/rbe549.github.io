@@ -12,14 +12,13 @@ Table of Contents:
 - [3. Environment](#environment)
 - [4. Implementation](#implementation)
   - [4.1. Collision Handling](#collision)
-- [5. Testing (Live Demo)](#testset)
-- [6. Submission Guidelines](#sub)
-  - [6.1. File tree and naming](#files)
-  - [6.2. Report](#report)
-  - [6.3. Video](#video)
-- [7. Allowed and Disallowed functions](#funcs)
-- [8. Collaboration Policy](#coll)
-- [9. Acknowledgements](#ack)
+- [5. Submission Guidelines](#sub)
+  - [5.1. File tree and naming](#files)
+  - [5.2. Report](#report)
+  - [5.3. Video](#video)
+- [6. Allowed and Disallowed functions](#funcs)
+- [7. Collaboration Policy](#coll)
+- [8. Acknowledgements](#ack)
 
 <a name='due'></a>
 ## 1. Deadline 
@@ -66,11 +65,11 @@ As you program your controller, you'll know how well it works, it will have over
 
 <a name='sub'></a>
 
-## 6. Submission Guidelines
+## 5. Submission Guidelines
 
 **If your submission does not comply with the following guidelines, you'll be given ZERO credit.**
 
-### 6.1. File tree and naming
+### 5.1. File tree and naming
 
 Your submission on ELMS/Canvas must be a ``zip`` file, following the naming convention ``YourDirectoryID_p2b.zip``. If you email ID is ``abc@wpi.edu``, then your ``DirectoryID`` is ``abc``.For our example, the submission file should be named ``abc_p2b.zip``. The file **must have the following directory structure**. The file to run for your project should be called ``YourDirectoryID_p2b/Code/Wrapper.py``. You can have any helper functions in sub-folders as you wish, be sure to index them using relative paths and if you have command line arguments for your Wrapper codes, make sure to have default values too. Please provide detailed instructions on how to run your code in ``README.md`` file. 
 
@@ -107,22 +106,21 @@ YourDirectoryID_p2b.zip
 
 <a name='report'></a>
 
-### 6.2. Report
+### 5.2. Report
 
 For each section of the project, explain briefly what you did, and describe any interesting problems you encountered and/or solutions you implemented. You must include the following details in your writeup:
 
 - Your report **MUST** be typeset in LaTeX in the IEEE Tran format provided to you in the ``Draft`` folder and should of a conference quality paper. Feel free to use any online tool to edit such as [Overleaf](https://www.overleaf.com) or install LaTeX on your local machine.
-- Link to a ghosted photo?  
 
 <a name='video'></a>
 
-### 6.3. Video
+### 5.3. Video
 
 Record the splat view (robot camera seeing the front when it executes the trajectory) in VizFlyt. Also include side by side your plot of the robot pose with obstacles in matplotlib. Make sure the video is in `.mp4` format and submit it in the zip file and name the video as `Video.mp4`.  Show the RRT* tree, planned path and trajectory as in Project 2a in the matplotlib plot. 
 
 <a name='funcs'></a>
 
-## 7. Allowed and Disallowed functions
+## 6. Allowed and Disallowed functions
 
 <b> Allowed:</b>
 
@@ -142,7 +140,7 @@ If you have any doubts regarding allowed and disallowed functions, please drop a
 
 <a name='coll'></a>
 
-## 8. Collaboration Policy
+## 7. Collaboration Policy
 <p style="background-color:#ddd; padding:5px">
 <b>NOTE:</b> 
 You are <b>STRONGLY</b> encouraged to discuss the ideas with your peers. Treat the class as a big group/family and enjoy the learning experience. 
@@ -152,6 +150,6 @@ However, the code should be your own, and should be the result of you exercising
 
 <a name='ack'></a>
 
-## 9. Acknowledgements
+## 8. Acknowledgements
 
 This fun project is inspired by <a href="https://prg.cs.umd.edu/enae788m">ENAE788M: Hands-On Autonomous Aerial Robotics</a> at the University of Maryland, College Park and <a href="https://alliance.seas.upenn.edu/~meam620/wiki/index.php?n=Main.Spring2015">MEAM620: Advanced Robotics</a> at the University of Pennsylvania. 
