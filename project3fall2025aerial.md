@@ -230,10 +230,6 @@ This depends heavily on the number of parameters in your network. The larger you
 
 <b> 6. The data generation is super slow. What can I do? </b><br>
 You can lose photorealism and train in material preview mode. This will not generalize as well but you can train your network first on material preview mode images and then fine-tune on more photo-realistic images. This is generally called curriculum learning.<br><br>
-<!-- 
-
-<b> 7. Is there a trick/hack to get photorealistic data faster? Do you have any tips for better sim2real transfer? </b><br>
-One way is to reconstruct the real scene/window in a dense manner using photogrammetry like <a href="http://ccwu.me/vsfm/index.html">Visual SfM</a> or newer tools like <a href="https://github.com/kakaobrain/nerf-factory">NeRF</a> or <a href="https://poly.cam/gaussian-splatting">Gaussian Splats</a>. If you have an iPhone or an iPad with a LIDAR sensor, you can use apps like <a href="https://poly.cam/">Polycam</a> or <a href="https://lumalabs.ai/">LumaAI</a> or <a href="https://www.kiriengine.com/">Kiri Engine</a> (also works on Android without a LIDAR) ton reconstruct the scene. You can import these <a href="https://www.youtube.com/watch?v=kwpj7ZUtnac">point clouds</a> or meshes into Blender to obtain "photo-realistic data" for "free". This approach coupled with Blender simulation data would most likely lead to a great sim2real generalization. <br><br> -->
 
 You can also download an example Blender file to play with the above things from <a href="https://app.box.com/s/6ew28c8crtk5cgtcisphsts8smt2dwr2">here</a>.
 
