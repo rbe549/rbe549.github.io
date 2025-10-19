@@ -3,7 +3,7 @@ layout: page
 mathjax: true
 coursetitle: RBE595-F02-ST -- Hands-On Autonomous Aerial Robotics
 title: Mini Drone Race!
-permalink: /rbe595/fall2023/proj/p3/
+permalink: /rbe595/fall2025/proj/p3/
 ---
 
 Table of Contents:
@@ -26,7 +26,7 @@ Table of Contents:
 
 <a name='due'></a>
 ## 1. Deadline 
-**Due on **11:59:59 PM, Nov 04, 2025.**
+**Due on 11:59:59 PM, Nov 04, 2025.**
 
 <a name='prob'></a>
 ## 2. Problem Statement 
@@ -245,5 +245,5 @@ You can also download an example Blender file to play with the above things from
 You are <b>STRONGLY</b> encouraged to discuss the ideas with your peers. Treat the class as a big group/family and enjoy the learning experience. 
 </p>
 
-However, the code should be your own, and should be the result of you exercising your own understanding of it. If you reference anyone else's code in writing your project, you must properly cite it in your code (in comments) and your writeup. For the full honor code refer to the [RBE595-F02-ST Fall 2023 website](https://pear.wpi.edu/teaching/rbe595/fall2023.html).
+However, the code should be your own, and should be the result of you exercising your own understanding of it. If you reference anyone else's code in writing your project, you must properly cite it in your code (in comments) and your writeup. For the full honor code refer to the [RBE595-F02-ST Fall 2025 website](https://pear.wpi.edu/teaching/rbe595/fall2025.html).
 
