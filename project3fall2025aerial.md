@@ -32,7 +32,7 @@ Table of Contents:
 ## 2. Problem Statement 
 Drone racing is a fast growing sport that is a great combination of technology and skill. In this sport, professional pilots fly small quadrotors through complex tracks at high speeds (see Fig. 1). Developing a fully autonomous racing drone is difficult due to challenges that span dynamics modeling, onboard perception, localization and mapping, trajectory generation, and optimal control. Recently, Lockheed Martin hosted a competition called <a href="https://www.youtube.com/watch?v=2k0VF2a2ftc">AlphaPilot</a> with a whopping 1M USD grand prize.
 
-In this project, you'll build an autonomy stack to navigate through multiple windows inspired by the AlphaPilot competition. The project has two parts: the first part being the perception stack and the second part being the planning, control and integration stack, all deployed on the VizFlyt simulator. Download the starter package from <a href="">here</a>.
+In this project, you'll build an autonomy stack to navigate through multiple windows inspired by the AlphaPilot competition. The project has two parts: the first part being the perception stack and the second part being the planning, control and integration stack, all deployed on the VizFlyt simulator. Download the starter package from <a href="https://app.box.com/s/21jvlwx5z32titphoi6cv4ibbgv0g4y2">here</a>.
 
 <div class="fig fighighlight">
   <img src="/assets/2025/rbe595/p3/DroneRacingCombined.png" width="100%">
@@ -89,7 +89,7 @@ You have trained your neural network in simulation (Blender and some more pizzaz
 
 <a name='navigationstack'></a>
 ## 5. Navigation Stack
-You are free to design any method to plan your path from the current position to the closet window. This is relatively simple as you have a depth image to guage the distance to objects in the scene and there are no other obstacles in the scene. Also, from the starting location, you will be able to see atleast a part of the first window. Then you can center the quadrotor towards the respective window and fly though it. In this ideology, you are generating position waypoints for your controller to follow. Alternatively, you can also perform visual servoing to center yourself towards the window and fly through it (although this might be more robust this will most likely be slower). A simple concept of visual servoing like controller is shown in Fig. 4.
+You are free to design any method to plan your path from the current position to the closet window. This is relatively simple as you have a depth image to gauge the distance to objects in the scene and there are no other obstacles in the scene. Also, from the starting location, you will be able to see atleast a part of the first window. Then you can center the quadrotor towards the respective window and fly though it. In this ideology, you are generating position waypoints for your controller to follow. Alternatively, you can also perform visual servoing to center yourself towards the window and fly through it (although this might be more robust this will most likely be slower). A simple concept of visual servoing like controller is shown in Fig. 4.
 
 <div class="fig fighighlight">
   <img src="/assets/2025/rbe595/p3/WindowSegAndControl.png" width="100%">
@@ -230,10 +230,10 @@ This depends heavily on the number of parameters in your network. The larger you
 
 <b> 6. The data generation is super slow. What can I do? </b><br>
 You can lose photorealism and train in material preview mode. This will not generalize as well but you can train your network first on material preview mode images and then fine-tune on more photo-realistic images. This is generally called curriculum learning.<br><br>
-
+<!-- 
 
 <b> 7. Is there a trick/hack to get photorealistic data faster? Do you have any tips for better sim2real transfer? </b><br>
-One way is to reconstruct the real scene/window in a dense manner using photogrammetry like <a href="http://ccwu.me/vsfm/index.html">Visual SfM</a> or newer tools like <a href="https://github.com/kakaobrain/nerf-factory">NeRF</a> or <a href="https://poly.cam/gaussian-splatting">Gaussian Splats</a>. If you have an iPhone or an iPad with a LIDAR sensor, you can use apps like <a href="https://poly.cam/">Polycam</a> or <a href="https://lumalabs.ai/">LumaAI</a> or <a href="https://www.kiriengine.com/">Kiri Engine</a> (also works on Android without a LIDAR) ton reconstruct the scene. You can import these <a href="https://www.youtube.com/watch?v=kwpj7ZUtnac">point clouds</a> or meshes into Blender to obtain "photo-realistic data" for "free". This approach coupled with Blender simulation data would most likely lead to a great sim2real generalization. <br><br>
+One way is to reconstruct the real scene/window in a dense manner using photogrammetry like <a href="http://ccwu.me/vsfm/index.html">Visual SfM</a> or newer tools like <a href="https://github.com/kakaobrain/nerf-factory">NeRF</a> or <a href="https://poly.cam/gaussian-splatting">Gaussian Splats</a>. If you have an iPhone or an iPad with a LIDAR sensor, you can use apps like <a href="https://poly.cam/">Polycam</a> or <a href="https://lumalabs.ai/">LumaAI</a> or <a href="https://www.kiriengine.com/">Kiri Engine</a> (also works on Android without a LIDAR) ton reconstruct the scene. You can import these <a href="https://www.youtube.com/watch?v=kwpj7ZUtnac">point clouds</a> or meshes into Blender to obtain "photo-realistic data" for "free". This approach coupled with Blender simulation data would most likely lead to a great sim2real generalization. <br><br> -->
 
 You can also download an example Blender file to play with the above things from <a href="https://app.box.com/s/6ew28c8crtk5cgtcisphsts8smt2dwr2">here</a>.
 
