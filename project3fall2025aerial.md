@@ -197,7 +197,7 @@ If you have any doubts regarding allowed and disallowed functions, please drop a
 
 ## 9. Tips, Tricks And Hints
 
-A simple Blender tutorial can be found <a href="">here</a>.
+A simple Blender tutorial can be found <a href="https://app.box.com/s/lfr86333sh25fxbux8sz7dng7g7ywm4r">here</a>.
 
 
 <div class="fig fighighlight">
