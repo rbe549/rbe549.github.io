@@ -86,13 +86,13 @@ Taking off from the helipad gives the team 10 points, then the stages 1 through 
 <a name='dday'></a>
 ## 6. D-Day of the Competition
 
-On the day of the competition (happening over Zoom), the teams will go in the order of their team number. Each team will have a maximum time of 5 minutes per attempt to show the instructors their code in action and a maximum time of 15 minutes for all attempts combined. Between attempts, the team can use any amount of time (within the allotted 25 minutes of maximum time) to fix any software bugs or do changes in software. Only the best trial will be graded. All the teams need to be present for the entirety of the competition and the teams will go in the order of their team number unless they have requested a different order before. 
+On the day of the competition (happening over Zoom), the teams will go in the order of their team number. Each team will have a maximum time of 3 minutes per attempt to show the instructors their code in action and a maximum time of 15 minutes for all attempts combined. Between attempts, the team can use any amount of time (within the allotted 15 minutes of maximum time) to fix any software bugs or do changes in software. Only the best trial will be graded. All the teams need to be present for the entirety of the competition and the teams will go in the order of their team number unless they have requested a different order before. 
 
-A sample photo of the VizFlyt track is shown in Fig. 1. The final track will be a perturbed version of the track given to you to test your algorithms.
+A sample photo of the VizFlyt track is shown in Fig. 1. The final track will be a perturbed version of the track given to you to test your algorithms. he competition will be from 10:00 AM to 1:00 PM over Zoom.
 
 <!-- The competition will be from 10:00 AM to 1:00 PM. The lab will be setup close to the final track (only minor nudges will be made after) with the lighting conditions and so on at 7:30 AM on the day of the competition. You can go and measure anything you want, collect any data you desire and check the track until 9:30 AM on the day of the competition. From 9:30AM to 10:00 AM nobody will be allowed near the arena and the instructors will displace each obstacle randomly with a maximum disturbance of $$\pm$$0.5m in X and Y directions and $$\pm$$20 degrees in Yaw (just enough that hard-coding will not work). -->
 
-The team with the highest points will win. Note that, completing the course (within the 5 minute slot per attempt) will get that team the maximum of 100 points.
+The team with the highest points will win. Note that, completing the course (within the 3 minute slot per attempt) will get that team the maximum of 100 points.
 
 The teams can place the quadrotor at the start in any desired orientation. Also, if a team wants to improve their live-demo score, they can request for an additional slot after all the teams have finished their demo with a penalty of 20 points of the total project 5 grade.
 
