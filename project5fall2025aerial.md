@@ -26,21 +26,21 @@ Table of Contents:
 
 <a name='due'></a>
 ## 1. Deadline 
-**11:59:59 PM, Dec 12, 2025. Live Race on the same day that is open to public. Teams will go in the order of their team number.** <br><br>
+**11:59:59 PM, Dec 12, 2025. Live Race on the same day from 10:00AM to 1:00PM. Teams will go in the order of their team number.** <br><br>
 
 **YOU ARE NOT ALLOWED TO USE ANY LATE DAYS FOR THIS PROJECT!**
 
 
 <a name='prob'></a>
 ## 2. Problem Statement 
-Congratulations for making this far into the course. We know that you've worked very hard to get here and learned a lot of new concepts along the way. Now, it's time to put everything together. The aim of this project is to win the race on an obstacle course which utilizes all the algorithms you built from projects 1 through 4.
+Congratulations for making this far into the course. We know that you've worked very hard to get here and learned a lot of new concepts along the way. Now, it's time to put everything together. The aim of this project is to win the race on an obstacle course which utilizes all the algorithms you built from projects 1 through 4. Download the VizFlyt environment from <a href="https://app.box.com/s/c49un79r8c2jwpudkr3jvtb1u2fv9xy9">here</a>.
 
 Remember that your quadrotor in VizFlyt comes with a front facing RGB camera along with noisy odometry estimates (obtained through controlling the quadrotor). The structure of the track (obstacle course) is known before along with a prior on pose of the obstacles as a uniform distribution, similar to previous projects. An oblique overview of the track is shown in Fig. 1 with the various stages marked.
 
 <div class="fig fighighlight">
-  <img src="/assets/2023/rbe595/p5/Track.png" width="100%">
+  <img src="/assets/2025/rbe595/p5/Track.jpg" width="100%">
   <div class="figcaption">
-    Fig 1: Left: Simulated track, Right: Real track.
+    Fig 1: VizFlyt Track.
   </div>
   <div style="clear:both;"></div>
 </div>
@@ -64,7 +64,7 @@ In the second stage (see Fig. 1), you have to navigate though an unknown shaped 
 <a name='runback'></a>
 ## 3.3. Run Back
 
-In the final stage (see Fig. 1), you have to fly back through the same course back to origin (start) as soon as possible without collisions. Here, you have to first pass through the unknown window and the racing windows. All the windows appear white from the back. Once you reach origin or your attempt is terminated (see next section), your run is complete and your time is recorded.  
+In the final stage (see Fig. 1), you have to fly back through the same course back to origin (start) as soon as possible without collisions. Here, you have to first pass through the unknown window and the racing windows. All the windows appear white from the back. Once you reach origin or your attempt is terminated (see next section), your run is complete and your time is recorded in simulation.  
 
 
 
@@ -80,7 +80,7 @@ Doing any of the following will instantly terminate your attempt:
 
 <a name='scoring'></a>
 ## 5. Scoring Criterion
-Taking off from the helipad gives the team 10 points, then the stages 1 through 3 (finish) have the following point splits: 30, 25, 35 totaling a maximum of 100 points for each attempt. The team's attempt will be terminated if any of the things mentioned in <a href="#attemptterm">Section 4</a> happen. If the number of stages between two teams are tied, then the team with the lower time comes out on top.
+Taking off from the helipad gives the team 10 points, then the stages 1 through 3 (finish) have the following point splits: 30, 25, 35 totaling a maximum of 100 points for each attempt. The team's attempt will be terminated if any of the things mentioned in <a href="#attemptterm">Section 4</a> happen. If the number of stages between two teams are tied, then the team with the lower simulation time comes out on top.
 
 
 <a name='dday'></a>
@@ -123,7 +123,7 @@ The file tree of your submission <b>SHOULD</b> resemble this:
 ```
 YourDirectoryID_p5.zip
 ├── Code
-|   ├── Wrapper.py
+|   ├── main.py
 |   └── Any subfolders you want along with files
 ├── Report.pdf
 ├── Video.mp4
