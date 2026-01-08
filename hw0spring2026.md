@@ -38,11 +38,11 @@ Table of Contents:
 <a name='due'></a>
 
 ## 1. Due Date 
-<b>11:59:59PM, Saturday, Jan 17, 2026. (Individual Submissions)</b>This homework is to be submitted individually. The aim of HW0 is to give you a gauge of the quality, expectation and difficulty of this course. You are expected to be able to solve HW0 before the class starts. <div style="font-weight: 700;">Remember that HW0 is graded and does count for your final grade.</div> Download starter Code from [here](#starter). 
+<b>11:59:59PM, Saturday, Jan 17, 2026. (Individual Submissions)</b>This homework is to be submitted individually. The aim of HW0 is to give you a gauge of the quality, expectation and difficulty of this course. You are expected to be able to solve HW0 before the class starts. <b>Remember that HW0 is graded and does count for your final grade.</b> Download starter Code from [here](#starter). 
 
 
 <p style="background-color:#ddd; padding:5px">
-<div style="font-weight: 700;">NOTE:</div> 
+<b>NOTE:</b> 
 <a href="https://towardsdatascience.com/free-gpus-for-training-your-deep-learning-models-c1ce47863350"> Here is a link</a> to obtain free GPUs for neural network training if you need them. </p>
 
 
@@ -160,7 +160,7 @@ Let us first implement these Half-disc masks. Here's an image of how these Half-
 The half-disc masks are simply (pairs of) binary images of half-discs. This is very important because it will allow us to compute the $$\chi^2$$ (chi-square) distances (finally obtain values of $$\mathcal{T}_g, \mathcal{B}_g, \mathcal{C}_g$$) using a filtering operation, which is much faster than looping over each pixel neighborhood and aggregating counts for histograms. Forming these masks is quite trivial. A sample set of masks (8 orientations, 3 scales) is shown in Fig. 4. 
 
 <p style="background-color:#ddd; padding:5px">
-<div style="font-weight: 700;">NOTE:</div> 
+<b>NOTE:</b> 
 The filter banks and masks only need to be defined once and then they will be used on all images.
 </p>
 
@@ -260,7 +260,7 @@ for name, param in model.named_parameters():
         print name, param.data
 ```
 
-Congratulations! You've just successfully trained your first neural network. <div style="font-weight: 700;">A pro tip is to use <a href="https://github.com/lutzroeder/netron">Netron</a> to visualize your network, this will massively help in debugging and has a coll visualization that you can include in your report.</div>
+Congratulations! You've just successfully trained your first neural network. <b>A pro tip is to use <a href="https://github.com/lutzroeder/netron">Netron</a> to visualize your network, this will massively help in debugging and has a coll visualization that you can include in your report.</b>
 
 <a name='improveacc'></a>
 
@@ -302,11 +302,11 @@ Download the Starter Code for both Phase 1 and Phase 2 from [here](https://app.b
 Your submission on ELMS/Canvas must be a ``zip`` file, following the naming convention ``YourDirectoryID_hw0.zip``. If you email ID is ``abc@wpi.edu``, then your ``DirectoryID`` is ``abc``. For our example, the submission file should be named ``abc_hw0.zip``. The file **must have the following directory structure** because we might be autograding assignments. The file to run for your project should be called ``YourDirectoryID_hw0/Phase1/Code/Wrapper.py`` for Phase 1; ``YourDirectoryID_hw0/Phase2/Code/Train.py`` and ``YourDirectoryID_hw0/Phase2/Code/Test.py`` for Phase 2 or ``HW0Phase1AndPhase2Notebook.ipynb`` if you are using a Notebook. You can have any helper functions in sub-folders as you wish, be sure to index them using relative paths and if you have command line arguments for your Wrapper codes, make sure to have default values too. Please provide detailed instructions on how to run your code in ``README.md`` file. 
 
 <p style="background-color:#ddd; padding:5px">
-<div style="font-weight: 700;">NOTE:</div> 
-Please <div style="font-weight: 700;">DO NOT</div> include data in your submission.
+<b>NOTE:</b> 
+Please <b>DO NOT</b> include data in your submission.
 </p>
 
-The file tree of your submission <div style="font-weight: 700;">SHOULD</div> resemble this:
+The file tree of your submission <b>SHOULD</b> resemble this:
 
 ```
 YourDirectoryID_hw0.zip
@@ -333,13 +333,13 @@ For each section of the homework, explain briefly what you did, and describe any
 
 - Your report **MUST** be typeset in LaTeX in the IEEE Tran format provided to you in the ``Draft`` folder and should of a conference quality paper.
 
-<div style="font-weight: 700;">Phase 1</div>
+<b>Phase 1</b>
 
 - Present a detailed explanation for Phase 1 along with outputs images of the filter banks (all of them with appropriate labels), $$\mathcal{T}, \mathcal{B}, \mathcal{C}, \mathcal{T}_g, \mathcal{B}_g, \mathcal{C}_g$$, sobel and canny baselines and the final pb-lite output for all the images provided. Provide a detailed analysis of the approach and why you think it's better than the sobel and canny baselines.
 
-<div style="font-weight: 700;">Phase 2</div>
+<b>Phase 2</b>
 
-- <div style="font-weight: 700;">Section 3.3</div>
+- <b>Section 3.3</b>
     - Plot of `Train_Accuracy` over `Epochs` (Not over Iterations)
     - Plot of `Test_Accuracy` over `Epochs`(Not over Iterations)
     - Number of Parameters in your model
@@ -350,7 +350,7 @@ For each section of the homework, explain briefly what you did, and describe any
     - Confusion Matrix of the trained model on training data
     - Confusion Matrix of the trained model on testing data
 
-- <div style="font-weight: 700;">Section 3.4</div>
+- <b>Section 3.4</b>
     - Plot of `Train_Accuracy` over `Epochs` (Not over Iterations)
     - Plot of `Test_Accuracy` over `Epochs`(Not over Iterations)
     - Number of Parameters in your model
@@ -362,7 +362,7 @@ For each section of the homework, explain briefly what you did, and describe any
     - Confusion Matrix of the trained model on testing data
     - A detailed analysis of all the tricks used
 
-- <div style="font-weight: 700;">Section 3.5</div>
+- <b>Section 3.5</b>
   For each Architecture:
     - Plot of `Train_Accuracy` over `Epochs` (Not over Iterations)
     - Plot of `Test_Accuracy` over `Epochs`(Not over Iterations)
@@ -380,7 +380,7 @@ For each section of the homework, explain briefly what you did, and describe any
 
 ## 5. Allowed and Disallowed functions
 
-<div style="font-weight: 700;"> Allowed:</div>
+<b>Allowed:</b>
 
 - Any functions regarding reading, writing and displaying/plotting images in `cv2`, `matplotlib`
 - Basic math utilities including convolution operations in `numpy` and `math`
@@ -390,11 +390,11 @@ For each section of the homework, explain briefly what you did, and describe any
 - Any functions for pretty plots
 
 
-<div style="font-weight: 700;"> Disallowed:</div>
+<b>Disallowed:</b>  
 
 - Any function that generates `gaussian` or any other `filter` / filter banks
 - Any third party code for implementing architecture or augmentation
-- `Keras` or any other layer API or <div style="font-weight: 700;">built-in models for ResNet, ResNeXt or DenseNet</div>
+- `Keras` or any other layer API or <b>built-in models for ResNet, ResNeXt or DenseNet</b>
 
 If you have any doubts regarding allowed and disallowed functions, please drop a public post on [Piazza](https://piazza.com/wpi/spring2026/rbecs549). 
 
@@ -402,8 +402,8 @@ If you have any doubts regarding allowed and disallowed functions, please drop a
 
 ## 6. Collaboration Policy
 <p style="background-color:#ddd; padding:5px">
-<div style="font-weight: 700;">NOTE:</div>
-You are <div style="font-weight: 700;">STRONGLY</div> encouraged to discuss the ideas with your peers. Treat the class as a big group/family and enjoy the learning experience. 
+<b>NOTE:</b> 
+You are <b>STRONGLY</b> encouraged to discuss the ideas with your peers. Treat the class as a big group/family and enjoy the learning experience. 
 </p>
 
 However, the code should be your own, and should be the result of you exercising your own understanding of it. If you reference anyone else's code in writing your project, you must properly cite it in your code (in comments) and your writeup. For the full honor code refer to the [RBE/CS549 Spring 2026 website](https://pear.wpi.edu/teaching/rbe549/spring2026.html).
