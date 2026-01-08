@@ -5,8 +5,6 @@ title: Homework 0 - Alohomora
 permalink: /spring2026/hw/hw0/
 ---
 
-<!-- Student results can be found [here](/2019/hw/hw0-results/) -->
-
 Table of Contents:
 
 - [1. Due Date](#due)
@@ -41,7 +39,7 @@ Table of Contents:
 
 ## 1. Due Date 
 
-<b> 11:59:59PM, Saturday, Jan 17, 2026. (Individual Submissions)</b>
+<b> 11:59:59PM, Saturday, Jan 17, 2026. (Individual Submissions) Updated</b>
 
 This homework is to be submitted individually. The aim of HW0 is to give you a gauge of the quality, expectation and difficulty of this course. You are expected to be able to solve HW0 before the class starts. <b>Remember that HW0 is graded and does count for your final grade.</b> Download starter Code from [here](#starter). 
 
