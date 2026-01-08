@@ -38,13 +38,7 @@ Table of Contents:
 <a name='due'></a>
 
 ## 1. Due Date 
-
-**AA**
-<b>BB</b> 
-<strong>CC</strong>
-<b>11:59:59PM, Saturday, Jan 17, 2026. (Individual Submissions)</b>
-
-This homework is to be submitted individually. The aim of HW0 is to give you a gauge of the quality, expectation and difficulty of this course. You are expected to be able to solve HW0 before the class starts. <b>Remember that HW0 is graded and does count for your final grade.</b> Download starter Code from [here](#starter). 
+<b>11:59:59PM, Saturday, Jan 17, 2026. (Individual Submissions)</b> This homework is to be submitted individually. The aim of HW0 is to give you a gauge of the quality, expectation and difficulty of this course. You are expected to be able to solve HW0 before the class starts. <b>Remember that HW0 is graded and does count for your final grade.</b> Download starter Code from [here](#starter). 
 
 <p style="background-color:#ddd; padding:5px">
 <b>NOTE:</b> 
