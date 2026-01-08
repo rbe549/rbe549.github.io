@@ -38,12 +38,13 @@ Table of Contents:
 <a name='due'></a>
 
 ## 1. Due Date 
-<b>11:59:59PM, Saturday, Jan 17, 2026. (Individual Submissions)</b>This homework is to be submitted individually. The aim of HW0 is to give you a gauge of the quality, expectation and difficulty of this course. You are expected to be able to solve HW0 before the class starts. <b>Remember that HW0 is graded and does count for your final grade.</b> Download starter Code from [here](#starter). 
+<b>11:59:59PM, Saturday, Jan 17, 2026. (Individual Submissions).</b> This homework is to be submitted individually. The aim of HW0 is to give you a gauge of the quality, expectation and difficulty of this course. You are expected to be able to solve HW0 before the class starts. <b>Remember that HW0 is graded and does count for your final grade.</b> Download starter Code from [here](#starter). 
 
 
-<p style="background-color:#ddd; padding:5px">
+<!-- <p style="background-color:#ddd; padding:5px"> -->
 <b>NOTE:</b> 
-<a href="https://towardsdatascience.com/free-gpus-for-training-your-deep-learning-models-c1ce47863350"> Here is a link</a> to obtain free GPUs for neural network training if you need them. </p>
+<a href="https://towardsdatascience.com/free-gpus-for-training-your-deep-learning-models-c1ce47863350"> Here is a link</a> to obtain free GPUs for neural network training if you need them. 
+<!-- </p> -->
 
 
 <a name='pblite'></a>
@@ -99,7 +100,7 @@ A simple but effective filter bank is a collection of oriented Derivative of Gau
 
 #### 2.3.2. Leung-Malik Filters
 
-The Leung-Malik filters or LM filters are a set of multi scale, multi orientation filter bank with 48 filters. It consists of first and second order derivatives of Gaussians at 6 orientations and 3 scales making a total of 36; 8 Laplacian of Gaussian (LOG) filters; and 4 Gaussians. We consider two versions of the LM filter bank. In LM Small (LMS), the filters occur at basic scales $$\sigma=\{ 1, \sqrt{2}, 2, 2\sqrt{2}\}$$. The first and second derivative filters occur at the first three scales with an elongation factor of 3, i.e., ($$\sigma_x = \sigma $$ and $$\sigma_y = 3\sigma_x$$). The Gaussians occur at the four basic scales while the 8 LOG filters occur at $$\sigma$$ and $$3\sigma$$. For LM Large (LML), the filters occur at the basic scales $$ \sigma=\{\sqrt{2}, 2, 2\sqrt{2}, 4 \} $$. You need to implement both LMS and LML filter banks and **DO NOT use any built-in or third party code for this**. The filter bank is shown below. More details about these filters can be [found here](http://www.robots.ox.ac.uk/~vgg/research/texclass/filters.html). 
+The Leung-Malik filters or LM filters are a set of multi scale, multi orientation fil ter bank with 48 filters. It consists of first and second order derivatives of Gaussians at 6 orientations and 3 scales making a total of 36; 8 Laplacian of Gaussian (LOG) filters; and 4 Gaussians. We consider two versions of the LM filter bank. In LM Small (LMS), the filters occur at basic scales $$\sigma=\{ 1, \sqrt{2}, 2, 2\sqrt{2}\}$$. The first and second derivative filters occur at the first three scales with an elongation factor of 3, i.e., ($$\sigma_x = \sigma $$ and $$\sigma_y = 3\sigma_x$$). The Gaussians occur at the four basic scales while the 8 LOG filters occur at $$\sigma$$ and $$3\sigma$$. For LM Large (LML), the filters occur at the basic scales $$ \sigma=\{\sqrt{2}, 2, 2\sqrt{2}, 4 \} $$. You need to implement both LMS and LML filter banks and **DO NOT use any built-in or third party code for this**. The filter bank is shown below. More details about these filters can be [found here](http://www.robots.ox.ac.uk/~vgg/research/texclass/filters.html). 
 
 <div class="fig fighighlight">
   <img src="/assets/2019/hw0/LMFilters.jpg" width="100%">
