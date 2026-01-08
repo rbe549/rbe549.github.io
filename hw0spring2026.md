@@ -42,6 +42,7 @@ Table of Contents:
 ## 1. Due Date 
 
 **11:59:59PM, Saturday, Jan 17, 2025. (Individual Submissions)**
+
 This homework is to be submitted individually. The aim of HW0 is to give you a gauge of the quality, expectation and difficulty of this course. You are expected to be able to solve HW0 before the class starts. <b>Remember that HW0 is graded and does count for your final grade.</b> Download starter Code from [here](#starter). 
 
 <p style="background-color:#ddd; padding:5px">
@@ -57,7 +58,7 @@ This homework is to be submitted individually. The aim of HW0 is to give you a g
 
 ### 2.1. Introduction
 
-Boundary detection is an important, well-studied computer vision problem. Clearly it would be nice to have algorithms which know where one object transitions to another. But boundary detection from a single image is fundamentally diffcult. Determining boundaries could require object-specific reasoning, arguably making the task hard. A simple method to find boundaries is to look for intensity discontinuities in the image, also known of [**edges**](https://en.wikipedia.org/wiki/Edge_detection).
+Boundary detection is an important, well-studied computer vision problem. Clearly it would be nice to have algorithms which know where one object transitions to another. But boundary detection from a single image is fundamentally difficult. Determining boundaries could require object-specific reasoning, arguably making the task hard. A simple method to find boundaries is to look for intensity discontinuities in the image, also known of [**edges**](https://en.wikipedia.org/wiki/Edge_detection).
 
 Classical edge detection algorithms, including the [Canny](https://ieeexplore.ieee.org/document/4767851) and [Sobel](https://en.wikipedia.org/wiki/Sobel_operator) baselines we will compare against, look for these intensity discontinuities. The more [recent pb (probability of boundary) boundary detection algorithm](https://www2.eecs.berkeley.edu/Research/Projects/CS/vision/grouping/papers/amfm_pami2010.pdf) significantly outperforms these classical methods by considering texture and color discontinuities in addition to intensity discontinuities. Qualitatively, much of this performance jump comes from the ability of the pb algorithm to suppress false positives that the classical methods produce in textured regions.
 
