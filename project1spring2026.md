@@ -384,6 +384,7 @@ YourDirectoryID_p1.zip
 For each section of the project, explain briefly what you did, and describe any interesting problems you encountered and/or solutions you implemented. You must include the following details in your writeup:
 
 - Your report **MUST** be typeset in LaTeX in the IEEE Tran format provided to you in the ``Draft`` folder and should of a conference quality paper.
+- It should have a contribution statement, clearly identifying the contributions of each team member for the project. You can use the <a href="https://www.elsevier.com/researcher/author/policies-and-guidelines/credit-author-statement">author credit guide</a> as a reference.
 
 <b> Phase 1</b>
 - For Phase 1, present input and output images after each section (corner detection, ANMS, feature extraction, feature matching, feature matches after RANSAC) and final panorama for all the Train and Test Images, including the data you collected. The Train images can be found in ``YourDirectoryID_p1\Phase1\Data\Train\`` and the Test set will be released 24 hours before the deadline. Add all the images into your `Report.pdf`.
