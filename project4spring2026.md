@@ -29,9 +29,9 @@ Table of Contents:
 
 ## 1. Deadline
 
-**11:59:59 PM, April 23, 2026 and 11:59PM, May 03, 2026.** This project is to be done in groups of 2 and has a 5 min presentation. Various phases are due at different dates and are given below:
-- Phase 1 is due on **11:59:59 PM, April 23, 2026.**
-- Phase 2 is due on **11:59:59 PM, May 03, 2026.**<br>
+**11:59:59 PM, April 22, 2026 and 4:59:59PM, May 06, 2026.** This project is to be done in groups of 2 and has a 5 min presentation. Various phases are due at different dates and are given below:
+- Phase 1 is due on **11:59:59 PM, April 22, 2026.**
+- Phase 2 is due on **4:59:59 PM, May 06, 2026.**<br>
 **You cannot use any LATE days for this assignment.**
 
 <a name='intro'></a>

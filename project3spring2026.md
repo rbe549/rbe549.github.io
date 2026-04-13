@@ -26,10 +26,10 @@ Table of Contents:
 
 <a name='due'></a>
 ## 1. Deadline 
-**11:59:59 PM, March 28, 2026 for Phase 1, 11:59:59 PM, April 06, 2026 for Phase 2, 11:59:59 PM, April 13, 2026 for Phase 3 (and extra credit).** This project is to be done in groups of 2 and has a 10 min presentation. To summarize, various Phases are due at different dates and are given below:
-- Phase 1 is due on **11:59:59 PM, March 28, 2026** 
-- Phase 2 are due on **11:59:59 PM, April 06, 2026.**
-- Phase 3 (and extra credit)  are due on **11:59:59 PM, April 13, 2026.**
+**11:59:59 PM, March 27, 2026 for Phase 1, 11:59:59 PM, April 05, 2026 for Phase 2, 11:59:59 PM, April 12, 2026 for Phase 3 (and extra credit).** This project is to be done in groups of 2 and has a 10 min presentation. To summarize, various Phases are due at different dates and are given below:
+- Phase 1 is due on **11:59:59 PM, March 27, 2026** 
+- Phase 2 are due on **11:59:59 PM, April 05, 2026.**
+- Phase 3 (and extra credit)  are due on **11:59:59 PM, April 12, 2026.**
 
 <a name='prob'></a>
 ## 2. Problem Statement 

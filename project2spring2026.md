@@ -44,7 +44,7 @@ Table of Contents:
 
 ## 1. Deadline
 
-**11:59:59 PM, March 01, 2026 for Phase 1 and 11:59:59 PM, March 18, 2026 for Phase 2.** This project is to be done in groups of <b>Two</b>.
+**11:59:59 PM, March 01, 2026 for Phase 1 and 11:59:59 PM, March 19, 2026 for Phase 2.** This project is to be done in groups of <b>Two</b>.
 
 <a name='intro'></a>
 
