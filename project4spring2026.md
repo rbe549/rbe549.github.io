@@ -48,14 +48,14 @@ This project is in two phases, in the first phase, you will implement a classica
 
 ## 3. Phase 1: Classical Visual-Inertial Odometry
 
-Your goal in this phase is to implement the <a href="https://arxiv.org/abs/1712.00036">following paper</a> which we talked about before. You might also need to refer to the <a href="https://intra.ece.ucr.edu/~mourikis/papers/MourikisRoumeliotis-ICRA07.pdf">seminal VIO paper using MSCKF</a> to understand the mathematical model. Since it is a complicated method, you are required to only implement a few functions in the starter code provided. We'll describe the data and the codebase next.
+Your goal in this phase is to implement the <a href="https://arxiv.org/abs/1712.00036">following paper</a> which we talked about before. You might also need to refer to the <a href="https://www-users.cse.umn.edu/~stergios/papers/ICRA07-MSCKF.pdf">seminal VIO paper using MSCKF</a> to understand the mathematical model. Since it is a complicated method, you are required to only implement a few functions in the starter code provided. We'll describe the data and the codebase next.
 
 
 <a name='data'></a>
 
 ### 3.1. Data
 
-We will be using the Machine Hall 01 easy or (``MH_01_easy``) subset of the <a href="https://projects.asl.ethz.ch/datasets/doku.php?id=kmavvisualinertialdatasets">EuRoC dataset</a> to test our implementation. Please download the data in ``ASL`` data format from <a href="http://robotics.ethz.ch/~asl-datasets/ijrr_euroc_mav_dataset/machine_hall/MH_01_easy/MH_01_easy.zip">here</a>. Here, the data is collected using a VI sensor carried by a quadrotor flying a trajectory. The ground truth is provided by a sub-mm accurate Vicon Motion capture system. 
+We will be using the Machine Hall 01 easy or (``MH_01_easy``) subset of the <a href="https://projects.asl.ethz.ch/datasets/euroc-mav/">EuRoC dataset</a> to test our implementation. Please download the data in ``ASL`` data format from <a href="https://www.research-collection.ethz.ch/entities/researchdata/bcaf173e-5dac-484b-bc37-faf97a594f1f">here</a>. Here, the data is collected using a VI sensor carried by a quadrotor flying a trajectory. The ground truth is provided by a sub-mm accurate Vicon Motion capture system. 
 
 We will talk about the starter code next.
 
