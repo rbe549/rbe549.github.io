@@ -105,7 +105,7 @@ This will be released 24 hours before the deadline.
 
 ### 7.1. File tree and naming
 
-Your submission on ELMS/Canvas must be a ``zip`` file, following the naming convention ``YourDirectoryID_p1a.zip``. If you email ID is ``abc@wpi.edu``, then your ``DirectoryID`` is ``abc``. For our example, the submission file should be named ``abc_p1a.zip``. The file **must have the following directory structure**. The file to run for your project should be called ``YourDirectoryID_p1a/Code/Wrapper.py``. You can have any helper functions in sub-folders as you wish, be sure to index them using relative paths and if you have command line arguments for your Wrapper codes, make sure to have default values too. Please provide detailed instructions on how to run your code in ``README.md`` file. 
+Your submission on ELMS/Canvas must be a ``zip`` file, following the naming convention ``p1a_GroupGROUPNUM.zip``. Find your group number in Canvas, if your ``GROUPNUM``, for our example, the submission file should be named ``p1a_Group1.zip``. The file **must have the following directory structure**. The file to run for your project should be called ``YourDirectoryID_p1a/Code/Wrapper.py``. You can have any helper functions in sub-folders as you wish, be sure to index them using relative paths and if you have command line arguments for your Wrapper codes, make sure to have default values too. Please provide detailed instructions on how to run your code in ``README.md`` file. 
 
 <p style="background-color:#ddd; padding:5px">
 <b>NOTE:</b> 

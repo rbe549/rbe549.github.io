@@ -45,7 +45,8 @@ The test set is the same as that of Project 1a. Your report MUST include the out
 
 ### 5.1. File tree and naming
 
-Your submission on ELMS/Canvas must be a ``zip`` file, following the naming convention ``YourDirectoryID_p1b.zip``. If you email ID is ``abc@wpi.edu``, then your ``DirectoryID`` is ``abc``.For our example, the submission file should be named ``abc_p1b.zip``. The file **must have the following directory structure**. The file to run for your project should be called ``YourDirectoryID_p1b/Code/Wrapper.py``. You can have any helper functions in sub-folders as you wish, be sure to index them using relative paths and if you have command line arguments for your Wrapper codes, make sure to have default values too. Please provide detailed instructions on how to run your code in ``README.md`` file. 
+Your submission on ELMS/Canvas must be a ``zip`` file, following the naming convention ``p1b_GroupGROUPNUM.zip``. Find your group number in Canvas, if your ``GROUPNUM``, for our example, the submission file should be named ``p1b_Group1.zip``.The file **must have the following directory structure**. The file to run for your project should be called ``YourDirectoryID_p1b/Code/Wrapper.py``. You can have any helper functions in sub-folders as you wish, be sure to index them using relative paths and if you have command line arguments for your Wrapper codes, make sure to have default values too. Please provide detailed instructions on how to run your code in ``README.md`` file. 
+
 
 <p style="background-color:#ddd; padding:5px">
 <b>NOTE:</b> 
