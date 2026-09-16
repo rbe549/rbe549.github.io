@@ -3,7 +3,7 @@ layout: page
 mathjax: true
 coursetitle: RBE595-F02-ST -- Hands-On Autonomous Aerial Robotics
 title: Tree Planning Through The Trees! 
-permalink: /rbe595/fall2025/proj/p2a/
+permalink: /rbe595/fall2026/proj/p2a/
 ---
 
 Table of Contents:
