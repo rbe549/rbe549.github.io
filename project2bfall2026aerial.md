@@ -27,7 +27,7 @@ Table of Contents:
 
 <a name='prob'></a>
 ## 2. Problem Statement 
-In this project, you will implement the navigation (planning and control) stack from Project 2a on a Crazyflie flying inside a Gaussian-splat reconstruction of the Washburn flight volume. You will tune the loop in simulation against that scene and then fly the same code on the real drone under motion capture. The starter code can be downloaded from <a href="https://app.box.com/s/khzufw1i2awjcyenf6aj9mmppzbjoyb9">here</a>. The map is inside `map1_2b.txt` and the start and goal locations are in `task.json`.
+In this project, you will implement the navigation (planning and control) stack from Project 2a on a Crazyflie flying inside a Gaussian-splat reconstruction of the Washburn flight volume. You will tune the loop in simulation against that scene and then fly the same code on the real drone under motion capture. The starter code can be downloaded from <a href="https://drive.google.com/file/d/1CRHJ5lHI2spTqvBy3EB_AJW57Wgfwd4B/view?usp=sharing">here</a>. The map is inside `map1_2b.txt` and the start and goal locations are in `task.json`. The <a href="https://pear-wiki.wpi.edu/rbe595/">course documentation</a> covers the setup, the simulator and flying the drone.
 
 <a name='environment'></a>
 ## 3. Environment
