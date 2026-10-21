@@ -20,7 +20,7 @@ Table of Contents:
 
 <a name='due'></a>
 ## 1. Deadline 
-**11:59:59 PM, October 23, 2026. Individual Submissions.**
+**11:59:59 PM, October 23, 2026. Individual Submissions.** You are not allowed to use any late days for this assignment.
 
 <a name='due'></a>
 ## 2. Starter Package
