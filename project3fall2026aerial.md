@@ -26,7 +26,7 @@ Table of Contents:
 
 <a name='due'></a>
 ## 1. Deadline 
-**Due on 11:59:59 PM, Oct 29, 2026.**
+**Due on 11:59:59 PM, Nov 02, 2026.**
 
 <a name='prob'></a>
 ## 2. Problem Statement 
