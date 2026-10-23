@@ -41,14 +41,20 @@ Congratulations for making this far into the course. We know that you've worked 
 
 As in Projects 2b to 4, you will fly a Crazyflie in the net under motion capture, and its camera images are rendered from a Gaussian splat of the net at the drone's pose. **The layout of the course is known in advance, but the windows can be moved before the race**, so you will need real perception to find them. You are free to use classical methods, reinforcement learning (RL), or a mix of both (see <a href="#implementation">Section 7</a>). The starter code can be downloaded from <a href="STARTER_CODE_LINK">here</a>. The <a href="https://pear-wiki.wpi.edu/rbe595/">course documentation</a> covers the setup, the simulator and flying the drone.
 
-<!-- TODO: add a render of the training course from the splat, with the three stages marked (Fig. 1). -->
+<div class="fig fighighlight">
+  <img src="/assets/2026/rbe595/p5/RaceCourse.png" width="100%">
+  <div class="figcaption">
+    Fig 1: The training course, rendered from its splat. Top: the race from above, out in blue through the three racing windows (stage 1) and the unknown window (stage 2), then back in orange (stage 3) through the same windows from behind, to the finish line in front of the start. Bottom: the run back, seen from behind the unknown window.
+  </div>
+  <div style="clear:both;"></div>
+</div>
 
 
 <a name='environment'></a>
 ## 3. Environment
-The final course has **three** stages, described next. The map of the course, with where each window stands, is in the training scene of the starter code. **On race day the windows will be moved** from those positions and turned, enough that a drone flying the map blind will crash. Use the map as a prior: it tells you roughly where to look and which window comes next, but where each window actually is must come from your perception stack. Your flight code may read the training map, but not the window fields of the state your policy is given, or the window poses of the race-day scene.
+The final course has **three** stages, described next. The map of the course, with where each window stands, is in the training scene of the starter code, and its `course_map.py` reads it for you. **On race day the windows will be moved** from those positions and turned, and the unknown window's hole can have another shape and place, enough that a drone flying the map blind will crash. Use the map as a prior: it tells you roughly where to look and which window comes next, but where each window actually is must come from your perception stack. Your flight code may read the training map, but not the window fields of the state your policy is given, or any of the race-day scene's files.
 
-**Everything is in metres, in the Vicon frame**, as in Projects 2b to 4, and **the real windows stand in the net where they are in the race-day scene.** The camera is the same front-facing RGB-D camera as in Projects 3 and 4 (60.66° horizontal field of view, depth up to 4 m, which you are not allowed to change), and **the loop runs at 15 Hz on the lab PC**: rendering, perception and control all share the 66 ms between frames.
+**Everything is in metres, in the Vicon frame**, as in Projects 2b to 4, and **the real windows stand in the net where they are in the race-day scene.** The camera is the same front-facing RGB-D camera as in Projects 3 and 4: every frame is an RGB image and a depth image in metres, with a 60.66° horizontal field of view that you are not allowed to change. You choose the resolution, and to look somewhere else, you yaw the drone. **The loop runs at 15 Hz on the lab PC**: rendering, perception and control all share the 66 ms between frames.
 
 
 <a name='racingwindows'></a>
@@ -59,12 +65,12 @@ In the first stage, you will take off from the start and you have to navigate th
 <a name='unknownwindow'></a>
 ## 3.2. Unknown Window
 
-In the second stage, you have to navigate through an unknown shaped window from Project 4 as fast as possible without any collisions. The description of the window is the same as in Project 4.
+In the second stage, you have to navigate through an unknown shaped window from Project 4 as fast as possible without any collisions. The description of the window is the same as in Project 4: its panel has one hole the drone fits through and a few smaller ones it does not.
 
 <a name='runback'></a>
 ## 3.3. Run Back
 
-In the final stage, you have to fly back through the same course back to the start as soon as possible without collisions. Here, you have to first pass through the unknown window and then the racing windows. All the windows appear white from the back. Once you reach the start or your attempt is terminated (see next section), your run is complete and your time is recorded.
+In the final stage, you have to fly back through the same course to the start as fast as possible without collisions. Here, you have to first pass through the unknown window and then the racing windows in reverse order, each from behind, and then cross the finish line: the line across the course 0.25 m in front of the start, 1.5 m wide. Behind the unknown window there is more than a metre of free space to stop and turn round in, and from behind, all the windows are white boards with a few squares and sticky notes on them. Once you cross the finish line or your attempt is terminated (see next section), your run is complete and your time is recorded.
 
 
 
@@ -72,26 +78,26 @@ In the final stage, you have to fly back through the same course back to the sta
 ## 4. Attempt Termination
 
 Doing any of the following will instantly terminate your attempt:
-- Hitting the nets or crossing the extents of the boundary.
-- Flying over a height of racing windows.
-- Failing to navigate in any of the previous stages before proceeding to the next one.
-- Crashing into any of the obstacles/track objects and/or the nets.
+- Crashing into a window, its stand or the nets, in the real net or in the scene as the collision monitor sees it.
+- Crossing the extents of the boundary.
+- Failing to navigate in any of the previous stages before proceeding to the next one: a window only counts once every window before it has.
 - Your loop falling behind the 15 Hz camera rate (the stack stops it).
+- Running out of the 3 minutes of the attempt (`fly.py` ends the run).
 
 
 <a name='scoring'></a>
 ## 5. Scoring Criterion
-Taking off from the start gives the team 10 points, then the stages 1 through 3 (finish) have the following point splits: 30, 25, 35 totaling a maximum of 100 points for each attempt. The team's attempt will be terminated if any of the things mentioned in <a href="#attemptterm">Section 4</a> happen. If the number of stages between two teams are tied, then the team with the lower time comes out on top.
+Taking off from the start gives the team 10 points, then the stages 1 through 3 (finish) have the following point splits: 30, 25, 35 totaling a maximum of 100 points for each attempt. The team's attempt will be terminated if any of the things mentioned in <a href="#attemptterm">Section 4</a> happen. If the number of stages between two teams are tied, then the team with the lower time comes out on top. A stage counts once you have flown through all of its windows in order and, for stage 3, crossed the finish line. The starter's `Wrapper.py` scores your simulated runs the same way.
 
 
 <a name='dday'></a>
 ## 6. D-Day of the Competition
 
-On the day of the competition, the teams will fly in the net in the order of their team number. The race-day course is the training course with the windows moved, and as in Projects 2b to 4, you will do a dry run first and then fly the real drone. Each team will have a maximum time of 3 minutes per attempt to show the instructors their code in action and a maximum time of 15 minutes for all attempts combined. Between attempts, the team can use any amount of time (within the allotted 15 minutes of maximum time) to fix any software bugs or do changes in software. Only the best trial will be graded. All the teams need to be present for the entirety of the competition and the teams will go in the order of their team number unless they have requested a different order before. 
+On the day of the competition, the teams will fly in the net in the order of their team number. The race-day course is the training course with the windows moved, and as in Projects 2b to 4, you will do a dry run first and then fly the real drone. Each team will have a maximum time of 3 minutes per attempt to show the instructors their code in action (`fly.py` in the starter ends each run after 3 minutes) and a maximum time of 15 minutes for all attempts combined. Between attempts, the team can use any amount of time (within the allotted 15 minutes of maximum time) to fix any software bugs or do changes in software. Only the best trial will be graded. All the teams need to be present for the entirety of the competition and the teams will go in the order of their team number unless they have requested a different order before. 
 
 The team with the highest points will win. Note that, completing the course (within the 3 minute slot per attempt) will get that team the maximum of 100 points.
 
-The teams can place the quadrotor at the start in any desired orientation. Also, if a team wants to improve their live-demo score, they can request for an additional slot after all the teams have finished their demo with a penalty of 20 points of the total project 5 grade.
+The teams can place the quadrotor at the start in any desired orientation, and choose the height it hovers at before their policy takes over (`--hold-altitude-m`). Also, if a team wants to improve their live-demo score, they can request for an additional slot after all the teams have finished their demo with a penalty of 20 points of the total project 5 grade.
 
 
 <a name='implementation'></a>
@@ -102,7 +108,7 @@ This project is totally open ended! You can use any open-source code available o
 <a name='classical'></a>
 ### 7.1. Classical Approach
 
-A classical stack can reuse almost everything you have built. Your Project 3 detector finds the racing windows and your Project 4 method finds the gap in the unknown window. The map tells you roughly where each window is and which one comes next, so you know where to look. A state machine like the ones from Projects 3 and 4 (find the next window, line up, approach, fly through, look for the next one), or a planner from Project 2b that uses the map as a prior, generates the waypoints. The velocity loop from Project 2b flies them. Re-plan as your perception refines each window's pose.
+A classical stack can reuse almost everything you have built. Your Project 3 detector finds the racing windows and your Project 4 method finds the gap in the unknown window. The map (`course_map.py` in the starter) tells you roughly where each window is and which one comes next, so you know where to look. On the run back your Project 3 detector has never seen the windows' white backs, so plan what tells you where they are, for example the depth image together with the map. A state machine like the ones from Projects 3 and 4 (find the next window, line up, approach, fly through, look for the next one), or a planner from Project 2b that uses the map as a prior, generates the waypoints. The velocity loop from Project 2b flies them. Re-plan as your perception refines each window's pose.
 
 <a name='rl'></a>
 ### 7.2. Reinforcement Learning: Tips for Sim2Real
@@ -133,7 +139,7 @@ RL policies have raced quadrotors faster than world-champion pilots [1] and fast
 
 <b>9. Use a fast simulator.</b> RL needs millions of steps. Because your model works at the level of velocity commands, a vectorized simulator you write yourself in NumPy, PyTorch or JAX can step thousands of drones in parallel. Eschmann et al. train a Crazyflie control policy in seconds on a laptop with a highly optimized simulator and curriculum learning [10]. For physics-level Crazyflie simulators, see Crazyflow [11] and gym-pybullet-drones [12].
 
-<b>10. Test before you fly, and fly slow first.</b> Run your policy in the course simulator against the splat (your `Wrapper.py`) on several courses with the windows moved before you touch the real drone. On the real drone, start with a lower speed limit and raise it as your runs stay clean. Judge your policy by its success rate over many randomized courses and seeds, not by your best run.
+<b>10. Test before you fly, and fly slow first.</b> Run your policy in the course simulator against the splat (your `Wrapper.py`) before you touch the real drone, from several start poses, and in your own simulator on many courses with the windows moved. On the real drone, start with a lower speed limit and raise it as your runs stay clean. Judge your policy by its success rate over many randomized courses and seeds, not by your best run.
 
 <b>11. You do not have to go end-to-end.</b> RL can be one part of a classical stack: for example, let your classical perception and planner pick the next window and let an RL policy fly to it, or learn a correction on top of your velocity controller.
 
@@ -164,7 +170,7 @@ RL policies have raced quadrotors faster than world-champion pilots [1] and fast
 
 ### 8.1. File tree and naming
 
-Your submission on ELMS/Canvas must be a ``zip`` file, following the naming convention ``p5_GroupGROUPNUM.zip``. Find your group number on Canvas. If your ``GROUPNUM`` is 1, then for our example the submission file should be named ``p5_Group1.zip``. The file **must have the following directory structure**. The file to run for your project should be called ``p5_GroupGROUPNUM/Code/Wrapper.py``: it runs your stack in the simulator. On the drone, ``ros_node`` flies your policy class; say which one in ``README.md``. You can have any helper functions in sub-folders as you wish, **be sure to index them using RELATIVE paths, never absolute ones** -- your code has to run on a machine that is not yours, and an absolute path from your laptop will not resolve on the grader's. If you have command line arguments for your Wrapper codes, make sure to have default values too. Please provide detailed instructions on how to run your code in ``README.md`` file. 
+Your submission on ELMS/Canvas must be a ``zip`` file, following the naming convention ``p5_GroupGROUPNUM.zip``. Find your group number on Canvas. If your ``GROUPNUM`` is 1, then for our example the submission file should be named ``p5_Group1.zip``. The file **must have the following directory structure**. The file to run for your project should be called ``p5_GroupGROUPNUM/Code/Wrapper.py``: it runs your stack in the simulator. On the drone, ``tools/fly.py`` from the starter (``ros_node`` with 3-minute runs) flies your policy class; say which one in ``README.md``. You can have any helper functions in sub-folders as you wish, **be sure to index them using RELATIVE paths, never absolute ones** -- your code has to run on a machine that is not yours, and an absolute path from your laptop will not resolve on the grader's. If you have command line arguments for your Wrapper codes, make sure to have default values too. Please provide detailed instructions on how to run your code in ``README.md`` file. 
 
 <p style="background-color:#ddd; padding:5px">
 <b>NOTE:</b> 
@@ -203,7 +209,6 @@ For each section of the project, explain briefly what you did, and describe any 
 
 - Your report **MUST** be typeset in LaTeX in the IEEE Tran format provided to you in the ``Draft`` folder and should of a conference quality paper. Feel free to use any online tool to edit such as [Overleaf](https://www.overleaf.com) or install LaTeX on your local machine.
 - If you used RL: your system identification (the step responses and the model you fit to them), your training simulator, the policy's observation, action and reward, and what you did to make the policy work on the real drone.
-- Link to a ghosted photo?  
 
 <a name='video'></a>
 
@@ -220,11 +225,13 @@ Record the same run on the real drone in `.mp4` format, during the race or befor
 <b> Allowed:</b>
 
 - Any code in the world
+- Training on renders of the training scene, and on any synthetic data you make
+- Reading the training map in your flight code (the starter's `scene` folder, through `course_map.py` or directly)
 
 <b> Disallowed:</b>
 
 - Other student's code in class
-- Reading the window fields of the policy state, or the window poses of the race-day scene, in your flight code
+- Reading the window fields of the policy state, or any of the race-day scene's files, in your flight code
 
 If you have any doubts regarding allowed and disallowed functions, please drop a public post on [Piazza](https://piazza.com/wpi/fall2026/rbe595). 
 
