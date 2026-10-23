@@ -18,7 +18,7 @@ Table of Contents:
 
 <a name='due'></a>
 ## 1. Deadline 
-**11:59:59 PM, Dec 11, 2026. Group Submissions (Groups of 3).** You are not allowed to use any late days for this assignment.
+**09:00:00 AM, Dec 11, 2026. Group Submissions (Groups of 3).** You are not allowed to use any late days for this assignment.
 
 <a name='due'></a>
 ## 2. Starter Package
