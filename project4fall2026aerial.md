@@ -14,7 +14,7 @@ Table of Contents:
   - [4.1. Perception Stack ](#perceptionstack)
   - [4.2 Planning and Control Stack](#planandcontrolstack)
 - [5. Testing For Various Window Shapes](#testsim)
-- [6. Testing (Live Demo)](#testset)
+- [6. Testing (Live Demo) And Grading](#testset)
 - [7. Submission Guidelines](#sub)
   - [7.1. File tree and naming](#files)
   - [7.2. Report](#report)
@@ -30,7 +30,7 @@ Table of Contents:
 ## 2. Problem Statement and Starter Code
 Flight through known windows is very cool and exciting but often in the real-world you have to fly through irregular and unknown shaped windows for search and rescue, exploration or reconnaissance purposes (See Fig. 1). To this end, experts in the field have developed a multitude of algorithms and approaches for building or sensing a 3D model of the world. Although this works very well, it is computationally and weight-wise prohibitive for our tiny little drones. In such a resource-constrained scenario, what can we do? Well you can think creatively, in one of the works from Prof. Sanket named <a href="https://prg.cs.umd.edu/GapFlyt.html">GapFlyt</a> (See Fig. 1 left), the team utilized the movement of the quadrotor to obtain additional cues for detection of the gap. The sky is the limit here (pun intended) for all the approaches you can come up with to detect a gap of unknown shape, size and location (assuming it is in the field of view) to detect it and fly through it. The project is completely open-ended and you are free to use any third party code to detect and fly though a gap of unknown shape, size and location. The only constraint is that your code has to run on the lab PC, inside the course container, within the 15 Hz loop described below, without any cloud computation during experiments.
 
-As in Projects 2b and 3, you will fly a Crazyflie in the net under motion capture, and its camera images are rendered from a Gaussian splat of the net at the drone's pose. You will develop your stack in simulation against the training scene and then fly the same code on the real drone. The starter code can be downloaded from <a href="STARTER_CODE_LINK">here</a>. The <a href="https://pear-wiki.wpi.edu/rbe595/">course documentation</a> covers the setup, the simulator and flying the drone.
+As in Projects 2b and 3, you will fly a Crazyflie in the net under motion capture, and its camera images are rendered from a Gaussian splat of the net at the drone's pose. You will develop your stack in simulation against the A4 scene, a splat of the net with the window standing in it, and then fly the same code on the real drone, in the same scene. The starter code can be downloaded from <a href="STARTER_CODE_LINK">here</a>. The <a href="https://pear-wiki.wpi.edu/rbe595/">course documentation</a> covers the setup, the simulator and flying the drone.
 
 
 <div class="fig fighighlight">
@@ -45,13 +45,15 @@ As in Projects 2b and 3, you will fly a Crazyflie in the net under motion captur
 ## 3. Environment
 
 
-The environment has a arbitrary shaped window(s) which can be 'seen' from the origin location. The window is made of foamcore with texture stuck on it. You do not know the texture prior and can be textureless or they can fully blend into the background texture. Also, the colors on the window and the background can be similar and patterns can be exactly the same. The board can be assumed to be nearly planar and can have multiple holes/gaps, in which case you'll choose the largest one to fly through. The largest gap (if multiple gaps are present) will be large enough for the quadrotor to fly through it safely. Furthermore, there is no guarantee that the window center will be at the center of the foamcore. Once you take off, you should be able to see a part of the window atleast, you might need additional exploratory maneuvers to see the entire window. An example of an arbitrary shaped window is shown in Fig. 2. In other words, the smaller gaps might not be large enough for the quadrotor to fly through. Also, flying from the side/above of the foamcore does not count as a successful navigation. You can also assume that the window shape is nearly convex.
+The environment has one arbitrary shaped window, standing about 3 m in front of the origin and facing it, so it can be 'seen' from the origin location (Fig. 3). The window is made of foamcore with a texture print stuck on it, and stands on two poles. The board can be assumed to be nearly planar and has multiple holes/gaps, in which case you'll choose the largest one to fly through. The largest gap will be large enough for the quadrotor to fly through it safely; the smaller gaps are not. Furthermore, there is no guarantee that the gap will be at the center of the foamcore. Once you take off, you should be able to see a part of the window at least, and you might need additional exploratory maneuvers to see the entire window. Real arbitrary shaped windows are shown in Fig. 2. Flying from the side/above of the foamcore does not count as a successful navigation. You can also assume that the window shape is nearly convex.
+
+**The A4 scene is also the scene of the demo.** The starter's `scene` folder is a splat of the net with this window standing in it, and there is no separate test scene: you develop in this scene and fly in it. The window's print is a stone wall, but your method should not depend on it: test it on other textures and shapes in Blender as well (Section 5). Nothing about the window or its gap may be hard-coded (Section 8).
 
 **Everything is in metres, in the Vicon frame**, as in Projects 2b and 3: x runs down the course, y across it, z up, with z = 0 at the floor and the origin on the L marker taped to the floor.
 
 **The real window stands in the net where it is in the scene.** Hitting the window in the scene means hitting it for real. Remember that you are flying a drone with a 75 mm radius, not a point.
 
-Your drone carries a front-facing RGB-D camera: every frame is an RGB image and a depth image in metres (up to 4 m), rendered from the splat at 15 Hz. **You are not allowed to change the field of view (60.66° horizontal) or the camera mount**, which looks straight ahead. You choose the image resolution: set it in the starter's `tools/make_contract.py` (the default is 320 × 213). To look somewhere else, yaw the drone: the yaw rate is yours to command.
+Your drone carries a front-facing camera: every frame is an RGB image, rendered from the splat at 15 Hz. **There is no depth in this project**: unlike in Project 3, your policy gets the RGB image alone, in the simulator and on the drone. **You are not allowed to change the field of view (60.66° horizontal) or the camera mount**, which looks straight ahead. You choose the image resolution: set it in the starter's `tools/make_contract.py` (the default is 320 × 213). To look somewhere else, yaw the drone: the yaw rate is yours to command.
 
 **The loop runs at 15 Hz on the lab PC.** Each frame is rendered, handed to your code, and your command has to be back before the next frame, about 66 ms later. The rendering, your perception and your controller all share those 66 ms, and a loop that cannot keep up is stopped.
 
@@ -60,6 +62,15 @@ Your drone carries a front-facing RGB-D camera: every frame is an RGB image and 
   <img src="/assets/2023/rbe595/p4/RealGap.jpg" width="100%">
   <div class="figcaption">
     Fig 2: An example showing multiple real arbitrary shaped windows.
+  </div>
+  <div style="clear:both;"></div>
+</div>
+
+
+<div class="fig fighighlight">
+  <img src="/assets/2026/rbe595/p4/A4Scene.png" width="100%">
+  <div class="figcaption">
+    Fig 3: The A4 scene, rendered from its splat as the drone's camera sees it. Left: from the start. Right: part of the way to the window.
   </div>
   <div style="clear:both;"></div>
 </div>
@@ -85,12 +96,12 @@ A robot that collides will be considered a **FAIL** and you will get a **ZERO**.
 <a name='testsim'></a>
 ## 5. Testing For Various Window Shapes
 
-Testing on real-data with various arbitrary window shapes can be hard. Hence, to enable fast prototyping, we want you to test on four arbitrary window shapes and present the results in your report along with the live demo (more details in the next section). The four arbitrary windows are given in the `Blender` folder of the starter code. You can move the camera as you wish in this case as required by your algorithm either through code or using animations and change the window textures to any image for your testing (we have included four example textures for you to experiment with in the `Blender/Assets/Textures` folder). The window shapes are produced by an Alpha mask where white color represents foreground and black color represents background (feel free to create any shapes you want for testing). The masks for windows are given in the `Blender/Assets/Windows` folder. You need to run the `Blender/Window.blend` file to experiment in simulation. You need to compare your detection results with the ground truth mask obtained using `Pass Index` (set to 2 in the blend file) and saved in the `Blender/Outputs/GTMasks` folder using the <a href="https://pyimagesearch.com/2016/11/07/intersection-over-union-iou-for-object-detection/">Intersection over Union (IoU) metric</a>. Furthermore, if you want to change the window textures or cutout shape, you have to go to the `Shading` editor tab on the top and change the respective textures: `Mask` node for the window cutout mask, `ImageFg` node for the foreground texture (on the window plane) and `ImageBg` node. An example environment and one of its rendered image are shown in Fig. 3.
+Testing on real-data with various arbitrary window shapes can be hard. Hence, to enable fast prototyping, we want you to test on four arbitrary window shapes and present the results in your report along with the live demo (more details in the next section). The four arbitrary windows are given in the `Blender` folder of the starter code. You can move the camera as you wish in this case as required by your algorithm either through code or using animations and change the window textures to any image for your testing (we have included four example textures for you to experiment with in the `Blender/Assets/Textures` folder). The window shapes are produced by an Alpha mask where white color represents foreground and black color represents background (feel free to create any shapes you want for testing). The masks for windows are given in the `Blender/Assets/Windows` folder. You need to run the `Blender/Window.blend` file to experiment in simulation. You need to compare your detection results with the ground truth mask obtained using `Pass Index` (set to 2 in the blend file) and saved in the `Blender/Outputs/GTMasks` folder using the <a href="https://pyimagesearch.com/2016/11/07/intersection-over-union-iou-for-object-detection/">Intersection over Union (IoU) metric</a>. Furthermore, if you want to change the window textures or cutout shape, you have to go to the `Shading` editor tab on the top and change the respective textures: `Mask` node for the window cutout mask, `ImageFg` node for the foreground texture (on the window plane) and `ImageBg` node. An example environment and one of its rendered image are shown in Fig. 4.
 
 <div class="fig fighighlight">
   <img src="/assets/2023/rbe595/p4/Sim.png" width="100%">
   <div class="figcaption">
-    Fig 3: An example simulated arbitrary shaped window. Left: Environment, Right: Sample rendered frame.
+    Fig 4: An example simulated arbitrary shaped window. Left: Environment, Right: Sample rendered frame.
   </div>
   <div style="clear:both;"></div>
 </div>  
@@ -98,14 +109,14 @@ Testing on real-data with various arbitrary window shapes can be hard. Hence, to
 
 <a name='testset'></a>
 ## 6. Testing (Live Demo) And Grading
-Each team will be given a 15 minute slot for demoing their code in action to the instructors. The instructors will place the window as they wish (within the extents provided in the Environment description) and you will fly a test scene you have not seen, with the window where it stands in the net. **Your code must run on it unchanged**, so do not hard-code anything about the window or the gap. As in Projects 2b and 3, you will do a dry run first and then fly the real drone, with the real window standing in the net. The quadrotor will be placed at the origin. The task is the fly through the unknown gap as fast as possible without any collisions. You can get as many attempts as you want to accomplish this within your 15 minute time slot. Your final grade for the demo is decided based on completion (successful flight through a window) and time.
+Each team will be given a 15 minute slot for demoing their code in action to the instructors. You will fly in the A4 scene, the one in the starter, with the real window standing in the net where it is in the scene. As in Projects 2b and 3, you will do a dry run first and then fly the real drone. The quadrotor will be placed at the origin, facing the window, and hovers at 0.7 m before your policy takes over. The task is to fly through the gap as fast as possible without any collisions. You can get as many attempts as you want to accomplish this within your 15 minute time slot, and each run ends after 2 minutes. Your final grade for the demo is decided based on completion (successful flight through the gap) and time.
 
-You are required to show us a detection of the gap as an overlay as shown in Fig. 4 when you fly through it. Save the camera view with your detections during the run and play it back afterwards: the display does not have to be live, but the detection does. Optionally you can also show us a visualization of the tracking of the gap.
+You are required to show us a detection of the gap as an overlay as shown in Fig. 5 when you fly through it. Save the camera view with your detections during the run and play it back afterwards: the display does not have to be live, but the detection does. Optionally you can also show us a visualization of the tracking of the gap.
 
 <div class="fig fighighlight">
   <img src="/assets/2023/rbe595/p4/ExampleOutput.png" width="100%">
   <div class="figcaption">
-    Fig 4: Example output of the detected gap.
+    Fig 5: Example output of the detected gap.
   </div>
   <div style="clear:both;"></div>
 </div>  
@@ -121,7 +132,7 @@ You are required to show us a detection of the gap as an overlay as shown in Fig
 
 ### 7.1. File tree and naming
 
-Your submission on ELMS/Canvas must be a ``zip`` file, following the naming convention ``p4_GroupGROUPNUM.zip``. Find your group number on Canvas. If your ``GROUPNUM`` is 1, then for our example the submission file should be named ``p4_Group1.zip``. The file **must have the following directory structure**. The file to run for your project should be called ``p4_GroupGROUPNUM/Code/Wrapper.py``: it runs your stack in the simulator. On the drone, ``ros_node`` flies your policy class; say which one in ``README.md``. You can have any helper functions in sub-folders as you wish, **be sure to index them using RELATIVE paths, never absolute ones** -- your code has to run on a machine that is not yours, and an absolute path from your laptop will not resolve on the grader's. If you have command line arguments for your Wrapper codes, make sure to have default values too. Please provide detailed instructions on how to run your code in ``README.md`` file. 
+Your submission on ELMS/Canvas must be a ``zip`` file, following the naming convention ``p4_GroupGROUPNUM.zip``. Find your group number on Canvas. If your ``GROUPNUM`` is 1, then for our example the submission file should be named ``p4_Group1.zip``. The file **must have the following directory structure**. The file to run for your project should be called ``p4_GroupGROUPNUM/Code/Wrapper.py``: it runs your stack in the simulator. On the drone, ``tools/fly.py`` from the starter (``ros_node`` with the depth taken out) flies your policy class; say which one in ``README.md``. You can have any helper functions in sub-folders as you wish, **be sure to index them using RELATIVE paths, never absolute ones** -- your code has to run on a machine that is not yours, and an absolute path from your laptop will not resolve on the grader's. If you have command line arguments for your Wrapper codes, make sure to have default values too. Please provide detailed instructions on how to run your code in ``README.md`` file. 
 
 <p style="background-color:#ddd; padding:5px">
 <b>NOTE:</b> 
@@ -151,7 +162,7 @@ p4_GroupGROUPNUM.zip
 Submit only what you wrote, plus any trained weights your code needs. Do **not** include the starter pack, the scene
 (splat, ESDF, point cloud), any training data, or any flight logs -- they will push you past the size limit. Your
 `Wrapper.py` should take the path to the scene as a command line argument, with the starter's scene as a sensible
-relative default, so it can be pointed at the test scene.
+relative default.
 
 <a name='report'></a>
 
@@ -167,7 +178,7 @@ For each section of the project, explain briefly what you did, and describe any 
 
 ### 7.3. Video
 
-Record the FPV video (the drone's camera view, RGB and depth) of your run in `.mp4` format and submit it in the zip file. Make sure to name it as `FPVVideo.mp4`. This video should include the raw footage (RGB and depth) and your gap detection overlay all stacked side by side. Use the maximum resolution possible here for the best quality.
+Record the FPV video (the drone's camera view) of your run in `.mp4` format and submit it in the zip file. Make sure to name it as `FPVVideo.mp4`. This video should include the raw footage and your gap detection overlay side by side. Use the maximum resolution possible here for the best quality.
 
 Record the same run on the real drone in `.mp4` format, during your demo or before it, and name it `RunVideo.mp4`. Record the video in the highest resolution with minimum being 1080p at 30fps. 
 
@@ -193,7 +204,10 @@ Record the same run on the real drone in `.mp4` format, during your demo or befo
 <b> Disallowed:</b>
 
 - Other student's code in class
+- The depth image, or any depth from the splat or the scene's files, in your flight code
 - Reading the window's geometry from the scene files, or any window fields of the policy state, in your flight code
+- Hard-coding anything about the window or the gap
+- Training on images rendered from the splat: they are for testing
 
 If you have any doubts regarding allowed and disallowed functions, please drop a public post on [Piazza](https://piazza.com/wpi/fall2026/rbe595). 
 
